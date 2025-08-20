@@ -7,7 +7,7 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
@@ -48,11 +48,11 @@ jobs:
           server-dir: stage.babu.cloudtobuild.com/
           protocol: ftps
           dangerous-clean-slate: true
-          state-name: .ftp-deploy-sync-staging.json   # separate sync state for staging
+          state-name: .ftp-deploy-sync-staging.json
 
       - name: Debug - Verify deployment
         run: |
-          echo "✅ Deployment step completed"
+          echo "✅ Staging deployment completed"
           echo "📋 Check the logs above for any FTP errors"
           echo "🌐 Verify files at: stage.babu.cloudtobuild.com"
 
@@ -60,10 +60,21 @@ jobs:
     if: |
       github.event_name == 'pull_request' && 
       github.event.pull_request.merged == true && 
-      github.event.pull_request.base.ref == 'main' &&
+      github.event.pull_request.base.ref == 'master' &&
       github.event.pull_request.head.ref == 'staging'
     runs-on: ubuntu-latest
     steps:
+      - name: Debug - Check PR Details
+        run: |
+          echo "🔍 PR Debug Information:"
+          echo "Event Name: ${{ github.event_name }}"
+          echo "PR Number: ${{ github.event.pull_request.number }}"
+          echo "PR State: ${{ github.event.pull_request.state }}"
+          echo "PR Merged: ${{ github.event.pull_request.merged }}"
+          echo "Base Branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Head Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -95,7 +106,7 @@ jobs:
           server-dir: public_html/
           protocol: ftps
           dangerous-clean-slate: true
-          state-name: .ftp-deploy-sync-prod.json      # separate sync state for production
+          state-name: .ftp-deploy-sync-prod.json
 
       - name: Debug - Verify deployment
         run: |
