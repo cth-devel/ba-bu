@@ -1,6 +1,6 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Gallery from '@/components/Gallery';
 import { gsap } from 'gsap';
@@ -9,7 +9,8 @@ import { pauseAllVideos } from '@/lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WeddingPage = () => {
+// Separate component to handle search params safely
+const WeddingPageContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const title = searchParams.get('title');
@@ -174,6 +175,22 @@ const WeddingPage = () => {
         </section>
       </main>
     </>
+  );
+};
+
+// Main component with Suspense boundary to fix useSearchParams issue
+const WeddingPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary/95 to-primary/90">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-secondary mx-auto mb-4"></div>
+          <p className="text-white text-lg font-semibold">Loading wedding gallery...</p>
+        </div>
+      </div>
+    }>
+      <WeddingPageContent />
+    </Suspense>
   );
 };
 

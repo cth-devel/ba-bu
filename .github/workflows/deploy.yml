@@ -1,0 +1,104 @@
+name: Deploy to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - staging
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-staging:
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Debug - Check build output
+        run: |
+          echo "🔍 Checking build output..."
+          ls -la out/
+          echo "📊 Build size:"
+          du -sh out/
+          echo "📁 First few files:"
+          find out/ -type f | head -10
+
+      - name: Upload build files to staging via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.CPANEL_FTP_SERVER }}
+          username: ${{ secrets.CPANEL_FTP_USERNAME }}
+          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: stage.babu.cloudtobuild.com/
+          protocol: ftps
+          dangerous-clean-slate: true
+          state-name: .ftp-deploy-sync-staging.json   # separate sync state for staging
+
+      - name: Debug - Verify deployment
+        run: |
+          echo "✅ Deployment step completed"
+          echo "📋 Check the logs above for any FTP errors"
+          echo "🌐 Verify files at: stage.babu.cloudtobuild.com"
+
+  deploy-production:
+    if: |
+      github.event_name == 'pull_request' && 
+      github.event.pull_request.merged == true && 
+      github.event.pull_request.base.ref == 'main' &&
+      github.event.pull_request.head.ref == 'staging'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Debug - Check build output
+        run: |
+          echo "🔍 Checking build output..."
+          ls -la out/
+          echo "📊 Build size:"
+          du -sh out/
+
+      - name: Upload build files to production via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.CPANEL_FTP_SERVER }}
+          username: ${{ secrets.CPANEL_FTP_USERNAME }}
+          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: public_html/
+          protocol: ftps
+          dangerous-clean-slate: true
+          state-name: .ftp-deploy-sync-prod.json      # separate sync state for production
+
+      - name: Debug - Verify deployment
+        run: |
+          echo "✅ Production deployment completed"
+          echo "📋 Check the logs above for any FTP errors"
+          echo "🌐 Verify files at: babu.cloudtobuild.com"

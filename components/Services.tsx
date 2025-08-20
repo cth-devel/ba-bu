@@ -140,7 +140,6 @@ const Services = () => {
                                     <SplitText
                                         text={service.name}
                                         className="text-5xl lg:text-7xl font-bold font-serif mb-4"
-                                        splitType="words"
                                         duration={0.8}
                                         delay={80}
                                     />

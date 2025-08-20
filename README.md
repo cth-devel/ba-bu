@@ -1,264 +1,266 @@
-# BA-BU Family Salon Website
+# 🎨 BA-BU Family Salon - Next.js Website
 
-A luxury, responsive website for BA-BU Family Salon built with Next.js, featuring beautiful animations and a premium design inspired by high-end salon websites.
+A modern, responsive website for BA-BU Family Salon built with Next.js 15, TypeScript, and TailwindCSS. Features automated deployment to cPanel via GitHub Actions.
 
-## 🌟 Features
+## 🚀 Live Sites
 
-- **Luxury Design**: Premium aesthetics with smooth animations and micro-interactions
-- **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
-- **Easy Content Management**: Beginner-friendly configuration system
-- **Performance Optimized**: Fast loading times and smooth scrolling
-- **SEO Friendly**: Optimized for search engines
-- **Contact Integration**: WhatsApp, phone, and email integration
+- **Production**: [babu.cloudtobuild.com](https://babu.cloudtobuild.com)
+- **Staging**: [stage.babu.cloudtobuild.com](https://stage.babu.cloudtobuild.com)
 
-## 🎨 Design Highlights
+## 🛠️ Tech Stack
 
-- **Color Palette**: Custom BA-BU brand colors (#051822, #563827, #A56238, #C48E5C, #2F9D8F, #186F5E)
-- **Typography**: Elegant Playfair Display for headings, Inter for body text
-- **Animations**: Smooth fade-in effects, hover animations, and scroll-triggered animations
-- **Logo Effects**: Glossy hover effects and zoom animations
+- **Framework**: Next.js 15.4.6 (App Router)
+- **Language**: TypeScript 5.2.2
+- **Styling**: TailwindCSS 3.3.3
+- **UI Components**: Shadcn UI + Radix UI
+- **Animations**: Framer Motion + GSAP
+- **Forms**: React Hook Form + Zod
+- **Deployment**: GitHub Actions + cPanel FTP
 
-## 📱 Pages
+## 📁 Project Structure
 
-1. **Home** - Hero section, About, Gallery, Testimonials, Contact
-2. **Services** - Detailed service listings with pricing
-3. **Gallery** - Image slider and portfolio showcase
-4. **Blog** - Beauty tips and salon updates
-5. **Contact** - Contact form, map, and business information
+```
+ba-bu/
+├── app/                    # Next.js App Router pages
+│   ├── blog/              # Blog page
+│   ├── services/          # Services page
+│   ├── works/             # Portfolio pages
+│   │   ├── salon/         # Salon gallery
+│   │   └── wedding/       # Wedding gallery
+│   └── layout.tsx         # Root layout
+├── components/            # React components
+│   ├── ui/               # Reusable UI components
+│   ├── About.tsx         # About section
+│   ├── Contact.tsx       # Contact form
+│   ├── Gallery.tsx       # Image gallery
+│   ├── Header.tsx        # Navigation header
+│   ├── Hero.tsx          # Hero section
+│   └── WhatsAppChat.tsx  # WhatsApp integration
+├── .github/workflows/     # GitHub Actions
+│   └── deploy.yml        # Deployment workflow
+└── public/               # Static assets
+    ├── images/           # Image files
+    └── fonts/            # Custom fonts
+```
 
-## 🛠️ Technology Stack
+## 🔄 GitHub Actions Workflow
 
-- **Framework**: Next.js 13+ with App Router
-- **Styling**: Tailwind CSS with custom design system
-- **Fonts**: Google Fonts (Playfair Display, Inter)
-- **Icons**: Lucide React
-- **Images**: Next.js Image optimization
-- **Animations**: CSS animations with Intersection Observer
+### Overview
+The project uses a **staging → production** deployment pipeline with automated builds and FTP deployment to cPanel.
+
+### Workflow Triggers
+- **Staging**: Push to `staging` branch → Auto-deploy to staging environment
+- **Production**: Merge PR from `staging` to `main` → Auto-deploy to production
+- **Manual**: Use "Run workflow" button for any branch
+
+### Deployment Jobs
+
+#### 1. Staging Deployment (`deploy-staging`)
+- **Trigger**: Push to `staging` branch
+- **Target**: `/home4/babubuild/stage.babu.cloudtobuild.com/`
+- **Sync State**: `.ftp-deploy-sync-staging.json`
+
+#### 2. Production Deployment (`deploy-production`)
+- **Trigger**: Merge PR from `staging` to `main`
+- **Target**: `/home4/babubuild/public_html/`
+- **Sync State**: `.ftp-deploy-sync-prod.json`
+
+### Build Process
+1. **Checkout**: Downloads latest code
+2. **Node Setup**: Installs Node.js 20 with npm caching
+3. **Dependencies**: Installs all npm packages
+4. **Build**: Creates static export in `./out/` directory
+5. **Deploy**: Uploads files to cPanel via FTPS
+
+## 🔐 Required GitHub Secrets
+
+Add these secrets in your GitHub repository → Settings → Secrets and variables → Actions:
+
+| Secret Name | Description | Example |
+|-------------|-------------|---------|
+| `CPANEL_FTP_SERVER` | Your cPanel FTP server | `ftp.cloudtobuild.com` |
+| `CPANEL_FTP_USERNAME` | Your cPanel FTP username | `your_username` |
+| `CPANEL_FTP_PASSWORD` | Your cPanel FTP password | `your_password` |
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+- Node.js 20+
+- npm or yarn
+- Git
+- cPanel hosting with FTP access
 
-- Node.js 18+ installed
-- npm or yarn package manager
+### Local Development
+```bash
+# Clone the repository
+git clone https://github.com/cth-devel/ba-bu.git
+cd ba-bu
 
-### Installation
+# Install dependencies
+npm install
 
-1. **Clone or download the project**
-   ```bash
-   git clone <repository-url>
-   cd babu-salon-website
-   ```
+# Start development server
+npm run dev
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open in browser**
-   Navigate to `http://localhost:3000`
-
-## 📝 Content Management
-
-### Easy Editing for Beginners
-
-All website content can be easily updated by editing the `config/site.js` file. No coding knowledge required!
-
-#### What you can edit:
-
-- **Contact Information**: Phone, email, address, working hours
-- **Social Media Links**: Instagram, Facebook, YouTube
-- **Services**: Add/remove services, update prices and descriptions
-- **Testimonials**: Customer reviews and ratings
-- **Gallery Images**: Update image paths
-- **Blog Posts**: Add new blog entries
-
-#### Example - Updating Contact Info:
-
-```javascript
-// In config/site.js
-contact: {
-  phone: "YOUR_PHONE_NUMBER",
-  email: "YOUR_EMAIL@domain.com",
-  address: "Your Salon Address",
-  // ... other settings
-}
+# Build for production
+npm run build
 ```
-
-### Adding Images
-
-1. **Logo Images**: Replace `public/BABU-White.png` and `public/BABU-Black.png`
-2. **Gallery Images**: Add images to `public/gallery/` folder
-3. **Blog Images**: Add to `public/blog/` folder
-4. **Update image paths** in `config/site.js`
-
-## 🌐 Deployment
-
-### For cPanel/Node.js Hosting
-
-1. **Build the project**
-   ```bash
-   npm run build
-   ```
-
-2. **Upload files to your hosting**
-   - Upload all files to your domain's public folder
-   - Ensure Node.js is enabled in cPanel
-
-3. **Install dependencies on server**
-   ```bash
-   npm install --production
-   ```
-
-4. **Start the application**
-   ```bash
-   npm start
-   ```
-
-### Alternative Deployment Options
-
-- **Vercel**: Connect your repository for automatic deployments
-- **Netlify**: Deploy static export version
-- **Traditional Hosting**: Use static export for regular web hosting
-
-## 🎯 Customization Guide
-
-### Colors
-Update brand colors in `tailwind.config.ts` and `app/globals.css`:
-
-```css
-:root {
-  --color-primary: #051822;    /* Your primary color */
-  --color-secondary: #563827;  /* Your secondary color */
-  /* ... other colors */
-}
-```
-
-### Fonts
-Change fonts in `app/layout.tsx`:
-
-```javascript
-import { YourFont } from 'next/font/google';
-```
-
-### Animations
-Modify animations in `app/globals.css` or add new ones:
-
-```css
-@keyframes yourAnimation {
-  from { /* start state */ }
-  to { /* end state */ }
-}
-```
-
-## 📞 Support & Maintenance
-
-### Common Tasks
-
-1. **Update Phone Number**: Edit `config/site.js` → `contact.phone`
-2. **Add New Service**: Add to `config/site.js` → `services` array
-3. **Change Working Hours**: Edit `config/site.js` → `contact.workingHours`
-4. **Update Social Links**: Edit `config/site.js` → `social` object
-
-### Troubleshooting
-
-- **Images not loading**: Check file paths in `config/site.js`
-- **Animations not working**: Clear browser cache
-- **Mobile issues**: Test responsive design in browser dev tools
-
-## 📋 File Structure
-
-```
-├── app/                    # Next.js app directory
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx          # Home page
-│   ├── services/         # Services page
-│   ├── gallery/          # Gallery page
-│   └── blog/             # Blog page
-├── components/           # React components
-│   ├── Header.tsx        # Navigation header
-│   ├── Footer.tsx        # Site footer
-│   ├── Hero.tsx          # Hero section
-│   └── ...               # Other components
-├── config/
-│   └── site.js           # 🎯 MAIN CONFIG FILE
-├── public/               # Static assets
-│   ├── BABU-White.png    # Logo (white version)
-│   ├── BABU-Black.png    # Logo (black version)
-│   └── gallery/          # Gallery images
-└── README.md             # This file
-```
-
-## 🔧 Advanced Configuration
 
 ### Environment Variables
-Create `.env.local` for sensitive data:
+Create a `.env.local` file in your project root:
+```bash
+# Next.js Configuration
+NEXT_PUBLIC_SITE_URL=https://yourdomain.com
 
-```env
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key
-NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id
+# Contact Form
+NEXT_PUBLIC_CONTACT_EMAIL=info@yourdomain.com
+
+# WhatsApp Integration
+NEXT_PUBLIC_WHATSAPP_NUMBER=+1234567890
+
+# Social Media Links
+NEXT_PUBLIC_FACEBOOK_URL=https://facebook.com/yoursalon
+NEXT_PUBLIC_INSTAGRAM_URL=https://instagram.com/yoursalon
 ```
 
-### SEO Optimization
-Update metadata in each page file:
+## 🏗️ Build Configuration
 
+The project is configured for static export in `next.config.js`:
 ```javascript
-export const metadata = {
-  title: 'Your Page Title',
-  description: 'Your page description',
-}
+const nextConfig = {
+  output: 'export',           // Static export for cPanel
+  eslint: {
+    ignoreDuringBuilds: true, // Skip linting during build
+  },
+  images: {
+    domains: ['images.pexels.com'],
+    unoptimized: true         // Required for static export
+  },
+};
 ```
 
-## 📈 Performance Tips
+## 📱 Features
 
-1. **Optimize Images**: Use WebP format when possible
-2. **Lazy Loading**: Images load automatically as needed
-3. **Caching**: Enable browser caching on your server
-4. **Compression**: Enable Gzip compression
+- **Responsive Design**: Mobile-first approach with TailwindCSS
+- **Modern Animations**: GSAP animations and Framer Motion
+- **Image Gallery**: Dynamic portfolio galleries for salon and wedding services
+- **Contact Forms**: React Hook Form with Zod validation
+- **WhatsApp Integration**: Direct chat integration
+- **SEO Optimized**: Meta tags, structured data, and sitemap
+- **Performance**: Optimized images and lazy loading
 
-## 🎨 Brand Guidelines
+## 🔄 Deployment Workflow
 
-- **Primary Color**: #051822 (Dark Blue)
-- **Secondary Color**: #563827 (Dark Brown)
-- **Accent Colors**: #A56238, #C48E5C (Browns/Gold)
-- **Teal Accents**: #2F9D8F, #186F5E
-- **Logo Usage**: White logo on dark backgrounds, black logo on light backgrounds
+### 1. Development Workflow
+```bash
+# Work on feature branch
+git checkout -b feature/new-service
 
-## 📱 Mobile Optimization
+# Make changes and commit
+git add .
+git commit -m "Add new service feature"
 
-The website is fully responsive with:
-- Touch-friendly navigation
-- Optimized images for mobile
-- Fast loading on slow connections
-- Mobile-first design approach
+# Push to staging for testing
+git checkout staging
+git merge feature/new-service
+git push origin staging
+```
 
-## 🔒 Security Features
+### 2. Staging Deployment
+- Push to `staging` branch triggers automatic deployment
+- Files deploy to staging environment
+- Test all functionality on staging site
 
-- Form validation
-- Secure contact form processing
-- No sensitive data exposure
-- HTTPS ready
+### 3. Production Deployment
+- Create Pull Request from `staging` to `main`
+- Review and approve changes
+- Merge PR triggers automatic production deployment
+- Files deploy to live production site
+
+## 🛠️ Troubleshooting
+
+### Common Issues
+
+#### Build Failures
+- Check Node.js version compatibility
+- Verify all dependencies are in package.json
+- Check for TypeScript errors
+
+#### FTP Connection Issues
+- Verify FTP credentials in GitHub secrets
+- Check if FTP server allows connections
+- Ensure server directory path is correct
+
+#### Deployment Failures
+- Check cPanel disk space
+- Verify file permissions on server
+- Check FTP account limits
+
+### Debug Steps
+1. **Check Actions Logs**: Go to Actions tab → Click on failed workflow → Review logs
+2. **Verify Secrets**: Ensure all secrets are correctly set
+3. **Test FTP**: Try connecting manually with FTP client
+4. **Check Build Output**: Verify `./out/` directory contains files after build
+
+## 📊 Monitoring
+
+### GitHub Actions
+- Monitor deployment status in Actions tab
+- Check build logs for errors
+- Verify deployment success/failure
+
+### Post-Deployment Checklist
+- [ ] Clear browser cache
+- [ ] Test homepage loads correctly
+- [ ] Verify all navigation links work
+- [ ] Check mobile responsiveness
+- [ ] Test contact form submission
+- [ ] Verify WhatsApp chat integration
+- [ ] Check image loading
+- [ ] Test all interactive features
+
+## 🔒 Security
+
+- **FTP Credentials**: Stored as GitHub secrets, never committed to repository
+- **Dedicated FTP Account**: Use separate account for deployment only
+- **Regular Updates**: Keep dependencies and Node.js version updated
+- **Access Control**: Limit repository access to authorized team members
+
+## 📞 Support
+
+### For Deployment Issues
+1. Check GitHub Actions logs first
+2. Verify cPanel FTP settings
+3. Test manual FTP connection
+4. Contact hosting provider if needed
+
+### For Development Issues
+1. Check TypeScript compilation errors
+2. Verify all dependencies are installed
+3. Check Next.js configuration
+4. Review component prop types
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is proprietary software for BA-BU Family Salon.
+
+## 🎉 Acknowledgments
+
+- Built with Next.js and modern web technologies
+- Deployed with GitHub Actions automation
+- Hosted on cPanel with FTPS security
+- Designed for optimal user experience and performance
 
 ---
 
-## 📞 Need Help?
+**Happy Deploying! 🚀**
 
-If you need assistance with:
-- Content updates
-- Design modifications
-- Technical issues
-- Hosting setup
-
-Contact your web developer or refer to this documentation.
-
----
-
-**Built with ❤️ for BA-BU Family Salon**
-
-*This website represents the luxury and professionalism of BA-BU Family Salon, designed to attract and serve clients with the highest standards of beauty and care.*
+For questions about deployment, check the [Actions tab](https://github.com/cth-devel/ba-bu/actions) in the repository.
