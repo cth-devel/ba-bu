@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 
 const Footer = () => {
     return (
-        <footer className="bg-babu-primary text-whit max-h-screen">
+        <footer className="bg-babu-primary text-whit min-h-screen">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Logo */}
                 <div className="flex w-full items-center justify-center">
@@ -26,11 +26,11 @@ const Footer = () => {
                     <h2 className="text-3xl sm:text-4xl lg:text-8xl font-[900] tracking-widest uppercase -translate-y-24 flex flex-col items-center justify-center">
                         <span className="text-white">Step In Beautiful</span>
                         <span className="text-white">
-                            Step  Out {" "}
-                              <RotatingWord 
+                            Step  Out
+                              <RotatingWord
                                  words={["Radiant", "Elegant"]}
                                  intervalMs={2200}
-                                 className="text-white inline-block"
+                                 className="text-white inline-block ml-4"
                              />
                         </span>
                     </h2>

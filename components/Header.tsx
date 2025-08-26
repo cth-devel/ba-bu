@@ -43,6 +43,15 @@ const Header = () => {
                 }
             });
 
+            // Reset header visibility for specific pages
+            const shouldShowHeader = pathname === '/works' || pathname === '/' || pathname.startsWith('/works/');
+            if (shouldShowHeader) {
+                gsap.set(header, {
+                    yPercent: 0,
+                    opacity: 1,
+                });
+            }
+
             // Refresh ScrollTrigger to recalculate positions
             ScrollTrigger.refresh();
 
@@ -120,32 +129,32 @@ const Header = () => {
         <>
             {/* Promotional Banner */}
             {showPromoBanner && !isScrolled && (
-                <div className="bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm relative">
+                <div className="promo-banner bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm relative w-full">
                     <div className="max-w-7xl mx-auto flex justify-between items-center">
-                        <div className="flex items-center space-x-4">
-                            <div className="flex items-center space-x-1">
+                        <div className="flex items-center space-x-4 min-w-0">
+                            <div className="flex items-center space-x-1 flex-shrink-0">
                                 <MapPin className="w-4 h-4" />
-                                <span className="hidden sm:inline">
+                                <span className="hidden sm:inline truncate">
                                     {siteConfig.contact.address}
                                 </span>
                             </div>
-                            <span className="hidden md:inline">|</span>
+                            <span className="hidden md:inline flex-shrink-0">|</span>
                             <a
                                 href={`tel:${siteConfig.contact.phone}`}
-                                className="flex items-center space-x-1 hover:text-gray-700 transition-colors"
+                                className="flex items-center space-x-1 hover:text-gray-700 transition-colors flex-shrink-0"
                             >
                                 <Phone className="w-4 h-4" />
-                                <span>{siteConfig.contact.phone}</span>
+                                <span className="truncate">{siteConfig.contact.phone}</span>
                             </a>
-                            <span className="hidden lg:inline">|</span>
-                            <span className="hidden lg:inline font-medium">
+                            <span className="hidden lg:inline flex-shrink-0">|</span>
+                            <span className="hidden lg:inline font-medium truncate">
                                 ₹500 OFF ON YOUR FIRST APPOINTMENT ABOVE ₹1499
                                 USE CODE: BABUFIRST
                             </span>
                         </div>
                         <button
                             onClick={() => setShowPromoBanner(false)}
-                            className="text-black hover:text-gray-700 transition-colors"
+                            className="text-black hover:text-gray-700 transition-colors flex-shrink-0 ml-2"
                         >
                             <X className="w-4 h-4" />
                         </button>
@@ -155,7 +164,7 @@ const Header = () => {
             {/* Main Header */}
           <header
               ref={headerRef}
-              className="fixed w-full z-40 bg-transparent"
+              className="fixed w-full z-40 bg-transparent tracking-widest text-lg lg:block hidden"
           >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-20">
@@ -174,7 +183,7 @@ const Header = () => {
                         </div>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden md:flex items-center space-x-8">
+                        <nav className="flex items-center space-x-8">
                             {menuItems.map((item) => (
                                 <Link
                                     key={item.name}
@@ -190,16 +199,16 @@ const Header = () => {
             </header>
 
             {/* Bottom Dock for Mobile */}
-            <div className="md:hidden fixed bottom-0 left-0 right-0 bg-black bg-opacity-80 backdrop-blur-sm shadow-lg z-50">
-                <div className="flex justify-around items-center h-16">
+            <div className="bottom-dock lg:hidden fixed bottom-0 bg-black bg-opacity-90 backdrop-blur-md shadow-2xl z-50 border-t border-gray-700">
+                <div className="flex justify-around items-center h-20 px-4 w-full">
                     {menuItems.map((item) => (
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="flex flex-col items-center text-white hover:text-gray-300 transition-colors p-2"
+                            className="flex flex-col items-center text-white hover:text-gray-300 transition-colors p-2 min-w-[60px] flex-1"
                         >
                             {item.icon}
-                            <span className="text-xs mt-1">{item.name}</span>
+                            <span className="text-xs mt-1 text-center truncate">{item.name}</span>
                         </Link>
                     ))}
                 </div>

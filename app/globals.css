@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 :root {
   --color-primary: #000000;    /* Black - Primary */
   --color-secondary: #FFD700;  /* Gold - Secondary */
@@ -95,16 +127,17 @@
   font-display: swap;
 }
 
+/* Base Styles - Restored */
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-primary text-white;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    /* font-weight: 900;   */
     letter-spacing: 4px;
   }
 
@@ -121,9 +154,11 @@
   }
 }
 
+/* Utility Classes - Restored */
 .text-gold {
   color: var(--color-secondary);
 }
+
 .text-gold-gradient {
   @apply text-transparent bg-clip-text bg-gradient-to-r from-[#77530a] to-[#ffd277];
 }
@@ -140,53 +175,40 @@
   border-color: var(--color-secondary);
 }
 
-  /* Hero banner gradient utility */
-  .bg-hero-gradient {
-    background: linear-gradient(135deg, rgba(5, 24, 34, 0.8) 0%, rgba(165, 98, 56, 0.6) 100%);
-  }
-
-  /* Primary gradient background */
-  .bg-primary-gradient {
-    background: var(--primary-gradient);
-  }
-
-  /* Global gradient button style (spec) */
-  .btn-gradient {
-    background: linear-gradient(to right,#77530a,#ffd277,#77530a,#77530a,#ffd277,#77530a);
-    background-size: 250%;
-    background-position: left;
-    color: #ffd277;
-    position: relative;
-    transition: background-position 1s ease, transform 0.15s ease;
-  }
-  .btn-gradient:hover { background-position: right; }
-  .btn-gradient:active { transform: scale(0.97); }
-
-/* Custom Scrollbar */
-/* ::-webkit-scrollbar {
-  width: 12px;
+/* Hero banner gradient utility */
+.bg-hero-gradient {
+  background: linear-gradient(135deg, rgba(5, 24, 34, 0.8) 0%, rgba(165, 98, 56, 0.6) 100%);
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-primary);
+/* Primary gradient background */
+.bg-primary-gradient {
+  background: var(--primary-gradient);
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--color-secondary), var(--color-ternary));
-  border-radius: 6px;
+/* Global gradient button style (spec) */
+.btn-gradient {
+  background: linear-gradient(to right,#77530a,#ffd277,#77530a,#77530a,#ffd277,#77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  transition: background-position 1s ease, transform 0.15s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, var(--color-ternary), var(--color-secondary));
-} */
+.btn-gradient:hover {
+  background-position: right;
+}
 
-/* ===== Marquee Animation Utilities ===== */
+.btn-gradient:active {
+  transform: scale(0.97);
+}
+
+/* Marquee Animation Utilities */
 @keyframes marquee {
   from {
     transform: translate3d(0, 0, 0);
   }
   to {
-    /* Shift by measured width of one item set for a perfect loop */
     transform: translate3d(calc(-1 * var(--marquee-distance, 50%)), 0, 0);
   }
 }
@@ -195,32 +217,58 @@
   .animate-marquee {
     animation: marquee var(--duration, 40s) linear infinite;
   }
+
   .animate-marquee-reverse {
     animation-direction: reverse;
   }
-  /* Rotating word utilities */
-  .rotate-word-in {
-    animation: rotateUpIn var(--rotate-duration, 900ms) cubic-bezier(0.65, 0, 0.35, 1) both;
-    transform-origin: 50% 100%;
+
+  .animate-marquee-right {
+    animation: brand-marquee-right 30s linear infinite;
   }
-  .rotate-word-out {
-    animation: rotateUpOut var(--rotate-duration, 900ms) cubic-bezier(0.65, 0, 0.35, 1) both;
-    transform-origin: 50% 0%;
+
+  .animate-marquee-left {
+    animation: brand-marquee-left 30s linear infinite;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee,
-  .animate-marquee-reverse {
-    animation: none !important;
+/* Brand Marquee Specific Animations */
+@keyframes brand-marquee-right {
+  0% {
+    transform: translateX(0);
   }
-  .rotate-word-in,
-  .rotate-word-out {
-    animation: none !important;
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-/* Rotating word keyframes */
+@keyframes brand-marquee-left {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Services Section Horizontal Scrolling */
+.services-horizontal-scroll {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.services-panel {
+  flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Ensure smooth scrolling for services */
+.services-container {
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+/* Rotating word utilities */
 @keyframes rotateUpIn {
   0% {
     transform: translateY(0.6em) rotateX(90deg);
@@ -252,6 +300,346 @@
     opacity: 0;
     filter: blur(2px);
   }
+}
+
+@layer utilities {
+  .rotate-word-in {
+    animation: rotateUpIn var(--rotate-duration, 900ms) cubic-bezier(0.65, 0, 0.35, 1) both;
+    transform-origin: 50% 100%;
+  }
+
+  .rotate-word-out {
+    animation: rotateUpOut var(--rotate-duration, 900ms) cubic-bezier(0.65, 0, 0.35, 1) both;
+    transform-origin: 50% 0%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none !important;
+  }
+
+  .rotate-word-in,
+  .rotate-word-out {
+    animation: none !important;
+  }
+}
+
+/* Responsive Utility Classes */
+@layer utilities {
+  /* Mobile-first responsive spacing */
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  .responsive-margin {
+    @apply my-8 sm:my-12 lg:my-16;
+  }
+
+  /* Responsive typography */
+  .responsive-title {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  .responsive-subtitle {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+
+  .responsive-body {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  /* Responsive grid layouts */
+  .responsive-grid-1 {
+    @apply grid-cols-1;
+  }
+
+  .responsive-grid-2 {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+
+  .responsive-grid-3 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .responsive-grid-4 {
+    @apply grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+
+  /* Responsive button sizes */
+  .responsive-button {
+    @apply w-full sm:w-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 text-sm sm:text-base lg:text-lg;
+  }
+
+  /* Responsive container widths */
+  .responsive-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Responsive section spacing */
+  .responsive-section {
+    @apply py-12 sm:py-16 lg:py-20 xl:py-24;
+  }
+
+  /* Responsive card layouts */
+  .responsive-card {
+    @apply p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl;
+  }
+
+  /* Responsive image heights */
+  .responsive-image-sm {
+    @apply h-32 sm:h-40 md:h-48 lg:h-56;
+  }
+
+  .responsive-image-md {
+    @apply h-48 sm:h-56 md:h-64 lg:h-72;
+  }
+
+  .responsive-image-lg {
+    @apply h-64 sm:h-72 md:h-80 lg:h-96;
+  }
+
+  /* Responsive gap spacing */
+  .responsive-gap-sm {
+    @apply gap-3 sm:gap-4 lg:gap-6;
+  }
+
+  .responsive-gap-md {
+    @apply gap-4 sm:gap-6 lg:gap-8;
+  }
+
+  .responsive-gap-lg {
+    @apply gap-6 sm:gap-8 lg:gap-10;
+  }
+}
+
+/* Responsive Animation Classes */
+@layer components {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-up {
+    animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  /* Responsive hover effects */
+  .responsive-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+
+  /* Responsive text shadows */
+  .responsive-text-shadow {
+    @apply drop-shadow-sm sm:drop-shadow-md lg:drop-shadow-lg;
+  }
+
+  /* Responsive border radius */
+  .responsive-rounded {
+    @apply rounded-lg sm:rounded-xl lg:rounded-2xl;
+  }
+
+  /* Responsive shadows */
+  .responsive-shadow {
+    @apply shadow-md sm:shadow-lg lg:shadow-xl;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 640px) {
+  .mobile-optimized {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .mobile-touch-friendly {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Tablet-specific optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-optimized {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* Desktop-specific optimizations */
+@media (min-width: 1025px) {
+  .desktop-optimized {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+}
+
+/* High-DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi-optimized {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Print styles */
+@media print {
+  .print-hidden {
+    display: none !important;
+  }
+
+  .print-optimized {
+    color: black !important;
+    background: white !important;
+  }
+}
+
+/* Mobile bottom dock spacing */
+@layer utilities {
+  .pb-safe {
+    padding-bottom: 4rem; /* 64px - matches bottom dock height */
+  }
+
+  @media (min-width: 1024px) {
+    .pb-safe {
+      padding-bottom: 0;
+    }
+  }
+}
+
+/* Prevent horizontal scrolling issues */
+@layer base {
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Ensure fixed elements don't cause horizontal scroll */
+  .fixed {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Prevent promotional banner overflow */
+  .promo-banner {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Ensure bottom dock is properly contained */
+  .bottom-dock {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+  }
+
+  /* Additional viewport containment */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Ensure all containers respect viewport */
+  .max-w-7xl {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .max-w-7xl {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .max-w-7xl {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Prevent w-screen overflow issues */
+  .w-screen {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Ensure all sections respect viewport */
+  section, div {
+    max-width: 100%;
+  }
+
+  /* Fix for Chromium-based browsers */
+  @supports (-webkit-appearance: none) {
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100% !important;
+    }
+
+    .fixed {
+      max-width: 100% !important;
+    }
+  }
+}
+
+/* Clean overflow handling for specific components */
+@layer utilities {
+  .no-horizontal-scroll {
+    overflow-x: hidden;
+  }
+
+  .allow-vertical-scroll {
+    overflow-y: auto;
+  }
+}
+
+/* Ensure the first section in works page has no top spacing */
+.bg-primary:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Specific fix for works page */
+.works-page-container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure hero sections in works page start at the very top */
+.works-section .hero-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Remove any potential spacing from the first works section */
+.works-section:first-of-type {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Fix for hero background transforms */
+.hero-background {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* Ensure hero content starts at correct position */
+.hero-content {
+  transform: translate3d(0, 0, 0) !important;
 }
 
 

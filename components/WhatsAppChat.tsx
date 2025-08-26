@@ -9,7 +9,7 @@ const WhatsAppChat = () => {
   };
 
   return (
-    <div className="fixed bottom-6 left-6 z-50">
+    <div className="fixed bottom-20 left-10 z-50 lg:bottom-6 lg:left-6 w-auto">
                    <button
                onClick={handleWhatsAppClick}
                className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"

@@ -28,7 +28,7 @@ const SplitText: React.FC<SplitTextProps> = ({
     to = { opacity: 1, y: 0 },
     threshold = 0.1,
     rootMargin = "-50px",
-    textAlign = "left",
+    textAlign = "center",
     onAnimationComplete,
 }) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -54,7 +54,7 @@ const SplitText: React.FC<SplitTextProps> = ({
             wordSpan.style.opacity = '0';
             wordSpan.style.transform = 'translateY(20px)';
             wordSpan.style.display = 'inline-block';
-            
+
             textEl.appendChild(wordSpan);
             wordElements.push(wordSpan);
 

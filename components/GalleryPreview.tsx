@@ -119,25 +119,6 @@ const GalleryPreview = () => {
       ref={sectionRef}
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-0"
     >
-      {/* Background Image */}
-      {/* <div
-        id="gallery-bg-image"
-        className="absolute inset-0 z-0"
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg"
-          alt="Dark, moody salon background"
-          fill
-          quality={60}
-          className="object-cover"
-        />
-        <div
-          id="gallery-bg-overlay"
-          className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-        />
-      </div> */}
-
       <div className="relative z-10 container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
         <div
@@ -154,14 +135,14 @@ const GalleryPreview = () => {
           </h2>
           <p
             id="gallery-preview-description"
-            className="text-base md:text-lg text-gray-300 mb-8 max-w-md mx-auto md:mx-0"
+            className="text-base md:text-lg text-gray-300 mb-8 max-w-md mx-auto md:mx-0 tracking-widest"
           >
             Each style is a masterpiece, a testament to our passion for beauty
             and precision. Explore our gallery to witness the transformations
             and find inspiration for your next look.
           </p>
-          <Link href="/gallery" aria-label="Go to full gallery">
-            <AnimatedButton text="Explore Gallery" />
+          <Link href="/works" aria-label="Go to full gallery">
+            <AnimatedButton text="Explore Our Works" />
           </Link>
         </div>
 

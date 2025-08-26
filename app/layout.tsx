@@ -67,7 +67,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='font-sans overflow-x-hidden'>
+      <body className='font-sans overflow-x-hidden antialiased pb-safe'>
         <StructuredData />
         <Header />
         <SmoothScroller />

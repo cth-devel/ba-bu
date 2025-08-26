@@ -150,7 +150,7 @@ const Hero = () => {
                           text={siteConfig.tagline}
                           disabled={false}
                           speed={3}
-                          className="text-5xl sm:text-6xl lg:text-8xl font-gunterz font-md px-4 py-2 text-primary-gradient tracking-wider"
+                          className="text-5xl sm:text-6xl lg:text-8xl font-gunterz font-md px-4 py-2 text-primary-gradient"
                       />
                   </h1>
 

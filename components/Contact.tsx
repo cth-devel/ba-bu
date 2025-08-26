@@ -57,8 +57,8 @@ Message: ${formData.message}`;
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" ref={sectionRef} className="py-20 bg-black w-screen">
+      <div className="px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 fade-in-section">
           <h2 className="text-4xl lg:text-5xl font-serif font-bold text-white mb-4">
@@ -70,7 +70,7 @@ Message: ${formData.message}`;
           </p> */}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:mx-16">
           {/* Contact Information */}
           <div className="fade-in-section">
             <h3 className="text-2xl font-serif font-bold text-babu-primary mb-8">Get In Touch</h3>
@@ -259,7 +259,7 @@ Message: ${formData.message}`;
         </div>
 
         {/* Map Section */}
-        <div className="mt-16 fade-in-section relative left-1/2 right-1/2 -translate-x-1/2 w-screen">
+        <div className="mt-16 fade-in-section relative left-1/2 right-1/2 -translate-x-1/2 w-full">
           <div className="bg-black border border-white/10 p-4 rounded-2xl shadow-xl">
             <h3 className="text-2xl font-serif font-bold text-white mb-6 text-center">Find Us</h3>
 
