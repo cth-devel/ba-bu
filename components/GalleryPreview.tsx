@@ -6,6 +6,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedButton from "./AnimatedButton";
+import ShinyText from "./ShinyText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,20 +14,20 @@ const images = [
   {
     src: "/images/ba-bu-family-salon-ernakulam-mw0w9iz9vd.webp",
     alt: "A stylish haircut and beard trim for a male client.",
-    className: "absolute top-0 left-0 w-4/5 h-3/5 rounded-lg shadow-2xl",
-    rotate: -8,
+    className: "absolute top-0 left-0 lg:-top-40 lg:-left-40 w-3/4 h-full rounded-lg shadow-2xl",
+    rotate: -10,
   },
   {
     src: "/images/ba-bu-family-salon-ernakulam-salons-hdt7xnk5d1.jpg",
     alt: "The modern and clean interior of the salon.",
-    className: "absolute bottom-0 right-0 w-3/4 h-2/3 rounded-lg shadow-2xl",
-    rotate: 6,
+    className: "absolute bottom-0 right-0 w-2/3 h-full rounded-lg shadow-2xl",
+    rotate: 8,
   },
   {
     src: "/images/ba-bu-family-salon-ernakulam-jq0ppxb1ra.avif",
     alt: "A client receiving a professional hair treatment.",
-    className: "absolute top-1/4 left-1/4 w-1/2 h-1/2 rounded-lg shadow-2xl",
-    rotate: 2,
+    className: "absolute top-10 left-1/2 lg:top-20 lg:-left-1/3 w-2/5 h-full rounded-lg shadow-2xl",
+    rotate: 4,
   },
 ];
 
@@ -119,7 +120,7 @@ const GalleryPreview = () => {
       ref={sectionRef}
       className="relative min-w-screen min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-0"
     >
-      <div className="relative z-10 container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 px-10 grid md:grid-cols-2 md:grid-rows-2 items-center gap-12">
         {/* Text Content */}
         <div
           id="gallery-preview-text-content"
@@ -129,13 +130,17 @@ const GalleryPreview = () => {
           <h2
             id="gallery-preview-heading"
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4"
-            style={{ fontFamily: "'Gunterz-Bold', sans-serif" }}
           >
-            Our Artistry in Action
+            <ShinyText
+              text="Our Artistry in Action"
+              disabled={false}
+              speed={3}
+              className="text-4xl md:text-6xl lg:text-8xl font-bold text-secondary mb-4 tracking-wider"
+            />
           </h2>
           <p
             id="gallery-preview-description"
-            className="text-base md:text-lg text-gray-300 mb-8 max-w-md mx-auto md:mx-0 tracking-widest"
+            className="text-base md:text-xl text-gray-300 mb-8 max-w-md mx-auto md:mx-0 tracking-widest"
           >
             Each style is a masterpiece, a testament to our passion for beauty
             and precision. Explore our gallery to witness the transformations
@@ -150,7 +155,7 @@ const GalleryPreview = () => {
         <div
           id="gallery-preview-image-collage"
           ref={imagesRef}
-          className="relative h-[300px] w-full sm:h-[400px] md:h-[500px]"
+          className="relative h-[300px] w-full sm:h-[400px] md:h-[500px] row-span-2"
         >
           {images.map((img, idx) => (
             <div

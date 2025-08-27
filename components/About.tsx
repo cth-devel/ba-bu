@@ -2,10 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { Award, Users, Clock, Star } from "lucide-react";
 import CountUp from "./CountUp";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ShinyText from "./ShinyText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -165,9 +165,9 @@ const About = () => {
     }, []);
 
     const stats = [
-        { icon: Users, number: "5000+", label: "Happy Clients" },
-        { icon: Award, number: "15+", label: "Years Experience" },
-        { icon: Star, number: "4.8", label: "Average Rating" },
+        { number: "5000+", label: "Happy Clients" },
+        { number: "15+", label: "Years Experience" },
+        { number: "4.8", label: "Average Rating" },
     ];
 
     return (
@@ -242,34 +242,23 @@ const About = () => {
                                     key={index}
                                     className="text-center transition-transform duration-300 ease-in-out hover:scale-110"
                                 >
-                                    <div className="flex justify-center mb-2">
-                                        <stat.icon className="w-10 h-10 text-gold" />
-                                    </div>
                                     <h3 className="text-4xl font-bold text-white">
                                         {stat.label === "Service Support" ? (
                                             stat.number
                                         ) : (
                                             <>
-                                                <CountUp
-                                                    end={parseFloat(
-                                                        stat.number
-                                                    )}
-                                                    duration={3}
-                                                    decimals={
-                                                        stat.number.includes(
-                                                            "."
-                                                        )
-                                                            ? 1
-                                                            : 0
-                                                    }
+                                                <ShinyText
+                                                    text={stat.number}
+                                                    disabled={false}
+                                                    speed={3}
+                                                    className="text-4xl font-bold text-white"
                                                 />
-                                                {stat.number.includes("+") &&
-                                                    "+"}
                                             </>
                                         )}
                                     </h3>
                                     <p className="text-gray-400 mt-1">
                                         {stat.label}
+
                                     </p>
                                 </div>
                             ))}

@@ -3,6 +3,7 @@
 // import Image from "next/image";
 // import { Marquee } from "@/components/magicui/marquee"
 import LogoLoop from "@/components/LogoLoop";
+import ShinyText from "./ShinyText";
 
 const brands = [
     { src: "/images/brands/img1.png", alt: "Brand logo 1" },
@@ -23,9 +24,14 @@ const BrandMarquee = () => {
             <div className="w-full flex flex-col items-center justify-center gap-12">
                 <h2
                     id="brand-marquee-heading"
-                    className="text-3xl md:text-5xl lg:text-6xl font-bold font-serif text-center text-white mb-8"
+                    className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-white mb-8"
                 >
-                    Our Trusted Brands
+                    <ShinyText
+                        text="Our Trusted Brands"
+                        disabled={false}
+                        speed={3}
+                        className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-white mb-8"
+                    />
                 </h2>
 
                 <div className="relative w-full flex flex-col items-center justify-center gap-32">
