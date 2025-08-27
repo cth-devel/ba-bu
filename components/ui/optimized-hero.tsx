@@ -112,7 +112,7 @@ const OptimizedHero = ({
         <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-gunteerz font-black uppercase tracking-wide sm:tracking-wider mb-4 sm:mb-6 leading-tight">
           {title}
         </h1>
-        <h2 className="hero-subtitle text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] bg-clip-text text-transparent mb-2 sm:mb-4 px-2 sm:px-0">
+        <h2 className="hero-subtitle text-lg sm:text-xl md:text-2xl lg:text-6xl font-semibold bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] bg-clip-text text-transparent mb-2 sm:mb-4 px-2 sm:px-0">
           {subtitle}
         </h2>
       </div>

@@ -129,7 +129,7 @@ const Header = () => {
         <>
             {/* Promotional Banner */}
             {showPromoBanner && !isScrolled && (
-                <div className="promo-banner bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm relative w-full">
+                <div className="promo-banner bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm relative w-full tracking-widest">
                     <div className="max-w-7xl mx-auto flex justify-between items-center">
                         <div className="flex items-center space-x-4 min-w-0">
                             <div className="flex items-center space-x-1 flex-shrink-0">

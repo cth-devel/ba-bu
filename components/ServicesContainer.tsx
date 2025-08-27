@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Flip } from "gsap/Flip";
-import { siteConfig } from "@/config/site";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
@@ -13,6 +13,7 @@ interface ServicesContainerProps {
 }
 
 const ServicesContainer = ({ className }: ServicesContainerProps) => {
+    const router = useRouter();
     const containerRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLDivElement>(null);
     const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -25,8 +26,8 @@ const ServicesContainer = ({ className }: ServicesContainerProps) => {
 
         // Wait for next tick to ensure DOM is fully rendered
         const timeoutId = setTimeout(() => {
-            const heroBg = hero.querySelector('.hero-background');
-            const heroContent = hero.querySelector('.hero-content');
+            const heroBg = hero.querySelector(".hero-background");
+            const heroContent = hero.querySelector(".hero-content");
 
             if (heroBg) {
                 gsap.to(heroBg, {
@@ -56,27 +57,27 @@ const ServicesContainer = ({ className }: ServicesContainerProps) => {
         }, 100);
 
         return () => {
-            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
             clearTimeout(timeoutId);
         };
     }, []);
 
     const serviceSections = [
         {
-            id: 'weddings',
-            title: 'Wedding Services',
-            backgroundImage: '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
+            id: "weddings",
+            title: "Wedding Services",
+            backgroundImage: "/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg",
         },
         {
-            id: 'hair-care',
-            title: 'Hair Care Services',
-            backgroundImage: '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
+            id: "hair-care",
+            title: "Hair Care Services",
+            backgroundImage: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg",
         },
         {
-            id: 'skin-body-care',
-            title: 'Skin & Body Care',
-            backgroundImage: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
-        }
+            id: "skin-body-care",
+            title: "Skin & Body Care",
+            backgroundImage: "/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg",
+        },
     ];
 
     const handleServiceClick = async (serviceId: string) => {
@@ -86,35 +87,39 @@ const ServicesContainer = ({ className }: ServicesContainerProps) => {
         setSelectedService(serviceId);
 
         // Find the clicked service section
-        const serviceSection = serviceSections.find(s => s.id === serviceId);
+        const serviceSection = serviceSections.find((s) => s.id === serviceId);
         if (!serviceSection) return;
 
         // Get the clicked element
-        const clickedElement = document.querySelector(`[data-service-id="${serviceId}"]`);
+        const clickedElement = document.querySelector(
+            `[data-service-id="${serviceId}"]`
+        );
         if (!clickedElement) return;
 
         // Hide all content in the clicked section first
-        const contentElements = clickedElement.querySelectorAll('.service-content, .service-title, .service-button');
+        const contentElements = clickedElement.querySelectorAll(
+            ".service-content, .service-title, .service-button"
+        );
         gsap.to(contentElements, {
             opacity: 0,
             y: -20,
             duration: 0.4,
-            ease: 'power2.inOut'
+            ease: "power2.inOut",
         });
 
         // Create a temporary overlay element for the transition
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
+        const overlay = document.createElement("div");
+        overlay.style.position = "fixed";
+        overlay.style.top = "0";
+        overlay.style.left = "0";
+        overlay.style.width = "100%";
+        overlay.style.height = "100%";
         overlay.style.backgroundImage = `url(${serviceSection.backgroundImage})`;
-        overlay.style.backgroundSize = 'cover';
-        overlay.style.backgroundPosition = 'center';
-        overlay.style.zIndex = '9999';
-        overlay.style.opacity = '0';
-        overlay.style.transition = 'opacity 1.2s ease-in-out';
+        overlay.style.backgroundSize = "cover";
+        overlay.style.backgroundPosition = "center";
+        overlay.style.zIndex = "9999";
+        overlay.style.opacity = "0";
+        overlay.style.transition = "opacity 1.2s ease-in-out";
 
         document.body.appendChild(overlay);
 
@@ -123,42 +128,47 @@ const ServicesContainer = ({ className }: ServicesContainerProps) => {
 
         // Animate the clicked element to full viewport
         gsap.to(clickedElement, {
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
-            width: '100vw',
-            height: '100vh',
+            width: "100vw",
+            height: "100vh",
             zIndex: 10000,
-            duration: .6,
-            ease: 'power2.inOut',
+            duration: 0.6,
+            ease: "power2.inOut",
             onComplete: () => {
                 // Fade in the overlay smoothly
                 gsap.to(overlay, {
                     opacity: 1,
                     duration: 1.2,
-                    ease: 'power2.inOut',
+                    ease: "power2.inOut",
                     onComplete: () => {
                         // Wait for transition to complete, then navigate
                         setTimeout(() => {
                             document.body.removeChild(overlay);
-                            window.location.href = `/services/${serviceId}`;
+                            router.push(`/services/${serviceId}`);
                         }, 300);
-                    }
+                    },
                 });
-            }
+            },
         });
 
         // Fade out other sections smoothly
-        const otherSections = document.querySelectorAll(`[data-service-id]:not([data-service-id="${serviceId}"])`);
+        const otherSections = document.querySelectorAll(
+            `[data-service-id]:not([data-service-id="${serviceId}"])`
+        );
         gsap.to(otherSections, {
             opacity: 0,
             duration: 0.8,
-            ease: 'power2.inOut'
+            ease: "power2.inOut",
         });
     };
 
     return (
-        <div ref={containerRef} className={`w-full bg-primary ${className || ""}`}>
+        <div
+            ref={containerRef}
+            className={`w-full bg-primary ${className || ""}`}
+        >
             {/* Hero Section with Three Equal Service Sections - Responsive */}
             <section
                 ref={heroRef}
@@ -177,7 +187,9 @@ const ServicesContainer = ({ className }: ServicesContainerProps) => {
                                 {/* Individual Background Image for Each Section */}
                                 <div
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                                    style={{ backgroundImage: `url(${section.backgroundImage})` }}
+                                    style={{
+                                        backgroundImage: `url(${section.backgroundImage})`,
+                                    }}
                                 />
 
                                 {/* Dark overlay */}
