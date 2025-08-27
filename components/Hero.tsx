@@ -104,10 +104,10 @@ const Hero = () => {
   return (
       <section
           ref={sectionRef}
-          className="relative h-screen flex items-center justify-center overflow-hidden"
+          className="relative h-screen flex items-center justify-center overflow-hidden w-screen"
       >
           {/* Video Background Carousel */}
-          <div ref={videoContainerRef} className="absolute inset-0 z-0">
+          <div ref={videoContainerRef} className="absolute inset-0 z-0 w-full h-full">
               {videos.map((videoSrc, index) => (
                   <video
                       key={videoSrc}
@@ -129,7 +129,7 @@ const Hero = () => {
 
               {/* Fallback Background Image */}
               <div
-                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0"
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 w-full h-full"
                   style={{
                       backgroundImage: `url('https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`,
                   }}
@@ -141,16 +141,16 @@ const Hero = () => {
           {/* Content */}
           <div
               ref={contentRef}
-              className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8"
+              className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center justify-center"
           >
-              <div className="max-w-4xl mx-auto">
+              <div className="text-center w-full h-full">
                   {/* Main Tagline */}
-                  <h1 className="hero-title text-5xl sm:text-6xl lg:text-8xl font-gunterz font-md mb-6 text-primary-gradient tracking-wider">
+                  <h1 className="hero-title text-5xl sm:text-6xl lg:text-9xl font-md mb-6 text-primary-gradient tracking-wider">
                       <ShinyText
                           text={siteConfig.tagline}
                           disabled={false}
                           speed={3}
-                          className="text-5xl sm:text-6xl lg:text-8xl font-gunterz font-md px-4 py-2 text-primary-gradient"
+                          className="text-5xl sm:text-6xl lg:text-9xl font-md px-4 py-2 text-primary-gradient"
                       />
                   </h1>
 

@@ -25,12 +25,12 @@ const Footer = () => {
                 <div className="text-center">
                     <h2 className="text-3xl sm:text-4xl lg:text-8xl font-[900] tracking-widest uppercase -translate-y-24 flex flex-col items-center justify-center">
                         <span className="text-white">Step In Beautiful</span>
-                        <span className="text-white">
+                        <span className="text-white text-center">
                             Step  Out
                               <RotatingWord
                                  words={["Radiant", "Elegant"]}
                                  intervalMs={2200}
-                                 className="text-white inline-block ml-4"
+                                 className="text-white inline-block ml-8"
                              />
                         </span>
                     </h2>

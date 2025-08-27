@@ -149,11 +149,11 @@ const Services = () => {
                             <div className="absolute inset-0 bg-black/40"></div>
                             <div
                                 id={`service-content-desktop-${index}`}
-                                className="content-overlay relative text-white text-center max-w-3xl px-4 z-10"
+                                className="content-overlay relative text-white text-center max-w-full px-4 z-10"
                             >
                                 <SplitText
                                     text={service.name}
-                                    className="text-6xl lg:text-7xl font-[900] font-serif mb-6 w-full"
+                                    className="text-6xl lg:text-7xl font-[900] font-serif py-12 w-full"
                                     duration={0.8}
                                     delay={80}
                                 />

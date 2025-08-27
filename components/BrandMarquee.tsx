@@ -23,7 +23,7 @@ const BrandMarquee = () => {
             <div className="w-full flex flex-col items-center justify-center gap-12">
                 <h2
                     id="brand-marquee-heading"
-                    className="text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-8"
+                    className="text-3xl md:text-5xl lg:text-6xl font-bold font-serif text-center text-white mb-8"
                 >
                     Our Trusted Brands
                 </h2>
@@ -31,9 +31,9 @@ const BrandMarquee = () => {
                 <div className="relative w-full flex flex-col items-center justify-center gap-32">
                     <LogoLoop
                         logos={brands}
-                        speed={40}
+                        speed={60}
                         direction="right"
-                        logoHeight={60}
+                        logoHeight={80}
                         gap={100}
                         fadeOut={true}
                         fadeOutColor="#000"
@@ -42,9 +42,9 @@ const BrandMarquee = () => {
                     />
                     <LogoLoop
                         logos={brands}
-                        speed={40}
+                        speed={60}
                         direction="left"
-                        logoHeight={60}
+                        logoHeight={80}
                         gap={100}
                         fadeOut={true}
                         fadeOutColor="#000"
