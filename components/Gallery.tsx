@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useLayoutEffect, useRef } from "react";
+import { useState, useLayoutEffect, useRef, useEffect } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -65,6 +66,7 @@ const Gallery = ({ showBackground = true, showPadding = true }: GalleryProps) =>
 
   const component = useRef<HTMLElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   // Check screen size for responsive grid
   useLayoutEffect(() => {
@@ -78,7 +80,7 @@ const Gallery = ({ showBackground = true, showPadding = true }: GalleryProps) =>
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Simple GSAP animations
+  // Simple GSAP animations (re-init on route change)
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const images = gsap.utils.toArray(".gallery-image-item");
@@ -100,8 +102,21 @@ const Gallery = ({ showBackground = true, showPadding = true }: GalleryProps) =>
       });
     }, component);
 
-    return () => ctx.revert();
-  }, []);
+    // Ensure ScrollTrigger recalculates positions after navigation or layout changes
+    const refreshId = setTimeout(() => {
+      try { ScrollTrigger.refresh(); } catch {}
+    }, 100);
+
+    return () => { clearTimeout(refreshId); ctx.revert(); };
+  }, [pathname]);
+
+  // Extra safety: refresh on next tick after route change
+  useEffect(() => {
+    const id = setTimeout(() => {
+      try { ScrollTrigger.refresh(); } catch {}
+    }, 300);
+    return () => clearTimeout(id);
+  }, [pathname]);
 
   const openModal = (image: string) => {
     setSelectedImage(image);
@@ -183,6 +198,9 @@ const Gallery = ({ showBackground = true, showPadding = true }: GalleryProps) =>
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
                 priority={index < 4}
                 loading={index < 4 ? 'eager' : 'lazy'}
+                onLoadingComplete={() => {
+                  try { ScrollTrigger.refresh(); } catch {}
+                }}
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>
 
