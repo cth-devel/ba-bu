@@ -4,6 +4,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  trailingSlash: true,
   images: {
     domains: ['images.pexels.com'],
     unoptimized: true
