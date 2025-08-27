@@ -21,7 +21,7 @@ export default function Home() {
         </p>
       </div>
 
-      <ServicesLoadingWrapper minLoadingTime={2000}>
+      <ServicesLoadingWrapper minLoadingTime={1000}>
         <main>
           <Hero />
           <About />

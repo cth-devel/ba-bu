@@ -161,7 +161,7 @@ Message: ${formData.message}`;
             <div className="bg-black border border-white/10 p-8 rounded-2xl shadow-xl">
               <h3 className="text-2xl font-serif font-bold text-white mb-6">Book Appointment</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 tracking-widest">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
@@ -174,7 +174,7 @@ Message: ${formData.message}`;
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors placeholder-white/50"
+                      className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors placeholder-white/50 tracking-widest"
                       placeholder="Your full name"
                     />
                   </div>
@@ -189,7 +189,7 @@ Message: ${formData.message}`;
                       required
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors placeholder-white/50"
+                      className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors placeholder-white/50 tracking-widest"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -205,7 +205,7 @@ Message: ${formData.message}`;
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors placeholder-white/50"
+                    className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors placeholder-white/50 tracking-widest"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -220,7 +220,7 @@ Message: ${formData.message}`;
                     required
                     value={formData.service}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors"
+                    className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors tracking-widest"
                   >
                     <option value="">Select a service</option>
                     {siteConfig.services.map((service) => (
@@ -241,14 +241,14 @@ Message: ${formData.message}`;
                     rows={4}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors resize-none placeholder-white/50"
+                    className="w-full px-4 py-3 border border-white/20 bg-white/5 text-white rounded-lg focus:ring-2 focus:ring-[#ffd277] focus:border-[#ffd277] transition-colors resize-none placeholder-white/50 tracking-widest"
                     placeholder="Any specific requirements or preferred time..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-white px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105 tracking-wider"
+                  className="w-full bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-white px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105 tracking-widest"
                 >
                   <Send className="w-5 h-5" />
                   <span>Send Message</span>
@@ -289,7 +289,7 @@ Message: ${formData.message}`;
               </div>
             </div>
 
-            <div className="relative aspect-[23/9] rounded-lg overflow-hidden">
+            <div className="relative aspect-[23/9] rounded-lg overflow-hidden h-screen">
               {activeLocation === 'mannam' ? (
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d251354.21895944458!2d76.2483281!3d10.1473162!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081ba5e09b9cad%3A0x363ca14465d8a7c!2sBA-BU%20FAMILY%20SALON!5e0!3m2!1sen!2sin!4v1754569333582!5m2!1sen!2sin"

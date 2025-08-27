@@ -250,6 +250,52 @@
   }
 }
 
+/* Continuous dual-track marquee (seamless, no visible reset) */
+@layer utilities {
+  .marquee-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    display: flex;
+    width: max-content;
+    max-width: none;
+    white-space: nowrap;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .animate-marquee-left-continuous {
+    animation: marquee-left-continuous var(--duration, 30s) linear infinite;
+  }
+
+  .animate-marquee-right-continuous {
+    animation: marquee-right-continuous var(--duration, 30s) linear infinite;
+  }
+}
+
+@keyframes marquee-left-continuous {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right-continuous {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
 /* Services Section Horizontal Scrolling */
 .services-horizontal-scroll {
   overflow-x: hidden;

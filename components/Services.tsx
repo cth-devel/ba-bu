@@ -153,7 +153,7 @@ const Services = () => {
                             >
                                 <SplitText
                                     text={service.name}
-                                    className="text-5xl lg:text-7xl font-[900] font-serif mb-6 w-full"
+                                    className="text-6xl lg:text-7xl font-[900] font-serif mb-6 w-full"
                                     duration={0.8}
                                     delay={80}
                                 />
@@ -195,20 +195,20 @@ const Services = () => {
                     id="services-header-mobile"
                     className="text-center mb-12 px-4"
                 >
-                    <h2 className="text-4xl font-sans font-extrabold text-white mb-4">
+                    <h2 className="text-5xl sm:text-6xl font-sans font-extrabold text-white mb-4">
                         Our Services
                     </h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-secondary to-yellow-300 mx-auto"></div>
                 </div>
                 <div
                     id="services-grid-mobile"
-                    className="grid grid-cols-1 gap-8 px-4"
+                    className="grid grid-cols-1 gap-16"
                 >
                     {services.map((service, index) => (
                         <div
                             id={`service-card-mobile-${index}`}
                             key={index}
-                            className="mobile-service-card relative h-96 rounded-lg overflow-hidden cursor-pointer group shadow-lg"
+                            className="mobile-service-card relative h-96 overflow-hidden cursor-pointer group shadow-lg"
                         >
                             <Image
                                 src={service.src}
@@ -218,7 +218,7 @@ const Services = () => {
                             />
                             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-6">
                                 <div className="w-full">
-                                    <h3 className="text-white text-2xl font-semibold mb-2">
+                                    <h3 className="text-white text-6xl font-[900] mb-2 tracking-wider">
                                         {service.name}
                                     </h3>
                                     <div className="grid grid-cols-2 gap-2">

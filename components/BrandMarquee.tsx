@@ -1,19 +1,19 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
+// import { Marquee } from "@/components/magicui/marquee"
+import LogoLoop from "@/components/LogoLoop";
 
 const brands = [
-    "/images/brands/img1.png",
-    "/images/brands/img2.png",
-    "/images/brands/img3.png",
-    "/images/brands/img4.png",
-    "/images/brands/img5.png",
-    "/images/brands/img6.png",
+    { src: "/images/brands/img1.png", alt: "Brand logo 1" },
+    { src: "/images/brands/img2.png", alt: "Brand logo 2" },
+    { src: "/images/brands/img3.png", alt: "Brand logo 3" },
+    { src: "/images/brands/img4.png", alt: "Brand logo 4" },
+    { src: "/images/brands/img5.png", alt: "Brand logo 5" },
+    { src: "/images/brands/img6.png", alt: "Brand logo 6" },
 ];
 
 const BrandMarquee = () => {
-    const duplicatedBrands = [...brands, ...brands];
-
     return (
         <section
             id="brand-marquee-section"
@@ -28,86 +28,29 @@ const BrandMarquee = () => {
                     Our Trusted Brands
                 </h2>
 
-                <div className="relative w-full overflow-hidden">
-                    {/* Top Marquee - Moving Right */}
-                    <div className="flex mb-16">
-                        <div className="flex animate-marquee-right">
-                            {duplicatedBrands.map((logo, index) => (
-                                <div
-                                    key={`top-marquee-${index}`}
-                                    className="flex items-center justify-center mx-8 min-w-[200px]"
-                                >
-                                    <Image
-                                        src={logo}
-                                        alt={`Brand logo ${
-                                            (index % brands.length) + 1
-                                        }`}
-                                        width={200}
-                                        height={100}
-                                        className="h-16 md:h-20 lg:h-24 w-auto object-contain"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                        <div className="flex animate-marquee-right">
-                            {duplicatedBrands.map((logo, index) => (
-                                <div
-                                    key={`top-marquee-duplicate-${index}`}
-                                    className="flex items-center justify-center mx-8 min-w-[200px]"
-                                >
-                                    <Image
-                                        src={logo}
-                                        alt={`Brand logo ${
-                                            (index % brands.length) + 1
-                                        }`}
-                                        width={200}
-                                        height={100}
-                                        className="h-16 md:h-20 lg:h-24 w-auto object-contain"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Bottom Marquee - Moving Left */}
-                    <div className="flex">
-                        <div className="flex animate-marquee-left">
-                            {duplicatedBrands.map((logo, index) => (
-                                <div
-                                    key={`bottom-marquee-${index}`}
-                                    className="flex items-center justify-center mx-8 min-w-[200px]"
-                                >
-                                    <Image
-                                        src={logo}
-                                        alt={`Brand logo ${
-                                            (index % brands.length) + 1
-                                        }`}
-                                        width={200}
-                                        height={100}
-                                        className="h-16 md:h-20 lg:h-24 w-auto object-contain"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                        <div className="flex animate-marquee-left">
-                            {duplicatedBrands.map((logo, index) => (
-                                <div
-                                    key={`bottom-marquee-duplicate-${index}`}
-                                    className="flex items-center justify-center mx-8 min-w-[200px]"
-                                >
-                                    <Image
-                                        src={logo}
-                                        alt={`Brand logo ${
-                                            (index % brands.length) + 1
-                                        }`}
-                                        width={200}
-                                        height={100}
-                                        className="h-16 md:h-20 lg:h-24 w-auto object-contain"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                <div className="relative w-full flex flex-col items-center justify-center gap-32">
+                    <LogoLoop
+                        logos={brands}
+                        speed={40}
+                        direction="right"
+                        logoHeight={60}
+                        gap={100}
+                        fadeOut={true}
+                        fadeOutColor="#000"
+                        pauseOnHover={false}
+                        scaleOnHover={false}
+                    />
+                    <LogoLoop
+                        logos={brands}
+                        speed={40}
+                        direction="left"
+                        logoHeight={60}
+                        gap={100}
+                        fadeOut={true}
+                        fadeOutColor="#000"
+                        pauseOnHover={false}
+                        scaleOnHover={false}
+                    />
                 </div>
             </div>
         </section>

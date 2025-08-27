@@ -117,7 +117,7 @@ const GalleryPreview = () => {
     <section
       id="gallery-preview-section"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-0"
+      className="relative min-w-screen min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-0"
     >
       <div className="relative z-10 container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
