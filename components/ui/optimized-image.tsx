@@ -14,6 +14,7 @@ interface OptimizedImageProps {
   quality?: number;
   placeholder?: 'blur' | 'empty';
   blurDataURL?: string;
+  containerStyle?: React.CSSProperties;
 }
 
 const OptimizedImage = ({
@@ -27,6 +28,7 @@ const OptimizedImage = ({
   quality = 75,
   placeholder = 'empty',
   blurDataURL,
+  containerStyle,
   ...props
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -71,7 +73,7 @@ const OptimizedImage = ({
           'bg-gray-200 animate-pulse rounded-lg',
           className
         )}
-        style={{ width, height }}
+        style={containerStyle ?? { width, height }}
       />
     );
   }
@@ -85,7 +87,7 @@ const OptimizedImage = ({
         isLoaded && 'opacity-100',
         className
       )}
-      style={{ width, height }}
+      style={containerStyle ?? { width, height }}
     >
       <img
         src={src}

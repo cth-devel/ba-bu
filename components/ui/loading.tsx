@@ -117,19 +117,23 @@ const Loading = ({ onLoadingComplete, minDisplayTime = 1500 }: LoadingProps) => 
       </div>
 
       {/* Floating service indicators */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-20 text-[#ffd277]/30 text-xs font-medium">
-          ✂️ Hair Care
+      <div className="absolute inset-0 pointer-events-none font-gunteerz tracking-widest">
+        <div className="absolute top-24 left-40 text-[#ffd277]/30 text-6xl transform -rotate-12 font-[900]">
+           Hair Styling
         </div>
-        <div className="absolute top-32 right-24 text-[#ffd277]/30 text-xs font-medium">
-          ✨ Skin Care
+        <div className="absolute top-48 right-24 text-[#ffd277]/30 text-7xl transform rotate-3 font-[900]">
+           Beauty Services
         </div>
-        <div className="absolute bottom-32 left-24 text-[#ffd277]/30 text-xs font-medium">
-          💄 Makeup
+        <div className="absolute bottom-40 left-56 text-[#ffd277]/30 text-4xl transform rotate-12 font-[900]">
+           Treatments
         </div>
-        <div className="absolute bottom-20 right-20 text-[#ffd277]/30 text-xs font-medium">
-          🧖‍♀️ Spa
+        <div className="absolute bottom-48 right-48 text-[#ffd277]/30 text-6xl transform rotate-6 font-[900]">
+           Wellness
         </div>
+        <div className="absolute top-1/3 left-1/3  text-[#ffd277]/30 text-6xl transform -rotate-6 font-[900]">
+          Premium Care
+        </div>
+
       </div>
     </div>
   );

@@ -10,9 +10,10 @@ gsap.registerPlugin(ScrollTrigger, Flip);
 
 interface ServicesContainerProps {
     className?: string;
+    serviceSectionsOverride?: { id: string; title: string; backgroundImage: string }[];
 }
 
-const ServicesContainer = ({ className }: ServicesContainerProps) => {
+const ServicesContainer = ({ className, serviceSectionsOverride }: ServicesContainerProps) => {
     const router = useRouter();
     const containerRef = useRef<HTMLDivElement>(null);
     const heroRef = useRef<HTMLDivElement>(null);
@@ -62,16 +63,16 @@ const ServicesContainer = ({ className }: ServicesContainerProps) => {
         };
     }, []);
 
-    const serviceSections = [
+    const defaultServiceSections = [
         {
             id: "weddings",
             title: "Wedding Services",
-            backgroundImage: "/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg",
+            backgroundImage: "/images/weddings/gallery/wedding-08.jpg",
         },
         {
             id: "hair-care",
             title: "Hair Care Services",
-            backgroundImage: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg",
+            backgroundImage: "/images/hair-care/styling/style-04.avif",
         },
         {
             id: "skin-body-care",
@@ -79,6 +80,8 @@ const ServicesContainer = ({ className }: ServicesContainerProps) => {
             backgroundImage: "/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg",
         },
     ];
+
+    const serviceSections = serviceSectionsOverride ?? defaultServiceSections;
 
     const handleServiceClick = async (serviceId: string) => {
         if (isTransitioning) return;

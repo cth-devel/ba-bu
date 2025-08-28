@@ -1,12 +1,12 @@
 'use client';
 
 import { siteConfig } from "@/config/site";
-import { Sparkles, Scissors, Palette, Droplets, HandHeart, Footprints } from "lucide-react";
 import OptimizedHero from "@/components/ui/optimized-hero";
 import OptimizedSectionHero from "@/components/ui/optimized-section-hero";
 import OptimizedGallery from "@/components/ui/optimized-gallery";
 import OptimizedPricing from "@/components/ui/optimized-pricing";
 import { serviceData } from "@/data/serviceImages";
+import ServicesContainer from "@/components/ServicesContainer";
 
 const SkinBodyCareServicePage = () => {
   return (
@@ -20,7 +20,7 @@ const SkinBodyCareServicePage = () => {
       <OptimizedHero
         title="Skin & Body Care"
         subtitle="Rejuvenating Treatments & Wellness"
-        backgroundImage="/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg"
+        backgroundImage="/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg"
       />
 
       {/* Cleanup Section */}
@@ -180,6 +180,22 @@ const SkinBodyCareServicePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Explore Other Services - Interactive Hero (Weddings & Hair) */}
+      <ServicesContainer
+        serviceSectionsOverride={[
+          {
+            id: "weddings",
+            title: "Wedding Services",
+            backgroundImage: "/images/weddings/gallery/wedding-08.jpg",
+          },
+          {
+            id: "hair-care",
+            title: "Hair Care Services",
+            backgroundImage: "/images/hair-care/styling/style-04.avif",
+          },
+        ]}
+      />
     </>
   );
 };

@@ -1,31 +1,31 @@
 'use client';
 
 import { siteConfig } from "@/config/site";
-import { Scissors, Palette } from "lucide-react";
 import OptimizedHero from "@/components/ui/optimized-hero";
 import OptimizedSectionHero from "@/components/ui/optimized-section-hero";
 import OptimizedGallery from "@/components/ui/optimized-gallery";
 import OptimizedPricing from "@/components/ui/optimized-pricing";
+import ServicesContainer from "@/components/ServicesContainer";
 
 const HairCareServicePage = () => {
   const hairCutImages = [
     {
-      src: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+      src: '/images/hair-care/styling/style-01.jpg',
       alt: 'Professional haircut and styling',
       title: 'Basic Haircut'
     },
     {
-      src: '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
+      src: '/images/hair-care/styling/style-04.avif',
       alt: 'Modern hair styling techniques',
       title: 'Stylish Cut'
     },
     {
-      src: '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
+      src: '/images/hair-care/styling/style-07.jpg',
       alt: 'Premium hair cutting service',
       title: 'Premium Cut'
     },
     {
-      src: '/images/sofia-vila-flor-ebNYeZ8SR2o-unsplash.jpg',
+      src: '/images/hair-care/styling/style-10.webp',
       alt: 'Luxury hair styling treatment',
       title: 'Luxury Styling'
     }
@@ -33,22 +33,22 @@ const HairCareServicePage = () => {
 
   const hairColorImages = [
     {
-      src: '/images/mitchell-orr-dcAw8Ms-teQ-unsplash.jpg',
+      src: '/images/hair-care/coloring/color-01.jpg',
       alt: 'Professional hair coloring service',
       title: 'Single Color'
     },
     {
-      src: '/images/quentin-mahe-mAW3jUP6G6E-unsplash.jpg',
+      src: '/images/hair-care/coloring/color-02.jpg',
       alt: 'Beautiful hair highlights',
       title: 'Highlights'
     },
     {
-      src: '/images/wali-38sbVK-LI1Q-unsplash.jpg',
+      src: '/images/hair-care/coloring/color-03.jpg',
       alt: 'Hand-painted balayage highlights',
       title: 'Balayage'
     },
     {
-      src: '/images/john-arano-CCTCHXEsan8-unsplash.jpg',
+      src: '/images/hair-care/coloring/color-04.jpg',
       alt: 'Professional color correction',
       title: 'Color Correction'
     }
@@ -113,7 +113,7 @@ const HairCareServicePage = () => {
       <OptimizedHero
         title="Hair Care Services"
         subtitle="Professional Hair Styling & Treatments"
-        backgroundImage="/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg"
+        backgroundImage="/images/hair-care/styling/style-04.avif"
       />
 
       {/* Hair Cuts Section */}
@@ -188,6 +188,22 @@ const HairCareServicePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Explore Other Services - Interactive Hero (Weddings & Skin) */}
+      <ServicesContainer
+        serviceSectionsOverride={[
+          {
+            id: "weddings",
+            title: "Wedding Services",
+            backgroundImage: "/images/weddings/gallery/wedding-08.jpg",
+          },
+          {
+            id: "skin-body-care",
+            title: "Skin & Body Care",
+            backgroundImage: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg",
+          },
+        ]}
+      />
     </>
   );
 };

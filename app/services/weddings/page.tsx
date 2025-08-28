@@ -3,8 +3,28 @@
 import { siteConfig } from "@/config/site";
 import OptimizedHero from "@/components/ui/optimized-hero";
 import OptimizedSectionHero from "@/components/ui/optimized-section-hero";
+import OptimizedGallery from "@/components/ui/optimized-gallery";
+import ServicesContainer from "@/components/ServicesContainer";
 
 const WeddingsServicePage = () => {
+  const weddingGalleryImages = [
+    { src: '/images/weddings/gallery/wedding-01.jpg', alt: 'Wedding celebration moment 1', title: 'Wedding 01' },
+    { src: '/images/weddings/gallery/wedding-02.jpg', alt: 'Wedding celebration moment 2', title: 'Wedding 02' },
+    { src: '/images/weddings/gallery/wedding-03.jpg', alt: 'Wedding celebration moment 3', title: 'Wedding 03' },
+    { src: '/images/weddings/gallery/wedding-04.jpg', alt: 'Wedding celebration moment 4', title: 'Wedding 04' },
+    { src: '/images/weddings/gallery/wedding-05.jpg', alt: 'Wedding celebration moment 5', title: 'Wedding 05' },
+    { src: '/images/weddings/gallery/wedding-08.jpg', alt: 'Wedding celebration moment 8', title: 'Wedding 08' },
+    { src: '/images/weddings/gallery/wedding-09.webp', alt: 'Wedding celebration moment 9', title: 'Wedding 09' },
+    { src: '/images/weddings/gallery/wedding-10.webp', alt: 'Wedding celebration moment 10', title: 'Wedding 10' },
+    { src: '/images/weddings/gallery/wedding-11.webp', alt: 'Wedding celebration moment 11', title: 'Wedding 11' },
+    { src: '/images/weddings/gallery/wedding-12.webp', alt: 'Wedding celebration moment 12', title: 'Wedding 12' },
+    { src: '/images/weddings/gallery/wedding-13.webp', alt: 'Wedding celebration moment 13', title: 'Wedding 13' },
+    { src: '/images/weddings/gallery/wedding-14.webp', alt: 'Wedding celebration moment 14', title: 'Wedding 14' },
+    { src: '/images/weddings/gallery/wedding-15.webp', alt: 'Wedding celebration moment 15', title: 'Wedding 15' },
+    { src: '/images/weddings/gallery/wedding-16.webp', alt: 'Wedding celebration moment 16', title: 'Wedding 16' },
+    { src: '/images/weddings/gallery/wedding-17.webp', alt: 'Wedding celebration moment 17', title: 'Wedding 17' },
+    { src: '/images/weddings/gallery/wedding-18.webp', alt: 'Wedding celebration moment 18', title: 'Wedding 18' },
+  ];
   const bridalServices = [
     {
       id: 1,
@@ -19,7 +39,7 @@ const WeddingsServicePage = () => {
         "Touch-up services",
         "Bridal consultation"
       ],
-      bgImage: "/images/sofia-vila-flor-ebNYeZ8SR2o-unsplash.jpg"
+      bgImage: "/images/weddings/bride/bride-01.avif"
     },
     {
       id: 2,
@@ -34,7 +54,7 @@ const WeddingsServicePage = () => {
         "Hair treatment before styling",
         "Long-lasting hold products"
       ],
-      bgImage: "/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg"
+      bgImage: "/images/weddings/bride/bride-03.jpg"
     },
     {
       id: 3,
@@ -49,7 +69,7 @@ const WeddingsServicePage = () => {
         "Wellness consultations",
         "Customized care plans"
       ],
-      bgImage: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg"
+      bgImage: "/images/weddings/bride/bride-05.jpg"
     }
   ];
 
@@ -67,7 +87,7 @@ const WeddingsServicePage = () => {
         "Hair wash and styling",
         "Grooming consultation"
       ],
-      bgImage: "/images/john-arano-CCTCHXEsan8-unsplash.jpg"
+      bgImage: "/images/weddings/groom/groom-02.jpg"
     },
     {
       id: 2,
@@ -82,7 +102,7 @@ const WeddingsServicePage = () => {
         "Wellness consultations",
         "Customized grooming plans"
       ],
-      bgImage: "/images/mitchell-orr-dcAw8Ms-teQ-unsplash.jpg"
+      bgImage: "/images/weddings/groom/groom-05.jpg"
     },
     {
       id: 3,
@@ -97,7 +117,7 @@ const WeddingsServicePage = () => {
         "Touch-up services",
         "Wedding day support"
       ],
-      bgImage: "/images/wali-38sbVK-LI1Q-unsplash.jpg"
+      bgImage: "/images/weddings/groom/groom-10.jpg"
     }
   ];
 
@@ -154,7 +174,7 @@ const WeddingsServicePage = () => {
       <OptimizedHero
         title="Wedding Services"
         subtitle="Complete Bridal & Groom Packages"
-        backgroundImage="/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg"
+        backgroundImage="/images/weddings/gallery/wedding-08.jpg"
       />
 
       {/* Bridal Services Section Header - Responsive */}
@@ -503,6 +523,36 @@ const WeddingsServicePage = () => {
           </div>
         </div>
       </section>
+
+
+      {/* Wedding Gallery Section */}
+      <section className="wedding-gallery-section py-12 sm:py-16 lg:py-24 w-full bg-gradient-to-br from-black via-gray-900 to-black">
+        {/* <OptimizedSectionHero
+          title="Wedding Gallery"
+          description="Browse a curated selection of our favorite wedding moments."
+        /> */}
+        <div className="w-full">
+          <OptimizedGallery
+            images={weddingGalleryImages}
+            title="Our Wedding Gallery"
+          />
+        </div>
+      </section>
+      {/* Explore Other Services - Interactive Hero (Hair & Skin) */}
+      <ServicesContainer
+        serviceSectionsOverride={[
+          {
+            id: "hair-care",
+            title: "Hair Care Services",
+            backgroundImage: "/images/hair-care/styling/style-04.avif",
+          },
+          {
+            id: "skin-body-care",
+            title: "Skin & Body Care",
+            backgroundImage: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg",
+          },
+        ]}
+      />
     </>
   );
 };
