@@ -20,7 +20,7 @@ const SkinBodyCareServicePage = () => {
       <OptimizedHero
         title="Skin & Body Care"
         subtitle="Rejuvenating Treatments & Wellness"
-        backgroundImage="/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg"
+        backgroundImage="/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.jpg"
       />
 
       {/* Cleanup Section */}

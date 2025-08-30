@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       'Premium family salon in North Paravur, Kerala offering tailored haircuts, hair coloring, facials, bridal makeup, men\'s grooming, and hair spa.',
     images: [
       {
-        url: `${siteUrl}/BABU-White.png`,
+        url: `${siteUrl}BABU-White.svg`,
         width: 1200,
         height: 630,
         alt: `${siteConfig.siteName} – BA-BU Family Salon`,
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.siteName} | Hair, Skin, Bridal & Men's Grooming in North Paravur`,
     description:
       'Premium family salon in North Paravur, Kerala offering tailored haircuts, hair coloring, facials, bridal makeup, men\'s grooming, and hair spa.',
-    images: [`${siteUrl}/BABU-White.png`],
+    images: [`${siteUrl}BABU-White.svg`],
   },
   robots: { index: true, follow: true },
 };

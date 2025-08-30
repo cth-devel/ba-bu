@@ -166,7 +166,7 @@ const About = () => {
 
     const stats = [
         { number: "5000+", label: "Happy Clients" },
-        { number: "15+", label: "Years Experience" },
+        { number: "5+", label: "Years Experience" },
         { number: "4.8", label: "Average Rating" },
     ];
 

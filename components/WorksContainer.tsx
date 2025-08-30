@@ -2,14 +2,58 @@
 
 import { useRef } from "react";
 import Gallery from "./Gallery";
+import OptimizedGallery from "./ui/optimized-gallery";
 import OptimizedHero from "./ui/optimized-hero";
 
 interface WorksContainerProps {
     className?: string;
+    weddingsBackgroundImage?: string;
+    hairCareBackgroundImage?: string;
 }
 
-const WorksContainer = ({ className }: WorksContainerProps) => {
+const WorksContainer = ({ className, weddingsBackgroundImage, hairCareBackgroundImage }: WorksContainerProps) => {
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Section-specific galleries
+    const weddingsGalleryImages = [
+        { src: "/images/weddings/gallery/wedding-01.jpg", alt: "Wedding gallery image 1" },
+        { src: "/images/weddings/gallery/wedding-02.jpg", alt: "Wedding gallery image 2" },
+        { src: "/images/weddings/gallery/wedding-03.jpg", alt: "Wedding gallery image 3" },
+        { src: "/images/weddings/gallery/wedding-04.jpg", alt: "Wedding gallery image 4" },
+        { src: "/images/weddings/gallery/wedding-05.jpg", alt: "Wedding gallery image 5" },
+        { src: "/images/weddings/gallery/wedding-08.jpg", alt: "Wedding gallery image 8" },
+        { src: "/images/weddings/gallery/wedding-09.webp", alt: "Wedding gallery image 9" },
+        { src: "/images/weddings/gallery/wedding-10.webp", alt: "Wedding gallery image 10" },
+        { src: "/images/weddings/gallery/wedding-11.webp", alt: "Wedding gallery image 11" },
+        { src: "/images/weddings/gallery/wedding-12.webp", alt: "Wedding gallery image 12" },
+        { src: "/images/weddings/gallery/wedding-13.webp", alt: "Wedding gallery image 13" },
+        { src: "/images/weddings/gallery/wedding-14.webp", alt: "Wedding gallery image 14" },
+        { src: "/images/weddings/gallery/wedding-15.webp", alt: "Wedding gallery image 15" },
+        { src: "/images/weddings/gallery/wedding-16.webp", alt: "Wedding gallery image 16" },
+        { src: "/images/weddings/gallery/wedding-17.webp", alt: "Wedding gallery image 17" },
+        { src: "/images/weddings/gallery/wedding-18.webp", alt: "Wedding gallery image 18" },
+    ];
+
+    const hairCareGalleryImages = [
+        { src: "/images/hair-care/styling/style-01.jpg", alt: "Hair styling image 1" },
+        { src: "/images/hair-care/styling/style-02.jpg", alt: "Hair styling image 2" },
+        { src: "/images/hair-care/styling/style-03.jpg", alt: "Hair styling image 3" },
+        { src: "/images/hair-care/styling/style-04.avif", alt: "Hair styling image 4" },
+        { src: "/images/hair-care/styling/style-05.jpg", alt: "Hair styling image 5" },
+        { src: "/images/hair-care/styling/style-06.jpg", alt: "Hair styling image 6" },
+        { src: "/images/hair-care/styling/style-07.webp", alt: "Hair styling image 7" },
+        { src: "/images/hair-care/styling/style-08.jpg", alt: "Hair styling image 8" },
+        { src: "/images/hair-care/styling/style-09.webp", alt: "Hair styling image 9" },
+        { src: "/images/hair-care/styling/style-10.webp", alt: "Hair styling image 10" },
+        { src: "/images/hair-care/styling/style-11.webp", alt: "Hair styling image 11" },
+        { src: "/images/hair-care/styling/style-12.webp", alt: "Hair styling image 12" },
+        { src: "/images/hair-care/styling/style-13.jpg", alt: "Hair styling image 13" },
+        { src: "/images/hair-care/styling/style-14.webp", alt: "Hair styling image 14" },
+        { src: "/images/hair-care/coloring/color-01.jpg", alt: "Hair coloring image 1" },
+        { src: "/images/hair-care/coloring/color-02.jpg", alt: "Hair coloring image 2" },
+        { src: "/images/hair-care/coloring/color-03.jpg", alt: "Hair coloring image 3" },
+        { src: "/images/hair-care/coloring/color-04.jpg", alt: "Hair coloring image 4" },
+    ];
 
     const worksSections = [
         {
@@ -17,7 +61,7 @@ const WorksContainer = ({ className }: WorksContainerProps) => {
             title: 'Weddings',
             subtitle: 'Complete Wedding Makeover Packages',
             description: 'Professional bridal makeup, hair styling, and groom grooming services for your special day.',
-            backgroundImage: '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
+            backgroundImage: weddingsBackgroundImage || '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
             features: ['Bridal Makeup', 'Hair Styling', 'Groom Grooming', 'Pre-wedding Care']
         },
         {
@@ -25,7 +69,7 @@ const WorksContainer = ({ className }: WorksContainerProps) => {
             title: 'Hair Care',
             subtitle: 'Professional Hair Services',
             description: 'From basic cuts to advanced styling, we care for all hair types and textures.',
-            backgroundImage: '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
+            backgroundImage: hairCareBackgroundImage || '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
             features: ['Hair Cutting', 'Styling', 'Coloring', 'Treatments']
         },
         {
@@ -59,7 +103,23 @@ const WorksContainer = ({ className }: WorksContainerProps) => {
 
                         {/* Gallery Component - Responsive Width */}
                         <div className="w-full py-8 sm:py-10 lg:py-12">
-                            <Gallery showBackground={false} showPadding={false} />
+                            {section.id === 'weddings' ? (
+                                <OptimizedGallery
+                                    images={weddingsGalleryImages}
+                                    title={`${section.title} Gallery`}
+                                    description={section.description}
+                                    className="!bg-transparent"
+                                />
+                            ) : section.id === 'hair-care' ? (
+                                <OptimizedGallery
+                                    images={hairCareGalleryImages}
+                                    title={`${section.title} Gallery`}
+                                    description={section.description}
+                                    className="!bg-transparent"
+                                />
+                            ) : (
+                                <Gallery showBackground={false} showPadding={false} />
+                            )}
                         </div>
 
                         {/* CTA Section - Responsive Design */}

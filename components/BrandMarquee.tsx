@@ -12,6 +12,7 @@ const brands = [
     { src: "/images/brands/img4.png", alt: "Brand logo 4" },
     { src: "/images/brands/img5.png", alt: "Brand logo 5" },
     { src: "/images/brands/img6.png", alt: "Brand logo 6" },
+    { src: "/images/brands/img7.png", alt: "Brand logo 7" },
 ];
 
 const BrandMarquee = () => {

@@ -80,7 +80,7 @@ const Header = () => {
             }).progress(1);
 
             ScrollTrigger.create({
-                start: "top top-=-80",
+                start: "top top",
                 end: 99999,
                 refreshPriority: -1, // Lower priority for this trigger
                 onUpdate: (self) => {
@@ -125,11 +125,13 @@ const Header = () => {
         },
     ];
 
+    const headerTopClass = showPromoBanner && !isScrolled ? "top-10" : "top-0";
+
     return (
         <>
             {/* Promotional Banner */}
             {showPromoBanner && !isScrolled && (
-                <div className="promo-banner bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm relative w-full tracking-widest">
+                <div className="promo-banner fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm tracking-widest">
                     <div className="max-w-7xl mx-auto flex justify-between items-center">
                         <div className="flex items-center space-x-4 min-w-0">
                             <div className="flex items-center space-x-1 flex-shrink-0">
@@ -164,7 +166,7 @@ const Header = () => {
             {/* Main Header */}
           <header
               ref={headerRef}
-              className="fixed w-full z-40 bg-transparent tracking-widest text-lg lg:block hidden"
+              className={`fixed ${headerTopClass} left-0 w-full z-40 bg-transparent tracking-widest text-lg lg:block hidden will-change-transform`}
           >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-20">
@@ -172,7 +174,7 @@ const Header = () => {
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
-                                    src="/BABU-White.png"
+                                    src="BABU-White.svg"
                                     alt={siteConfig.siteName}
                                     width={150}
                                     height={75}

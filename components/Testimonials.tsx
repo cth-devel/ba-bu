@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { Star } from "lucide-react";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
+import rawReviews from "@/reviews.json";
 
 const Testimonials = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -24,93 +22,27 @@ const Testimonials = () => {
         columnElement.style.animationPlayState = "running";
     };
 
-    // Extended testimonials with more realistic data
-    const reviews = [
-        {
-            name: "Priya Nair",
-            username: "@priya_nair",
-            body: "Amazing service! The staff is so professional and the ambiance is perfect. My bridal makeup was absolutely stunning!",
-            img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Rajesh Kumar",
-            username: "@rajesh_kumar",
-            body: "Best salon in North Paravur. Highly recommend their bridal packages! The team made my wife look like a princess.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Meera Joseph",
-            username: "@meera_joseph",
-            body: "Love the new look! Will definitely come back for more treatments. The facial was incredibly relaxing.",
-            img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Anjali Menon",
-            username: "@anjali_menon",
-            body: "The bridal package was absolutely perfect! The team made me feel like a princess on my special day.",
-            img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Suresh Nair",
-            username: "@suresh_nair",
-            body: "Great service for men's grooming. The staff is professional and the ambiance is very relaxing.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Lakshmi Pillai",
-            username: "@lakshmi_pillai",
-            body: "Amazing facial treatments! My skin has never looked better. The products they use are top quality.",
-            img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Vijay Thomas",
-            username: "@vijay_thomas",
-            body: "Excellent hair styling service! The stylist understood exactly what I wanted and delivered beyond expectations.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Divya Suresh",
-            username: "@divya_suresh",
-            body: "The spa treatment was heavenly! Very professional staff and clean environment. Highly recommended!",
-            img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Kavya Menon",
-            username: "@kavya_menon",
-            body: "The bridal makeup was beyond my expectations! The team made me feel like a queen on my special day.",
-            img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Arun Kumar",
-            username: "@arun_kumar",
-            body: "Best hair styling experience! The stylist was very professional and the results were amazing.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Sneha Pillai",
-            username: "@sneha_pillai",
-            body: "The facial treatment was incredible! My skin feels so refreshed and glowing. Will definitely return!",
-            img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Rahul Nair",
-            username: "@rahul_nair",
-            body: "Excellent men's grooming service! The staff is very professional and the environment is clean.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-    ];
+    interface RawReview {
+        review: string;
+        name: string;
+        profilePhoto: string | null;
+    }
+
+    type Testimonial = {
+        img: string;
+        name: string;
+        username?: string;
+        body: string;
+        rating: number;
+    };
+
+    const reviews: Testimonial[] = (rawReviews as RawReview[]).map((r) => ({
+        name: r.name,
+        username: undefined,
+        body: r.review,
+        img: r.profilePhoto || "/images/testimonials/avatar1.jpg",
+        rating: 5,
+    }));
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -147,13 +79,11 @@ const Testimonials = () => {
   const TestimonialCard = ({
     img,
     name,
-    username,
     body,
     rating,
   }: {
     img: string;
     name: string;
-    username: string;
     body: string;
     rating: number;
   }) => {
@@ -167,7 +97,7 @@ const Testimonials = () => {
                 <div className="relative z-10">
                     {/* Quote text */}
                     <p className="text-gray-300 leading-relaxed text-base mb-4">
-                        "{body}"
+                        {body}
                     </p>
 
           {/* Author section */}
@@ -182,11 +112,7 @@ const Testimonials = () => {
             </div>
             <div>
               <h4 className="font-semibold text-white">{name}</h4>
-              <p className="text-sm text-gray-400">
-                <a href="#bridal-services" className="underline decoration-amber-400/60 underline-offset-4 hover:text-white transition-colors" aria-label="Explore bridal makeup services in North Paravur">
-                  {username}
-                </a>
-              </p>
+
               <div className="flex mt-1">
                 {renderStars(rating)}
               </div>

@@ -23,154 +23,154 @@ export interface ServiceData {
 export const serviceImages = {
   cleanup: [
     {
-      src: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.jpg',
       alt: 'Professional facial cleanup treatment',
       title: 'Basic Cleanup'
     },
     {
-      src: '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.jpg',
       alt: 'Advanced facial cleanup with mask',
       title: 'Premium Cleanup'
     },
     {
-      src: '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
+      src: '/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.jpg',
       alt: 'Luxury facial cleanup treatment',
       title: 'Luxury Cleanup'
     },
     {
-      src: '/images/sofia-vila-flor-ebNYeZ8SR2o-unsplash.jpg',
+      src: '/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.jpg',
       alt: 'Complete facial cleanup package',
       title: 'Complete Package'
     }
   ],
   threading: [
     {
-      src: '/images/mitchell-orr-dcAw8Ms-teQ-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.jpg',
       alt: 'Precise eyebrow threading service',
       title: 'Eyebrow Threading'
     },
     {
-      src: '/images/quentin-mahe-mAW3jUP6G6E-unsplash.jpg',
+      src: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.jpg',
       alt: 'Upper lip threading treatment',
       title: 'Upper Lip Threading'
     },
     {
-      src: '/images/wali-38sbVK-LI1Q-unsplash.jpg',
+      src: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.jpg',
       alt: 'Full face threading service',
       title: 'Full Face Threading'
     },
     {
-      src: '/images/john-arano-CCTCHXEsan8-unsplash.jpg',
+      src: '/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.jpg',
       alt: 'Professional threading techniques',
       title: 'Professional Threading'
     }
   ],
   bleaching: [
     {
-      src: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+      src: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.jpg',
       alt: 'Gentle face bleaching treatment',
       title: 'Face Bleaching'
     },
     {
-      src: '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.jpg',
       alt: 'Full body bleaching service',
       title: 'Body Bleaching'
     },
     {
-      src: '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
+      src: '/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.jpg',
       alt: 'Premium bleaching treatment',
       title: 'Premium Bleaching'
     },
     {
-      src: '/images/sofia-vila-flor-ebNYeZ8SR2o-unsplash.jpg',
+      src: '/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.jpg',
       alt: 'Advanced bleaching techniques',
       title: 'Advanced Bleaching'
     }
   ],
   waxing: [
     {
-      src: '/images/mitchell-orr-dcAw8Ms-teQ-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.jpg',
       alt: 'Professional leg waxing service',
       title: 'Leg Waxing'
     },
     {
-      src: '/images/quentin-mahe-mAW3jUP6G6E-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.jpg',
       alt: 'Arm waxing treatment',
       title: 'Arm Waxing'
     },
     {
-      src: '/images/wali-38sbVK-LI1Q-unsplash.jpg',
+      src: '/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.jpg',
       alt: 'Bikini area waxing service',
       title: 'Bikini Waxing'
     },
     {
-      src: '/images/john-arano-CCTCHXEsan8-unsplash.jpg',
+      src: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.jpg',
       alt: 'Professional waxing techniques',
       title: 'Professional Waxing'
     }
   ],
   facials: [
     {
-      src: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+      src: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.jpg',
       alt: 'Classic facial treatment',
       title: 'Classic Facial'
     },
     {
-      src: '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.jpg',
       alt: 'Anti-aging facial treatment',
       title: 'Anti-Aging Facial'
     },
     {
-      src: '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
+      src: '/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.jpg',
       alt: 'Acne control facial treatment',
       title: 'Acne Control Facial'
     },
     {
-      src: '/images/sofia-vila-flor-ebNYeZ8SR2o-unsplash.jpg',
+      src: '/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.jpg',
       alt: 'Premium facial treatment',
       title: 'Premium Facial'
     }
   ],
   massages: [
     {
-      src: '/images/mitchell-orr-dcAw8Ms-teQ-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.jpg',
       alt: 'Swedish massage therapy',
       title: 'Swedish Massage'
     },
     {
-      src: '/images/quentin-mahe-mAW3jUP6G6E-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.jpg',
       alt: 'Deep tissue massage therapy',
       title: 'Deep Tissue Massage'
     },
     {
-      src: '/images/wali-38sbVK-LI1Q-unsplash.jpg',
+      src: '/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.jpg',
       alt: 'Hot stone massage therapy',
       title: 'Hot Stone Massage'
     },
     {
-      src: '/images/john-arano-CCTCHXEsan8-unsplash.jpg',
+      src: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.jpg',
       alt: 'Therapeutic massage treatment',
       title: 'Therapeutic Massage'
     }
   ],
   pedicure: [
     {
-      src: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.jpg',
       alt: 'Basic pedicure service',
       title: 'Basic Pedicure'
     },
     {
-      src: '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
+      src: '/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.jpg',
       alt: 'Luxury pedicure treatment',
       title: 'Luxury Pedicure'
     },
     {
-      src: '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
+      src: '/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.jpg',
       alt: 'Gel pedicure service',
       title: 'Gel Pedicure'
     },
     {
-      src: '/images/sofia-vila-flor-ebNYeZ8SR2o-unsplash.jpg',
+      src: '/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.jpg',
       alt: 'Premium nail care service',
       title: 'Premium Nail Care'
     }
@@ -183,7 +183,7 @@ export const serviceData = {
     id: 'cleanup',
     title: 'Cleanup & Detan',
     description: 'Professional facial cleanup and tan removal treatments for glowing, healthy skin.',
-    backgroundImage: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+    backgroundImage: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.jpg',
     galleryImages: serviceImages.cleanup,
     services: [
       {
@@ -210,7 +210,7 @@ export const serviceData = {
     id: 'threading',
     title: 'Threading Services',
     description: 'Precise hair removal using traditional threading techniques for clean, defined brows and smooth skin.',
-    backgroundImage: '/images/mitchell-orr-dcAw8Ms-teQ-unsplash.jpg',
+    backgroundImage: '/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.jpg',
     galleryImages: serviceImages.threading,
     services: [
       {
@@ -237,7 +237,7 @@ export const serviceData = {
     id: 'bleaching',
     title: 'Bleaching Services',
     description: 'Professional skin lightening treatments for a brighter, more even complexion.',
-    backgroundImage: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+    backgroundImage: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.jpg',
     galleryImages: serviceImages.bleaching,
     services: [
       {
@@ -264,7 +264,7 @@ export const serviceData = {
     id: 'waxing',
     title: 'Waxing Services',
     description: 'Professional hair removal services for smooth, hair-free skin using premium waxing techniques.',
-    backgroundImage: '/images/mitchell-orr-dcAw8Ms-teQ-unsplash.jpg',
+    backgroundImage: '/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.jpg',
     galleryImages: serviceImages.waxing,
     services: [
       {
@@ -291,7 +291,7 @@ export const serviceData = {
     id: 'facials',
     title: 'Facial Treatments',
     description: 'Rejuvenating facial treatments for all skin types and concerns with professional care.',
-    backgroundImage: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+    backgroundImage: '/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.jpg',
     galleryImages: serviceImages.facials,
     services: [
       {

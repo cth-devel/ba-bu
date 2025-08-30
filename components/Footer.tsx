@@ -8,10 +8,10 @@ import { siteConfig } from "@/config/site";
 
 const Footer = () => {
     return (
-        <footer className="bg-babu-primary text-whit min-h-screen">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <footer className="bg-babu-primary text-whit min-h-screen flex flex-col items-center justify-center">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
                 {/* Logo */}
-                <div className="flex w-full items-center justify-center">
+                <div className="flex w-full items-center justify-center mb-24">
                     <Image
                         src="/BABU-White.svg"
                         alt={siteConfig.siteName}
@@ -22,16 +22,16 @@ const Footer = () => {
                 </div>
 
                 {/* Headline */}
-                <div className="text-center">
-                    <h2 className="text-3xl sm:text-4xl lg:text-8xl font-[900] tracking-widest uppercase -translate-y-24 flex flex-col items-center justify-center">
-                        <span className="text-white">Step In Beautiful</span>
+                <div className="text-center mb-24">
+                    <h2 className="text-3xl sm:text-4xl lg:text-8xl font-[900] tracking-widest uppercase flex flex-col items-center justify-center">
+                        <span className="text-white text-2xl sm:text-3xl lg:text-7xl font-[900]">Step In Beautiful</span>
                         <span className="text-white text-center">
-                            Step  Out
-                              <RotatingWord
-                                 words={["Radiant", "Elegant"]}
-                                 intervalMs={2200}
-                                 className="text-white inline-block ml-8"
-                             />
+                            Step Out
+                            <RotatingWord
+                                words={["Radiant", "Elegant"]}
+                                intervalMs={2200}
+                                className="text-white inline-block ml-8"
+                            />
                         </span>
                     </h2>
                 </div>
@@ -43,7 +43,7 @@ const Footer = () => {
                             {siteConfig.siteName}
                         </p>
                         <p className="text-white/80">
-                            {siteConfig.contact.address}
+                            Mathilmoola | Mannam | Andipillikkav
                         </p>
                     </div>
                     <div>
@@ -57,21 +57,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* CTA */}
-                <div className="flex items-center justify-center">
-                    <Link
-                        href={siteConfig.contact.whatsapp}
-                        className="rounded-md bg-babu-accent-2 px-6 py-2 text-sm font-semibold uppercase tracking-wide text-black transition hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-babu-accent-2/60"
-                        aria-label="Book Now on WhatsApp"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Book Now
-                    </Link>
-                </div>
-
                 {/* Social icons */}
-                <div className="mt-8 flex items-center justify-center gap-6">
+                <div className="mt-24 flex items-center justify-center gap-6">
                     <Link
                         href={siteConfig.social.instagram}
                         aria-label="Instagram"
