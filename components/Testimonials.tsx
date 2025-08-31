@@ -40,7 +40,7 @@ const Testimonials = () => {
         name: r.name,
         username: undefined,
         body: r.review,
-        img: r.profilePhoto || "/images/testimonials/avatar1.jpg",
+        img: r.profilePhoto || "/images/testimonials/avatar1.webp",
         rating: 5,
     }));
 

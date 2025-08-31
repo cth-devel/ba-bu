@@ -16,7 +16,7 @@ const WorksPage = () => {
         <ServicesLoadingWrapper minLoadingTime={2000}>
           <WorksContainer
             weddingsBackgroundImage="/images/weddings/gallery/wedding-09.webp"
-            hairCareBackgroundImage="/images/hair-care/styling/style-13.jpg"
+            hairCareBackgroundImage="/images/hair-care/styling/style-13.webp"
           />
         </ServicesLoadingWrapper>
       </div>

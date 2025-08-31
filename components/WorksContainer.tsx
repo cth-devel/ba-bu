@@ -16,12 +16,12 @@ const WorksContainer = ({ className, weddingsBackgroundImage, hairCareBackground
 
     // Section-specific galleries
     const weddingsGalleryImages = [
-        { src: "/images/weddings/gallery/wedding-01.jpg", alt: "Wedding gallery image 1" },
-        { src: "/images/weddings/gallery/wedding-02.jpg", alt: "Wedding gallery image 2" },
-        { src: "/images/weddings/gallery/wedding-03.jpg", alt: "Wedding gallery image 3" },
-        { src: "/images/weddings/gallery/wedding-04.jpg", alt: "Wedding gallery image 4" },
-        { src: "/images/weddings/gallery/wedding-05.jpg", alt: "Wedding gallery image 5" },
-        { src: "/images/weddings/gallery/wedding-08.jpg", alt: "Wedding gallery image 8" },
+        { src: "/images/weddings/gallery/wedding-01.webp", alt: "Wedding gallery image 1" },
+        { src: "/images/weddings/gallery/wedding-02.webp", alt: "Wedding gallery image 2" },
+        { src: "/images/weddings/gallery/wedding-03.webp", alt: "Wedding gallery image 3" },
+        { src: "/images/weddings/gallery/wedding-04.webp", alt: "Wedding gallery image 4" },
+        { src: "/images/weddings/gallery/wedding-05.webp", alt: "Wedding gallery image 5" },
+        { src: "/images/weddings/gallery/wedding-08.webp", alt: "Wedding gallery image 8" },
         { src: "/images/weddings/gallery/wedding-09.webp", alt: "Wedding gallery image 9" },
         { src: "/images/weddings/gallery/wedding-10.webp", alt: "Wedding gallery image 10" },
         { src: "/images/weddings/gallery/wedding-11.webp", alt: "Wedding gallery image 11" },
@@ -35,24 +35,24 @@ const WorksContainer = ({ className, weddingsBackgroundImage, hairCareBackground
     ];
 
     const hairCareGalleryImages = [
-        { src: "/images/hair-care/styling/style-01.jpg", alt: "Hair styling image 1" },
-        { src: "/images/hair-care/styling/style-02.jpg", alt: "Hair styling image 2" },
-        { src: "/images/hair-care/styling/style-03.jpg", alt: "Hair styling image 3" },
+        { src: "/images/hair-care/styling/style-01.webp", alt: "Hair styling image 1" },
+        { src: "/images/hair-care/styling/style-02.webp", alt: "Hair styling image 2" },
+        { src: "/images/hair-care/styling/style-03.webp", alt: "Hair styling image 3" },
         { src: "/images/hair-care/styling/style-04.avif", alt: "Hair styling image 4" },
-        { src: "/images/hair-care/styling/style-05.jpg", alt: "Hair styling image 5" },
-        { src: "/images/hair-care/styling/style-06.jpg", alt: "Hair styling image 6" },
+        { src: "/images/hair-care/styling/style-05.webp", alt: "Hair styling image 5" },
+        { src: "/images/hair-care/styling/style-06.webp", alt: "Hair styling image 6" },
         { src: "/images/hair-care/styling/style-07.webp", alt: "Hair styling image 7" },
-        { src: "/images/hair-care/styling/style-08.jpg", alt: "Hair styling image 8" },
+        { src: "/images/hair-care/styling/style-08.webp", alt: "Hair styling image 8" },
         { src: "/images/hair-care/styling/style-09.webp", alt: "Hair styling image 9" },
         { src: "/images/hair-care/styling/style-10.webp", alt: "Hair styling image 10" },
         { src: "/images/hair-care/styling/style-11.webp", alt: "Hair styling image 11" },
         { src: "/images/hair-care/styling/style-12.webp", alt: "Hair styling image 12" },
-        { src: "/images/hair-care/styling/style-13.jpg", alt: "Hair styling image 13" },
+        { src: "/images/hair-care/styling/style-13.webp", alt: "Hair styling image 13" },
         { src: "/images/hair-care/styling/style-14.webp", alt: "Hair styling image 14" },
-        { src: "/images/hair-care/coloring/color-01.jpg", alt: "Hair coloring image 1" },
-        { src: "/images/hair-care/coloring/color-02.jpg", alt: "Hair coloring image 2" },
-        { src: "/images/hair-care/coloring/color-03.jpg", alt: "Hair coloring image 3" },
-        { src: "/images/hair-care/coloring/color-04.jpg", alt: "Hair coloring image 4" },
+        { src: "/images/hair-care/coloring/color-01.webp", alt: "Hair coloring image 1" },
+        { src: "/images/hair-care/coloring/color-02.webp", alt: "Hair coloring image 2" },
+        { src: "/images/hair-care/coloring/color-03.webp", alt: "Hair coloring image 3" },
+        { src: "/images/hair-care/coloring/color-04.webp", alt: "Hair coloring image 4" },
     ];
 
     const worksSections = [
@@ -61,7 +61,7 @@ const WorksContainer = ({ className, weddingsBackgroundImage, hairCareBackground
             title: 'Weddings',
             subtitle: 'Complete Wedding Makeover Packages',
             description: 'Professional bridal makeup, hair styling, and groom grooming services for your special day.',
-            backgroundImage: weddingsBackgroundImage || '/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg',
+            backgroundImage: weddingsBackgroundImage || '/images/jonathan-borba-qJ2mhxmateo-unsplash.webp',
             features: ['Bridal Makeup', 'Hair Styling', 'Groom Grooming', 'Pre-wedding Care']
         },
         {
@@ -69,7 +69,7 @@ const WorksContainer = ({ className, weddingsBackgroundImage, hairCareBackground
             title: 'Hair Care',
             subtitle: 'Professional Hair Services',
             description: 'From basic cuts to advanced styling, we care for all hair types and textures.',
-            backgroundImage: hairCareBackgroundImage || '/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg',
+            backgroundImage: hairCareBackgroundImage || '/images/engin-akyurt-35NAaB_Nmx8-unsplash.webp',
             features: ['Hair Cutting', 'Styling', 'Coloring', 'Treatments']
         },
         {
@@ -77,7 +77,7 @@ const WorksContainer = ({ className, weddingsBackgroundImage, hairCareBackground
             title: 'Skin & Body Care',
             subtitle: 'Rejuvenating Treatments & Wellness',
             description: 'Professional skincare for all skin types and concerns.',
-            backgroundImage: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg',
+            backgroundImage: '/images/baylee-gramling-a3xr2mVjT5M-unsplash.webp',
             features: ['Facial Treatments', 'Spa Services', 'Body Care', 'Wellness']
         }
     ];

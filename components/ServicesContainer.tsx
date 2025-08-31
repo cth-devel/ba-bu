@@ -67,7 +67,7 @@ const ServicesContainer = ({ className, serviceSectionsOverride }: ServicesConta
         {
             id: "weddings",
             title: "Wedding Services",
-            backgroundImage: "/images/weddings/gallery/wedding-08.jpg",
+            backgroundImage: "/images/weddings/gallery/wedding-08.webp",
         },
         {
             id: "hair-care",
@@ -77,7 +77,7 @@ const ServicesContainer = ({ className, serviceSectionsOverride }: ServicesConta
         {
             id: "skin-body-care",
             title: "Skin & Body Care",
-            backgroundImage: "/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg",
+            backgroundImage: "/images/baylee-gramling-a3xr2mVjT5M-unsplash.webp",
         },
     ];
 

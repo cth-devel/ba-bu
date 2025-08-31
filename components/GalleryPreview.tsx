@@ -18,13 +18,13 @@ const images = [
     rotate: -10,
   },
   {
-    src: "/images/ba-bu-family-salon-ernakulam-salons-hdt7xnk5d1.jpg",
+    src: "/images/ba-bu-family-salon-ernakulam-salons-hdt7xnk5d1.webp",
     alt: "The modern and clean interior of the salon.",
     className: "absolute bottom-0 right-0 w-2/3 h-full rounded-lg shadow-2xl",
     rotate: 8,
   },
   {
-    src: "/images/ba-bu-family-salon-ernakulam-jq0ppxb1ra.avif",
+    src: "/images/ba-bu-family-salon-ernakulam-jq0ppxb1ra.webp",
     alt: "A client receiving a professional hair treatment.",
     className: "absolute top-10 left-1/2 lg:top-20 lg:-left-1/3 w-2/5 h-full rounded-lg shadow-2xl",
     rotate: 4,

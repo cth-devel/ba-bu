@@ -10,7 +10,7 @@ import ServicesContainer from "@/components/ServicesContainer";
 const HairCareServicePage = () => {
   const hairCutImages = [
     {
-      src: '/images/hair-care/styling/style-01.jpg',
+      src: '/images/hair-care/styling/style-01.webp',
       alt: 'Professional haircut and styling',
       title: 'Basic Haircut'
     },
@@ -20,7 +20,7 @@ const HairCareServicePage = () => {
       title: 'Stylish Cut'
     },
     {
-      src: '/images/hair-care/styling/style-07.jpg',
+      src: '/images/hair-care/styling/style-07.webp',
       alt: 'Premium hair cutting service',
       title: 'Premium Cut'
     },
@@ -33,22 +33,22 @@ const HairCareServicePage = () => {
 
   const hairColorImages = [
     {
-      src: '/images/hair-care/coloring/color-01.jpg',
+      src: '/images/hair-care/coloring/color-01.webp',
       alt: 'Professional hair coloring service',
       title: 'Single Color'
     },
     {
-      src: '/images/hair-care/coloring/color-02.jpg',
+      src: '/images/hair-care/coloring/color-02.webp',
       alt: 'Beautiful hair highlights',
       title: 'Highlights'
     },
     {
-      src: '/images/hair-care/coloring/color-03.jpg',
+      src: '/images/hair-care/coloring/color-03.webp',
       alt: 'Hand-painted balayage highlights',
       title: 'Balayage'
     },
     {
-      src: '/images/hair-care/coloring/color-04.jpg',
+      src: '/images/hair-care/coloring/color-04.webp',
       alt: 'Professional color correction',
       title: 'Color Correction'
     }
@@ -195,12 +195,12 @@ const HairCareServicePage = () => {
           {
             id: "weddings",
             title: "Wedding Services",
-            backgroundImage: "/images/weddings/gallery/wedding-08.jpg",
+            backgroundImage: "/images/weddings/gallery/wedding-08.webp",
           },
           {
             id: "skin-body-care",
             title: "Skin & Body Care",
-            backgroundImage: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg",
+            backgroundImage: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.webp",
           },
         ]}
       />

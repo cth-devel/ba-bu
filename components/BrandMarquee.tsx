@@ -6,13 +6,15 @@ import LogoLoop from "@/components/LogoLoop";
 import ShinyText from "./ShinyText";
 
 const brands = [
-    { src: "/images/brands/img1.png", alt: "Brand logo 1" },
-    { src: "/images/brands/img2.png", alt: "Brand logo 2" },
-    { src: "/images/brands/img3.png", alt: "Brand logo 3" },
-    { src: "/images/brands/img4.png", alt: "Brand logo 4" },
-    { src: "/images/brands/img5.png", alt: "Brand logo 5" },
+    { src: "/images/brands/img1.webp", alt: "Brand logo 1" },
+    { src: "/images/brands/img2.webp", alt: "Brand logo 2" },
+    { src: "/images/brands/img3.webp", alt: "Brand logo 3" },
+    { src: "/images/brands/img4.webp", alt: "Brand logo 4" },
+    { src: "/images/brands/img5.webp", alt: "Brand logo 5" },
     { src: "/images/brands/img6.png", alt: "Brand logo 6" },
     { src: "/images/brands/img7.png", alt: "Brand logo 7" },
+    { src: "/images/brands/img8.webp", alt: "Brand logo 8" },
+    { src: "/images/brands/img9.png", alt: "Brand logo 9" },
 ];
 
 const BrandMarquee = () => {
@@ -38,7 +40,7 @@ const BrandMarquee = () => {
                 <div className="relative w-full flex flex-col items-center justify-center gap-32">
                     <LogoLoop
                         logos={brands}
-                        speed={60}
+                        speed={40}
                         direction="right"
                         logoHeight={80}
                         gap={100}
@@ -49,7 +51,7 @@ const BrandMarquee = () => {
                     />
                     <LogoLoop
                         logos={brands}
-                        speed={60}
+                        speed={40}
                         direction="left"
                         logoHeight={80}
                         gap={100}

@@ -17,18 +17,18 @@ const Header = () => {
     const [showPromoBanner, setShowPromoBanner] = useState(true);
     const [currentAddressIndex, setCurrentAddressIndex] = useState(0);
     const pathname = usePathname();
-    
+
     const addresses = [
         'Andipillikkav, Kerala',
-        'Mannam, Kerala', 
+        'Mannam, Kerala',
         'Mathilmoola, Kerala'
     ];
-    
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentAddressIndex((prevIndex) => (prevIndex + 1) % addresses.length);
         }, 2000);
-        
+
         return () => clearInterval(interval);
     }, []);
 
@@ -189,7 +189,7 @@ const Header = () => {
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
-                                    src="BABU-White.svg"
+                                    src="/BABU-White.svg"
                                     alt={siteConfig.siteName}
                                     width={150}
                                     height={75}

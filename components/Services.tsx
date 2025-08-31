@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,22 +20,25 @@ const Services = () => {
             id: 1,
             name: "Bridal & Groom Packages",
             description: "Complete wedding makeover packages for brides and grooms. Professional bridal makeup, hair styling, and groom grooming services for your special day.",
-            src: "/images/jonathan-borba-qJ2mhxmateo-unsplash.jpg",
-            features: ["Bridal Makeup", "Hair Styling", "Groom Grooming", "Pre-wedding Care"]
+            src: "/images/weddings/gallery/wedding-08.webp",
+            features: ["Bridal Makeup", "Hair Styling", "Groom Grooming", "Pre-wedding Care"],
+            page:"/services/weddings"
         },
         {
             id: 2,
             name: "Hair Care",
             description: "Professional hair cutting, styling, coloring, and treatments. From basic cuts to advanced styling, we care for all hair types and textures.",
-            src: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg",
-            features: ["Hair Cutting", "Styling", "Coloring", "Treatments"]
+            src: "/images/hair-care/styling/style-04.avif",
+            features: ["Hair Cutting", "Styling", "Coloring", "Treatments"],
+            page:"/services/hair-care"
         },
         {
             id: 3,
             name: "Skin & Body Care",
             description: "Rejuvenating facial treatments, spa services, and body care treatments. Professional skincare for all skin types and concerns.",
-            src: "/images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg",
-            features: ["Facial Treatments", "Spa Services", "Body Care", "Wellness"]
+            src: "/images/baylee-gramling-a3xr2mVjT5M-unsplash.webp",
+            features: ["Facial Treatments", "Spa Services", "Body Care", "Wellness"],
+            page:"/services/skin-body-care"
         }
     ];
 
@@ -173,13 +177,14 @@ const Services = () => {
                                     ))}
                                 </div>
 
-                                <button
-                                    aria-label={`Learn more about ${service.name}`}
-                                    className="text-lg border-b-2 border-secondary text-secondary hover:bg-secondary hover:text-black transition-all duration-300 px-8 py-3 tracking-wider font-semibold"
+                                <Link
+                                    href={service.page}
+                                    aria-label={`Go to services page from ${service.name}`}
+                                    className="inline-block text-lg border-b-2 border-secondary text-secondary hover:bg-secondary hover:text-black transition-all duration-300 px-8 py-3 tracking-wider font-semibold"
                                 >
                                     Know More{" "}
                                     <ArrowRight className="inline-block ml-2" />
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     ))}
@@ -215,6 +220,11 @@ const Services = () => {
                                 alt={service.name}
                                 fill
                                 className="object-cover"
+                            />
+                            <Link
+                                href="/services"
+                                aria-label={`Go to services page from ${service.name}`}
+                                className="absolute inset-0 z-10"
                             />
                             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-6">
                                 <div className="w-full">
