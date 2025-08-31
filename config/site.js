@@ -4,8 +4,8 @@
 export const siteConfig = {
   // Basic Site Info
   siteName: "BA-BU Family Salon",
-  tagline: "Get your Glow Up",
-  description: "Premium family salon services in North Paravur, Kerala",
+  tagline: "One Salon\nEvery Style All Ages",
+  description: "Family Friendly Salon, Professional Touch",
   
   // Contact Information
   contact: {

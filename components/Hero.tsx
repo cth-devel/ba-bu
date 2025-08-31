@@ -146,17 +146,25 @@ const Hero = () => {
               <div className="text-center w-full h-full">
                   {/* Main Tagline */}
                   <h1 className="hero-title text-5xl sm:text-6xl lg:text-9xl font-md mb-6 text-primary-gradient tracking-wider">
-                      <ShinyText
-                          text={siteConfig.tagline}
-                          disabled={false}
-                          speed={3}
-                          className="text-5xl sm:text-6xl lg:text-9xl font-md px-4 py-2 text-primary-gradient"
-                      />
+                      <div className="flex flex-col items-center">
+                          <ShinyText
+                              text="One Salon"
+                              disabled={false}
+                              speed={3}
+                              className="text-5xl sm:text-6xl lg:text-9xl font-md px-4 py-2 text-primary-gradient"
+                          />
+                          <ShinyText
+                              text="Every Style All Ages"
+                              disabled={false}
+                              speed={3}
+                              className="text-5xl sm:text-6xl lg:text-9xl font-md px-4 py-2 text-primary-gradient"
+                          />
+                      </div>
                   </h1>
 
                   {/* Subtitle */}
                   <h3 className="hero-subtitle text-xl sm:text-4xl mb-4 text-white">
-                      Premium Family Salon Experience
+                      {siteConfig.description}
                   </h3>
 
                   {/* Location */}
