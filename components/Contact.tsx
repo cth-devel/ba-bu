@@ -6,16 +6,14 @@ import { siteConfig } from '@/config/site';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [activeLocation, setActiveLocation] = useState('andipillikkav');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-
-  const salonBranches = {
+  type BranchKey = 'andipillikkav' | 'mannam' | 'mathilmoola';
+  const salonBranches: Record<BranchKey, {
+    name: string;
+    address: string;
+    phone: string;
+    email: string;
+    workingHours: string;
+  }> = {
     andipillikkav: {
       name: 'BA-BU GENTS MAKEOVER',
       address: 'BA-BU GENTS MAKEOVER , Andipillikkav, opposite to HDPY English Medium Public School,\nErnakulam, Kerala, 683516',
@@ -38,6 +36,14 @@ const Contact = () => {
       workingHours: '8:30 AM to 8:30 PM'
     }
   };
+  const [activeLocation, setActiveLocation] = useState<BranchKey>('andipillikkav');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
