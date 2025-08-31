@@ -355,22 +355,32 @@ Message: ${formData.message}`;
                   BA-BU FAMILY SALON Mannam
                 </button>
                 <button
-                  onClick={() => setActiveLocation('north-paravur')}
+                  onClick={() => setActiveLocation('andipillikkav')}
                   className={`px-6 py-2 rounded-md transition-all duration-300 ${
-                    activeLocation === 'north-paravur'
+                    activeLocation === 'andipillikkav'
                       ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
                       : 'text-white/70 hover:text-white tracking-wider'
                   }`}
                 >
-                  BA-BU FAMILY SALON North Paravur
+                  BA-BU FAMILY SALON Andipillikkav
+                </button>
+                <button
+                  onClick={() => setActiveLocation('mathilmoola')}
+                  className={`px-6 py-2 rounded-md transition-all duration-300 ${
+                    activeLocation === 'mathilmoola'
+                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
+                      : 'text-white/70 hover:text-white tracking-wider'
+                  }`}
+                >
+                  BA-BU FAMILY SALON, Mathilmoola
                 </button>
               </div>
             </div>
 
-            <div className="relative aspect-[23/9] rounded-lg overflow-hidden h-screen">
+            <div className="relative w-full rounded-lg overflow-hidden h-[28rem]">
               {activeLocation === 'mannam' ? (
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d251354.21895944458!2d76.2483281!3d10.1473162!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081ba5e09b9cad%3A0x363ca14465d8a7c!2sBA-BU%20FAMILY%20SALON!5e0!3m2!1sen!2sin!4v1754569333582!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15709.638684965286!2d76.2483281!3d10.1473162!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081ba5e09b9cad%3A0x363ca14465d8a7c!2sBA-BU%20FAMILY%20SALON!5e0!3m2!1sen!2sin!4v1754569333582!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -379,16 +389,27 @@ Message: ${formData.message}`;
                   referrerPolicy="no-referrer-when-downgrade"
                   title="BA-BU Family Salon Mannam Location"
                 />
-              ) : (
+              ) : activeLocation === 'mathilmoola' ? (
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251329.66195468896!2d76.2107498!3d10.1785445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081b9c3b0185d9%3A0x4483676b8b757840!2sBA-BU!5e0!3m2!1sen!2sin!4v1754570099787!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31405.570694735976!2d76.1686472119335!3d10.286032900000011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081f1044192541%3A0xa84e6cc5efe4e4fe!2sBA-BU%20Family%20Salon!5e0!3m2!1sen!2sin!4v1756629192930!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="BA-BU Family Salon North Paravur Location"
+                  title="BA-BU Family Salon Mathilmoola Location"
+                />
+              ) : (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10053.186638643878!2d76.2107498!3d10.1785445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081b9c3b0185d9%3A0x4483676b8b757840!2sBA-BU!5e0!3m2!1sen!2sin!4v1754570099787!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="BA-BU Family Salon Andipillikkav Location"
                 />
               )}
               <div aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-b from-black/40 via-transparent to-black/70" />
@@ -397,6 +418,10 @@ Message: ${formData.message}`;
               <a
                 href={activeLocation === 'mannam'
                   ? "https://maps.google.com/?q=BA-BU+FAMILY+SALON+Mannam"
+                  : activeLocation === 'mathilmoola'
+                  ? "https://maps.google.com/?q=BA-BU+Family+Salon+Mathilmoola"
+                  : activeLocation === 'andipillikkav'
+                  ? "https://maps.google.com/?q=BA-BU+GENTS+MAKEOVER+Andipillikkav"
                   : "https://maps.google.com/?q=BA-BU+North+Paravur"
                 }
                 target="_blank"
