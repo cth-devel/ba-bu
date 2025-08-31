@@ -4,7 +4,7 @@
 export const siteConfig = {
   // Basic Site Info
   siteName: "BA-BU Family Salon",
-  tagline: "One Salon\nEvery Style All Ages",
+  tagline: "One Salon\nEvery Style, All Ages",
   description: "Family Friendly Salon, Professional Touch",
 
   // Contact Information

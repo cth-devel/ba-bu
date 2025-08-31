@@ -24,7 +24,7 @@ const images = [
     rotate: 8,
   },
   {
-    src: "/images/ba-bu-family-salon-ernakulam-jq0ppxb1ra.webp",
+    src: "/images/ba-bu-family-salon-ernakulam-jq0ppxb1ra.avif",
     alt: "A client receiving a professional hair treatment.",
     className: "absolute top-10 left-1/2 lg:top-20 lg:-left-1/3 w-2/5 h-full rounded-lg shadow-2xl",
     rotate: 4,
