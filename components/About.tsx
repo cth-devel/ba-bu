@@ -217,20 +217,42 @@ const About = () => {
                         <div className="w-24 h-1 bg-gold mb-6"></div>
 
                         <p className="text-lg text-gray-300 mb-6 leading-relaxed tracking-widest">
-                            Welcome to BA-BU Family Salon, where luxury meets
-                            expertise in the heart of North Paravur. For over 15
-                            years, we have been the premier destination for
-                            families seeking exceptional beauty and grooming
-                            services.
+                        Welcome to BA-BU Family Salon—the leading family and beauty salon in North Paravur
+                        (including Andipillikkav and Mannam) and Mathilmoola, Thrissur, Kerala. For over 5 years,
+                        we have been the premier destination for families seeking exceptional haircuts, grooming,
+                        facials, and beauty treatments at an affordable price in Kerala. Our experienced team provides 
+                        personalized care and uses the finest products and latest techniques for every service,
+                        whether it’s a fresh haircut, relaxing facial, or bridal beauty package. Enjoy a luxurious,
+                        family-friendly atmosphere and professional results every time. Visit our conveniently located 
+                        salons in North Paravur and Mathilmoola, Thrissur, and let BA-BU Family Salon help you look and 
+                        feel your best in Kerala.
                         </p>
 
-                        <p className="text-lg text-gray-300 mb-8 leading-relaxed tracking-widest">
-                            Our team of skilled professionals is dedicated to
-                            providing personalized care using the finest
-                            products and latest techniques. We ensure every
-                            visit is a luxurious experience that leaves you
-                            feeling confident and beautiful.
-                        </p>
+                        {/* Read More Button */}
+                        <div className="mb-8">
+                            <a
+                                href="/aboutus"
+                                className="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black font-semibold rounded-full shadow-md hover:shadow-xl transition-all duration-500 hover:scale-110 transform hover:-translate-y-2 border-2 border-yellow-300/30 hover:border-yellow-200/50"
+                                aria-label="Read more about BA-BU Family Salon"
+                                tabIndex={0}
+                                onKeyDown={(e) => e.key === 'Enter' && (window.location.href = '/aboutus')}
+                            >
+                                <span className="mr-3 text-lg font-medium text-black drop-shadow-sm tracking-widest">Read More</span>
+                                <svg 
+                                    className="w-4 h-4 transition-all duration-500 group-hover:translate-x-2 group-hover:scale-110" 
+                                    fill="none" 
+                                    stroke="currentColor" 
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round" 
+                                        strokeWidth={2.5} 
+                                        d="M13 7l5 5m0 0l-5 5m5-5H6" 
+                                    />
+                                </svg>
+                            </a>
+                        </div>
 
                         {/* Stats Section */}
                         <div
