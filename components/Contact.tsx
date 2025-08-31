@@ -6,7 +6,7 @@ import { siteConfig } from '@/config/site';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [activeLocation, setActiveLocation] = useState('mannam');
+  const [activeLocation, setActiveLocation] = useState('andipillikkav');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,6 +14,30 @@ const Contact = () => {
     service: '',
     message: ''
   });
+
+  const salonBranches = {
+    andipillikkav: {
+      name: 'BA-BU GENTS MAKEOVER',
+      address: 'BA-BU GENTS MAKEOVER , Andipillikkav, opposite to HDPY English Medium Public School,\nErnakulam, Kerala, 683516',
+      phone: '9846272333, 9544546547',
+      email: 'babusalon589@gmail.com',
+      workingHours: '8:30 AM to 8:30 PM (Tuesdays 3:00 PM to 8:30)'
+    },
+    mannam: {
+      name: 'BA-BU FAMILY SALON',
+      address: 'KRM building, Ground floor, Vedimara-Mannam road, opposite to Bangalore Juicy & Foods, Ernakulam, Kerala 683520',
+      phone: '9846272333',
+      email: 'babusalon589@gmail.com',
+      workingHours: '9:00 AM to 9:00 PM'
+    },
+    mathilmoola: {
+      name: 'BA-BU FAMILY SALON',
+      address: 'BA-BU FAMILY SALON, Mathilmoola, Junction, Pappinivattom,\nThrissur, Kerala 680685',
+      phone: '9846272333, 7558809270',
+      email: 'babusalon589@gmail.com',
+      workingHours: '8:30 AM to 8:30 PM'
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,6 +55,19 @@ const Contact = () => {
     elements?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
+  }, []);
+
+  // Auto-rotate branch selection every 2.5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveLocation((prevLocation) => {
+        if (prevLocation === 'andipillikkav') return 'mannam';
+        if (prevLocation === 'mannam') return 'mathilmoola';
+        return 'andipillikkav';
+      });
+    }, 2500);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -75,16 +112,58 @@ Message: ${formData.message}`;
           <div className="fade-in-section">
             <h3 className="text-2xl font-serif font-bold text-babu-primary mb-8">Get In Touch</h3>
 
+            {/* Branch Switches */}
+            <div className="flex justify-center mb-8">
+              <div className="flex bg-white/10 rounded-lg p-2">
+                <button
+                  onClick={() => setActiveLocation('andipillikkav')}
+                  className={`px-6 py-3 rounded-md transition-all duration-300 text-lg font-semibold tracking-wide font-mono ${
+                    activeLocation === 'andipillikkav'
+                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
+                      : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  Andipillikkav
+                </button>
+                <button
+                  onClick={() => setActiveLocation('mannam')}
+                  className={`px-6 py-3 rounded-md transition-all duration-300 text-lg font-semibold tracking-wide font-mono ${
+                    activeLocation === 'mannam'
+                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
+                      : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  Mannam
+                </button>
+                <button
+                  onClick={() => setActiveLocation('mathilmoola')}
+                  className={`px-6 py-3 rounded-md transition-all duration-300 text-lg font-semibold tracking-wide font-mono ${
+                    activeLocation === 'mathilmoola'
+                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
+                      : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  Mathilmoola
+                </button>
+              </div>
+            </div>
+
             <div className="space-y-6">
               {/* Address */}
               <div className="flex items-start space-x-4">
                 <div className="bg-babu-teal text-white p-3 rounded-full">
                   <MapPin className="w-6 h-6" />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-babu-primary mb-1">Address</h4>
-                  <p className="text-gray-600">{siteConfig.contact.address}</p>
-                </div>
+                                  <div>
+                    <h4 className="text-lg font-semibold text-babu-primary mb-1">Address</h4>
+                    <div className="text-gray-300">
+                      {salonBranches[activeLocation].address.split('\n').map((line, index) => (
+                        <p key={index} className={index > 0 ? 'mt-1' : ''}>
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
               </div>
 
               {/* Phone */}
@@ -93,12 +172,12 @@ Message: ${formData.message}`;
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-babu-primary mb-1">Phone</h4>
+                  <h4 className="text-lg font-semibold text-babu-primary mb-1">Phone</h4>
                   <a
-                    href={`tel:${siteConfig.contact.phone}`}
-                    className="text-gray-600 hover:text-babu-teal transition-colors"
+                    href={`tel:${salonBranches[activeLocation].phone.split(',')[0]}`}
+                    className="text-lg text-gray-300 hover:text-babu-teal transition-colors tracking-wide"
                   >
-                    {siteConfig.contact.phone}
+                    {salonBranches[activeLocation].phone}
                   </a>
                 </div>
               </div>
@@ -109,12 +188,12 @@ Message: ${formData.message}`;
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-babu-primary mb-1">Email</h4>
+                  <h4 className="text-lg font-semibold text-babu-primary mb-1">Email</h4>
                   <a
-                    href={`mailto:${siteConfig.contact.email}`}
-                    className="text-gray-600 hover:text-babu-teal transition-colors"
+                    href={`mailto:${salonBranches[activeLocation].email}`}
+                    className="text-gray-300 hover:text-babu-teal transition-colors"
                   >
-                    {siteConfig.contact.email}
+                    {salonBranches[activeLocation].email}
                   </a>
                 </div>
               </div>
@@ -125,10 +204,9 @@ Message: ${formData.message}`;
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-babu-primary mb-1">Working Hours</h4>
-                  <div className="text-gray-600">
-                    <p>Weekdays: {siteConfig.contact.workingHours.weekdays}</p>
-                    <p>Sunday: {siteConfig.contact.workingHours.sunday}</p>
+                  <h4 className="text-lg font-semibold text-babu-primary mb-1">Working Hours</h4>
+                  <div className="text-gray-300">
+                    <p>{salonBranches[activeLocation].workingHours}</p>
                   </div>
                 </div>
               </div>
@@ -137,17 +215,17 @@ Message: ${formData.message}`;
             {/* Quick Actions */}
             <div className="mt-8 space-y-4">
               <a
-                href={siteConfig.contact.whatsapp}
+                href={`https://wa.me/${salonBranches[activeLocation].phone.split(',')[0].replace(/\s/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Book salon appointment on WhatsApp in North Paravur"
+                aria-label={`Book salon appointment on WhatsApp at ${salonBranches[activeLocation].name}`}
                 className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-white px-6 py-3 rounded-full transition-all duration-300 w-full hover:scale-105 tracking-wider"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>WhatsApp</span>
               </a>
               <a
-                href={`tel:${siteConfig.contact.phone}`}
+                href={`tel:${salonBranches[activeLocation].phone.split(',')[0]}`}
                 className="flex items-center justify-center space-x-2 bg-babu-teal hover:bg-babu-teal-dark text-white px-6 py-3 rounded-full font-semibold transition-colors w-full"
               >
                 <Phone className="w-5 h-5" />
