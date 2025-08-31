@@ -88,20 +88,22 @@ const Testimonials = () => {
     rating: number;
   }) => {
     return (
-              <div className="relative p-6 rounded-2xl border transition-all duration-700 ease-out hover:scale-105 hover:shadow-2xl hover:border-amber-400/70 bg-gray-900/50 backdrop-blur-sm border-gray-700/50 group">
+              <div className="relative p-6 rounded-2xl border transition-all duration-700 ease-out hover:scale-105 hover:shadow-2xl hover:border-amber-400/70 bg-gray-900/50 backdrop-blur-sm border-gray-700/50 group h-[240px] flex flex-col">
         {/* Glow effect overlay */}
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/30 to-yellow-300/30 opacity-0 group-hover:opacity-90 transition-opacity duration-500 blur-2xl"></div>
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 opacity-0 group-hover:opacity-85 transition-opacity duration-400 blur-xl"></div>
 
                 {/* Content container */}
-                <div className="relative z-10">
-                    {/* Quote text */}
-                    <p className="text-gray-300 leading-relaxed text-base mb-4">
-                        {body}
-                    </p>
+                <div className="relative z-10 flex flex-col h-full">
+                    {/* Quote text - flex-grow to take available space */}
+                    <div className="flex-grow mb-4">
+                        <p className="text-gray-300 leading-relaxed text-base line-clamp-6">
+                            {body}
+                        </p>
+                    </div>
 
-          {/* Author section */}
-          <div className="flex items-center gap-3">
+          {/* Author section - positioned at bottom */}
+          <div className="flex items-center gap-3 mt-auto">
             <div className="relative">
               <img
                 src={img}
@@ -174,7 +176,7 @@ const Testimonials = () => {
                 }`}
                 style={{
                   animationDelay: `${colIndex * 2}s`,
-                  animationDuration: '30s',
+                  animationDuration: '45s',
                   animationIterationCount: 'infinite',
                   animationTimingFunction: 'linear'
                 }}
@@ -224,11 +226,11 @@ const Testimonials = () => {
                 }
 
                 .animate-scroll-up {
-                    animation: scroll-up 30s linear infinite;
+                    animation: scroll-up 45s linear infinite;
                 }
 
                 .animate-scroll-down {
-                    animation: scroll-down 30s linear infinite;
+                    animation: scroll-down 45s linear infinite;
                 }
 
                 .fade-in-section {
