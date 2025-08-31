@@ -19,27 +19,40 @@ const Services = () => {
         {
             id: 1,
             name: "Bridal & Groom Packages",
-            description: "Complete wedding makeover packages for brides and grooms. Professional bridal makeup, hair styling, and groom grooming services for your special day.",
+            description:
+                "Complete wedding makeover packages for brides and grooms. Professional bridal makeup, hair styling, and groom grooming services for your special day.",
             src: "/images/weddings/gallery/wedding-08.webp",
-            features: ["Bridal Makeup", "Hair Styling", "Groom Grooming", "Pre-wedding Care"],
-            page:"/services/weddings"
+            features: [
+                "Bridal Makeup",
+                "Hair Styling",
+                "Groom Grooming",
+                "Pre-wedding Care",
+            ],
+            page: "/services/weddings",
         },
         {
             id: 2,
             name: "Hair Care",
-            description: "Professional hair cutting, styling, coloring, and treatments. From basic cuts to advanced styling, we care for all hair types and textures.",
+            description:
+                "Professional hair cutting, styling, coloring, and treatments. From basic cuts to advanced styling, we care for all hair types and textures.",
             src: "/images/hair-care/styling/style-04.avif",
             features: ["Hair Cutting", "Styling", "Coloring", "Treatments"],
-            page:"/services/hair-care"
+            page: "/services/hair-care",
         },
         {
             id: 3,
             name: "Skin & Body Care",
-            description: "Rejuvenating facial treatments, spa services, and body care treatments. Professional skincare for all skin types and concerns.",
-            src: "/images/baylee-gramling-a3xr2mVjT5M-unsplash.webp",
-            features: ["Facial Treatments", "Spa Services", "Body Care", "Wellness"],
-            page:"/services/skin-body-care"
-        }
+            description:
+                "Rejuvenating facial treatments, spa services, and body care treatments. Professional skincare for all skin types and concerns.",
+            src: "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+            features: [
+                "Facial Treatments",
+                "Spa Services",
+                "Body Care",
+                "Wellness",
+            ],
+            page: "/services/skin-body-care",
+        },
     ];
 
     useEffect(() => {

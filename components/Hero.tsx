@@ -154,7 +154,7 @@ const Hero = () => {
                               className="text-5xl sm:text-6xl lg:text-9xl font-md px-4 py-2 text-primary-gradient"
                           />
                           <ShinyText
-                              text="Every Style All Ages"
+                              text="Every Style, All Ages"
                               disabled={false}
                               speed={3}
                               className="text-5xl sm:text-6xl lg:text-9xl font-md px-4 py-2 text-primary-gradient"
