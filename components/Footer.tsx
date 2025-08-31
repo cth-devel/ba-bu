@@ -36,25 +36,14 @@ const Footer = () => {
                     </h2>
                 </div>
 
-                {/* Address + Email */}
-                <div className="grid grid-cols-1 gap-6 text-center text-sm sm:grid-cols-2 sm:text-base">
-                    <div>
-                        <p className="font-medium tracking-wide">
-                            {siteConfig.siteName}
-                        </p>
-                        <p className="text-white/80">
-                            Mathilmoola | Mannam | Andipillikkav
-                        </p>
-                    </div>
-                    <div>
-                        <Link
-                            href={`mailto:${siteConfig.contact.email}`}
-                            className="text-white/90 underline-offset-4 hover:underline"
-                            aria-label={`Email: ${siteConfig.contact.email}`}
-                        >
-                            {siteConfig.contact.email}
-                        </Link>
-                    </div>
+                {/* Address - Centralized */}
+                <div className="text-center">
+                    <p className="font-medium tracking-wide text-base sm:text-lg">
+                        {siteConfig.siteName}
+                    </p>
+                    <p className="text-white/80 text-sm sm:text-base mt-2">
+                        Mathilmoola | Mannam | Andipillikkav
+                    </p>
                 </div>
 
                 {/* Social icons */}
@@ -92,23 +81,8 @@ const Footer = () => {
                 <nav className="mt-8" aria-label="Footer links">
                     <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white/80">
                         <li>
-                            <Link href="/privacy" className="hover:text-white">
-                                Privacy Policy
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/terms" className="hover:text-white">
-                                Terms &amp; Conditions
-                            </Link>
-                        </li>
-                        <li>
                             <Link href="/services" className="hover:text-white">
                                 Services
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/blog" className="hover:text-white">
-                                Blog
                             </Link>
                         </li>
                         <li>
