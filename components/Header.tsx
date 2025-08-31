@@ -15,7 +15,22 @@ const Header = () => {
     const headerRef = useRef<HTMLElement>(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const [showPromoBanner, setShowPromoBanner] = useState(true);
+    const [currentAddressIndex, setCurrentAddressIndex] = useState(0);
     const pathname = usePathname();
+    
+    const addresses = [
+        'Andipillikkav, Kerala',
+        'Mannam, Kerala', 
+        'Mathilmoola, Kerala'
+    ];
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentAddressIndex((prevIndex) => (prevIndex + 1) % addresses.length);
+        }, 2000);
+        
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         // This effect is only for the promo banner visibility
@@ -132,15 +147,15 @@ const Header = () => {
             {/* Promotional Banner */}
             {showPromoBanner && !isScrolled && (
                 <div className="promo-banner fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm tracking-widest">
-                    <div className="max-w-7xl mx-auto flex justify-between items-center">
-                        <div className="flex items-center space-x-4 min-w-0">
-                            <div className="flex items-center space-x-1 flex-shrink-0">
+                    <div className="max-w-7xl mx-auto flex justify-center items-center">
+                        <div className="flex items-center space-x-2 min-w-0">
+                            <div className="flex items-center space-x-1 flex-shrink-0 min-w-fit">
                                 <MapPin className="w-4 h-4" />
                                 <span className="hidden sm:inline truncate">
-                                    {siteConfig.contact.address}
+                                    {addresses[currentAddressIndex]}
                                 </span>
                             </div>
-                            <span className="hidden md:inline flex-shrink-0">|</span>
+                            <span className="hidden md:inline flex-shrink-0 mx-1">|</span>
                             <a
                                 href={`tel:${siteConfig.contact.phone}`}
                                 className="flex items-center space-x-1 hover:text-gray-700 transition-colors flex-shrink-0"
@@ -148,10 +163,10 @@ const Header = () => {
                                 <Phone className="w-4 h-4" />
                                 <span className="truncate">{siteConfig.contact.phone}</span>
                             </a>
-                            <span className="hidden lg:inline flex-shrink-0">|</span>
-                            <span className="hidden lg:inline font-medium truncate">
-                                ₹500 OFF ON YOUR FIRST APPOINTMENT ABOVE ₹1499
-                                USE CODE: BABUFIRST
+                            <span className="hidden lg:inline flex-shrink-0 mx-1">|</span>
+                            <span className="hidden lg:inline font-medium truncate ml-3">
+                            Unlock Extra Benefits with Our Combos
+
                             </span>
                         </div>
                         <button
