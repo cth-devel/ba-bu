@@ -212,20 +212,12 @@ const About = () => {
                             ref={headingRef}
                             className="text-4xl lg:text-5xl font-black text-white mb-4 font-sans"
                         >
-                            About BA-BU Family Saloon
+                            About BA-BU Family Salon
                         </h2>
                         <div className="w-24 h-1 bg-gold mb-6"></div>
 
                         <p className="text-lg text-gray-300 mb-6 leading-relaxed tracking-widest">
-                        Welcome to BA-BU Family Salon—the leading family and beauty salon in North Paravur
-                        (including Andipillikkav and Mannam) and Mathilmoola, Thrissur, Kerala. For over 5 years,
-                        we have been the premier destination for families seeking exceptional haircuts, grooming,
-                        facials, and beauty treatments at an affordable price in Kerala. Our experienced team provides
-                        personalized care and uses the finest products and latest techniques for every service,
-                        whether it’s a fresh haircut, relaxing facial, or bridal beauty package. Enjoy a luxurious,
-                        family-friendly atmosphere and professional results every time. Visit our conveniently located
-                        salons in North Paravur and Mathilmoola, Thrissur, and let BA-BU Family Salon help you look and
-                        feel your best in Kerala.
+                        Welcome to BA-BU Family Salon—the leading unisex family and beauty salon in North Paravur (Mannam), Andipillikkav, and Mathilmoola, Thrissur, Kerala. For over 5 years, we have been the premier destination for families seeking exceptional haircuts, grooming, facials, and beauty treatments at affordable prices in Kerala. Our experienced team provides personalized care and uses the finest products and latest techniques for every service, whether it's a fresh haircut, relaxing facial, or bridal and groom package. Enjoy a luxurious, family-friendly atmosphere and professional results every time. Visit our conveniently located unisex salons in North Paravur (Mannam), Andipillikkav, and Mathilmoola, Thrissur, and let BA-BU Family Salon help you look and feel your best in Kerala.
                         </p>
 
                         {/* Read More Button */}

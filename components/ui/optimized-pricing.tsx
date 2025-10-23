@@ -67,7 +67,7 @@ const OptimizedPricing = ({
                   {service.duration}
                 </div>
                 <a
-                  href={siteConfig.contact.whatsapp}
+                  href={`https://web.whatsapp.com/send?phone=919846272333&text=${encodeURIComponent(`Hi! I would like to book ${service.name} service. Price: ${service.price}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] hover:from-[#8a5f0b] hover:via-[#ffd277] hover:to-[#8a5f0b] text-black px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold transition-all duration-300 text-sm sm:text-base inline-flex items-center w-full sm:w-auto justify-center"

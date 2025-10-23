@@ -2,6 +2,163 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Service Card Styles */
+:root {
+  --gold-primary: #FFD700;
+  --gold-glow: rgba(255, 215, 0, 0.3);
+  --gold-border: rgba(255, 215, 0, 0.8);
+  --border-color: #392e4e;
+  --background-dark: #060010;
+}
+
+.service-grid {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  max-width: 100%;
+  font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1.25rem);
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  aspect-ratio: 4/3;
+  min-height: 180px;
+  width: 100%;
+  max-width: 100%;
+  padding: 1.25rem;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: var(--background-dark);
+  font-weight: 300;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 200px;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(255, 215, 0, 0.4),
+    0 0 100px rgba(255, 215, 0, 0.2);
+}
+
+.service-card__content {
+  display: flex;
+  position: relative;
+  color: white;
+  z-index: 2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.service-card__title {
+  font-family: 'Gunteerz', serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+  margin: 0 0 1rem;
+  color: white;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.service-card__price {
+  font-family: 'Gunteerz', serif;
+  font-size: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+  font-weight: 900;
+  color: var(--gold-primary);
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-card__price {
+  text-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.8),
+    0 0 40px rgba(255, 215, 0, 0.6),
+    0 0 60px rgba(255, 215, 0, 0.4);
+  transform: scale(1.05);
+}
+
+/* Border glow effect */
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 6px;
+  background: radial-gradient(
+    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+    rgba(255, 215, 0, calc(var(--glow-intensity) * 0.8)) 0%,
+    rgba(255, 215, 0, calc(var(--glow-intensity) * 0.4)) 30%,
+    transparent 60%
+  );
+  border-radius: inherit;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+  animation: goldenPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes goldenPulse {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Grid */
+@media (max-width: 599px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+
+  .service-card {
+    width: 100%;
+    min-height: 160px;
+  }
+}
+
+@media (min-width: 600px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Custom Animations */
 @keyframes fadeInUp {
   from {
@@ -31,6 +188,15 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
@@ -472,6 +638,11 @@
 
   .animate-slide-in-up {
     animation: slideInUp 0.8s ease-out forwards;
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 30s linear infinite;
+    width: 200%;
   }
 
   /* Responsive hover effects */

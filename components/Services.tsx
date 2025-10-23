@@ -23,10 +23,10 @@ const Services = () => {
                 "Complete wedding makeover packages for brides and grooms. Professional bridal makeup, hair styling, and groom grooming services for your special day.",
             src: "/images/weddings/gallery/wedding-08.webp",
             features: [
-                "Bridal Makeup",
+                "Bridal/Groom Makeup",
                 "Hair Styling",
-                "Groom Grooming",
-                "Pre-wedding Care",
+                "Saree Draping",
+                "Guest Makeup",
             ],
             page: "/services/weddings",
         },
@@ -36,7 +36,7 @@ const Services = () => {
             description:
                 "Professional hair cutting, styling, coloring, and treatments. From basic cuts to advanced styling, we care for all hair types and textures.",
             src: "/images/hair-care/styling/style-04.avif",
-            features: ["Hair Cutting", "Styling", "Coloring", "Treatments"],
+            features: ["Hair Cutting", "Hair Styling", "Hair Coloring", "Hair Treatments"],
             page: "/services/hair-care",
         },
         {

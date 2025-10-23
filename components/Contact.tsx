@@ -95,8 +95,24 @@ Phone: ${formData.phone}
 Service: ${formData.service}
 Message: ${formData.message}`;
 
-    const whatsappUrl = `https://wa.me/${siteConfig.contact.phone}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    // Use WhatsApp Web API for better reliability
+    const phoneNumber = "919846272333";
+    const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    
+    try {
+      const newWindow = window.open(whatsappWebUrl, '_blank', 'noopener,noreferrer');
+      
+      if (!newWindow || newWindow.closed) {
+        // Fallback to wa.me in new tab
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      }
+    } catch (error) {
+      console.error('Error opening WhatsApp:', error);
+      // Fallback to wa.me
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
@@ -221,7 +237,7 @@ Message: ${formData.message}`;
             {/* Quick Actions */}
             <div className="mt-8 space-y-4">
               <a
-                href={`https://wa.me/${salonBranches[activeLocation].phone.split(',')[0].replace(/\s/g, '')}`}
+                href={`https://web.whatsapp.com/send?phone=919846272333&text=${encodeURIComponent('Hi! I would like to book an appointment at BA-BU Salon.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Book salon appointment on WhatsApp at ${salonBranches[activeLocation].name}`}

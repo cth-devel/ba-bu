@@ -79,10 +79,10 @@ const AboutUsPage = () => {
                 Our Services & Specializations
               </h2>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Designer haircuts for kids, women, and men</li>
+                <li>Creative haircuts for kids, women, and men</li>
                 <li>Facials, skin treatments, and hair coloring</li>
                 <li>Bridal beauty packages and special occasion styling</li>
-                <li>Keratin treatments, waxing, manicures, pedicures, and spa therapies</li>
+                <li>Protein treatments, waxing, manicures, pedicures, and spa therapies</li>
                 <li>Seniors’ grooming and care services</li>
               </ul>
               <p className="mt-4">

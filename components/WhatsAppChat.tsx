@@ -5,7 +5,25 @@ import { siteConfig } from '@/config/site';
 
 const WhatsAppChat = () => {
   const handleWhatsAppClick = () => {
-    window.open(siteConfig.contact.whatsapp, '_blank');
+    // Use WhatsApp Web API for better reliability
+    const phoneNumber = "919846272333";
+    const message = "Hi! I would like to know more about your services.";
+    const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    
+    try {
+      const newWindow = window.open(whatsappWebUrl, '_blank', 'noopener,noreferrer');
+      
+      if (!newWindow || newWindow.closed) {
+        // Fallback to wa.me in new tab
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      }
+    } catch (error) {
+      console.error('Error opening WhatsApp:', error);
+      // Fallback to wa.me
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
