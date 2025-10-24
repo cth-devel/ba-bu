@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+*{
+  box-sizing: border-box;
+}
 /* Service Card Styles */
 :root {
   --gold-primary: #FFD700;
@@ -9,6 +21,18 @@
   --gold-border: rgba(255, 215, 0, 0.8);
   --border-color: #392e4e;
   --background-dark: #060010;
+}
+
+/* Golden Gradient Button */
+.golden-gradient-button {
+  background: linear-gradient(90deg, #5e3d05 0%, #8a5f0b 30%, #ffd277 55%, #c9a24f 75%, #8a5f0b 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: all 0.3s ease;
+}
+
+.golden-gradient-button:hover {
+  background-position: -100% 0;
 }
 
 .service-grid {
@@ -45,7 +69,7 @@
 
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.3),
     0 0 60px rgba(255, 215, 0, 0.4),
     0 0 100px rgba(255, 215, 0, 0.2);
@@ -85,7 +109,7 @@
 }
 
 .service-card:hover .service-card__price {
-  text-shadow: 
+  text-shadow:
     0 0 20px rgba(255, 215, 0, 0.8),
     0 0 40px rgba(255, 215, 0, 0.6),
     0 0 60px rgba(255, 215, 0, 0.4);

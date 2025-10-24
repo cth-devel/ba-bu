@@ -14,7 +14,7 @@ const WeddingsServicePage = () => {
     if (!serviceGrid) return;
 
     const cards = serviceGrid.querySelectorAll('.service-card');
-    
+
     const handleMouseMove = (e) => {
       cards.forEach(card => {
         const rect = card.getBoundingClientRect();
@@ -22,14 +22,14 @@ const WeddingsServicePage = () => {
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        
+
         const distance = Math.hypot(x - centerX, y - centerY);
         const maxDistance = Math.hypot(centerX, centerY);
         const intensity = Math.max(0, 1 - (distance / maxDistance));
-        
+
         const relativeX = (x / rect.width) * 100;
         const relativeY = (y / rect.height) * 100;
-        
+
         card.style.setProperty('--glow-x', `${relativeX}%`);
         card.style.setProperty('--glow-y', `${relativeY}%`);
         card.style.setProperty('--glow-intensity', intensity.toString());
@@ -77,7 +77,7 @@ const WeddingsServicePage = () => {
       duration: "Various",
       features: [
         "HairStyling – ₹800",
-        "De-Tan – ₹500", 
+        "De-Tan – ₹500",
         "Glow Facial – ₹2,000",
         "Pedicure – ₹800",
         "Manicure – ₹500",
@@ -212,8 +212,8 @@ const WeddingsServicePage = () => {
                     {service.features.map((serviceItem, serviceIndex) => {
                       const [serviceName, price] = serviceItem.split(' – ');
                       return (
-                        <div 
-                          key={serviceIndex} 
+                        <div
+                          key={serviceIndex}
                           className="service-card"
                           style={{
                             '--glow-x': '50%',
@@ -377,8 +377,8 @@ const WeddingsServicePage = () => {
                      {service.features.map((serviceItem, serviceIndex) => {
                        const [serviceName, price] = serviceItem.split(' – ');
                        return (
-                         <div 
-                           key={serviceIndex} 
+                         <div
+                           key={serviceIndex}
                            className="service-card"
                            style={{
                              '--glow-x': '50%',

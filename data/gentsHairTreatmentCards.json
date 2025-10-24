@@ -1,0 +1,130 @@
+[
+  {
+    "title": "Loreal",
+    "description": "Front portion smoothening with Loreal",
+    "price": "₹900",
+    "src": "/images/hair-care/styling/style-01.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Front portion smoothening treatment using Loreal products. Perfect for men who want smooth, styled front hair.",
+      "features": [
+        "Loreal professional products",
+        "Front portion smoothening",
+        "Professional application",
+        "Quality results"
+      ]
+    }
+  },
+  {
+    "title": "Matrix",
+    "description": "Front portion smoothening with Matrix",
+    "price": "₹800",
+    "src": "/images/hair-care/styling/style-04.avif",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Front portion smoothening treatment using Matrix products. Affordable option for men's front hair styling.",
+      "features": [
+        "Matrix professional products",
+        "Front portion smoothening",
+        "Affordable pricing",
+        "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Schwarzkopf",
+    "description": "Front portion smoothening with Schwarzkopf",
+    "price": "₹900",
+    "src": "/images/hair-care/styling/style-07.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Front portion smoothening treatment using Schwarzkopf products. Premium option for men's front hair styling.",
+      "features": [
+        "Schwarzkopf professional products",
+        "Front portion smoothening",
+        "Premium quality",
+        "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Full Hair Smoothening (Schwarzkopf)",
+    "description": "Complete hair smoothening with Schwarzkopf",
+    "price": "₹2500/3000",
+    "src": "/images/hair-care/styling/style-10.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Complete hair smoothening treatment using Schwarzkopf products. Two pricing tiers available for different hair lengths.",
+      "features": [
+        "Schwarzkopf professional products",
+        "Complete hair smoothening",
+        "Premium quality results",
+        "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Full Hair Smoothening (Loreal)",
+    "description": "Complete hair smoothening with Loreal",
+    "price": "₹2500/3000",
+    "src": "/images/hair-care/styling/style-01.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Complete hair smoothening treatment using Loreal products. Two pricing tiers available for different hair lengths.",
+      "features": [
+        "Loreal professional products",
+        "Complete hair smoothening",
+        "Quality results",
+        "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Full Hair Smoothening (Matrix)",
+    "description": "Complete hair smoothening with Matrix",
+    "price": "₹2200/2700",
+    "src": "/images/hair-care/styling/style-04.avif",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Complete hair smoothening treatment using Matrix products. Two pricing tiers available for different hair lengths.",
+      "features": [
+        "Matrix professional products",
+        "Complete hair smoothening",
+        "Affordable pricing",
+        "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Keratine",
+    "description": "Premium keratin treatment for men",
+    "price": "₹3000+",
+    "src": "/images/hair-care/styling/style-07.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Premium keratin treatment for men. Starting from ₹3000 based on hair length and complexity of treatment.",
+      "features": [
+        "Premium keratin formula",
+        "Professional application",
+        "Silky, manageable results",
+        "Long-lasting effects"
+      ]
+    }
+  },
+  {
+    "title": "Botox",
+    "description": "Advanced botox treatment for men",
+    "price": "₹4000+",
+    "src": "/images/hair-care/styling/style-10.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Advanced botox treatment for men. Starting from ₹4000 based on hair length and complexity of treatment.",
+      "features": [
+        "Advanced botox formula",
+        "Professional application",
+        "Smooth, healthy results",
+        "Premium treatment"
+      ]
+    }
+  }
+]

@@ -1,0 +1,149 @@
+[
+  {
+    "title": "Kids Cut (Below 10 years)",
+    "description": "Specialized haircut for little girls under 10",
+    "price": "₹150",
+    "src": "/images/hair-care/styling/style-01.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Our Kids Cut service is specially designed for little girls under 10 years old, ensuring a comfortable and safe experience for your daughters.",
+      "features": [
+        "Child-friendly environment",
+        "Gentle cutting techniques",
+        "Quick and efficient service",
+        "Fun and engaging experience"
+      ]
+    }
+  },
+  {
+    "title": "Kids Advanced",
+    "description": "Advanced styling for young ladies",
+    "price": "₹450",
+    "src": "/images/hair-care/styling/style-04.avif",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Advanced styling service for young ladies who want something more than a basic cut, including styling and finishing touches.",
+      "features": [
+        "Advanced cutting techniques",
+        "Styling and finishing",
+        "Child-friendly products",
+        "Professional consultation"
+      ]
+    }
+  },
+  {
+    "title": "Basic Hair Cut",
+    "description": "Simple trim and style for women",
+    "price": "₹350",
+    "src": "/images/hair-care/styling/style-07.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "A simple and clean haircut perfect for women maintaining their current style or getting a fresh trim.",
+      "features": [
+        "Professional cutting",
+        "Basic styling",
+        "Quality consultation",
+        "Quick service"
+      ]
+    }
+  },
+  {
+    "title": "Advanced Haircut",
+    "description": "Complete service for ladies - Shampoo + Conditioning + Blow Dry",
+    "price": "₹800",
+    "src": "/images/hair-care/styling/style-10.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Complete hair service for women including professional shampoo, conditioning treatment, precision cutting, and professional blow dry styling.",
+      "features": [
+        "Professional shampoo & conditioning",
+        "Precision cutting techniques",
+        "Professional blow dry styling",
+        "Hair consultation included",
+        "Premium finishing products"
+      ]
+    }
+  },
+  {
+    "title": "Creative Haircut",
+    "description": "Premium styling for women - Shampoo + Conditioning + Blowdry",
+    "price": "₹950",
+    "src": "/images/hair-care/styling/style-01.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Our premium creative haircut service for women includes everything in the Advanced package plus creative styling and artistic finishing touches.",
+      "features": [
+        "Luxury shampoo & conditioning",
+        "Creative cutting techniques",
+        "Artistic styling & blow dry",
+        "Personalized consultation",
+        "Premium styling products",
+        "Finishing touches & styling tips"
+      ]
+    }
+  },
+  {
+    "title": "Shampoo + Conditioning (S/M/L)",
+    "description": "Professional shampoo and conditioning service in three sizes",
+    "price": "₹300/350/450",
+    "src": "/images/hair-care/styling/style-01.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Professional shampoo and conditioning service available in Small, Medium, and Large sizes. Perfect for maintaining healthy, clean hair.",
+      "features": [
+        "Professional shampoo treatment",
+        "Deep conditioning",
+        "Hair health consultation",
+        "Premium hair products"
+      ]
+    }
+  },
+  {
+    "title": "Shampoo + Conditioning + Styling (S/M/L)",
+    "description": "Complete service with shampoo, conditioning, and styling",
+    "price": "₹500/600/700",
+    "src": "/images/hair-care/styling/style-04.avif",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Complete hair service including professional shampoo, conditioning, and styling. Available in Small, Medium, and Large sizes for different hair lengths.",
+      "features": [
+        "Professional shampoo & conditioning",
+        "Expert styling techniques",
+        "Hair consultation included",
+        "Premium finishing products"
+      ]
+    }
+  },
+  {
+    "title": "Ironing (S/M/L)",
+    "description": "Professional hair ironing service for straight, sleek look",
+    "price": "₹500/500/1200",
+    "src": "/images/hair-care/styling/style-07.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Professional hair ironing service for a straight, sleek look. Available in Small, Medium, and Large sizes with heat protection treatments.",
+      "features": [
+        "Professional ironing technique",
+        "Heat protection treatment",
+        "Straight, sleek finish",
+        "Hair health consultation"
+      ]
+    }
+  },
+  {
+    "title": "Roller Setting (S/M/L)",
+    "description": "Classic roller setting for beautiful curls and waves",
+    "price": "₹500/800/1200",
+    "src": "/images/hair-care/styling/style-10.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Classic roller setting service for beautiful curls and waves. Available in Small, Medium, and Large sizes for different hair lengths and desired styles.",
+      "features": [
+        "Classic roller setting technique",
+        "Beautiful curls and waves",
+        "Professional styling products",
+        "Long-lasting results"
+      ]
+    }
+  }
+]

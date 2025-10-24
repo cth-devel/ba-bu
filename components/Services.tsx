@@ -180,7 +180,7 @@ const Services = () => {
                                     {service.features.map((feature, featureIndex) => (
                                         <div
                                             key={featureIndex}
-                                            className="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/20 hover:border-white/40 transition-all duration-300 cursor-pointer"
+                                            className="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
                                         >
                                             <span className="text-white text-base lg:text-xl font-medium group-hover:text-white transition-colors duration-300 tracking-widest">
                                                 {feature}

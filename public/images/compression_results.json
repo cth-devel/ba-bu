@@ -1,0 +1,1066 @@
+[
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/sofia-vila-flor-ebNYeZ8SR2o-unsplash.jpg",
+    "output_path": "compressedV2/sofia-vila-flor-ebNYeZ8SR2o-unsplash.webp",
+    "original_size": 2227417,
+    "compressed_size": 663558,
+    "compression_ratio": 70.21,
+    "quality_used": 60,
+    "dimensions": [
+      2763,
+      3684
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/quentin-mahe-mAW3jUP6G6E-unsplash.jpg",
+    "output_path": "compressedV2/quentin-mahe-mAW3jUP6G6E-unsplash.webp",
+    "original_size": 4576369,
+    "compressed_size": 1394476,
+    "compression_ratio": 69.53,
+    "quality_used": 60,
+    "dimensions": [
+      5472,
+      3648
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/ba-bu-family-salon-ernakulam-salons-hdt7xnk5d1.jpg",
+    "output_path": "compressedV2/ba-bu-family-salon-ernakulam-salons-hdt7xnk5d1.webp",
+    "original_size": 123216,
+    "compressed_size": 31306,
+    "compression_ratio": 74.59,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      785
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/john-arano-CCTCHXEsan8-unsplash.jpg",
+    "output_path": "compressedV2/john-arano-CCTCHXEsan8-unsplash.webp",
+    "original_size": 2252486,
+    "compressed_size": 473600,
+    "compression_ratio": 78.97,
+    "quality_used": 60,
+    "dimensions": [
+      6016,
+      4016
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/jonathan-borba-qJ2mhxmateo-unsplash.jpg",
+    "output_path": "compressedV2/jonathan-borba-qJ2mhxmateo-unsplash.webp",
+    "original_size": 2008357,
+    "compressed_size": 455190,
+    "compression_ratio": 77.34,
+    "quality_used": 60,
+    "dimensions": [
+      4555,
+      3037
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/about-img-2.jpg",
+    "output_path": "compressedV2/about-img-2.webp",
+    "original_size": 3704739,
+    "compressed_size": 1054372,
+    "compression_ratio": 71.54,
+    "quality_used": 60,
+    "dimensions": [
+      5762,
+      3434
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/wali-38sbVK-LI1Q-unsplash.jpg",
+    "output_path": "compressedV2/wali-38sbVK-LI1Q-unsplash.webp",
+    "original_size": 1893553,
+    "compressed_size": 265678,
+    "compression_ratio": 85.97,
+    "quality_used": 60,
+    "dimensions": [
+      3456,
+      5184
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg",
+    "output_path": "compressedV2/engin-akyurt-35NAaB_Nmx8-unsplash.webp",
+    "original_size": 5166139,
+    "compressed_size": 635198,
+    "compression_ratio": 87.7,
+    "quality_used": 60,
+    "dimensions": [
+      7952,
+      5304
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/about-img-1.jpg",
+    "output_path": "compressedV2/about-img-1.webp",
+    "original_size": 1784875,
+    "compressed_size": 392532,
+    "compression_ratio": 78.01,
+    "quality_used": 60,
+    "dimensions": [
+      4032,
+      3024
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/baylee-gramling-a3xr2mVjT5M-unsplash.jpg",
+    "output_path": "compressedV2/baylee-gramling-a3xr2mVjT5M-unsplash.webp",
+    "original_size": 2818360,
+    "compressed_size": 576946,
+    "compression_ratio": 79.53,
+    "quality_used": 60,
+    "dimensions": [
+      3776,
+      6720
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/mitchell-orr-dcAw8Ms-teQ-unsplash.jpg",
+    "output_path": "compressedV2/mitchell-orr-dcAw8Ms-teQ-unsplash.webp",
+    "original_size": 5374582,
+    "compressed_size": 1750642,
+    "compression_ratio": 67.43,
+    "quality_used": 60,
+    "dimensions": [
+      4000,
+      6000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.jpg",
+    "output_path": "compressedV2/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.webp",
+    "original_size": 2747413,
+    "compressed_size": 845490,
+    "compression_ratio": 69.23,
+    "quality_used": 60,
+    "dimensions": [
+      2848,
+      4288
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.jpg",
+    "output_path": "compressedV2/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.webp",
+    "original_size": 1397074,
+    "compressed_size": 106542,
+    "compression_ratio": 92.37,
+    "quality_used": 60,
+    "dimensions": [
+      3456,
+      5184
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.jpg",
+    "output_path": "compressedV2/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.webp",
+    "original_size": 2132298,
+    "compressed_size": 299394,
+    "compression_ratio": 85.96,
+    "quality_used": 60,
+    "dimensions": [
+      3456,
+      5184
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.jpg",
+    "output_path": "compressedV2/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.webp",
+    "original_size": 2825575,
+    "compressed_size": 588074,
+    "compression_ratio": 79.19,
+    "quality_used": 60,
+    "dimensions": [
+      3456,
+      5184
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.jpg",
+    "output_path": "compressedV2/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+    "original_size": 2028495,
+    "compressed_size": 699388,
+    "compression_ratio": 65.52,
+    "quality_used": 60,
+    "dimensions": [
+      6000,
+      4000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.jpg",
+    "output_path": "compressedV2/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.webp",
+    "original_size": 8407095,
+    "compressed_size": 5337672,
+    "compression_ratio": 36.51,
+    "quality_used": 60,
+    "dimensions": [
+      6000,
+      4000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.jpg",
+    "output_path": "compressedV2/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.webp",
+    "original_size": 3496972,
+    "compressed_size": 1230994,
+    "compression_ratio": 64.8,
+    "quality_used": 60,
+    "dimensions": [
+      4160,
+      6240
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/skin-care/rune-enstad-cowLgyb63c4-unsplash.jpg",
+    "output_path": "compressedV2/skin-care/rune-enstad-cowLgyb63c4-unsplash.webp",
+    "original_size": 2527733,
+    "compressed_size": 344364,
+    "compression_ratio": 86.38,
+    "quality_used": 60,
+    "dimensions": [
+      6201,
+      4138
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/coloring/color-03.jpg",
+    "output_path": "compressedV2/hair-care/coloring/color-03.webp",
+    "original_size": 183748,
+    "compressed_size": 54704,
+    "compression_ratio": 70.23,
+    "quality_used": 60,
+    "dimensions": [
+      771,
+      1254
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/coloring/color-01.jpg",
+    "output_path": "compressedV2/hair-care/coloring/color-01.webp",
+    "original_size": 671207,
+    "compressed_size": 235576,
+    "compression_ratio": 64.9,
+    "quality_used": 60,
+    "dimensions": [
+      1502,
+      2000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/coloring/color-02.jpg",
+    "output_path": "compressedV2/hair-care/coloring/color-02.webp",
+    "original_size": 294254,
+    "compressed_size": 109586,
+    "compression_ratio": 62.76,
+    "quality_used": 60,
+    "dimensions": [
+      1201,
+      1600
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/coloring/color-04.jpg",
+    "output_path": "compressedV2/hair-care/coloring/color-04.webp",
+    "original_size": 501490,
+    "compressed_size": 123804,
+    "compression_ratio": 75.31,
+    "quality_used": 60,
+    "dimensions": [
+      1728,
+      2304
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-07.jpg",
+    "output_path": "compressedV2/hair-care/styling/style-07.webp",
+    "original_size": 775845,
+    "compressed_size": 269218,
+    "compression_ratio": 65.3,
+    "quality_used": 60,
+    "dimensions": [
+      1500,
+      2000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-02.jpg",
+    "output_path": "compressedV2/hair-care/styling/style-02.webp",
+    "original_size": 256567,
+    "compressed_size": 94050,
+    "compression_ratio": 63.34,
+    "quality_used": 60,
+    "dimensions": [
+      1201,
+      1600
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-01.jpg",
+    "output_path": "compressedV2/hair-care/styling/style-01.webp",
+    "original_size": 261797,
+    "compressed_size": 74954,
+    "compression_ratio": 71.37,
+    "quality_used": 60,
+    "dimensions": [
+      1030,
+      1390
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-08.jpg",
+    "output_path": "compressedV2/hair-care/styling/style-08.webp",
+    "original_size": 1020538,
+    "compressed_size": 552600,
+    "compression_ratio": 45.85,
+    "quality_used": 60,
+    "dimensions": [
+      1728,
+      2304
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-06.jpg",
+    "output_path": "compressedV2/hair-care/styling/style-06.webp",
+    "original_size": 946216,
+    "compressed_size": 462382,
+    "compression_ratio": 51.13,
+    "quality_used": 60,
+    "dimensions": [
+      1500,
+      2000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-05.jpg",
+    "output_path": "compressedV2/hair-care/styling/style-05.webp",
+    "original_size": 974266,
+    "compressed_size": 538006,
+    "compression_ratio": 44.78,
+    "quality_used": 60,
+    "dimensions": [
+      1500,
+      2000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-13.jpg",
+    "output_path": "compressedV2/hair-care/styling/style-13.webp",
+    "original_size": 560447,
+    "compressed_size": 184586,
+    "compression_ratio": 67.06,
+    "quality_used": 60,
+    "dimensions": [
+      1728,
+      2304
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-03.jpg",
+    "output_path": "compressedV2/hair-care/styling/style-03.webp",
+    "original_size": 952861,
+    "compressed_size": 488386,
+    "compression_ratio": 48.75,
+    "quality_used": 60,
+    "dimensions": [
+      1500,
+      2000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-02.jpg",
+    "output_path": "compressedV2/weddings/gallery/wedding-02.webp",
+    "original_size": 219875,
+    "compressed_size": 68542,
+    "compression_ratio": 68.83,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1150
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-01.jpg",
+    "output_path": "compressedV2/weddings/gallery/wedding-01.webp",
+    "original_size": 553890,
+    "compressed_size": 159462,
+    "compression_ratio": 71.21,
+    "quality_used": 60,
+    "dimensions": [
+      2000,
+      1333
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-05.jpg",
+    "output_path": "compressedV2/weddings/gallery/wedding-05.webp",
+    "original_size": 614112,
+    "compressed_size": 92470,
+    "compression_ratio": 84.94,
+    "quality_used": 60,
+    "dimensions": [
+      2000,
+      1333
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-03.jpg",
+    "output_path": "compressedV2/weddings/gallery/wedding-03.webp",
+    "original_size": 230514,
+    "compressed_size": 79410,
+    "compression_ratio": 65.55,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1147
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-08.jpg",
+    "output_path": "compressedV2/weddings/gallery/wedding-08.webp",
+    "original_size": 145181,
+    "compressed_size": 39488,
+    "compression_ratio": 72.8,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      780
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-04.jpg",
+    "output_path": "compressedV2/weddings/gallery/wedding-04.webp",
+    "original_size": 236835,
+    "compressed_size": 90412,
+    "compression_ratio": 61.82,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1288
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-05.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-05.webp",
+    "original_size": 135860,
+    "compressed_size": 24096,
+    "compression_ratio": 82.26,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1656
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-04.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-04.webp",
+    "original_size": 103880,
+    "compressed_size": 27944,
+    "compression_ratio": 73.1,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1231
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-10.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-10.webp",
+    "original_size": 158383,
+    "compressed_size": 49752,
+    "compression_ratio": 68.59,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1328
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-03.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-03.webp",
+    "original_size": 55123,
+    "compressed_size": 11582,
+    "compression_ratio": 78.99,
+    "quality_used": 60,
+    "dimensions": [
+      1147,
+      774
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-02.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-02.webp",
+    "original_size": 995934,
+    "compressed_size": 303234,
+    "compression_ratio": 69.55,
+    "quality_used": 60,
+    "dimensions": [
+      1500,
+      2000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-06.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-06.webp",
+    "original_size": 183569,
+    "compressed_size": 29882,
+    "compression_ratio": 83.72,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1653
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-09.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-09.webp",
+    "original_size": 187008,
+    "compressed_size": 20980,
+    "compression_ratio": 88.78,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1659
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-08.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-08.webp",
+    "original_size": 190821,
+    "compressed_size": 72764,
+    "compression_ratio": 61.87,
+    "quality_used": 60,
+    "dimensions": [
+      1728,
+      2161
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/groom/groom-07.jpg",
+    "output_path": "compressedV2/weddings/groom/groom-07.webp",
+    "original_size": 244167,
+    "compressed_size": 42578,
+    "compression_ratio": 82.56,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1628
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/bride/bride-07.jpg",
+    "output_path": "compressedV2/weddings/bride/bride-07.webp",
+    "original_size": 130004,
+    "compressed_size": 40818,
+    "compression_ratio": 68.6,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      771
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/bride/bride-04.jpg",
+    "output_path": "compressedV2/weddings/bride/bride-04.webp",
+    "original_size": 145181,
+    "compressed_size": 39488,
+    "compression_ratio": 72.8,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      780
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/bride/bride-03.jpg",
+    "output_path": "compressedV2/weddings/bride/bride-03.webp",
+    "original_size": 319471,
+    "compressed_size": 84974,
+    "compression_ratio": 73.4,
+    "quality_used": 60,
+    "dimensions": [
+      1066,
+      1600
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/bride/bride-02.jpg",
+    "output_path": "compressedV2/weddings/bride/bride-02.webp",
+    "original_size": 962453,
+    "compressed_size": 448830,
+    "compression_ratio": 53.37,
+    "quality_used": 60,
+    "dimensions": [
+      1500,
+      2000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/bride/bride-05.jpg",
+    "output_path": "compressedV2/weddings/bride/bride-05.webp",
+    "original_size": 609982,
+    "compressed_size": 110392,
+    "compression_ratio": 81.9,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1673
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/bride/bride-06.jpg",
+    "output_path": "compressedV2/weddings/bride/bride-06.webp",
+    "original_size": 383497,
+    "compressed_size": 149138,
+    "compression_ratio": 61.11,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1679
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/brands/img1.png",
+    "output_path": "compressedV2/brands/img1.webp",
+    "original_size": 3488,
+    "compressed_size": 3306,
+    "compression_ratio": 5.22,
+    "quality_used": 60,
+    "dimensions": [
+      530,
+      96
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/brands/img2.png",
+    "output_path": "compressedV2/brands/img2.webp",
+    "original_size": 6791,
+    "compressed_size": 6800,
+    "compression_ratio": -0.13,
+    "quality_used": 60,
+    "dimensions": [
+      552,
+      235
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/brands/img5.png",
+    "output_path": "compressedV2/brands/img5.webp",
+    "original_size": 2987,
+    "compressed_size": 2704,
+    "compression_ratio": 9.47,
+    "quality_used": 60,
+    "dimensions": [
+      395,
+      87
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/brands/img4.png",
+    "output_path": "compressedV2/brands/img4.webp",
+    "original_size": 5309,
+    "compressed_size": 5116,
+    "compression_ratio": 3.64,
+    "quality_used": 60,
+    "dimensions": [
+      541,
+      79
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/brands/img6.png",
+    "output_path": "compressedV2/brands/img6.webp",
+    "original_size": 6768,
+    "compressed_size": 6124,
+    "compression_ratio": 9.52,
+    "quality_used": 60,
+    "dimensions": [
+      586,
+      83
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/brands/img3.png",
+    "output_path": "compressedV2/brands/img3.webp",
+    "original_size": 9399,
+    "compressed_size": 9740,
+    "compression_ratio": -3.63,
+    "quality_used": 60,
+    "dimensions": [
+      384,
+      247
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/brands/img7.png",
+    "output_path": "compressedV2/brands/img7.webp",
+    "original_size": 27075,
+    "compressed_size": 13278,
+    "compression_ratio": 50.96,
+    "quality_used": 60,
+    "dimensions": [
+      851,
+      315
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/ba-bu-family-salon-ernakulam-mw0w9iz9vd.webp",
+    "output_path": "compressedV2/ba-bu-family-salon-ernakulam-mw0w9iz9vd.webp",
+    "original_size": 152456,
+    "compressed_size": 96392,
+    "compression_ratio": 36.77,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1412
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-14.webp",
+    "output_path": "compressedV2/hair-care/styling/style-14.webp",
+    "original_size": 323822,
+    "compressed_size": 223578,
+    "compression_ratio": 30.96,
+    "quality_used": 60,
+    "dimensions": [
+      1728,
+      2304
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-11.webp",
+    "output_path": "compressedV2/hair-care/styling/style-11.webp",
+    "original_size": 603484,
+    "compressed_size": 318232,
+    "compression_ratio": 47.27,
+    "quality_used": 60,
+    "dimensions": [
+      1536,
+      3325
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-07.webp",
+    "output_path": "compressedV2/hair-care/styling/style-07.webp",
+    "original_size": 499962,
+    "compressed_size": 198590,
+    "compression_ratio": 60.28,
+    "quality_used": 60,
+    "dimensions": [
+      1500,
+      2000
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-10.webp",
+    "output_path": "compressedV2/hair-care/styling/style-10.webp",
+    "original_size": 542526,
+    "compressed_size": 346012,
+    "compression_ratio": 36.22,
+    "quality_used": 60,
+    "dimensions": [
+      1728,
+      3597
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-12.webp",
+    "output_path": "compressedV2/hair-care/styling/style-12.webp",
+    "original_size": 817496,
+    "compressed_size": 452040,
+    "compression_ratio": 44.7,
+    "quality_used": 60,
+    "dimensions": [
+      1728,
+      2304
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/hair-care/styling/style-09.webp",
+    "output_path": "compressedV2/hair-care/styling/style-09.webp",
+    "original_size": 479904,
+    "compressed_size": 204816,
+    "compression_ratio": 57.32,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      2091
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-09.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-09.webp",
+    "original_size": 108160,
+    "compressed_size": 34732,
+    "compression_ratio": 67.89,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      762
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-14.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-14.webp",
+    "original_size": 328504,
+    "compressed_size": 105102,
+    "compression_ratio": 68.01,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1664
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-15.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-15.webp",
+    "original_size": 126796,
+    "compressed_size": 38906,
+    "compression_ratio": 69.32,
+    "quality_used": 60,
+    "dimensions": [
+      1073,
+      1341
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-18.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-18.webp",
+    "original_size": 194486,
+    "compressed_size": 70520,
+    "compression_ratio": 63.74,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1335
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-11.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-11.webp",
+    "original_size": 240182,
+    "compressed_size": 80262,
+    "compression_ratio": 66.58,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1295
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-10.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-10.webp",
+    "original_size": 227476,
+    "compressed_size": 77238,
+    "compression_ratio": 66.05,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1282
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-17.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-17.webp",
+    "original_size": 431558,
+    "compressed_size": 141020,
+    "compression_ratio": 67.32,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1651
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-13.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-13.webp",
+    "original_size": 132554,
+    "compressed_size": 42606,
+    "compression_ratio": 67.86,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1301
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-16.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-16.webp",
+    "original_size": 88356,
+    "compressed_size": 26530,
+    "compression_ratio": 69.97,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      772
+    ]
+  },
+  {
+    "success": true,
+    "method": "cwebp",
+    "input_path": "images/weddings/gallery/wedding-12.webp",
+    "output_path": "compressedV2/weddings/gallery/wedding-12.webp",
+    "original_size": 151470,
+    "compressed_size": 50072,
+    "compression_ratio": 66.94,
+    "quality_used": 60,
+    "dimensions": [
+      1170,
+      1324
+    ]
+  }
+]

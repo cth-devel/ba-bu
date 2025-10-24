@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Normal Hair Cut",
+    "description": "Classic haircut for men",
+    "price": "₹150",
+    "src": "/images/hair-care/styling/style-01.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Our Normal Hair Cut service provides men with a clean, classic haircut that maintains their current style while ensuring a fresh, professional look.",
+      "features": [
+        "Professional cutting techniques",
+        "Clean and precise styling",
+        "Quick and efficient service",
+        "Quality consultation included"
+      ]
+    }
+  },
+  {
+    "title": "Change of Hair Style",
+    "description": "Complete style transformation for men",
+    "price": "₹200",
+    "src": "/images/hair-care/styling/style-04.avif",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Transform your look with our Change of Hair Style service. Our expert barbers will help you discover a new style that complements your face shape and lifestyle.",
+      "features": [
+        "Style consultation and advice",
+        "Modern cutting techniques",
+        "Styling and finishing",
+        "Personalized recommendations"
+      ]
+    }
+  },
+  {
+    "title": "Beard Setting/Shaving",
+    "description": "Professional beard grooming for men",
+    "price": "₹100",
+    "src": "/images/hair-care/styling/style-07.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Our Beard Setting/Shaving service provides men with professional beard grooming, precise trimming, and clean shaving for a polished, well-groomed appearance.",
+      "features": [
+        "Precision beard trimming",
+        "Clean shaving techniques",
+        "Beard styling and shaping",
+        "Professional grooming products"
+      ]
+    }
+  },
+  {
+    "title": "Blowdry with Shampoo & Conditioning",
+    "description": "Complete service with shampoo, conditioning, and blowdry",
+    "price": "₹200",
+    "src": "/images/hair-care/styling/style-01.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Complete hair service for men including professional shampoo, conditioning, and blowdry styling. Perfect for a fresh, styled look.",
+      "features": [
+        "Professional shampoo & conditioning",
+        "Expert blowdry styling",
+        "Quick and efficient service",
+        "Professional finishing"
+      ]
+    }
+  },
+  {
+    "title": "Ironing with Shampoo & Conditioning",
+    "description": "Complete service with shampoo, conditioning, and ironing",
+    "price": "₹300",
+    "src": "/images/hair-care/styling/style-04.avif",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Complete hair service for men including professional shampoo, conditioning, and ironing for a straight, sleek look.",
+      "features": [
+        "Professional shampoo & conditioning",
+        "Expert ironing technique",
+        "Heat protection treatment",
+        "Straight, sleek finish"
+      ]
+    }
+  }
+]

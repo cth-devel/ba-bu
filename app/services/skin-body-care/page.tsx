@@ -33,7 +33,7 @@ const ExpandableSkinCareCards = ({ cards, gender = 'female', onBookNow }: { card
     <>
       {/* Modal Overlay - Completely Static */}
       {active && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
         >
@@ -47,7 +47,7 @@ const ExpandableSkinCareCards = ({ cards, gender = 'female', onBookNow }: { card
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            
+
             {/* Modal Content */}
             <div className="relative">
               <img
@@ -66,15 +66,15 @@ const ExpandableSkinCareCards = ({ cards, gender = 'female', onBookNow }: { card
                 </div>
               ) : gender === 'male' ? (
                 <div className="absolute top-4 right-16 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                  <img 
-                    src="/men.svg" 
-                    alt="Male symbol" 
+                  <img
+                    src="/men.svg"
+                    alt="Male symbol"
                     className="w-5 h-5 filter brightness-0 invert"
                   />
                 </div>
               ) : null}
             </div>
-            
+
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
                 <div>
@@ -92,7 +92,7 @@ const ExpandableSkinCareCards = ({ cards, gender = 'female', onBookNow }: { card
                   {active.ctaText}
                 </button>
               </div>
-              
+
               <div className="text-gray-600">
                 {typeof active.content === "function" ? active.content() : active.content}
               </div>
@@ -129,9 +129,9 @@ const ExpandableSkinCareCards = ({ cards, gender = 'female', onBookNow }: { card
                   </div>
                 ) : gender === 'male' ? (
                   <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                    <img 
-                      src="/men.svg" 
-                      alt="Male symbol" 
+                    <img
+                      src="/men.svg"
+                      alt="Male symbol"
                       className="w-4 h-4 filter brightness-0 invert"
                     />
                   </div>
@@ -166,10 +166,10 @@ const ExpandableSkinCareCards = ({ cards, gender = 'female', onBookNow }: { card
 };
 
 // Booking Popup Component
-const BookingPopup = ({ isOpen, onClose, serviceDetails }: { 
-  isOpen: boolean, 
-  onClose: () => void, 
-  serviceDetails: { title: string, price: string, gender: string } | null 
+const BookingPopup = ({ isOpen, onClose, serviceDetails }: {
+  isOpen: boolean,
+  onClose: () => void,
+  serviceDetails: { title: string, price: string, gender: string } | null
 }) => {
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
@@ -212,28 +212,28 @@ Customer Details:
 Name: ${bookingDetails.name}
 
 Please confirm my appointment. Thank you!`;
-    
+
     // Try different WhatsApp approaches
     const phoneNumber = "919846272333";
-    
+
     // Method 1: Try WhatsApp Web API (more reliable)
     const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    
+
     // Method 2: Traditional wa.me URL
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    
+
     console.log('Trying WhatsApp Web URL:', whatsappWebUrl);
     console.log('Fallback wa.me URL:', whatsappUrl);
-    
+
     // Try WhatsApp Web first (more reliable)
     try {
       const newWindow = window.open(whatsappWebUrl, '_blank', 'noopener,noreferrer');
-      
+
       if (!newWindow || newWindow.closed) {
         // Fallback to wa.me in new tab
         console.log('WhatsApp Web failed, trying wa.me in new tab');
         const waWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-        
+
         if (!waWindow || waWindow.closed) {
           // If both fail, show clipboard option
           console.log('Both WhatsApp methods failed, showing clipboard option');
@@ -245,7 +245,7 @@ Time: ${bookingDetails.time}
 Name: ${bookingDetails.name}
 
 Please send this message to +91 9846272333 on WhatsApp.`;
-          
+
           if (navigator.clipboard) {
             navigator.clipboard.writeText(fullMessage).then(() => {
               alert('WhatsApp couldn\'t open automatically.\n\nBooking details copied to clipboard!\n\nPlease open WhatsApp and send the copied message to +91 9846272333\n\nOr call us directly at +91 9846272333');
@@ -257,11 +257,11 @@ Please send this message to +91 9846272333 on WhatsApp.`;
       }
     } catch (error) {
       console.error('Error opening WhatsApp Web:', error);
-      
+
       // Fallback to wa.me in new tab
       try {
         const waWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-        
+
         if (!waWindow || waWindow.closed) {
           // If both fail, show clipboard option
           const fullMessage = `Booking Request:
@@ -272,7 +272,7 @@ Time: ${bookingDetails.time}
 Name: ${bookingDetails.name}
 
 Please send this message to +91 9846272333 on WhatsApp.`;
-          
+
           if (navigator.clipboard) {
             navigator.clipboard.writeText(fullMessage).then(() => {
               alert('WhatsApp couldn\'t open automatically.\n\nBooking details copied to clipboard!\n\nPlease open WhatsApp and send the copied message to +91 9846272333\n\nOr call us directly at +91 9846272333');
@@ -283,7 +283,7 @@ Please send this message to +91 9846272333 on WhatsApp.`;
         }
       } catch (waError) {
         console.error('Error with wa.me:', waError);
-        
+
         // Last resort: Copy to clipboard and show instructions
         const fullMessage = `Booking Request:
 Service: ${bookingDetails.service}
@@ -293,7 +293,7 @@ Time: ${bookingDetails.time}
 Name: ${bookingDetails.name}
 
 Please send this message to +91 9846272333 on WhatsApp.`;
-        
+
         if (navigator.clipboard) {
           navigator.clipboard.writeText(fullMessage).then(() => {
             alert('WhatsApp couldn\'t open automatically.\n\nBooking details copied to clipboard!\n\nPlease open WhatsApp and send the copied message to +91 9846272333\n\nOr call us directly at +91 9846272333');
@@ -303,7 +303,7 @@ Please send this message to +91 9846272333 on WhatsApp.`;
         }
       }
     }
-    
+
     onClose();
   };
 
@@ -316,7 +316,7 @@ Please send this message to +91 9846272333 on WhatsApp.`;
   if (!isOpen) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
       onClick={handleBackdropClick}
     >
@@ -330,7 +330,7 @@ Please send this message to +91 9846272333 on WhatsApp.`;
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        
+
         <div className="p-8">
           <div className="text-center mb-8">
             <div className="bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -408,7 +408,7 @@ Please send this message to +91 9846272333 on WhatsApp.`;
             📱 WhatsApp
           </button>
         </div>
-        
+
         {/* Call Now Button */}
         <div className="text-center">
           <p className="text-sm text-gray-500 mb-3 font-medium">Or call us directly:</p>
@@ -2367,7 +2367,7 @@ const SkinBodyCareServicePage = () => {
         <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              
+
               {/* Enhanced Writeup Section */}
               <div className="w-full mb-12">
                 <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl p-8 sm:p-12 lg:p-16 border border-gray-800">
@@ -2438,7 +2438,7 @@ const SkinBodyCareServicePage = () => {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Duplicate set for seamless loop */}
                 {skinCareImages.map((image, index) => (
                   <div
@@ -2479,7 +2479,7 @@ const SkinBodyCareServicePage = () => {
         <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              
+
               {/* Enhanced Writeup Section */}
               <div className="w-full mb-12">
                 <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl p-8 sm:p-12 lg:p-16 border border-gray-800">
@@ -2542,7 +2542,7 @@ const SkinBodyCareServicePage = () => {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Duplicate set for seamless loop */}
                 {skinCareImages.map((image, index) => (
                   <div
@@ -2583,7 +2583,7 @@ const SkinBodyCareServicePage = () => {
         <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              
+
               {/* Enhanced Writeup Section */}
               <div className="w-full mb-12">
                 <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl p-8 sm:p-12 lg:p-16 border border-gray-800">
@@ -2646,7 +2646,7 @@ const SkinBodyCareServicePage = () => {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Duplicate set for seamless loop */}
                 {skinCareImages.map((image, index) => (
                   <div
@@ -2687,7 +2687,7 @@ const SkinBodyCareServicePage = () => {
         <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              
+
               {/* Enhanced Writeup Section */}
               <div className="w-full mb-12">
                 <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl p-8 sm:p-12 lg:p-16 border border-gray-800">
@@ -2750,7 +2750,7 @@ const SkinBodyCareServicePage = () => {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Duplicate set for seamless loop */}
                 {skinCareImages.map((image, index) => (
                   <div
@@ -2791,7 +2791,7 @@ const SkinBodyCareServicePage = () => {
         <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              
+
               {/* Enhanced Writeup Section */}
               <div className="w-full mb-12">
                 <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl p-8 sm:p-12 lg:p-16 border border-gray-800">
@@ -2854,7 +2854,7 @@ const SkinBodyCareServicePage = () => {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Duplicate set for seamless loop */}
                 {skinCareImages.map((image, index) => (
                   <div
@@ -2895,7 +2895,7 @@ const SkinBodyCareServicePage = () => {
         <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              
+
               {/* Enhanced Writeup Section */}
               <div className="w-full mb-12">
                 <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl p-8 sm:p-12 lg:p-16 border border-gray-800">
@@ -2958,7 +2958,7 @@ const SkinBodyCareServicePage = () => {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Duplicate set for seamless loop */}
                 {skinCareImages.map((image, index) => (
                   <div
@@ -2999,7 +2999,7 @@ const SkinBodyCareServicePage = () => {
         <div className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-black via-gray-900 to-black">
           <div className="w-full px-4 sm:px-6 lg:px-8">
             <div className="mb-16">
-              
+
               {/* Enhanced Writeup Section */}
               <div className="w-full mb-12">
                 <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-2xl shadow-2xl p-8 sm:p-12 lg:p-16 border border-gray-800">
@@ -3062,7 +3062,7 @@ const SkinBodyCareServicePage = () => {
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Duplicate set for seamless loop */}
                 {skinCareImages.map((image, index) => (
                   <div
@@ -3141,10 +3141,10 @@ const SkinBodyCareServicePage = () => {
       />
 
       {/* Booking Popup */}
-      <BookingPopup 
-        isOpen={isBookingOpen} 
-        onClose={() => setIsBookingOpen(false)} 
-        serviceDetails={selectedService} 
+      <BookingPopup
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        serviceDetails={selectedService}
       />
     </>
   );

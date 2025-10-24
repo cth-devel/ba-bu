@@ -181,18 +181,18 @@ const Header = () => {
             {/* Main Header */}
           <header
               ref={headerRef}
-              className={`fixed ${headerTopClass} left-0 w-full z-40 bg-transparent tracking-widest text-lg lg:block hidden will-change-transform`}
+              className={`fixed ${headerTopClass} left-0 w-full z-40 bg-transparent tracking-widest text-xl lg:block hidden will-change-transform`}
           >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-20">
+                    <div className="flex items-center justify-between h-24">
                         {/* Logo */}
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
                                     src="/BABU-White.svg"
                                     alt={siteConfig.siteName}
-                                    width={150}
-                                    height={75}
+                                    width={200}
+                                    height={100}
                                     className="h-auto"
                                     priority
                                 />
@@ -205,7 +205,7 @@ const Header = () => {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-white hover:text-gray-300 transition-colors"
+                                    className="text-white hover:text-gray-300 transition-colors text-lg"
                                 >
                                     {item.name}
                                 </Link>
