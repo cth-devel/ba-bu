@@ -5,6 +5,8 @@ import OptimizedHero from "@/components/ui/optimized-hero";
 import OptimizedGallery from "@/components/ui/optimized-gallery";
 import ServicesContainer from "@/components/ServicesContainer";
 import { useEffect, useRef } from 'react';
+import weddingServicesData from "@/data/weddingServices.json";
+import { WhatsAppIcon, PhoneIcon } from "@/components/Icons";
 
 const WeddingsServicePage = () => {
   const serviceGridRef = useRef<HTMLDivElement>(null);
@@ -52,98 +54,10 @@ const WeddingsServicePage = () => {
       serviceGrid.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
-  const weddingGalleryImages = [
-    { src: '/images/weddings/gallery/wedding-01.webp', alt: 'Wedding celebration moment 1', title: 'Wedding 01' },
-    { src: '/images/weddings/gallery/wedding-02.webp', alt: 'Wedding celebration moment 2', title: 'Wedding 02' },
-    { src: '/images/weddings/gallery/wedding-03.webp', alt: 'Wedding celebration moment 3', title: 'Wedding 03' },
-    { src: '/images/weddings/gallery/wedding-04.webp', alt: 'Wedding celebration moment 4', title: 'Wedding 04' },
-    { src: '/images/weddings/gallery/wedding-05.webp', alt: 'Wedding celebration moment 5', title: 'Wedding 05' },
-    { src: '/images/weddings/gallery/wedding-08.webp', alt: 'Wedding celebration moment 8', title: 'Wedding 08' },
-    { src: '/images/weddings/gallery/wedding-09.webp', alt: 'Wedding celebration moment 9', title: 'Wedding 09' },
-    { src: '/images/weddings/gallery/wedding-10.webp', alt: 'Wedding celebration moment 10', title: 'Wedding 10' },
-    { src: '/images/weddings/gallery/wedding-11.webp', alt: 'Wedding celebration moment 11', title: 'Wedding 11' },
-    { src: '/images/weddings/gallery/wedding-12.webp', alt: 'Wedding celebration moment 12', title: 'Wedding 12' },
-    { src: '/images/weddings/gallery/wedding-13.webp', alt: 'Wedding celebration moment 13', title: 'Wedding 13' },
-    { src: '/images/weddings/gallery/wedding-14.webp', alt: 'Wedding celebration moment 14', title: 'Wedding 14' },
-    { src: '/images/weddings/gallery/wedding-15.webp', alt: 'Wedding celebration moment 15', title: 'Wedding 15' },
-    { src: '/images/weddings/gallery/wedding-16.webp', alt: 'Wedding celebration moment 16', title: 'Wedding 16' },
-    { src: '/images/weddings/gallery/wedding-17.webp', alt: 'Wedding celebration moment 17', title: 'Wedding 17' },
-    { src: '/images/weddings/gallery/wedding-18.webp', alt: 'Wedding celebration moment 18', title: 'Wedding 18' },
-  ];
-  const bridalServices = [
-    {
-      id: 1,
-      name: "Bridal Package Services",
-      description: "Complete range of bridal beauty services for your special day.",
-      price: "Individual Pricing",
-      duration: "Various",
-      features: [
-        "HairStyling – ₹800",
-        "De-Tan – ₹500",
-        "Glow Facial – ₹2,000",
-        "Pedicure – ₹800",
-        "Manicure – ₹500",
-        "Handwax (full) – ₹700",
-        "Legwax (full) – ₹900",
-        "Hairspa – ₹1,000",
-        "Full Body Polishing – ₹8,000"
-      ],
-      bgImage: "/images/weddings/bride/bride-01.avif",
-      isServiceList: true
-    },
-    {
-      id: 2,
-      name: "Makeup Services",
-      description: "Professional makeup services for all your wedding events.",
-      price: "Individual Pricing",
-      duration: "Various",
-      features: [
-        "Full HD Glossy EVENT Makeup – ₹15,000",
-        "Reception Makeup – ₹12,000",
-        "Saree + hair + light makeup – ₹4,000",
-        "Saree draping only – ₹800"
-      ],
-      bgImage: "/images/weddings/bride/bride-03.webp",
-      isServiceList: true
-    }
-  ];
 
-   const groomServices = [
-     {
-       id: 1,
-       name: "Groom Services",
-       description: "Complete grooming package for the groom including haircut, beard styling, and facial treatments.",
-       price: "Individual Pricing",
-       duration: "Various",
-       features: [
-         "HairStyling – ₹150",
-         "Beard setting – ₹100",
-         "De-Tan – ₹500",
-         "Glow Facial – ₹1,600",
-         "Pedicure – ₹800",
-         "Manicure – ₹500",
-         "Hand detan – ₹700",
-         "Hairspa – ₹800"
-       ],
-       bgImage: "/images/weddings/groom/groom-02.webp",
-       isServiceList: true
-     },
-     {
-       id: 2,
-       name: "Groom Makeup Services",
-       description: "Professional makeup services for all your wedding events.",
-       price: "Individual Pricing",
-       duration: "Various",
-       features: [
-         "Full HD Glossy EVENT Makeup – ₹5,000",
-         "Reception Makeup – ₹4,500",
-         "Light makeup + hair – ₹3,000",
-         "Hair setting only – ₹500"
-       ],
-       bgImage: "/images/weddings/groom/groom-05.webp",
-       isServiceList: true
-     }
-   ];
+  const weddingGalleryImages = weddingServicesData.galleryImages;
+  const bridalServices = weddingServicesData.bridalServices;
+  const groomServices = weddingServicesData.groomServices;
 
   return (
     <>
@@ -225,8 +139,8 @@ const WeddingsServicePage = () => {
                           } as React.CSSProperties}
                         >
                           <div className="service-card__content">
-                            <h3 className="service-card__title">{serviceName}</h3>
-                            <p className="service-card__price">{price}</p>
+                            <h3 className="service-card__title !font-sans">{serviceName}</h3>
+                            <p className="service-card__price !font-sans">{price}</p>
                           </div>
                         </div>
                       );
@@ -287,28 +201,26 @@ const WeddingsServicePage = () => {
               {/* CTA Button - Responsive */}
               <div className="text-center">
                 <a
-                  href="https://web.whatsapp.com/send?phone=919846272333&text=Hi! I would like to book a wedding service. Please provide more details."
+                  href={siteConfig.contact.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-block bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] hover:from-[#8a5f0b] hover:via-[#ffd277] hover:to-[#8a5f0b] text-black px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-full font-bold transition-all duration-500 text-base sm:text-lg lg:text-xl shadow-2xl hover:shadow-[#ffd277]/25 hover:scale-105 transform w-full sm:w-auto"
+                  className="group w-full sm:w-auto golden-gradient-button text-black px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold transition-all duration-300 text-base sm:text-lg text-center shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider inline-flex items-center justify-center gap-2"
                   aria-label={`Book ${service.name} service`}
                 >
-                  <span className="flex items-center justify-center">
-                    Book This Service
-                    <svg
-                      className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </span>
+                  Book This Service
+                  <svg
+                    className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
                 </a>
               </div>
             </div>
@@ -328,7 +240,7 @@ const WeddingsServicePage = () => {
       </section>
 
        {/* Groom Services Section Header - Responsive */}
-       <section className="groom-section py-12 sm:py-16 lg:py-24 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900">
+       <section className="groom-section py-12 sm:py-16 lg:py-24 w-full bg-black">
          <div className="w-full px-4 sm:px-6 lg:px-8 text-center">
            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-gunteerz font-black text-white mb-6 sm:mb-8 leading-tight">
              Groom Services
@@ -389,10 +301,10 @@ const WeddingsServicePage = () => {
                              ['--glow-radius' as string]: '200px'
                            } as React.CSSProperties}
                          >
-                           <div className="service-card__content">
-                             <h3 className="service-card__title">{serviceName}</h3>
-                             <p className="service-card__price">{price}</p>
-                           </div>
+                          <div className="service-card__content">
+                            <h3 className="service-card__title !font-sans">{serviceName}</h3>
+                            <p className="service-card__price !font-sans">{price}</p>
+                          </div>
                          </div>
                        );
                      })}
@@ -452,28 +364,26 @@ const WeddingsServicePage = () => {
                {/* CTA Button - Responsive */}
                <div className="text-center">
                  <a
-                   href="https://web.whatsapp.com/send?phone=919846272333&text=Hi! I would like to book a wedding service. Please provide more details."
+                   href={siteConfig.contact.whatsapp}
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="group inline-block bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] hover:from-[#8a5f0b] hover:via-[#ffd277] hover:to-[#8a5f0b] text-black px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-5 rounded-full font-bold transition-all duration-500 text-base sm:text-lg lg:text-xl shadow-2xl hover:shadow-[#ffd277]/25 hover:scale-105 transform w-full sm:w-auto"
+                   className="group w-full sm:w-auto golden-gradient-button text-black px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold transition-all duration-300 text-base sm:text-lg text-center shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider inline-flex items-center justify-center gap-2"
                    aria-label={`Book ${service.name} service`}
                  >
-                   <span className="flex items-center justify-center">
-                     Book This Service
-                     <svg
-                       className="w-4 sm:w-5 h-4 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                       fill="none"
-                       stroke="currentColor"
-                       viewBox="0 0 24 24"
-                     >
-                       <path
-                         strokeLinecap="round"
-                         strokeLinejoin="round"
-                         strokeWidth={2}
-                         d="M13 7l5 5m0 0l-5 5m5-5H6"
-                       />
-                     </svg>
-                   </span>
+                   Book This Service
+                   <svg
+                     className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
+                     fill="none"
+                     stroke="currentColor"
+                     viewBox="0 0 24 24"
+                   >
+                     <path
+                       strokeLinecap="round"
+                       strokeLinejoin="round"
+                       strokeWidth={2}
+                       d="M13 7l5 5m0 0l-5 5m5-5H6"
+                     />
+                   </svg>
                  </a>
                </div>
              </div>
@@ -505,21 +415,23 @@ const WeddingsServicePage = () => {
           </p>
 
           {/* Responsive Button Layout */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <a
-              href="https://web.whatsapp.com/send?phone=919846272333&text=Hi! I would like to book a wedding service. Please provide more details."
+              href={siteConfig.contact.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-bold transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
+              className="w-full sm:w-auto bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-base sm:text-lg text-center hover:bg-green-700 tracking-wider flex items-center justify-center gap-2"
               aria-label="Contact us on WhatsApp for wedding services"
             >
+              <WhatsAppIcon />
               WhatsApp Us
             </a>
             <a
               href={`tel:${siteConfig.contact.phone}`}
-              className="w-full sm:w-auto bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] hover:from-[#8a5f0b] hover:via-[#ffd277] hover:to-[#8a5f0b] text-black px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-full font-bold transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 text-center"
+              className="w-full sm:w-auto golden-gradient-button text-black px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold transition-all duration-300 text-base sm:text-lg text-center shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider flex items-center justify-center gap-2"
               aria-label="Call us for wedding services"
             >
+              <PhoneIcon />
               Call Now
             </a>
           </div>
@@ -528,7 +440,7 @@ const WeddingsServicePage = () => {
 
 
       {/* Wedding Gallery Section */}
-      <section className="wedding-gallery-section py-12 sm:py-16 lg:py-24 w-full bg-gradient-to-br from-black via-gray-900 to-black">
+      <section className="wedding-gallery-section py-12 sm:py-16 lg:py-24 w-full bg-black">
         {/* <OptimizedSectionHero
           title="Wedding Gallery"
           description="Browse a curated selection of our favorite wedding moments."

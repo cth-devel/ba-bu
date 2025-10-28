@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/Icons';
 import { siteConfig } from '@/config/site';
 
 const Contact = () => {
@@ -63,7 +64,7 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate branch selection every 2.5 seconds
+  // Auto-rotate branch selection every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveLocation((prevLocation) => {
@@ -71,7 +72,7 @@ const Contact = () => {
         if (prevLocation === 'mannam') return 'mathilmoola';
         return 'andipillikkav';
       });
-    }, 2500);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -98,10 +99,10 @@ Message: ${formData.message}`;
     // Use WhatsApp Web API for better reliability
     const phoneNumber = "919846272333";
     const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-    
+
     try {
       const newWindow = window.open(whatsappWebUrl, '_blank', 'noopener,noreferrer');
-      
+
       if (!newWindow || newWindow.closed) {
         // Fallback to wa.me in new tab
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -241,14 +242,14 @@ Message: ${formData.message}`;
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Book salon appointment on WhatsApp at ${salonBranches[activeLocation].name}`}
-                className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-white px-6 py-3 rounded-full transition-all duration-300 w-full hover:scale-105 tracking-wider"
+                className="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#1ebe57] text-white px-6 py-3 rounded-full transition-all duration-300 w-full hover:scale-105 tracking-wider"
               >
-                <MessageCircle className="w-5 h-5" />
+                <WhatsAppIcon className="w-5 h-5" />
                 <span>WhatsApp</span>
               </a>
               <a
                 href={`tel:${salonBranches[activeLocation].phone.split(',')[0]}`}
-                className="flex items-center justify-center space-x-2 bg-babu-teal hover:bg-babu-teal-dark text-white px-6 py-3 rounded-full font-semibold transition-colors w-full"
+                className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 w-full hover:scale-105"
               >
                 <Phone className="w-5 h-5" />
                 <span>Call Now</span>

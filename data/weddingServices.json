@@ -1,0 +1,94 @@
+{
+  "galleryImages": [
+    { "src": "/images/weddings/gallery/wedding-01.webp", "alt": "Wedding celebration moment 1", "title": "Wedding 01" },
+    { "src": "/images/weddings/gallery/wedding-02.webp", "alt": "Wedding celebration moment 2", "title": "Wedding 02" },
+    { "src": "/images/weddings/gallery/wedding-03.webp", "alt": "Wedding celebration moment 3", "title": "Wedding 03" },
+    { "src": "/images/weddings/gallery/wedding-04.webp", "alt": "Wedding celebration moment 4", "title": "Wedding 04" },
+    { "src": "/images/weddings/gallery/wedding-05.webp", "alt": "Wedding celebration moment 5", "title": "Wedding 05" },
+    { "src": "/images/weddings/gallery/wedding-08.webp", "alt": "Wedding celebration moment 8", "title": "Wedding 08" },
+    { "src": "/images/weddings/gallery/wedding-09.webp", "alt": "Wedding celebration moment 9", "title": "Wedding 09" },
+    { "src": "/images/weddings/gallery/wedding-10.webp", "alt": "Wedding celebration moment 10", "title": "Wedding 10" },
+    { "src": "/images/weddings/gallery/wedding-11.webp", "alt": "Wedding celebration moment 11", "title": "Wedding 11" },
+    { "src": "/images/weddings/gallery/wedding-12.webp", "alt": "Wedding celebration moment 12", "title": "Wedding 12" },
+    { "src": "/images/weddings/gallery/wedding-13.webp", "alt": "Wedding celebration moment 13", "title": "Wedding 13" },
+    { "src": "/images/weddings/gallery/wedding-14.webp", "alt": "Wedding celebration moment 14", "title": "Wedding 14" },
+    { "src": "/images/weddings/gallery/wedding-15.webp", "alt": "Wedding celebration moment 15", "title": "Wedding 15" },
+    { "src": "/images/weddings/gallery/wedding-16.webp", "alt": "Wedding celebration moment 16", "title": "Wedding 16" },
+    { "src": "/images/weddings/gallery/wedding-17.webp", "alt": "Wedding celebration moment 17", "title": "Wedding 17" },
+    { "src": "/images/weddings/gallery/wedding-18.webp", "alt": "Wedding celebration moment 18", "title": "Wedding 18" }
+  ],
+  "bridalServices": [
+    {
+      "id": 1,
+      "name": "Bridal Package Services",
+      "description": "Complete range of bridal beauty services for your special day.",
+      "price": "Individual Pricing",
+      "duration": "Various",
+      "features": [
+        "HairStyling – ₹800",
+        "De-Tan – ₹500",
+        "Glow Facial – ₹2,000",
+        "Pedicure – ₹800",
+        "Manicure – ₹500",
+        "Handwax (full) – ₹700",
+        "Legwax (full) – ₹900",
+        "Hairspa – ₹1,000",
+        "Full Body Polishing – ₹8,000"
+      ],
+      "bgImage": "/images/weddings/bride/bride-01.avif",
+      "isServiceList": true
+    },
+    {
+      "id": 2,
+      "name": "Makeup Services",
+      "description": "Professional makeup services for all your wedding events.",
+      "price": "Individual Pricing",
+      "duration": "Various",
+      "features": [
+        "Full HD Glossy EVENT Makeup – ₹15,000",
+        "Reception Makeup – ₹12,000",
+        "Saree + hair + light makeup – ₹4,000",
+        "Saree draping only – ₹800"
+      ],
+      "bgImage": "/images/weddings/bride/bride-03.webp",
+      "isServiceList": true
+    }
+  ],
+  "groomServices": [
+    {
+      "id": 1,
+      "name": "Groom Services",
+      "description": "Complete grooming package for the groom including haircut, beard styling, and facial treatments.",
+      "price": "Individual Pricing",
+      "duration": "Various",
+      "features": [
+        "HairStyling – ₹150",
+        "Beard setting – ₹100",
+        "De-Tan – ₹500",
+        "Glow Facial – ₹1,600",
+        "Pedicure – ₹800",
+        "Manicure – ₹500",
+        "Hand detan – ₹700",
+        "Hairspa – ₹800"
+      ],
+      "bgImage": "/images/weddings/groom/groom-02.webp",
+      "isServiceList": true
+    },
+    {
+      "id": 2,
+      "name": "Groom Makeup Services",
+      "description": "Professional makeup services for all your wedding events.",
+      "price": "Individual Pricing",
+      "duration": "Various",
+      "features": [
+        "Full HD Glossy EVENT Makeup – ₹5,000",
+        "Reception Makeup – ₹4,500",
+        "Light makeup + hair – ₹3,000",
+        "Hair setting only – ₹500"
+      ],
+      "bgImage": "/images/weddings/groom/groom-05.webp",
+      "isServiceList": true
+    }
+  ]
+}
+

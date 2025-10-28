@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Star } from "lucide-react";
+import { Star, User } from "lucide-react";
 import rawReviews from "@/reviews.json";
 
 const Testimonials = () => {
@@ -40,7 +40,8 @@ const Testimonials = () => {
         name: r.name,
         username: undefined,
         body: r.review,
-        img: r.profilePhoto || "/images/testimonials/avatar1.webp",
+        // Force placeholder avatar to avoid using provider images
+        img: "",
         rating: 5,
     }));
 
@@ -105,11 +106,22 @@ const Testimonials = () => {
           {/* Author section - positioned at bottom */}
           <div className="flex items-center gap-3 mt-auto">
             <div className="relative">
-              <img
-                src={img}
-                alt={name}
-                className="w-12 h-12 rounded-full object-cover ring-2 ring-amber-400/30 group-hover:ring-amber-400/70 transition-all duration-300"
-              />
+              {img ? (
+                <img
+                  src={img}
+                  alt={name}
+                  className="w-12 h-12 rounded-full object-cover ring-2 ring-amber-400/30 group-hover:ring-amber-400/70 transition-all duration-300"
+                />
+              ) : (
+                <div
+                  className="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 flex items-center justify-center ring-2 ring-amber-400/30 group-hover:ring-amber-400/70 transition-all duration-300"
+                  role="img"
+                  aria-label="User avatar placeholder"
+                  tabIndex={0}
+                >
+                  <User className="w-6 h-6 text-black/80" aria-hidden="true" />
+                </div>
+              )}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-400/30 to-yellow-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <div>
@@ -195,15 +207,7 @@ const Testimonials = () => {
           </div>
         </div>
 
-                {/* Google Reviews Badge */}
-                <div className="text-center mt-12 fade-in-section">
-                    <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-400/30 to-yellow-400/20 border border-amber-400/40 text-white px-6 py-3 rounded-full">
-                        <div className="flex">{renderStars(5)}</div>
-                        <span className="font-semibold">
-                            4.9/5 on Google Reviews
-                        </span>
-                    </div>
-                </div>
+                {/* Reviews summary badge removed as per request */}
             </div>
 
             <style jsx>{`
