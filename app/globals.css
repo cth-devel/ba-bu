@@ -883,4 +883,37 @@
   transform: translate3d(0, 0, 0) !important;
 }
 
+/* Custom Scrollbar Styles for Service Items Section */
+.service-items-section {
+  /* Custom scrollbar for webkit browsers (Chrome, Safari, Edge) */
+  scrollbar-width: thin;
+  scrollbar-color: #4a4a4a #1a1a1a;
+}
+
+.service-items-section ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.service-items-section ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.service-items-section ::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.service-items-section ::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5a;
+}
+
+/* Firefox scrollbar styling */
+.service-items-section * {
+  scrollbar-width: thin;
+  scrollbar-color: #4a4a4a #1a1a1a;
+}
+
 

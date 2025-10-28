@@ -1,0 +1,119 @@
+[
+  {
+    "title": "Face",
+    "description": "Professional facial bleaching for radiant skin",
+    "price": "₹300",
+    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Face bleaching service provides professional facial hair lightening and skin brightening for a radiant, smooth complexion. Includes facial hair lightening, skin brightening treatment, radiant complexion, and safe high-quality products."
+  },
+  {
+    "title": "Neck",
+    "description": "Neck area bleaching for even skin tone",
+    "price": "₹300",
+    "src": "/images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Neck bleaching service targets the neck area to lighten hair and even out skin tone for a seamless look. Includes neck hair lightening, even skin tone, seamless appearance, and gentle treatment."
+  },
+  {
+    "title": "Upper Lip",
+    "description": "Upper lip hair bleaching",
+    "price": "₹50",
+    "src": "/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Upper Lip bleaching service gently lightens upper lip hair for a clean, natural appearance. Includes upper lip hair lightening, clean appearance, natural look, and gentle technique."
+  },
+  {
+    "title": "Underarm",
+    "description": "Underarm bleaching for smooth skin",
+    "price": "₹200",
+    "src": "/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Underarm bleaching service lightens underarm hair and brightens skin for smooth, clean results. Includes underarm hair lightening, skin brightening, smooth clean results, and professional care."
+  },
+  {
+    "title": "Low Neck/Upper Neck",
+    "description": "Low neck and upper neck bleaching",
+    "price": "₹250",
+    "src": "/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Low Neck/Upper Neck bleaching service targets specific neck areas for precise hair lightening and skin brightening. Includes precise neck area treatment, hair lightening, skin brightening, and targeted approach."
+  },
+  {
+    "title": "Full Neck",
+    "description": "Complete neck bleaching treatment",
+    "price": "₹400",
+    "src": "/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Full Neck bleaching service provides comprehensive neck area treatment for complete hair lightening and skin brightening. Includes complete neck treatment, comprehensive hair lightening, full skin brightening, and professional service."
+  },
+  {
+    "title": "Feet",
+    "description": "Feet bleaching for smooth, bright skin",
+    "price": "₹300",
+    "src": "/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Feet bleaching service lightens foot hair and brightens skin for smooth, clean feet. Includes foot hair lightening, skin brightening, smooth clean feet, and gentle treatment."
+  },
+  {
+    "title": "Half Arm",
+    "description": "Half arm bleaching treatment",
+    "price": "₹300",
+    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Half Arm bleaching service targets the lower half of the arm for hair lightening and skin brightening. Includes lower arm treatment, hair lightening, skin brightening, and precise application."
+  },
+  {
+    "title": "Full Arm",
+    "description": "Complete arm bleaching treatment",
+    "price": "₹500",
+    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Full Arm bleaching service provides comprehensive arm treatment for complete hair lightening and skin brightening. Includes complete arm treatment, full hair lightening, comprehensive skin brightening, and professional service."
+  },
+  {
+    "title": "Half Leg",
+    "description": "Half leg bleaching treatment",
+    "price": "₹450",
+    "src": "/images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Half Leg bleaching service targets the lower half of the leg for hair lightening and skin brightening. Includes lower leg treatment, hair lightening, skin brightening, and gentle technique."
+  },
+  {
+    "title": "Full Leg",
+    "description": "Complete leg bleaching treatment",
+    "price": "₹750",
+    "src": "/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Full Leg bleaching service provides comprehensive leg treatment for complete hair lightening and skin brightening. Includes complete leg treatment, full hair lightening, comprehensive skin brightening, and professional service."
+  },
+  {
+    "title": "Full Body",
+    "description": "Complete body bleaching treatment",
+    "price": "₹3000",
+    "src": "/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Full Body bleaching service provides comprehensive body treatment for complete hair lightening and skin brightening all over. Includes complete body treatment, full body hair lightening, comprehensive skin brightening, and premium service."
+  },
+  {
+    "title": "Full Body Premium",
+    "description": "Premium full body bleaching treatment",
+    "price": "₹6000",
+    "src": "/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Full Body Premium bleaching service offers the ultimate luxury treatment with premium products for complete body hair lightening and skin brightening. Includes premium full body treatment, luxury hair lightening, premium skin brightening, and ultimate luxury service."
+  }
+]

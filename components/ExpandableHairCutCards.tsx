@@ -102,8 +102,8 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
 
       {/* Responsive Layout: Card style for mobile (stacked sections), List style for desktop (side-by-side) */}
       <div className="w-full">
-        {/* Mobile Card Layout (when sections are stacked vertically) */}
-        <div className={`${showLoadMore ? 'block' : 'hidden'} lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6`}>
+        {/* Mobile Card Layout (when sections are stacked vertically) - Always show on mobile */}
+        <div className="grid lg:hidden grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {cards.map((card, index) => (
             <div
               key={`card-${card.title}-${index}`}
@@ -167,8 +167,8 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
           ))}
         </div>
 
-        {/* Desktop List Layout (when sections are side-by-side) */}
-        <div className={`${showLoadMore ? 'hidden' : 'block'} lg:block space-y-3`}>
+        {/* Desktop List Layout (when sections are side-by-side) - Always show on desktop */}
+        <div className="hidden lg:block space-y-3">
           {cards.map((card, index) => (
             <div
               key={`card-${card.title}-${index}`}

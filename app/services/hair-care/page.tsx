@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useEffect, useId, useRef, useState } from "react";
+import React, { useState } from "react";
 import { siteConfig } from "@/config/site";
 import OptimizedHero from "@/components/ui/optimized-hero";
-import OptimizedSectionHero from "@/components/ui/optimized-section-hero";
-import OptimizedGallery from "@/components/ui/optimized-gallery";
-import OptimizedPricing from "@/components/ui/optimized-pricing";
 import ServicesContainer from "@/components/ServicesContainer";
-import ExpandableHairCutCards from "@/components/ExpandableHairCutCards";
+import ServiceItemsSection from "@/components/ServiceItemsSection";
+import ServiceGalleryMarquee from "@/components/ServiceGalleryMarquee";
 import BookingPopup from "@/components/BookingPopup";
 import { WhatsAppIcon, PhoneIcon } from "@/components/Icons";
 import gentsHairTreatmentCardsData from "@/data/gentsHairTreatmentCards.json";
@@ -258,229 +256,32 @@ const HairCareServicePage = () => {
                     </div>
                 </div>
 
-                {/* Hair Cuts Section */}
-                <div className=" bg-black">
-                    <div className="w-full px-4 sm:px-6 lg:px-8">
-                        <div className="mb-16">
-                            {/* Hair Cuts - Two Column Layout (Ladies | Gents) */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                                <section
-                                    role="region"
-                                    aria-labelledby="haircuts-ladies-heading"
-                                    className="lg:pr-2"
-                                >
-                                    <div className="mb-6">
-                                        <h5
-                                            id="haircuts-ladies-heading"
-                                            className="text-lg font-gunteerz font-semibold text-white text-left"
-                                        >
-                                            For Ladies
-                                        </h5>
-                                    </div>
-                                    <div
-                                        className={`${
-                                            hairCutLadiesVisible < hairCutCards.length
-                                                ? 'overflow-visible max-h-none'
-                                                : 'md:max-h-[60vh] md:overflow-y-auto lg:max-h-[70vh] xl:max-h-[75vh] overscroll-contain touch-pan-y [@media(min-width:950px)]:overflow-visible [@media(min-width:950px)]:max-h-none'
-                                        }`}
-                                        onWheel={hairCutLadiesVisible < hairCutCards.length ? undefined : (e) => {
-                                            // Disable scroll behavior on screens 950px and above
-                                            if (window.innerWidth >= 950) {
-                                                return;
-                                            }
-
-                                            const container = e.currentTarget;
-                                            const isScrollingDown = e.deltaY > 0;
-                                            const isScrollingUp = e.deltaY < 0;
-                                            const isAtBottom =
-                                                container.scrollHeight -
-                                                    container.scrollTop ===
-                                                container.clientHeight;
-                                            const isAtTop =
-                                                container.scrollTop === 0;
-
-                                            // Only prevent default if container can still scroll
-                                            if (
-                                                (isScrollingDown && !isAtBottom) ||
-                                                (isScrollingUp && !isAtTop)
-                                            ) {
-                                                e.preventDefault();
-                                                e.stopPropagation();
-                                                container.scrollTop += e.deltaY;
-                                            }
-                                        }}
-                                    >
-                                        <ExpandableHairCutCards
-                                            cards={hairCutCards.slice(0, hairCutLadiesVisible)}
-                                            gender="female"
-                                            onBookNow={handleBookNow}
-                                            showLoadMore={hairCutLadiesVisible < hairCutCards.length}
-                                        />
-                                        {/* Mobile Load More Button (only when sections are stacked) */}
-                                        {hairCutLadiesVisible < hairCutCards.length && (
-                                            <div className="lg:hidden mt-4 text-center">
-                                                <button
-                                                    onClick={() => setHairCutLadiesVisible(prev =>
-                                                        Math.min(prev + ITEMS_PER_LOAD, hairCutCards.length)
-                                                    )}
-                                                    className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                                >
-                                                    Load More
-                                                </button>
-                                            </div>
-                                        )}
-                                    </div>
-                                </section>
-
-                                <section
-                                    role="region"
-                                    aria-labelledby="haircuts-gents-heading"
-                                    className="lg:pl-2"
-                                >
-                                    <div className="mb-6">
-                                        <h5
-                                            id="haircuts-gents-heading"
-                                            className="text-lg font-gunteerz font-semibold text-white text-left"
-                                        >
-                                            For Gents
-                                        </h5>
-                                    </div>
-                                    <div
-                                        className={`${
-                                            hairCutGentsVisible < gentsHairCutCards.length
-                                                ? 'overflow-visible max-h-none'
-                                                : 'md:max-h-[60vh] md:overflow-y-auto lg:max-h-[70vh] xl:max-h-[75vh] overscroll-contain touch-pan-y [@media(min-width:950px)]:overflow-visible [@media(min-width:950px)]:max-h-none'
-                                        }`}
-                                        onWheel={(e) => {
-                                            // Disable scroll behavior on screens 950px and above
-                                            if (window.innerWidth >= 950) {
-                                                return;
-                                            }
-
-                                            const container = e.currentTarget;
-                                            const isScrollingDown = e.deltaY > 0;
-                                            const isScrollingUp = e.deltaY < 0;
-                                            const isAtBottom =
-                                                container.scrollHeight -
-                                                    container.scrollTop ===
-                                                container.clientHeight;
-                                            const isAtTop =
-                                                container.scrollTop === 0;
-
-                                            // Only prevent default if container can still scroll
-                                            if (
-                                                (isScrollingDown && !isAtBottom) ||
-                                                (isScrollingUp && !isAtTop)
-                                            ) {
-                                                e.preventDefault();
-                                                e.stopPropagation();
-                                                container.scrollTop += e.deltaY;
-                                            }
-                                        }}
-                                    >
-                                        <ExpandableHairCutCards
-                                            cards={gentsHairCutCards.slice(0, hairCutGentsVisible)}
-                                            gender="male"
-                                            onBookNow={handleBookNow}
-                                            showLoadMore={hairCutGentsVisible < gentsHairCutCards.length}
-                                        />
-                                        {/* Mobile Load More Button (only when sections are stacked) */}
-                                        {hairCutGentsVisible < gentsHairCutCards.length && (
-                                            <div className="lg:hidden mt-4 text-center">
-                                                <button
-                                                    onClick={() => setHairCutGentsVisible(prev =>
-                                                        Math.min(prev + ITEMS_PER_LOAD, gentsHairCutCards.length)
-                                                    )}
-                                                    className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                                >
-                                                    Load More
-                                                </button>
-                                            </div>
-                                        )}
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Hair Cut Styles Gallery - Infinite Scroll */}
-                <section className="pt-16 sm:pt-20 lg:pt-24 bg-black">
-                    <div className="w-full px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-12">
-                            <h3 className="text-xl sm:text-2xl font-gunteerz font-bold text-white mb-4">
-                                <ShinyText
-                                    text="Our Hair Cut Styles"
-                                    disabled={true}
-                                    speed={0}
-                                    className="text-2xl sm:text-6xl py-4 font-gunteerz font-bold text-white mb-4 tracking-wide"
-                                />
-                            </h3>
-                            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto tracking-wider">
-                                Browse through our collection of stunning
-                                haircuts and styles
-                            </p>
-                        </div>
-
-                        {/* Infinite Scroll Gallery */}
-                        <div className="relative overflow-hidden py-8">
-                            <div className="flex animate-scroll-right">
-                                {/* First set of images */}
-                                {hairCutImages.map((image, index) => (
-                                    <div
-                                        key={`first-${index}`}
-                                        className="flex-shrink-0 w-80 sm:w-96 lg:w-[28rem] mx-2 sm:mx-4"
-                                    >
-                                        <div className="relative h-80 sm:h-96 lg:h-[28rem] overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                                            <img
-                                                src={image.src}
-                                                alt={image.alt}
-                                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                                            {image.title && (
-                                                <div className="absolute bottom-4 left-4 right-4">
-                                                    <h4 className="text-white font-semibold text-sm sm:text-base">
-                                                        {image.title}
-                                                    </h4>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                ))}
-
-                                {/* Duplicate set for seamless loop */}
-                                {hairCutImages.map((image, index) => (
-                                    <div
-                                        key={`second-${index}`}
-                                        className="flex-shrink-0 w-80 sm:w-96 lg:w-[28rem] mx-2 sm:mx-4"
-                                    >
-                                        <div className="relative h-80 sm:h-96 lg:h-[28rem] overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                                            <img
-                                                src={image.src}
-                                                alt={image.alt}
-                                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                                            {image.title && (
-                                                <div className="absolute bottom-4 left-4 right-4">
-                                                    <h4 className="text-white font-semibold text-sm sm:text-base">
-                                                        {image.title}
-                                                    </h4>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <ServiceItemsSection
+                    ladiesCards={hairCutCards}
+                    gentsCards={gentsHairCutCards}
+                    ladiesVisible={hairCutLadiesVisible}
+                    gentsVisible={hairCutGentsVisible}
+                    onLadiesLoadMore={() => setHairCutLadiesVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, hairCutCards.length)
+                    )}
+                    onGentsLoadMore={() => setHairCutGentsVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, gentsHairCutCards.length)
+                    )}
+                    onBookNow={handleBookNow}
+                    itemsPerLoad={ITEMS_PER_LOAD}
+                />
             </section>
+
+            {/* Hair Cut Styles Gallery - Infinite Scroll */}
+            <ServiceGalleryMarquee
+                title="Our Hair Cut Styles"
+                subtitle="Browse through our collection of stunning haircuts and styles"
+                images={hairCutImages}
+                className="pt-16 sm:pt-20 lg:pt-24"
+            />
 
             {/* Hair Coloring Section */}
             <section className="hair-coloring-section">
-                {/* Hair Coloring Section */}
                 <div className="pt-12 sm:pt-16 lg:pt-20 bg-black">
                     <div className="w-full text-center px-4 sm:px-6 lg:px-8">
                         <h3 className="m-0 p-0">
@@ -508,200 +309,31 @@ const HairCareServicePage = () => {
                                 tone.
                             </p>
                         </div>
-                        {/* Hair Coloring - Two Column Layout (Ladies | Gents) */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                            <section
-                                role="region"
-                                aria-labelledby="coloring-ladies-heading"
-                                className="lg:pr-2"
-                            >
-                                <div className="mb-6">
-                                    <h5
-                                        id="coloring-ladies-heading"
-                                        className="text-lg font-gunteerz font-semibold text-white text-left"
-                                    >
-                                        For Ladies
-                                    </h5>
-                                </div>
-                                <div
-                                    className="md:max-h-[60vh] md:overflow-y-auto lg:max-h-[70vh] xl:max-h-[75vh] overscroll-contain touch-pan-y"
-                                    onWheel={(e) => {
-                                        const container = e.currentTarget;
-                                        const isScrollingDown = e.deltaY > 0;
-                                        const isScrollingUp = e.deltaY < 0;
-                                        const isAtBottom =
-                                            container.scrollHeight -
-                                                container.scrollTop ===
-                                            container.clientHeight;
-                                        const isAtTop = container.scrollTop === 0;
-
-                                        // Only prevent default if container can still scroll
-                                        if (
-                                            (isScrollingDown && !isAtBottom) ||
-                                            (isScrollingUp && !isAtTop)
-                                        ) {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            container.scrollTop += e.deltaY;
-                                        }
-                                    }}
-                                >
-                                    <ExpandableHairCutCards
-                                        cards={ladiesHairColoringCards.slice(0, coloringLadiesVisible)}
-                                        gender="female"
-                                        onBookNow={handleBookNow}
-                                        showLoadMore={coloringLadiesVisible < ladiesHairColoringCards.length}
-                                    />
-                                    {/* Mobile Load More Button (only when sections are stacked) */}
-                                    {coloringLadiesVisible < ladiesHairColoringCards.length && (
-                                        <div className="lg:hidden mt-4 text-center">
-                                            <button
-                                                onClick={() => setColoringLadiesVisible(prev =>
-                                                    Math.min(prev + ITEMS_PER_LOAD, ladiesHairColoringCards.length)
-                                                )}
-                                                className="px-6 py-3 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                                            >
-                                                Load More
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-                            </section>
-
-                            <section
-                                role="region"
-                                aria-labelledby="coloring-gents-heading"
-                                className="lg:pl-2"
-                            >
-                                <div className="mb-6">
-                                    <h5
-                                        id="coloring-gents-heading"
-                                        className="text-lg font-gunteerz font-semibold text-white text-left"
-                                    >
-                                        For Gents
-                                    </h5>
-                                </div>
-                                <div
-                                    className="md:max-h-[60vh] md:overflow-y-auto lg:max-h-[70vh] xl:max-h-[75vh] overscroll-contain touch-pan-y"
-                                    onWheel={(e) => {
-                                        const container = e.currentTarget;
-                                        const isScrollingDown = e.deltaY > 0;
-                                        const isScrollingUp = e.deltaY < 0;
-                                        const isAtBottom =
-                                            container.scrollHeight -
-                                                container.scrollTop ===
-                                            container.clientHeight;
-                                        const isAtTop = container.scrollTop === 0;
-
-                                        // Only prevent default if container can still scroll
-                                        if (
-                                            (isScrollingDown && !isAtBottom) ||
-                                            (isScrollingUp && !isAtTop)
-                                        ) {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            container.scrollTop += e.deltaY;
-                                        }
-                                    }}
-                                >
-                                    <ExpandableHairCutCards
-                                        cards={gentsHairColoringCards.slice(0, coloringGentsVisible)}
-                                        gender="male"
-                                        onBookNow={handleBookNow}
-                                        showLoadMore={coloringGentsVisible < gentsHairColoringCards.length}
-                                    />
-                                    {/* Mobile Load More Button (only when sections are stacked) */}
-                                    {coloringGentsVisible < gentsHairColoringCards.length && (
-                                        <div className="lg:hidden mt-4 text-center">
-                                            <button
-                                                onClick={() => setColoringGentsVisible(prev =>
-                                                    Math.min(prev + ITEMS_PER_LOAD, gentsHairColoringCards.length)
-                                                )}
-                                                className="px-6 py-3 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                                            >
-                                                Load More
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-                            </section>
-                        </div>
                     </div>
                 </div>
 
-                {/* Hair Color Styles Gallery - Infinite Scroll */}
-                <section className="py-16 sm:py-20 lg:py-24 bg-black">
-                    <div className="w-full px-4 sm:px-6 lg:px-8">
-                        <div className="text-center mb-8 sm:mb-12">
-                            <h3 className="text-xl sm:text-2xl font-gunteerz font-bold text-white mb-4">
-                                <ShinyText
-                                    text="Our Hair Color Styles"
-                                    disabled={true}
-                                    speed={0}
-                                    className="text-2xl sm:text-6xl py-4 font-gunteerz font-bold text-white mb-4 tracking-wide"
-                                />
-                            </h3>
-                            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto tracking-wider ">
-                                Explore our collection of beautiful hair colors
-                                and highlights
-                            </p>
-                        </div>
-
-                        {/* Infinite Scroll Gallery */}
-                        <div className="relative overflow-hidden py-8">
-                            <div className="flex animate-scroll-right">
-                                {/* First set of images */}
-                                {hairColorImages.map((image, index) => (
-                                    <div
-                                        key={`first-${index}`}
-                                        className="flex-shrink-0 w-80 sm:w-96 lg:w-[28rem] mx-2 sm:mx-4"
-                                    >
-                                        <div className="relative h-80 sm:h-96 lg:h-[28rem] overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                                            <img
-                                                src={image.src}
-                                                alt={image.alt}
-                                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                                            {image.title && (
-                                                <div className="absolute bottom-4 left-4 right-4">
-                                                    <h4 className="text-white font-semibold text-sm sm:text-base">
-                                                        {image.title}
-                                                    </h4>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                ))}
-
-                                {/* Duplicate set for seamless loop */}
-                                {hairColorImages.map((image, index) => (
-                                    <div
-                                        key={`second-${index}`}
-                                        className="flex-shrink-0 w-80 sm:w-96 lg:w-[28rem] mx-2 sm:mx-4"
-                                    >
-                                        <div className="relative h-80 sm:h-96 lg:h-[28rem] overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
-                                            <img
-                                                src={image.src}
-                                                alt={image.alt}
-                                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                                            {image.title && (
-                                                <div className="absolute bottom-4 left-4 right-4">
-                                                    <h4 className="text-white font-semibold text-sm sm:text-base">
-                                                        {image.title}
-                                                    </h4>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <ServiceItemsSection
+                    ladiesCards={ladiesHairColoringCards}
+                    gentsCards={gentsHairColoringCards}
+                    ladiesVisible={coloringLadiesVisible}
+                    gentsVisible={coloringGentsVisible}
+                    onLadiesLoadMore={() => setColoringLadiesVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, ladiesHairColoringCards.length)
+                    )}
+                    onGentsLoadMore={() => setColoringGentsVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, gentsHairColoringCards.length)
+                    )}
+                    onBookNow={handleBookNow}
+                    itemsPerLoad={ITEMS_PER_LOAD}
+                />
             </section>
+
+            {/* Hair Color Styles Gallery - Infinite Scroll */}
+            <ServiceGalleryMarquee
+                title="Our Hair Color Styles"
+                subtitle="Explore our collection of beautiful hair colors and highlights"
+                images={hairColorImages}
+            />
 
             {/* Hair Treatments Section */}
             <section className="hair-treatments-section">
@@ -730,151 +362,21 @@ const HairCareServicePage = () => {
                         </p>
                     </div>
                 </div>
-                {/* Hair Treatments Section */}
-                <div className="py-12 sm:py-16 lg:py-20 bg-black">
-                    <div className="w-full px-4 sm:px-6 lg:px-8">
-                        <div className="mb-16">
-                            {/* Hair Treatments - Two Column Layout (Ladies | Gents) */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                                <section
-                                    role="region"
-                                    aria-labelledby="treatments-ladies-heading"
-                                    className="lg:pr-2"
-                                >
-                                    <div className="mb-6">
-                                        <h5
-                                            id="treatments-ladies-heading"
-                                            className="text-lg font-gunteerz font-semibold text-white text-left"
-                                        >
-                                            For Ladies
-                                        </h5>
-                                    </div>
-                                    <div
-                                        className={`${
-                                            hairCutGentsVisible < gentsHairCutCards.length
-                                                ? 'overflow-visible max-h-none'
-                                                : 'md:max-h-[60vh] md:overflow-y-auto lg:max-h-[70vh] xl:max-h-[75vh] overscroll-contain touch-pan-y [@media(min-width:950px)]:overflow-visible [@media(min-width:950px)]:max-h-none'
-                                        }`}
-                                        onWheel={(e) => {
-                                            // Disable scroll behavior on screens 950px and above
-                                            if (window.innerWidth >= 950) {
-                                                return;
-                                            }
 
-                                            const container = e.currentTarget;
-                                            const isScrollingDown = e.deltaY > 0;
-                                            const isScrollingUp = e.deltaY < 0;
-                                            const isAtBottom =
-                                                container.scrollHeight -
-                                                    container.scrollTop ===
-                                                container.clientHeight;
-                                            const isAtTop =
-                                                container.scrollTop === 0;
-
-                                            // Only prevent default if container can still scroll
-                                            if (
-                                                (isScrollingDown && !isAtBottom) ||
-                                                (isScrollingUp && !isAtTop)
-                                            ) {
-                                                e.preventDefault();
-                                                e.stopPropagation();
-                                                container.scrollTop += e.deltaY;
-                                            }
-                                        }}
-                                    >
-                                        <ExpandableHairCutCards
-                                            cards={ladiesHairTreatmentCards.slice(0, treatmentLadiesVisible)}
-                                            gender="female"
-                                            onBookNow={handleBookNow}
-                                            showLoadMore={treatmentLadiesVisible < ladiesHairTreatmentCards.length}
-                                        />
-                                        {/* Mobile Load More Button (only when sections are stacked) */}
-                                        {treatmentLadiesVisible < ladiesHairTreatmentCards.length && (
-                                            <div className="lg:hidden mt-4 text-center">
-                                                <button
-                                                    onClick={() => setTreatmentLadiesVisible(prev =>
-                                                        Math.min(prev + ITEMS_PER_LOAD, ladiesHairTreatmentCards.length)
-                                                    )}
-                                                    className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                                >
-                                                    Load More
-                                                </button>
-                                            </div>
-                                        )}
-                                    </div>
-                                </section>
-
-                                <section
-                                    role="region"
-                                    aria-labelledby="treatments-gents-heading"
-                                    className="lg:pl-2"
-                                >
-                                    <div className="mb-6">
-                                        <h5
-                                            id="treatments-gents-heading"
-                                            className="text-lg font-gunteerz font-semibold text-white text-left"
-                                        >
-                                            For Gents
-                                        </h5>
-                                    </div>
-                                    <div
-                                        className={`${
-                                            hairCutGentsVisible < gentsHairCutCards.length
-                                                ? 'overflow-visible max-h-none'
-                                                : 'md:max-h-[60vh] md:overflow-y-auto lg:max-h-[70vh] xl:max-h-[75vh] overscroll-contain touch-pan-y [@media(min-width:950px)]:overflow-visible [@media(min-width:950px)]:max-h-none'
-                                        }`}
-                                        onWheel={(e) => {
-                                            // Disable scroll behavior on screens 950px and above
-                                            if (window.innerWidth >= 950) {
-                                                return;
-                                            }
-
-                                            const container = e.currentTarget;
-                                            const isScrollingDown = e.deltaY > 0;
-                                            const isScrollingUp = e.deltaY < 0;
-                                            const isAtBottom =
-                                                container.scrollHeight -
-                                                    container.scrollTop ===
-                                                container.clientHeight;
-                                            const isAtTop =
-                                                container.scrollTop === 0;
-
-                                            // Only prevent default if container can still scroll
-                                            if (
-                                                (isScrollingDown && !isAtBottom) ||
-                                                (isScrollingUp && !isAtTop)
-                                            ) {
-                                                e.preventDefault();
-                                                e.stopPropagation();
-                                                container.scrollTop += e.deltaY;
-                                            }
-                                        }}
-                                    >
-                                        <ExpandableHairCutCards
-                                            cards={gentsHairTreatmentCards.slice(0, treatmentGentsVisible)}
-                                            gender="male"
-                                            onBookNow={handleBookNow}
-                                            showLoadMore={treatmentGentsVisible < gentsHairTreatmentCards.length}
-                                        />
-                                        {/* Mobile Load More Button (only when sections are stacked) */}
-                                        {treatmentGentsVisible < gentsHairTreatmentCards.length && (
-                                            <div className="lg:hidden mt-4 text-center">
-                                                <button
-                                                    onClick={() => setTreatmentGentsVisible(prev =>
-                                                        Math.min(prev + ITEMS_PER_LOAD, gentsHairTreatmentCards.length)
-                                                    )}
-                                                    className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                                >
-                                                    Load More
-                                                </button>
-                                            </div>
-                                        )}
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <ServiceItemsSection
+                    ladiesCards={ladiesHairTreatmentCards}
+                    gentsCards={gentsHairTreatmentCards}
+                    ladiesVisible={treatmentLadiesVisible}
+                    gentsVisible={treatmentGentsVisible}
+                    onLadiesLoadMore={() => setTreatmentLadiesVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, ladiesHairTreatmentCards.length)
+                    )}
+                    onGentsLoadMore={() => setTreatmentGentsVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, gentsHairTreatmentCards.length)
+                    )}
+                    onBookNow={handleBookNow}
+                    itemsPerLoad={ITEMS_PER_LOAD}
+                />
             </section>
 
             {/* CTA Section - Responsive Design */}

@@ -7,7 +7,7 @@ import ServicesContainer from "@/components/ServicesContainer";
 import { useEffect, useRef } from 'react';
 
 const WeddingsServicePage = () => {
-  const serviceGridRef = useRef(null);
+  const serviceGridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const serviceGrid = serviceGridRef.current;
@@ -15,9 +15,10 @@ const WeddingsServicePage = () => {
 
     const cards = serviceGrid.querySelectorAll('.service-card');
 
-    const handleMouseMove = (e) => {
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
+    const handleMouseMove = (e: MouseEvent) => {
+      cards.forEach((card) => {
+        const htmlCard = card as HTMLElement;
+        const rect = htmlCard.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
@@ -30,15 +31,16 @@ const WeddingsServicePage = () => {
         const relativeX = (x / rect.width) * 100;
         const relativeY = (y / rect.height) * 100;
 
-        card.style.setProperty('--glow-x', `${relativeX}%`);
-        card.style.setProperty('--glow-y', `${relativeY}%`);
-        card.style.setProperty('--glow-intensity', intensity.toString());
+        htmlCard.style.setProperty('--glow-x', `${relativeX}%`);
+        htmlCard.style.setProperty('--glow-y', `${relativeY}%`);
+        htmlCard.style.setProperty('--glow-intensity', intensity.toString());
       });
     };
 
     const handleMouseLeave = () => {
-      cards.forEach(card => {
-        card.style.setProperty('--glow-intensity', '0');
+      cards.forEach((card) => {
+        const htmlCard = card as HTMLElement;
+        htmlCard.style.setProperty('--glow-intensity', '0');
       });
     };
 
@@ -216,11 +218,11 @@ const WeddingsServicePage = () => {
                           key={serviceIndex}
                           className="service-card"
                           style={{
-                            '--glow-x': '50%',
-                            '--glow-y': '50%',
-                            '--glow-intensity': '0',
-                            '--glow-radius': '200px'
-                          }}
+                            ['--glow-x' as string]: '50%',
+                            ['--glow-y' as string]: '50%',
+                            ['--glow-intensity' as string]: '0',
+                            ['--glow-radius' as string]: '200px'
+                          } as React.CSSProperties}
                         >
                           <div className="service-card__content">
                             <h3 className="service-card__title">{serviceName}</h3>
@@ -381,11 +383,11 @@ const WeddingsServicePage = () => {
                            key={serviceIndex}
                            className="service-card"
                            style={{
-                             '--glow-x': '50%',
-                             '--glow-y': '50%',
-                             '--glow-intensity': '0',
-                             '--glow-radius': '200px'
-                           }}
+                             ['--glow-x' as string]: '50%',
+                             ['--glow-y' as string]: '50%',
+                             ['--glow-intensity' as string]: '0',
+                             ['--glow-radius' as string]: '200px'
+                           } as React.CSSProperties}
                          >
                            <div className="service-card__content">
                              <h3 className="service-card__title">{serviceName}</h3>
