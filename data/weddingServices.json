@@ -1,21 +1,36 @@
 {
   "galleryImages": [
-    { "src": "/images/weddings/gallery/wedding-01.webp", "alt": "Wedding celebration moment 1", "title": "Wedding 01" },
-    { "src": "/images/weddings/gallery/wedding-02.webp", "alt": "Wedding celebration moment 2", "title": "Wedding 02" },
-    { "src": "/images/weddings/gallery/wedding-03.webp", "alt": "Wedding celebration moment 3", "title": "Wedding 03" },
-    { "src": "/images/weddings/gallery/wedding-04.webp", "alt": "Wedding celebration moment 4", "title": "Wedding 04" },
-    { "src": "/images/weddings/gallery/wedding-05.webp", "alt": "Wedding celebration moment 5", "title": "Wedding 05" },
-    { "src": "/images/weddings/gallery/wedding-08.webp", "alt": "Wedding celebration moment 8", "title": "Wedding 08" },
-    { "src": "/images/weddings/gallery/wedding-09.webp", "alt": "Wedding celebration moment 9", "title": "Wedding 09" },
-    { "src": "/images/weddings/gallery/wedding-10.webp", "alt": "Wedding celebration moment 10", "title": "Wedding 10" },
-    { "src": "/images/weddings/gallery/wedding-11.webp", "alt": "Wedding celebration moment 11", "title": "Wedding 11" },
-    { "src": "/images/weddings/gallery/wedding-12.webp", "alt": "Wedding celebration moment 12", "title": "Wedding 12" },
-    { "src": "/images/weddings/gallery/wedding-13.webp", "alt": "Wedding celebration moment 13", "title": "Wedding 13" },
-    { "src": "/images/weddings/gallery/wedding-14.webp", "alt": "Wedding celebration moment 14", "title": "Wedding 14" },
-    { "src": "/images/weddings/gallery/wedding-15.webp", "alt": "Wedding celebration moment 15", "title": "Wedding 15" },
-    { "src": "/images/weddings/gallery/wedding-16.webp", "alt": "Wedding celebration moment 16", "title": "Wedding 16" },
-    { "src": "/images/weddings/gallery/wedding-17.webp", "alt": "Wedding celebration moment 17", "title": "Wedding 17" },
-    { "src": "/images/weddings/gallery/wedding-18.webp", "alt": "Wedding celebration moment 18", "title": "Wedding 18" }
+    { "src": "/images/WEDDING/WEDDING (1).webp", "alt": "Wedding moment 1", "title": "Wedding 1" },
+    { "src": "/images/WEDDING/WEDDING (2).webp", "alt": "Wedding moment 2", "title": "Wedding 2" },
+    { "src": "/images/WEDDING/WEDDING (3).webp", "alt": "Wedding moment 3", "title": "Wedding 3" },
+    { "src": "/images/WEDDING/WEDDING (4).webp", "alt": "Wedding moment 4", "title": "Wedding 4" },
+    { "src": "/images/WEDDING/WEDDING (5).webp", "alt": "Wedding moment 5", "title": "Wedding 5" },
+    { "src": "/images/WEDDING/WEDDING (6).webp", "alt": "Wedding moment 6", "title": "Wedding 6" },
+    { "src": "/images/WEDDING/WEDDING (7).webp", "alt": "Wedding moment 7", "title": "Wedding 7" },
+    { "src": "/images/WEDDING/WEDDING (8).webp", "alt": "Wedding moment 8", "title": "Wedding 8" },
+    { "src": "/images/WEDDING/WEDDING (9).webp", "alt": "Wedding moment 9", "title": "Wedding 9" },
+    { "src": "/images/WEDDING/WEDDING (10).webp", "alt": "Wedding moment 10", "title": "Wedding 10" },
+    { "src": "/images/WEDDING/WEDDING (11).webp", "alt": "Wedding moment 11", "title": "Wedding 11" },
+    { "src": "/images/WEDDING/WEDDING (12).webp", "alt": "Wedding moment 12", "title": "Wedding 12" },
+    { "src": "/images/WEDDING/WEDDING (15).webp", "alt": "Wedding moment 15", "title": "Wedding 15" },
+    { "src": "/images/WEDDING/WEDDING (16).webp", "alt": "Wedding moment 16", "title": "Wedding 16" },
+    { "src": "/images/WEDDING/WEDDING (17).webp", "alt": "Wedding moment 17", "title": "Wedding 17" },
+    { "src": "/images/WEDDING/WEDDING (18).webp", "alt": "Wedding moment 18", "title": "Wedding 18" },
+    { "src": "/images/WEDDING/WEDDING (19).webp", "alt": "Wedding moment 19", "title": "Wedding 19" },
+    { "src": "/images/WEDDING/WEDDING (20).webp", "alt": "Wedding moment 20", "title": "Wedding 20" },
+    { "src": "/images/WEDDING/WEDDING (21).webp", "alt": "Wedding moment 21", "title": "Wedding 21" },
+    { "src": "/images/WEDDING/WEDDING (22).webp", "alt": "Wedding moment 22", "title": "Wedding 22" },
+    { "src": "/images/WEDDING/WEDDING (23).webp", "alt": "Wedding moment 23", "title": "Wedding 23" },
+    { "src": "/images/WEDDING/WEDDING (24).webp", "alt": "Wedding moment 24", "title": "Wedding 24" },
+    { "src": "/images/WEDDING/WEDDING (25).webp", "alt": "Wedding moment 25", "title": "Wedding 25" },
+    { "src": "/images/WEDDING/WEDDING (26).webp", "alt": "Wedding moment 26", "title": "Wedding 26" },
+    { "src": "/images/WEDDING/WEDDING (27).webp", "alt": "Wedding moment 27", "title": "Wedding 27" },
+    { "src": "/images/WEDDING/WEDDING (28).webp", "alt": "Wedding moment 28", "title": "Wedding 28" },
+    { "src": "/images/WEDDING/WEDDING (29).webp", "alt": "Wedding moment 29", "title": "Wedding 29" },
+    { "src": "/images/WEDDING/WEDDING (30).webp", "alt": "Wedding moment 30", "title": "Wedding 30" },
+    { "src": "/images/WEDDING/WEDDING (31).webp", "alt": "Wedding moment 31", "title": "Wedding 31" },
+    { "src": "/images/WEDDING/WEDDING (32).webp", "alt": "Wedding moment 32", "title": "Wedding 32" },
+    { "src": "/images/WEDDING/WEDDING (33).webp", "alt": "Wedding moment 33", "title": "Wedding 33" }
   ],
   "bridalServices": [
     {
@@ -35,7 +50,7 @@
         "Hairspa – ₹1,000",
         "Full Body Polishing – ₹8,000"
       ],
-      "bgImage": "/images/weddings/bride/bride-01.avif",
+      "bgImage": "/images/WEDDING/WEDDING-bridal-package-services.webp",
       "isServiceList": true
     },
     {
@@ -50,7 +65,7 @@
         "Saree + hair + light makeup – ₹4,000",
         "Saree draping only – ₹800"
       ],
-      "bgImage": "/images/weddings/bride/bride-03.webp",
+      "bgImage": "/images/WEDDING/WEDDING-makeup-services.webp",
       "isServiceList": true
     }
   ],
@@ -71,7 +86,7 @@
         "Hand detan – ₹700",
         "Hairspa – ₹800"
       ],
-      "bgImage": "/images/weddings/groom/groom-02.webp",
+      "bgImage": "/images/WEDDING/WEDDING-groom-services.webp",
       "isServiceList": true
     },
     {
@@ -86,7 +101,7 @@
         "Light makeup + hair – ₹3,000",
         "Hair setting only – ₹500"
       ],
-      "bgImage": "/images/weddings/groom/groom-05.webp",
+      "bgImage": "/images/WEDDING/WEDDING-groom-makeup-services.webp",
       "isServiceList": true
     }
   ]

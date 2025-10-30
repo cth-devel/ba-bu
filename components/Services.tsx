@@ -170,30 +170,15 @@ const Services = () => {
                             >
                                 <SplitText
                                     text={service.name}
-                                    className="text-6xl lg:text-7xl font-[900] font-serif py-12 w-full"
+                                    className="text-7xl lg:text-8xl font-[900] font-serif py-12 w-full"
                                     duration={0.8}
                                     delay={80}
                                 />
 
-                                {/* Modern Features Grid */}
-                                <div className="grid grid-cols-2 gap-4 mb-8 max-w-3xl mx-auto">
-                                    {service.features.map((feature, featureIndex) => (
-                                        <div
-                                            key={featureIndex}
-                                            className="group relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
-                                        >
-                                            <span className="text-white text-base lg:text-xl font-medium group-hover:text-white transition-colors duration-300 tracking-widest">
-                                                {feature}
-                                            </span>
-                                            <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-yellow-300/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                                        </div>
-                                    ))}
-                                </div>
-
                                 <Link
                                     href={service.page}
                                     aria-label={`Go to services page from ${service.name}`}
-                                    className="inline-block text-lg border-b-2 border-secondary text-secondary hover:bg-secondary hover:text-black transition-all duration-300 px-8 py-3 tracking-wider font-semibold"
+                                    className="inline-block text-lg px-10 py-3 tracking-wider font-semibold rounded-full golden-gradient-button text-black shadow-[0_8px_30px_rgb(255,215,0,0.25)] hover:shadow-[0_10px_40px_rgb(255,215,0,0.4)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                                 >
                                     Know More{" "}
                                     <ArrowRight className="inline-block ml-2" />
@@ -234,28 +219,20 @@ const Services = () => {
                                 fill
                                 className="object-cover"
                             />
-                            <Link
-                                href="/services"
-                                aria-label={`Go to services page from ${service.name}`}
-                                className="absolute inset-0 z-10"
-                            />
+                            {/* Visible CTA button for mobile */}
                             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-6">
                                 <div className="w-full">
-                                    <h3 className="text-white text-6xl font-[900] mb-2 tracking-wider">
+                                    <h3 className="text-white text-7xl font-[900] mb-2 tracking-wider">
                                         {service.name}
                                     </h3>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        {service.features.map((feature, featureIndex) => (
-                                            <div
-                                                key={featureIndex}
-                                                className="group bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-2 hover:bg-white/20 transition-all duration-300"
-                                            >
-                                                <span className="text-white/90 text-sm font-semibold">
-                                                    {feature}
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
+                                    {/* Features removed on mobile view */}
+                                    <Link
+                                        href={service.page}
+                                        aria-label={`Know more about ${service.name}`}
+                                        className="inline-block mt-4 text-base px-6 py-2 tracking-wider font-semibold rounded-full golden-gradient-button text-black shadow-[0_8px_30px_rgb(255,215,0,0.25)] hover:shadow-[0_10px_40px_rgb(255,215,0,0.4)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                                    >
+                                        Know More <ArrowRight className="inline-block ml-2" />
+                                    </Link>
                                 </div>
                             </div>
                         </div>

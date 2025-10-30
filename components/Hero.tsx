@@ -168,8 +168,8 @@ const Hero = () => {
                   </h3>
 
                   {/* Location */}
-                  <p className="hero-location text-lg mb-8 text-white">
-                      North Paravur, Kerala
+                  <p className="hero-location text-lg mb-8 text-white  tracking-widest">
+                      Andipillikkav | Mannam | Mathilmoola
                   </p>
 
                   {/* CTA Button */}

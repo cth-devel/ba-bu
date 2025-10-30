@@ -37,7 +37,8 @@ const Contact = () => {
       workingHours: '8:30 AM to 8:30 PM'
     }
   };
-  const [activeLocation, setActiveLocation] = useState<BranchKey>('andipillikkav');
+  const [activeContactLocation, setActiveContactLocation] = useState<BranchKey>('andipillikkav');
+  const [activeMapLocation, setActiveMapLocation] = useState<BranchKey>('andipillikkav');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -64,18 +65,7 @@ const Contact = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate branch selection every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveLocation((prevLocation) => {
-        if (prevLocation === 'andipillikkav') return 'mannam';
-        if (prevLocation === 'mannam') return 'mathilmoola';
-        return 'andipillikkav';
-      });
-    }, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -136,12 +126,19 @@ Message: ${formData.message}`;
             <h3 className="text-2xl font-serif font-bold text-babu-primary mb-8">Get In Touch</h3>
 
             {/* Branch Switches */}
-            <div className="flex justify-center mb-8">
-              <div className="flex bg-white/10 rounded-lg p-2">
+            <div className="flex justify-center mb-8 px-2">
+              <div
+                className="flex flex-nowrap gap-2 bg-white/10 rounded-lg p-2 max-w-full overflow-x-auto"
+                role="tablist"
+                aria-label="Contact locations"
+              >
                 <button
-                  onClick={() => setActiveLocation('andipillikkav')}
-                  className={`px-6 py-3 rounded-md transition-all duration-300 text-lg font-semibold tracking-wide font-mono ${
-                    activeLocation === 'andipillikkav'
+                  type="button"
+                  role="tab"
+                  aria-selected={activeContactLocation === 'andipillikkav'}
+                  onClick={() => setActiveContactLocation('andipillikkav')}
+                  className={`px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-md transition-all duration-300 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide font-mono focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd277] whitespace-nowrap text-center leading-snug ${
+                    activeContactLocation === 'andipillikkav'
                       ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
                       : 'text-white/70 hover:text-white'
                   }`}
@@ -149,9 +146,12 @@ Message: ${formData.message}`;
                   Andipillikkav
                 </button>
                 <button
-                  onClick={() => setActiveLocation('mannam')}
-                  className={`px-6 py-3 rounded-md transition-all duration-300 text-lg font-semibold tracking-wide font-mono ${
-                    activeLocation === 'mannam'
+                  type="button"
+                  role="tab"
+                  aria-selected={activeContactLocation === 'mannam'}
+                  onClick={() => setActiveContactLocation('mannam')}
+                  className={`px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-md transition-all duration-300 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide font-mono focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd277] whitespace-nowrap text-center leading-snug ${
+                    activeContactLocation === 'mannam'
                       ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
                       : 'text-white/70 hover:text-white'
                   }`}
@@ -159,9 +159,12 @@ Message: ${formData.message}`;
                   Mannam
                 </button>
                 <button
-                  onClick={() => setActiveLocation('mathilmoola')}
-                  className={`px-6 py-3 rounded-md transition-all duration-300 text-lg font-semibold tracking-wide font-mono ${
-                    activeLocation === 'mathilmoola'
+                  type="button"
+                  role="tab"
+                  aria-selected={activeContactLocation === 'mathilmoola'}
+                  onClick={() => setActiveContactLocation('mathilmoola')}
+                  className={`px-3 sm:px-5 lg:px-6 py-2 sm:py-2.5 lg:py-3 rounded-md transition-all duration-300 text-xs sm:text-sm lg:text-lg font-semibold tracking-wide font-mono focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd277] whitespace-nowrap text-center leading-snug ${
+                    activeContactLocation === 'mathilmoola'
                       ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
                       : 'text-white/70 hover:text-white'
                   }`}
@@ -180,7 +183,7 @@ Message: ${formData.message}`;
                                   <div>
                     <h4 className="text-lg font-semibold text-babu-primary mb-1">Address</h4>
                     <div className="text-gray-300">
-                      {salonBranches[activeLocation].address.split('\n').map((line, index) => (
+                      {salonBranches[activeContactLocation].address.split('\n').map((line, index) => (
                         <p key={index} className={index > 0 ? 'mt-1' : ''}>
                           {line}
                         </p>
@@ -197,10 +200,10 @@ Message: ${formData.message}`;
                 <div>
                   <h4 className="text-lg font-semibold text-babu-primary mb-1">Phone</h4>
                   <a
-                    href={`tel:${salonBranches[activeLocation].phone.split(',')[0]}`}
+                    href={`tel:${salonBranches[activeContactLocation].phone.split(',')[0]}`}
                     className="text-lg text-gray-300 hover:text-babu-teal transition-colors tracking-wide"
                   >
-                    {salonBranches[activeLocation].phone}
+                    {salonBranches[activeContactLocation].phone}
                   </a>
                 </div>
               </div>
@@ -213,10 +216,10 @@ Message: ${formData.message}`;
                 <div>
                   <h4 className="text-lg font-semibold text-babu-primary mb-1">Email</h4>
                   <a
-                    href={`mailto:${salonBranches[activeLocation].email}`}
+                    href={`mailto:${salonBranches[activeContactLocation].email}`}
                     className="text-gray-300 hover:text-babu-teal transition-colors"
                   >
-                    {salonBranches[activeLocation].email}
+                    {salonBranches[activeContactLocation].email}
                   </a>
                 </div>
               </div>
@@ -229,7 +232,7 @@ Message: ${formData.message}`;
                 <div>
                   <h4 className="text-lg font-semibold text-babu-primary mb-1">Working Hours</h4>
                   <div className="text-gray-300">
-                    <p>{salonBranches[activeLocation].workingHours}</p>
+                    <p>{salonBranches[activeContactLocation].workingHours}</p>
                   </div>
                 </div>
               </div>
@@ -241,14 +244,14 @@ Message: ${formData.message}`;
                 href={`https://web.whatsapp.com/send?phone=919846272333&text=${encodeURIComponent('Hi! I would like to book an appointment at BA-BU Salon.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`Book salon appointment on WhatsApp at ${salonBranches[activeLocation].name}`}
+                aria-label={`Book salon appointment on WhatsApp at ${salonBranches[activeContactLocation].name}`}
                 className="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#1ebe57] text-white px-6 py-3 rounded-full transition-all duration-300 w-full hover:scale-105 tracking-wider"
               >
                 <WhatsAppIcon className="w-5 h-5" />
                 <span>WhatsApp</span>
               </a>
               <a
-                href={`tel:${salonBranches[activeLocation].phone.split(',')[0]}`}
+                href={`tel:${salonBranches[activeContactLocation].phone.split(',')[0]}`}
                 className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 w-full hover:scale-105"
               >
                 <Phone className="w-5 h-5" />
@@ -365,43 +368,56 @@ Message: ${formData.message}`;
             <h3 className="text-2xl font-serif font-bold text-white mb-6 text-center">Find Us</h3>
 
             {/* Location Tabs */}
-            <div className="flex justify-center mb-6">
-              <div className="flex bg-white/10 rounded-lg p-1">
+            <div className="flex justify-center mb-6 px-2">
+              <div
+                className="flex flex-nowrap gap-2 bg-white/10 rounded-lg p-1 max-w-full overflow-x-auto"
+                role="tablist"
+                aria-label="Map locations"
+              >
                 <button
-                  onClick={() => setActiveLocation('mannam')}
-                  className={`px-6 py-2 rounded-md transition-all duration-300 ${
-                    activeLocation === 'mannam'
-                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
-                      : 'text-white/70 hover:text-white tracking-wider'
+                  type="button"
+                  role="tab"
+                  aria-selected={activeMapLocation === 'mannam'}
+                  onClick={() => setActiveMapLocation('mannam')}
+                  className={`px-3 sm:px-5 lg:px-6 py-2 rounded-md transition-all duration-300 text-xs sm:text-sm md:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd277] whitespace-nowrap text-center leading-snug ${
+                    activeMapLocation === 'mannam'
+                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white tracking-widest'
+                      : 'text-white/70 hover:text-white tracking-widest'
                   }`}
                 >
-                  BA-BU FAMILY SALON Mannam
+                  Mannam
                 </button>
                 <button
-                  onClick={() => setActiveLocation('andipillikkav')}
-                  className={`px-6 py-2 rounded-md transition-all duration-300 ${
-                    activeLocation === 'andipillikkav'
-                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
-                      : 'text-white/70 hover:text-white tracking-wider'
+                  type="button"
+                  role="tab"
+                  aria-selected={activeMapLocation === 'andipillikkav'}
+                  onClick={() => setActiveMapLocation('andipillikkav')}
+                  className={`px-3 sm:px-5 lg:px-6 py-2 rounded-md transition-all duration-300 text-xs sm:text-sm md:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd277] whitespace-nowrap text-center leading-snug ${
+                    activeMapLocation === 'andipillikkav'
+                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white tracking-widest'
+                      : 'text-white/70 hover:text-white tracking-widest'
                   }`}
                 >
-                  BA-BU FAMILY SALON Andipillikkav
+                  Andipillikkav
                 </button>
                 <button
-                  onClick={() => setActiveLocation('mathilmoola')}
-                  className={`px-6 py-2 rounded-md transition-all duration-300 ${
-                    activeLocation === 'mathilmoola'
-                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white'
-                      : 'text-white/70 hover:text-white tracking-wider'
+                  type="button"
+                  role="tab"
+                  aria-selected={activeMapLocation === 'mathilmoola'}
+                  onClick={() => setActiveMapLocation('mathilmoola')}
+                  className={`px-3 sm:px-5 lg:px-6 py-2 rounded-md transition-all duration-300 text-xs sm:text-sm md:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffd277] whitespace-nowrap text-center leading-snug ${
+                    activeMapLocation === 'mathilmoola'
+                      ? 'bg-gradient-to-r from-[#77530a] to-[#ffd277] text-white tracking-widest'
+                      : 'text-white/70 hover:text-white tracking-widest'
                   }`}
                 >
-                  BA-BU FAMILY SALON, Mathilmoola
+                  Mathilmoola
                 </button>
               </div>
             </div>
 
             <div className="relative w-full rounded-lg overflow-hidden h-[28rem]">
-              {activeLocation === 'mannam' ? (
+              {activeMapLocation === 'mannam' ? (
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15709.638684965286!2d76.2483281!3d10.1473162!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081ba5e09b9cad%3A0x363ca14465d8a7c!2sBA-BU%20FAMILY%20SALON!5e0!3m2!1sen!2sin!4v1754569333582!5m2!1sen!2sin"
                   width="100%"
@@ -412,7 +428,7 @@ Message: ${formData.message}`;
                   referrerPolicy="no-referrer-when-downgrade"
                   title="BA-BU Family Salon Mannam Location"
                 />
-              ) : activeLocation === 'mathilmoola' ? (
+              ) : activeMapLocation === 'mathilmoola' ? (
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31405.570694735976!2d76.1686472119335!3d10.286032900000011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b081f1044192541%3A0xa84e6cc5efe4e4fe!2sBA-BU%20Family%20Salon!5e0!3m2!1sen!2sin!4v1756629192930!5m2!1sen!2sin"
                   width="100%"
@@ -439,11 +455,11 @@ Message: ${formData.message}`;
             </div>
             <div className="text-center mt-4">
               <a
-                href={activeLocation === 'mannam'
+                href={activeMapLocation === 'mannam'
                   ? "https://maps.google.com/?q=BA-BU+FAMILY+SALON+Mannam"
-                  : activeLocation === 'mathilmoola'
+                  : activeMapLocation === 'mathilmoola'
                   ? "https://maps.google.com/?q=BA-BU+Family+Salon+Mathilmoola"
-                  : activeLocation === 'andipillikkav'
+                  : activeMapLocation === 'andipillikkav'
                   ? "https://maps.google.com/?q=BA-BU+GENTS+MAKEOVER+Andipillikkav"
                   : "https://maps.google.com/?q=BA-BU+North+Paravur"
                 }

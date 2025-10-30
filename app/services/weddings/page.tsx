@@ -73,7 +73,7 @@ const WeddingsServicePage = () => {
       <OptimizedHero
         title="Wedding Services"
         subtitle="Complete Bridal & Groom Packages"
-        backgroundImage="/images/weddings/gallery/wedding-08.webp"
+        backgroundImage="/images/WEDDING/wedding-services-heropage.webp"
       />
 
       {/* Bridal Services Section Header - Responsive */}

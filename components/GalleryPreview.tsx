@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
@@ -35,6 +35,10 @@ const GalleryPreview = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const textContentRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
+
+  const [loadedFlags, setLoadedFlags] = useState<boolean[]>(() => images.map(() => false));
+  // Toggle to render images; when true, images render and skeletons hide after load
+  const SHOW_GALLERYPREVIEW_IMAGES = true;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -118,7 +122,7 @@ const GalleryPreview = () => {
     <section
       id="gallery-preview-section"
       ref={sectionRef}
-      className="relative min-w-screen min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-0"
+      className="relative min-w-screen min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-24"
     >
       <div className="relative z-10 px-10 grid md:grid-cols-2 md:grid-rows-2 items-center gap-12">
         {/* Text Content */}
@@ -163,14 +167,28 @@ const GalleryPreview = () => {
               className={`absolute rounded-lg overflow-hidden shadow-2xl ${img.className}`}
               style={{ transform: `rotate(${img.rotate}deg)` }}
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                quality={75}
-                className="object-cover object-center"
+              {/* Skeleton placeholder */}
+              <div
+                className={`${SHOW_GALLERYPREVIEW_IMAGES ? (loadedFlags[idx] ? "hidden" : "block") : "block"} absolute inset-0 bg-gray-700/40 animate-pulse`}
+                aria-hidden="true"
               />
+              {SHOW_GALLERYPREVIEW_IMAGES && (
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  quality={75}
+                  onLoadingComplete={() => {
+                    setLoadedFlags((prev) => {
+                      const next = [...prev];
+                      next[idx] = true;
+                      return next;
+                    });
+                  }}
+                  className={`object-cover object-center transition-opacity duration-500 ${loadedFlags[idx] ? "opacity-100" : "opacity-0"}`}
+                />
+              )}
             </div>
           ))}
         </div>

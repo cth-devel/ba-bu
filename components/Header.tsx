@@ -16,21 +16,62 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [showPromoBanner, setShowPromoBanner] = useState(true);
     const [currentAddressIndex, setCurrentAddressIndex] = useState(0);
+    const [wrapsSincePromo, setWrapsSincePromo] = useState(0);
+    const [showMobilePromo, setShowMobilePromo] = useState(false);
+    const [promoSlideIn, setPromoSlideIn] = useState(false);
     const pathname = usePathname();
 
     const addresses = [
-        'Andipillikkav, Kerala',
-        'Mannam, Kerala',
-        'Mathilmoola, Kerala'
+        'Andipillikkav',
+        'Mannam',
+        'Mathilmoola'
     ];
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentAddressIndex((prevIndex) => (prevIndex + 1) % addresses.length);
+            if (showMobilePromo) {
+                return; // pause rotation while promo is visible on mobile
+            }
+
+            setCurrentAddressIndex((prevIndex) => {
+                const nextIndex = (prevIndex + 1) % addresses.length;
+                if (nextIndex === 0) {
+                    setWrapsSincePromo((prev) => prev + 1);
+                }
+                return nextIndex;
+            });
         }, 2000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [showMobilePromo, addresses.length]);
+
+    // Trigger promo strictly after a full cycle on mobile
+    useEffect(() => {
+        if (wrapsSincePromo === 0) return;
+        if (typeof window === 'undefined' || window.innerWidth >= 1024) return; // mobile only
+
+        setShowMobilePromo(true);
+        setWrapsSincePromo(0);
+    }, [wrapsSincePromo]);
+
+    // Handle slide-in/out lifecycle when the mobile promo is shown
+    useEffect(() => {
+        if (!showMobilePromo) return;
+        let enterTimer: number | undefined;
+        let exitTimer: number | undefined;
+        let cleanupTimer: number | undefined;
+
+        setPromoSlideIn(false);
+        enterTimer = window.setTimeout(() => setPromoSlideIn(true), 20);
+        exitTimer = window.setTimeout(() => setPromoSlideIn(false), 2020);
+        cleanupTimer = window.setTimeout(() => setShowMobilePromo(false), 2020 + 500);
+
+        return () => {
+            if (enterTimer) window.clearTimeout(enterTimer);
+            if (exitTimer) window.clearTimeout(exitTimer);
+            if (cleanupTimer) window.clearTimeout(cleanupTimer);
+        };
+    }, [showMobilePromo]);
 
     useEffect(() => {
         // This effect is only for the promo banner visibility
@@ -148,10 +189,23 @@ const Header = () => {
             {showPromoBanner && !isScrolled && (
                 <div className="promo-banner fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm tracking-widest">
                     <div className="max-w-7xl mx-auto flex justify-center items-center">
+                        {showMobilePromo ? (
+                            // Mobile-only sliding promo message
+                            <div className="lg:hidden w-full flex justify-center">
+                                <span
+                                    className={`font-medium text-center transition-all duration-500 ease-out transform ${promoSlideIn ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
+                                >
+                                    Unlock Extra Benefits with Our Combos
+                                </span>
+                            </div>
+                        ) : (
                         <div className="flex items-center space-x-2 min-w-0">
-                            <div className="flex items-center space-x-1 flex-shrink-0 min-w-fit">
+                            <div className="flex items-center space-x-1">
                                 <MapPin className="w-4 h-4" />
-                                <span className="hidden sm:inline truncate">
+                                <span
+                                    aria-live="polite"
+                                    className="inline-block w-[100px] md:w-[100px] lg:w-[100px] truncate text-center"
+                                >
                                     {addresses[currentAddressIndex]}
                                 </span>
                             </div>
@@ -166,9 +220,9 @@ const Header = () => {
                             <span className="hidden lg:inline flex-shrink-0 mx-1">|</span>
                             <span className="hidden lg:inline font-medium truncate ml-3">
                             Unlock Extra Benefits with Our Combos
-
                             </span>
                         </div>
+                        )}
                         <button
                             onClick={() => setShowPromoBanner(false)}
                             className="text-black hover:text-gray-700 transition-colors flex-shrink-0 ml-2"

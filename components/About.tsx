@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import CountUp from "./CountUp";
 import { gsap } from "gsap";
@@ -16,6 +16,12 @@ const About = () => {
     const contentRef = useRef<HTMLDivElement>(null);
     const statsRef = useRef<HTMLDivElement>(null);
     const headingRef = useRef<HTMLHeadingElement>(null);
+
+    const [isImage1Loaded, setIsImage1Loaded] = useState<boolean>(false);
+    const [isImage2Loaded, setIsImage2Loaded] = useState<boolean>(false);
+
+    // Toggle to render images; when true, images render and skeletons hide after load
+    const SHOW_ABOUT_IMAGES = true;
 
     // GSAP Animations for scroll-based triggers
     useEffect(() => {
@@ -184,25 +190,41 @@ const About = () => {
                             ref={image1Ref}
                             className="absolute top-0 left-0 w-3/5 h-3/4"
                         >
-                            <Image
-                                src="/images/about-img-1.webp"
-                                alt="BA-BU Salon Interior 1"
-                                width={400}
-                                height={600}
-                                className="shadow-2xl object-cover w-full h-full"
+                            {/* Skeleton placeholder */}
+                            <div
+                                className={`${SHOW_ABOUT_IMAGES ? (isImage1Loaded ? "hidden" : "block") : "block"} absolute inset-0 rounded-sm bg-gray-700/40 animate-pulse`}
+                                aria-hidden="true"
                             />
+                            {SHOW_ABOUT_IMAGES && (
+                                <Image
+                                    src="/images/about-img-1.webp"
+                                    alt="BA-BU Salon Interior 1"
+                                    width={400}
+                                    height={600}
+                                    onLoadingComplete={() => setIsImage1Loaded(true)}
+                                    className={`shadow-2xl object-cover w-full h-full transition-opacity duration-500 ${isImage1Loaded ? "opacity-100" : "opacity-0"}`}
+                                />
+                            )}
                         </div>
                         <div
                             ref={image2Ref}
                             className="absolute bottom-0 right-0 w-3/5 h-3/4"
                         >
-                            <Image
-                                src="/images/about-img-2.webp"
-                                alt="BA-BU Salon Interior 2"
-                                width={400}
-                                height={600}
-                                className="shadow-2xl object-cover w-full h-full"
+                            {/* Skeleton placeholder */}
+                            <div
+                                className={`${SHOW_ABOUT_IMAGES ? (isImage2Loaded ? "hidden" : "block") : "block"} absolute inset-0 rounded-sm bg-gray-700/40 animate-pulse`}
+                                aria-hidden="true"
                             />
+                            {SHOW_ABOUT_IMAGES && (
+                                <Image
+                                    src="/images/about-img-2.webp"
+                                    alt="BA-BU Salon Interior 2"
+                                    width={400}
+                                    height={600}
+                                    onLoadingComplete={() => setIsImage2Loaded(true)}
+                                    className={`shadow-2xl object-cover w-full h-full transition-opacity duration-500 ${isImage2Loaded ? "opacity-100" : "opacity-0"}`}
+                                />
+                            )}
                         </div>
                     </div>
 
@@ -210,11 +232,11 @@ const About = () => {
                     <div ref={contentRef}>
                         <h2
                             ref={headingRef}
-                            className="text-4xl lg:text-5xl font-black text-white mb-4 font-sans"
+                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 font-gunteerz tracking-wide"
                         >
                             About BA-BU Family Salon
                         </h2>
-                        <div className="w-24 h-1 bg-gold mb-6"></div>
+                        <div className="w-24 h-1 bg-primary-gradient mb-6"></div>
 
                         <p className="text-lg text-gray-300 mb-6 leading-relaxed tracking-widest">
                         Welcome to BA-BU Family Salon—the leading unisex family and beauty salon in North Paravur (Mannam), Andipillikkav, and Mathilmoola, Thrissur, Kerala. For over 5 years, we have been the premier destination for families seeking exceptional haircuts, grooming, facials, and beauty treatments at affordable prices in Kerala. Our experienced team provides personalized care and uses the finest products and latest techniques for every service, whether it's a fresh haircut, relaxing facial, or bridal and groom package. Enjoy a luxurious, family-friendly atmosphere and professional results every time. Visit our conveniently located unisex salons in North Paravur (Mannam), Andipillikkav, and Mathilmoola, Thrissur, and let BA-BU Family Salon help you look and feel your best in Kerala.
@@ -224,14 +246,14 @@ const About = () => {
                         <div className="mb-8">
                             <a
                                 href="/aboutus"
-                                className="group inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black font-semibold rounded-full shadow-md hover:shadow-xl transition-all duration-500 hover:scale-110 transform hover:-translate-y-2 border-2 border-yellow-300/30 hover:border-yellow-200/50"
+                                className="group inline-flex items-center justify-center px-6 py-3 btn-gradient font-semibold rounded-full shadow-md hover:shadow-xl transition-all duration-500 hover:scale-110 transform hover:-translate-y-2 border-2 border-yellow-300/30 hover:border-yellow-200/50"
                                 aria-label="Read more about BA-BU Family Salon"
                                 tabIndex={0}
                                 onKeyDown={(e) => e.key === 'Enter' && (window.location.href = '/aboutus')}
                             >
-                                <span className="mr-3 text-lg font-medium text-black drop-shadow-sm tracking-widest">Read More</span>
+                                <span className="mr-3 text-lg font-medium drop-shadow-sm tracking-widest text-black">Read More</span>
                                 <svg
-                                    className="w-4 h-4 transition-all duration-500 group-hover:translate-x-2 group-hover:scale-110"
+                                    className="w-4 h-4 text-black transition-all duration-500 group-hover:translate-x-2 group-hover:scale-110"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
