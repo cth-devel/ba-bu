@@ -100,7 +100,7 @@ const Header = () => {
             });
 
             // Reset header visibility for specific pages
-            const shouldShowHeader = pathname === '/works' || pathname === '/' || pathname.startsWith('/works/');
+            const shouldShowHeader = pathname === '/gallery' || pathname === '/' || pathname.startsWith('/gallery/');
             if (shouldShowHeader) {
                 gsap.set(header, {
                     yPercent: 0,
@@ -170,8 +170,8 @@ const Header = () => {
             icon: <Briefcase className="w-5 h-5" />,
         },
         {
-            name: "Works",
-            href: "/works",
+            name: "Gallery",
+            href: "/gallery",
             icon: <ImageIcon className="w-5 h-5" />,
         },
         {

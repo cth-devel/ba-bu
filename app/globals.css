@@ -849,25 +849,25 @@
   }
 }
 
-/* Ensure the first section in works page has no top spacing */
+/* Ensure the first section in gallery page has no top spacing */
 .bg-primary:first-child {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
-/* Specific fix for works page */
+/* Specific fix for gallery page */
 .works-page-container {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
-/* Ensure hero sections in works page start at the very top */
+/* Ensure hero sections in gallery page start at the very top */
 .works-section .hero-section {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
-/* Remove any potential spacing from the first works section */
+/* Remove any potential spacing from the first gallery section */
 .works-section:first-of-type {
   margin-top: 0 !important;
   padding-top: 0 !important;

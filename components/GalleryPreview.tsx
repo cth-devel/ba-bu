@@ -150,8 +150,8 @@ const GalleryPreview = () => {
             and precision. Explore our gallery to witness the transformations
             and find inspiration for your next look.
           </p>
-          <Link href="/works" aria-label="Go to full gallery">
-            <AnimatedButton text="Explore Our Works" />
+          <Link href="/gallery" aria-label="Go to full gallery">
+            <AnimatedButton text="Explore Our Gallery" />
           </Link>
         </div>
 
