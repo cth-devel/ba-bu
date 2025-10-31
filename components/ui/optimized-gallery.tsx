@@ -50,7 +50,7 @@ const OptimizedGallery = ({
 
     // Grid-based varying tile sizes (inspired by components/Gallery.tsx)
     // Use auto-rows and span classes to create different visual heights
-    const autoRowClasses = "auto-rows-[180px] sm:auto-rows-[220px] lg:auto-rows-[260px]";
+    const autoRowClasses = "auto-rows-[240px] sm:auto-rows-[280px] lg:auto-rows-[320px] xl:auto-rows-[360px]";
     const tileClassPresets = [
         // Larger feature/tall tile
         "col-span-1 row-span-2",

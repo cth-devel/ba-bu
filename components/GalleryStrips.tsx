@@ -7,12 +7,14 @@ import { gsap } from 'gsap';
 
 interface GalleryStripsProps {
   className?: string;
+  images?: string[];
 }
 
 const TOTAL_COLUMNS = 4;
-const ANIMATION_DURATION = 180;
+const ANIMATION_DURATION = 60;
+const MOBILE_ANIMATION_DURATION = 60; // Faster on mobile for smoother experience
 
-const galleryImages = Array.from({ length: 52 }, (_, index) => {
+const defaultGalleryImages = Array.from({ length: 52 }, (_, index) => {
   return `/images/gallery/gallery (${index + 1}).webp`;
 });
 
@@ -26,18 +28,20 @@ const extractImageOrder = (imagePath: string): number | null => {
   return Number(match[1]);
 };
 
-const GalleryStrips = ({ className = '' }: GalleryStripsProps) => {
+const GalleryStrips = ({ className = '', images }: GalleryStripsProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const stripRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const galleryImages = images || defaultGalleryImages;
+
   const columnImages = useMemo(() => {
     return Array.from({ length: TOTAL_COLUMNS }, (_, columnIndex) =>
       galleryImages.filter((_, imageIndex) => imageIndex % TOTAL_COLUMNS === columnIndex)
     );
-  }, []);
+  }, [galleryImages]);
 
   const handleStripMouseEnter = useCallback((stripIndex: number) => {
     const stripElement = stripRefs.current[stripIndex];
@@ -121,16 +125,17 @@ const GalleryStrips = ({ className = '' }: GalleryStripsProps) => {
   return (
     <>
       <section className={`relative h-[100svh] w-screen overflow-hidden bg-primary ${className}`}>
-        {/* Dark gradient overlays for top and bottom */}
-        <div className="pointer-events-none absolute top-0 left-0 right-0 z-10 h-32 bg-gradient-to-b from-black to-transparent" />
-        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-32 bg-gradient-to-t from-black to-transparent" />
+        {/* Dark gradient overlays - desktop only (top/bottom) */}
+        <div className="pointer-events-none absolute top-0 left-0 right-0 z-10 h-32 bg-gradient-to-b from-black to-transparent hidden md:block" />
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-32 bg-gradient-to-t from-black to-transparent hidden md:block" />
 
         <div className="flex h-full w-full items-stretch px-2 sm:px-4 lg:px-8">
-          <div className="grid h-full w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Mobile: 4 rows with horizontal scrolling */}
+          <div className="grid h-full w-full grid-cols-1 grid-rows-4 gap-2 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1">
             {columnImages.map((column, stripIndex) => (
               <div
                 key={`gallery-strip-${stripIndex}`}
-                className="relative h-full overflow-hidden border-none bg-white/5 backdrop-blur-sm shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-shadow duration-500 hover:shadow-[0_30px_90px_rgba(255,210,119,0.25)] focus-within:shadow-[0_30px_90px_rgba(255,210,119,0.25)]"
+                className="relative h-full w-full overflow-hidden border-none bg-white/5 backdrop-blur-sm shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-shadow duration-500 hover:shadow-[0_30px_90px_rgba(255,210,119,0.25)] focus-within:shadow-[0_30px_90px_rgba(255,210,119,0.25)]"
                 onMouseEnter={() => handleStripMouseEnter(stripIndex)}
                 onMouseLeave={() => handleStripMouseLeave(stripIndex)}
                 onFocusCapture={() => handleStripMouseEnter(stripIndex)}
@@ -140,7 +145,7 @@ const GalleryStrips = ({ className = '' }: GalleryStripsProps) => {
                   ref={(element) => {
                     stripRefs.current[stripIndex] = element;
                   }}
-                  className={`strip-motion flex min-h-[200%] w-full flex-col gap-4 ${stripIndex % 2 === 0 ? 'strip-motion-up' : 'strip-motion-down'}`}
+                  className={`strip-motion flex min-w-[200%] h-full w-full flex-row gap-2 md:flex-col md:min-w-full md:min-h-[200%] md:gap-4 ${stripIndex % 2 === 0 ? 'strip-motion-up md:strip-motion-up' : 'strip-motion-down md:strip-motion-down'}`}
                 >
                   {[...column, ...column].map((imageSrc, imagePosition) => {
                     const imageOrder = extractImageOrder(imageSrc) ?? imagePosition + 1;
@@ -152,14 +157,14 @@ const GalleryStrips = ({ className = '' }: GalleryStripsProps) => {
                         key={`gallery-strip-${stripIndex}-image-${imagePosition}`}
                         type="button"
                         onClick={() => handleImageSelect(imageSrc)}
-                        className="group relative block h-80 w-full overflow-hidden border-none bg-black/40 shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#ffd277]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:h-96 lg:h-[28rem] xl:h-[32rem]"
+                        className="group relative flex-shrink-0 w-48 h-full overflow-hidden border-none bg-black/40 shadow-lg transition-transform duration-300 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#ffd277]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black md:w-full md:h-80 md:hover:-translate-y-1 sm:h-96 lg:h-[28rem] xl:h-[32rem]"
                         aria-label={`View gallery image ${imageOrder}`}
                       >
                         <Image
                           src={imageSrc}
                           alt={`Gallery image ${imageOrder}`}
                           fill
-                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 25vw"
+                          sizes="(max-width: 640px) 192px, (max-width: 1024px) 45vw, 25vw"
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
                           priority={shouldPriority && isFirstCycle}
                         />
@@ -208,38 +213,100 @@ const GalleryStrips = ({ className = '' }: GalleryStripsProps) => {
       ) : null}
 
       <style jsx>{`
-        @keyframes strip-scroll-up {
+        /* Mobile: Horizontal scrolling animations with hardware acceleration */
+        @keyframes strip-scroll-left {
           0% {
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0);
           }
           100% {
-            transform: translateY(-50%);
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
+
+        @keyframes strip-scroll-right {
+          0% {
+            transform: translate3d(-50%, 0, 0);
+          }
+          100% {
+            transform: translate3d(0, 0, 0);
+          }
+        }
+
+        /* Desktop: Vertical scrolling animations with hardware acceleration */
+        @keyframes strip-scroll-up {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(0, -50%, 0);
           }
         }
 
         @keyframes strip-scroll-down {
           0% {
-            transform: translateY(-50%);
+            transform: translate3d(0, -50%, 0);
           }
           100% {
-            transform: translateY(0);
+            transform: translate3d(0, 0, 0);
           }
         }
 
         .strip-motion {
-          animation-duration: ${ANIMATION_DURATION}s;
           animation-timing-function: linear;
           animation-iteration-count: infinite;
           animation-play-state: running;
           will-change: transform;
+          backface-visibility: hidden;
+          perspective: 1000px;
+          transform-style: preserve-3d;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
         }
 
-        .strip-motion-up {
-          animation-name: strip-scroll-up;
+        /* Optimize images for smooth animation */
+        .strip-motion img,
+        .strip-motion button {
+          will-change: transform;
+          backface-visibility: hidden;
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
         }
 
-        .strip-motion-down {
-          animation-name: strip-scroll-down;
+        /* Reduce repaints on mobile */
+        @media (max-width: 767px) {
+          .strip-motion {
+            contain: layout style paint;
+          }
+        }
+
+        /* Mobile: Horizontal animations - faster and optimized */
+        @media (max-width: 767px) {
+          .strip-motion {
+            animation-duration: ${MOBILE_ANIMATION_DURATION}s;
+          }
+
+          .strip-motion-up {
+            animation-name: strip-scroll-left;
+          }
+
+          .strip-motion-down {
+            animation-name: strip-scroll-right;
+          }
+        }
+
+        /* Desktop: Vertical animations */
+        @media (min-width: 768px) {
+          .strip-motion {
+            animation-duration: ${ANIMATION_DURATION}s;
+          }
+
+          .strip-motion-up {
+            animation-name: strip-scroll-up;
+          }
+
+          .strip-motion-down {
+            animation-name: strip-scroll-down;
+          }
         }
       `}</style>
     </>

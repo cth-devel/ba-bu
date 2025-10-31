@@ -94,7 +94,7 @@ const OptimizedImage = ({
         alt={alt}
         width={width}
         height={height}
-        className="object-cover w-full h-full"
+        className="object-cover object-top w-full h-full"
         loading={priority ? 'eager' : 'lazy'}
         onLoad={handleLoad}
         {...props}

@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const galleryImages = Array.from({ length: 52 }, (_, i) =>
+const defaultGalleryImages = Array.from({ length: 52 }, (_, i) =>
   `/images/gallery/gallery (${i + 1}).webp`
 );
 
@@ -50,9 +50,10 @@ const responsiveGridSizes = {
 interface GalleryProps {
   showBackground?: boolean;
   showPadding?: boolean;
+  images?: string[];
 }
 
-const Gallery = ({ showBackground = true, showPadding = true }: GalleryProps) => {
+const Gallery = ({ showBackground = true, showPadding = true, images }: GalleryProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -60,6 +61,8 @@ const Gallery = ({ showBackground = true, showPadding = true }: GalleryProps) =>
   const component = useRef<HTMLElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  const galleryImages = images || defaultGalleryImages;
 
   // Check screen size for responsive grid
   useLayoutEffect(() => {

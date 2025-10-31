@@ -2,7 +2,7 @@
 
 import { siteConfig } from "@/config/site";
 import OptimizedHero from "@/components/ui/optimized-hero";
-import OptimizedGallery from "@/components/ui/optimized-gallery";
+import GalleryStrips from "@/components/GalleryStrips";
 import ServicesContainer from "@/components/ServicesContainer";
 import { useEffect, useRef } from 'react';
 import weddingServicesData from "@/data/weddingServices.json";
@@ -55,7 +55,7 @@ const WeddingsServicePage = () => {
     };
   }, []);
 
-  const weddingGalleryImages = weddingServicesData.galleryImages;
+  const weddingGalleryImages = weddingServicesData.galleryImages.map(img => img.src);
   const bridalServices = weddingServicesData.bridalServices;
   const groomServices = weddingServicesData.groomServices;
 
@@ -101,7 +101,7 @@ const WeddingsServicePage = () => {
           {/* Background Image - Responsive */}
           <div className="w-full lg:w-1/2 relative h-64 sm:h-80 lg:h-screen">
             <div
-              className="absolute inset-0 bg-cover bg-center w-full h-full"
+              className="absolute inset-0 bg-cover bg-top w-full h-full"
               style={{
                 backgroundImage: `url('${service.bgImage}')`,
               }}
@@ -231,9 +231,10 @@ const WeddingsServicePage = () => {
       {/* Bridal Services Booking Message */}
       <section className="py-4 sm:py-6 lg:py-8 w-full bg-gradient-to-r from-[#77530a] to-[#ffd277]">
         <div className="w-full px-4 sm:px-6 lg:px-8 text-center">
-          <div className="w-full">
-            <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-black font-medium tracking-wide whitespace-nowrap overflow-hidden">
-              Book your full bridal package or individual services at BA-BU Salon for a stress-free, luxurious bridal beauty experience.
+          <div className="w-full booking-marquee-container">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-black font-medium tracking-wide booking-marquee-track">
+              <span>Book your full bridal package or individual services at BA-BU Salon for a stress-free, luxurious bridal beauty experience.</span>
+              <span>Book your full bridal package or individual services at BA-BU Salon for a stress-free, luxurious bridal beauty experience.</span>
             </p>
           </div>
         </div>
@@ -264,7 +265,7 @@ const WeddingsServicePage = () => {
           {/* Background Image - Responsive */}
           <div className="w-full lg:w-1/2 relative h-64 sm:h-80 lg:h-screen">
             <div
-              className="absolute inset-0 bg-cover bg-center w-full h-full"
+              className="absolute inset-0 bg-cover bg-top w-full h-full"
               style={{
                 backgroundImage: `url('${service.bgImage}')`,
               }}
@@ -394,9 +395,10 @@ const WeddingsServicePage = () => {
        {/* Groom Services Booking Message */}
        <section className="py-4 sm:py-6 lg:py-8 w-full bg-gradient-to-r from-[#77530a] to-[#ffd277]">
          <div className="w-full px-4 sm:px-6 lg:px-8 text-center">
-           <div className="w-full">
-             <p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-black font-medium tracking-wide whitespace-nowrap overflow-hidden">
-               Book your complete groom package or individual services at BA-BU Salon for a confident, stylish wedding day look.
+           <div className="w-full booking-marquee-container">
+             <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-black font-medium tracking-wide booking-marquee-track">
+               <span>Book your complete groom package or individual services at BA-BU Salon for a confident, stylish wedding day look.</span>
+               <span>Book your complete groom package or individual services at BA-BU Salon for a confident, stylish wedding day look.</span>
              </p>
            </div>
          </div>
@@ -440,17 +442,16 @@ const WeddingsServicePage = () => {
 
 
       {/* Wedding Gallery Section */}
-      <section className="wedding-gallery-section py-12 sm:py-16 lg:py-24 w-full bg-black">
-        {/* <OptimizedSectionHero
-          title="Wedding Gallery"
-          description="Browse a curated selection of our favorite wedding moments."
-        /> */}
-        <div className="w-full">
-          <OptimizedGallery
-            images={weddingGalleryImages}
-            title="Our Wedding Gallery"
-          />
+      <section className="wedding-gallery-section w-full bg-black">
+        <div className="w-full px-4 sm:px-6 lg:px-8 text-center py-12 sm:py-16 lg:py-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-gunteerz font-black text-white mb-4 sm:mb-6 leading-tight">
+            Our Wedding Gallery
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0 mb-8 sm:mb-12">
+            Browse a curated selection of our favorite wedding moments.
+          </p>
         </div>
+        <GalleryStrips images={weddingGalleryImages} />
       </section>
       {/* Explore Other Services - Interactive Hero (Hair & Skin) */}
       <ServicesContainer

@@ -22,9 +22,9 @@ export const siteConfig = {
 
   // Social Media Links
   social: {
-    instagram: "https://instagram.com/babusalon",
-    facebook: "https://facebook.com/babusalon",
-    youtube: "https://youtube.com/babusalon"
+    instagram: "https://www.instagram.com/ba_bu_family_salon_paravur/",
+    facebook: "https://www.facebook.com/profile.php?id=100092997177626&ref=_xav_ig_profile_page_web",
+    google: "https://www.google.com/search?sca_esv=e54914a596765dca&hl=en&gl=in&output=search&kgmid=/g/11sv94n03_&q=BA-BU+FAMILY+SALON&shndl=30&shem=lsctac,shrtsdl&source=sh/x/loc/act/m1/3&kgs=04accc0a75bb7aee&utm_source=lsctac,shrtsdl,sh/x/loc/act/m1/3"
   },
 
   // Hero Section

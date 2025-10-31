@@ -19,21 +19,21 @@ const Contact = () => {
       name: 'BA-BU GENTS MAKEOVER',
       address: 'BA-BU GENTS MAKEOVER , Andipillikkav, opposite to HDPY English Medium Public School,\nErnakulam, Kerala, 683516',
       phone: '9846272333, 9544546547',
-      email: 'babusalon589@gmail.com',
+      email: 'info@babufamilysalon.com',
       workingHours: '8:30 AM to 8:30 PM (Tuesdays 3:00 PM to 8:30)'
     },
     mannam: {
       name: 'BA-BU FAMILY SALON',
       address: 'KRM building, Ground floor, Vedimara-Mannam road, opposite to Bangalore Juicy & Foods, Ernakulam, Kerala 683520',
       phone: '9846272333',
-      email: 'babusalon589@gmail.com',
+      email: 'info@babufamilysalon.com',
       workingHours: '9:00 AM to 9:00 PM'
     },
     mathilmoola: {
       name: 'BA-BU FAMILY SALON',
       address: 'BA-BU FAMILY SALON, Mathilmoola, Junction, Pappinivattom,\nThrissur, Kerala 680685',
       phone: '9846272333, 7558809270',
-      email: 'babusalon589@gmail.com',
+      email: 'info@babufamilysalon.com',
       workingHours: '8:30 AM to 8:30 PM'
     }
   };
@@ -86,23 +86,14 @@ Phone: ${formData.phone}
 Service: ${formData.service}
 Message: ${formData.message}`;
 
-    // Use WhatsApp Web API for better reliability
+    // Use wa.me which opens WhatsApp app on mobile and web on desktop
     const phoneNumber = "919846272333";
-    const whatsappWebUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
     try {
-      const newWindow = window.open(whatsappWebUrl, '_blank', 'noopener,noreferrer');
-
-      if (!newWindow || newWindow.closed) {
-        // Fallback to wa.me in new tab
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      }
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     } catch (error) {
       console.error('Error opening WhatsApp:', error);
-      // Fallback to wa.me
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -241,7 +232,7 @@ Message: ${formData.message}`;
             {/* Quick Actions */}
             <div className="mt-8 space-y-4">
               <a
-                href={`https://web.whatsapp.com/send?phone=919846272333&text=${encodeURIComponent('Hi! I would like to book an appointment at BA-BU Salon.')}`}
+                href={`https://wa.me/919846272333?text=${encodeURIComponent('Hi! I would like to book an appointment at BA-BU Salon.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Book salon appointment on WhatsApp at ${salonBranches[activeContactLocation].name}`}

@@ -103,7 +103,7 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
       {/* Responsive Layout: Card style for mobile (stacked sections), List style for desktop (side-by-side) */}
       <div className="w-full">
         {/* Mobile Card Layout (when sections are stacked vertically) - Always show on mobile */}
-        <div className="grid lg:hidden grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+        <div className="grid lg:hidden grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4">
           {cards.map((card, index) => (
             <div
               key={`card-${card.title}-${index}`}
@@ -111,7 +111,7 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
               className="group bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden cursor-pointer border border-gray-700 shadow-lg hover:shadow-xl hover:shadow-[#ffd277]/20 transition-all duration-300 transform hover:scale-[1.02] hover:border-[#ffd277]/30"
             >
               {/* Card Image */}
-              <div className="relative h-48 sm:h-56 overflow-hidden">
+              <div className="relative h-32 sm:h-40 overflow-hidden">
                 <img
                   src={card.src}
                   alt={card.title}
@@ -122,29 +122,29 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
 
                 {/* Gender Symbol */}
                 {gender === 'female' ? (
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center shadow-lg">
-                    <FemaleIcon className="w-5 h-5 text-white" />
+                  <div className="absolute top-2 right-2 w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center shadow-lg">
+                    <FemaleIcon className="w-3.5 h-3.5 text-white" />
                   </div>
                 ) : (
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                    <MaleIcon className="w-5 h-5 text-white" />
+                  <div className="absolute top-2 right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                    <MaleIcon className="w-3.5 h-3.5 text-white" />
                   </div>
                 )}
 
                 {/* Price Badge */}
-                <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-sm rounded-lg px-3 py-2">
-                  <div className="text-lg font-bold text-white tracking-wider">
+                <div className="absolute bottom-2 left-2 bg-black/80 backdrop-blur-sm rounded px-2 py-1">
+                  <div className="text-xs sm:text-sm font-bold text-white tracking-wider">
                     {card.price}
                   </div>
                 </div>
               </div>
 
               {/* Card Content */}
-              <div className="p-6">
-                <h3 className="font-bold text-white text-xl mb-2 tracking-wide group-hover:text-[#ffd277] transition-colors duration-300">
+              <div className="p-3 sm:p-4">
+                <h3 className="font-bold text-white text-sm sm:text-base mb-1 tracking-wide group-hover:text-[#ffd277] transition-colors duration-300">
                   {card.title}
                 </h3>
-                <p className="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-2">
+                <p className="text-gray-300 text-xs mb-3 leading-relaxed line-clamp-2">
                   {card.description}
                 </p>
 
@@ -154,11 +154,11 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
                     e.stopPropagation();
                     onBookNow(card.title, card.price, gender);
                   }}
-                  className="group/btn relative w-full px-6 py-3 text-sm font-semibold rounded-xl overflow-hidden text-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 tracking-wider golden-gradient-button"
+                  className="group/btn relative w-full px-4 py-2 text-xs font-semibold rounded-lg overflow-hidden text-black transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 tracking-wider golden-gradient-button"
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
+                  <span className="relative z-10 flex items-center justify-center gap-1.5">
                     <span>{card.ctaText}</span>
-                    <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                    <ArrowRightIcon className="w-3 h-3 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                 </button>
@@ -173,36 +173,36 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
             <div
               key={`card-${card.title}-${index}`}
               onClick={() => handleCardClick(card)}
-              className="p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 hover:bg-gray-800 rounded-xl cursor-pointer border border-gray-700 shadow-sm hover:shadow-md bg-gradient-to-r from-gray-900 to-gray-800 font-sans"
+              className="p-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 hover:bg-gray-800 rounded-lg cursor-pointer border border-gray-700 shadow-sm hover:shadow-md bg-gradient-to-r from-gray-900 to-gray-800 font-sans"
             >
-              <div className="flex items-start sm:items-center gap-3 sm:gap-4 min-w-0">
+              <div className="flex items-start sm:items-center gap-2 sm:gap-3 min-w-0">
                 <div className="relative flex-shrink-0">
                   <img
-                    width={80}
-                    height={80}
+                    width={60}
+                    height={60}
                     src={card.src}
                     alt={card.title}
-                    className="h-20 w-20 sm:h-24 sm:w-24 rounded-lg object-cover object-top"
+                    className="h-14 w-14 sm:h-16 sm:w-16 rounded-lg object-cover object-top"
                   />
                   {/* Gender Symbol */}
                   {gender === 'female' ? (
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center">
-                      <FemaleIcon className="w-4 h-4 text-white" />
+                    <div className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-pink-500 rounded-full flex items-center justify-center">
+                      <FemaleIcon className="w-3 h-3 text-white" />
                     </div>
                   ) : (
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                      <MaleIcon className="w-4 h-4 text-white" />
+                    <div className="absolute -top-0.5 -right-0.5 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                      <MaleIcon className="w-3 h-3 text-white" />
                     </div>
                   )}
                 </div>
                 <div className="min-w-0">
-                  <h3 className="font-medium text-white text-base sm:text-lg md:text-xl break-words tracking-wide">
+                  <h3 className="font-medium text-white text-sm sm:text-base break-words tracking-wide">
                     {card.title}
                   </h3>
-                  <p className="text-gray-300 text-sm sm:text-base break-words">
+                  <p className="text-gray-300 text-xs sm:text-sm break-words">
                     {card.description}
                   </p>
-                  <div className="text-xl sm:text-2xl font-medium text-white mt-1 tracking-wider">
+                  <div className="text-base sm:text-lg font-medium text-white mt-0.5 tracking-wider">
                     {card.price}
                   </div>
                 </div>
@@ -212,11 +212,11 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
                   e.stopPropagation();
                   onBookNow(card.title, card.price, gender);
                 }}
-                className="group relative w-full sm:w-auto sm:min-w-[140px] px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold rounded-xl overflow-hidden text-black transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#ffd277]/25 transform hover:scale-105 active:scale-95 tracking-widest golden-gradient-button"
+                className="group relative w-full sm:w-auto sm:min-w-[120px] px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg overflow-hidden text-black transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#ffd277]/25 transform hover:scale-105 active:scale-95 tracking-wide golden-gradient-button"
               >
-                <span className="relative z-10 flex items-center justify-center gap-2">
+                <span className="relative z-10 flex items-center justify-center gap-1.5">
                   <span>{card.ctaText}</span>
-                  <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowRightIcon className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>

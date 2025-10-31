@@ -77,6 +77,25 @@ const Testimonials = () => {
         ));
     };
 
+  // Generate a consistent color based on the first letter of the name
+  const getColorForLetter = (letter: string): string => {
+    const colors = [
+      "bg-gradient-to-tr from-amber-400 to-yellow-300",
+      "bg-gradient-to-tr from-pink-400 to-rose-300",
+      "bg-gradient-to-tr from-blue-400 to-cyan-300",
+      "bg-gradient-to-tr from-purple-400 to-indigo-300",
+      "bg-gradient-to-tr from-green-400 to-emerald-300",
+      "bg-gradient-to-tr from-orange-400 to-red-300",
+      "bg-gradient-to-tr from-teal-400 to-blue-300",
+      "bg-gradient-to-tr from-violet-400 to-purple-300",
+      "bg-gradient-to-tr from-fuchsia-400 to-pink-300",
+      "bg-gradient-to-tr from-lime-400 to-green-300",
+    ];
+    const charCode = letter.toUpperCase().charCodeAt(0);
+    const index = (charCode - 65) % colors.length;
+    return colors[index >= 0 ? index : 0];
+  };
+
   const TestimonialCard = ({
     img,
     name,
@@ -88,6 +107,9 @@ const Testimonials = () => {
     body: string;
     rating: number;
   }) => {
+    const firstLetter = name.trim().charAt(0).toUpperCase();
+    const colorClass = getColorForLetter(firstLetter);
+
     return (
               <div className="relative p-6 rounded-2xl border transition-all duration-700 ease-out hover:scale-105 hover:shadow-2xl hover:border-amber-400/70 bg-gray-900/50 backdrop-blur-sm border-gray-700/50 group h-[240px] flex flex-col">
         {/* Glow effect overlay */}
@@ -106,22 +128,14 @@ const Testimonials = () => {
           {/* Author section - positioned at bottom */}
           <div className="flex items-center gap-3 mt-auto">
             <div className="relative">
-              {img ? (
-                <img
-                  src={img}
-                  alt={name}
-                  className="w-12 h-12 rounded-full object-cover ring-2 ring-amber-400/30 group-hover:ring-amber-400/70 transition-all duration-300"
-                />
-              ) : (
-                <div
-                  className="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-400 to-yellow-300 flex items-center justify-center ring-2 ring-amber-400/30 group-hover:ring-amber-400/70 transition-all duration-300"
-                  role="img"
-                  aria-label="User avatar placeholder"
-                  tabIndex={0}
-                >
-                  <User className="w-6 h-6 text-black/80" aria-hidden="true" />
-                </div>
-              )}
+              <div
+                className={`w-12 h-12 rounded-full ${colorClass} flex items-center justify-center ring-2 ring-amber-400/30 group-hover:ring-amber-400/70 transition-all duration-300`}
+                role="img"
+                aria-label={`Avatar for ${name}`}
+                tabIndex={0}
+              >
+                <span className="text-xl font-bold text-black/80">{firstLetter}</span>
+              </div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-400/30 to-yellow-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <div>

@@ -96,11 +96,9 @@ const OptimizedHero = ({
       {/* Optimized background image */}
       <div
         ref={bgRef}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full bg-top bg-cover sm:bg-center"
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
         }}
       />
 

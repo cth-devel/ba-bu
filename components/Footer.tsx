@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import RotatingWord from "./RotatingWord";
-import { Instagram, Facebook, Youtube } from "lucide-react";
+import { Instagram, Facebook, Chrome } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 const Footer = () => {
@@ -67,13 +67,13 @@ const Footer = () => {
                         <Facebook className="h-5 w-5" />
                     </Link>
                     <Link
-                        href={siteConfig.social.youtube}
-                        aria-label="YouTube"
+                        href={siteConfig.social.google}
+                        aria-label="Google"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="rounded-full p-2 text-white/90 transition hover:bg-white/10 hover:text-white"
                     >
-                        <Youtube className="h-5 w-5" />
+                        <Chrome className="h-5 w-5" />
                     </Link>
                 </div>
 

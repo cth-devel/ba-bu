@@ -12,20 +12,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const images = [
   {
-    src: "/images/ba-bu-family-salon-ernakulam-mw0w9iz9vd.webp",
-    alt: "A stylish haircut and beard trim for a male client.",
+    src: "/images/WEDDING/WEDDING (29).webp",
+    alt: "Wedding moment 29",
     className: "absolute top-0 left-0 lg:-top-40 lg:-left-40 w-3/4 h-full rounded-lg shadow-2xl",
     rotate: -10,
   },
   {
-    src: "/images/ba-bu-family-salon-ernakulam-salons-hdt7xnk5d1.webp",
-    alt: "The modern and clean interior of the salon.",
+    src: "/images/WEDDING/WEDDING (24).webp",
+    alt: "Wedding moment 24",
     className: "absolute bottom-0 right-0 w-2/3 h-full rounded-lg shadow-2xl",
     rotate: 8,
   },
   {
-    src: "/images/ba-bu-family-salon-ernakulam-jq0ppxb1ra.avif",
-    alt: "A client receiving a professional hair treatment.",
+    src: "/images/WEDDING/WEDDING (18).webp",
+    alt: "Wedding moment 18",
     className: "absolute top-10 left-1/2 lg:top-20 lg:-left-1/3 w-2/5 h-full rounded-lg shadow-2xl",
     rotate: 4,
   },
