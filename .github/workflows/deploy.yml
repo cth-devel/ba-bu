@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.CPANEL_FTP_USERNAME }}
           password: ${{ secrets.CPANEL_FTP_PASSWORD }}
           local-dir: ./out/
-          server-dir: stage.babu.cloudtobuild.com/
+          server-dir: babufamilysalon.com/
           protocol: ftps
           dangerous-clean-slate: true
           state-name: .ftp-deploy-sync-staging.json
@@ -58,8 +58,8 @@ jobs:
 
   deploy-production:
     if: |
-      github.event_name == 'pull_request' && 
-      github.event.pull_request.merged == true && 
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true &&
       github.event.pull_request.base.ref == 'master' &&
       github.event.pull_request.head.ref == 'staging'
     runs-on: ubuntu-latest
