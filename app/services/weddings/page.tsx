@@ -413,12 +413,12 @@ const WeddingsServicePage = () => {
           {
             id: "hair-care",
             title: "Hair Care Services",
-            backgroundImage: "/images/hair-care/styling/style-04.avif",
+            backgroundImage: "/images/HAIRCARE/haircare-heropage.webp",
           },
           {
             id: "skin-body-care",
             title: "Skin & Body Care",
-            backgroundImage: "/images/engin-akyurt-35NAaB_Nmx8-unsplash.webp",
+            backgroundImage: "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
           },
         ]}
       />

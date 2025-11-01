@@ -189,7 +189,7 @@ const SkinBodyCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
                             Professional facial cleanup and tan removal
                             treatments
                         </p>
@@ -224,30 +224,16 @@ const SkinBodyCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
                             Pamper your skin with rejuvenating facial treatments
                             at{" "}
                             <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
                                 BA-BU Salon
                             </span>
-                            . Our range of facials, including{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                brightening
-                            </span>
-                            ,{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                anti-aging
-                            </span>
-                            ,{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                hydrating
-                            </span>
-                            , and{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                gold facials
-                            </span>
-                            , are designed to cleanse, nourish, and refresh your
-                            skin for a radiant, healthy glow. Each session is
+                            . Our range of facials, including brightening,
+                            anti-aging, hydrating, and gold facials, are
+                            designed to cleanse, nourish, and refresh your skin
+                            for a radiant, healthy glow. Each session is
                             customized to suit your skin type, using premium
                             skincare products and gentle techniques that deliver
                             visible results.
@@ -288,29 +274,15 @@ const SkinBodyCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
                             Achieve perfectly shaped brows and smooth, flawless
                             skin with professional threading services at{" "}
                             <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
                                 BA-BU Salon
                             </span>
-                            . Our experts specialize in precise{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                eyebrow shaping
-                            </span>
-                            ,{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                upper lip
-                            </span>
-                            ,{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                chin
-                            </span>
-                            , and{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                full-face threading
-                            </span>{" "}
-                            using gentle techniques that minimize discomfort and
+                            . Our experts specialize in precise eyebrow shaping,
+                            upper lip, chin, and full-face threading using
+                            gentle techniques that minimize discomfort and
                             irritation. Experience clean, defined results that
                             enhance your natural features — because beauty
                             begins with perfect brows.
@@ -351,32 +323,19 @@ const SkinBodyCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
-                            Brighten your look with professional{" "}
-                            <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
-                                bleaching services
-                            </span>{" "}
-                            at{" "}
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
+                            Brighten your look with professional bleaching
+                            services at{" "}
                             <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
                                 BA-BU Salon
                             </span>
                             . Our experts use safe, high-quality products to
                             lighten facial hair and even skin tone, giving your
-                            complexion a radiant, smooth glow. Whether it's a{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                full-face bleach
-                            </span>
-                            ,{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                neck bleach
-                            </span>
-                            , or{" "}
-                            <span className="font-semibold text-[#ffd277]">
-                                detan and bleach combo
-                            </span>
-                            , we ensure gentle care suited for all skin types.
-                            Reveal a fresher, brighter you with our specialized
-                            skin-lightening treatments.
+                            complexion a radiant, smooth glow. Whether it's a
+                            full-face bleach, neck bleach, or detan and bleach
+                            combo, we ensure gentle care suited for all skin
+                            types. Reveal a fresher, brighter you with our
+                            specialized skin-lightening treatments.
                         </p>
                     </div>
                 </div>
@@ -414,18 +373,18 @@ const SkinBodyCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
                             Get smooth, flawless skin with{" "}
                             <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
-                                BA-BU Salon's professional waxing services
+                                BA-BU Salon
                             </span>
-                            . We offer full-body, half-body, face, arms, legs,
-                            and bikini waxing using top-quality wax and hygienic
-                            techniques. Our expert aestheticians ensure a
-                            comfortable, gentle experience with long-lasting
-                            results. Stay confident and hair-free with safe,
-                            skin-friendly waxing that leaves your skin silky and
-                            refreshed.
+                            's professional waxing services. We offer full-body,
+                            half-body, face, arms, legs, and bikini waxing
+                            using top-quality wax and hygienic techniques. Our
+                            expert aestheticians ensure a comfortable, gentle
+                            experience with long-lasting results. Stay confident
+                            and hair-free with safe, skin-friendly waxing that
+                            leaves your skin silky and refreshed.
                         </p>
                     </div>
                 </div>
@@ -462,12 +421,9 @@ const SkinBodyCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
-                            Pamper your hands and feet with professional{" "}
-                            <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
-                                pedicure and manicure services
-                            </span>{" "}
-                            at{" "}
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
+                            Pamper your hands and feet with professional pedicure
+                            and manicure services at{" "}
                             <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
                                 BA-BU Salon
                             </span>
@@ -513,7 +469,7 @@ const SkinBodyCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
                             Relax and rejuvenate with expert massage services at{" "}
                             <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
                                 BA-BU Salon
@@ -597,7 +553,7 @@ const SkinBodyCareServicePage = () => {
                         id: "hair-care",
                         title: "Hair Care Services",
                         backgroundImage:
-                            "/images/hair-care/styling/style-04.avif",
+                            "/images/HAIRCARE/haircare-heropage.webp",
                     },
                 ]}
             />

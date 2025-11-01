@@ -3,7 +3,7 @@
     "title": "Henna",
     "description": "Natural henna coloring for men",
     "price": "₹250",
-    "src": "/images/hair-care/coloring/color-01.webp",
+    "src": "/images/ServicesImages/HC14-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Natural henna coloring service for men. Perfect for those who prefer chemical-free hair coloring with natural ingredients.",
@@ -19,7 +19,7 @@
     "title": "Garnier",
     "description": "Garnier hair coloring for men",
     "price": "₹350",
-    "src": "/images/hair-care/coloring/color-02.webp",
+    "src": "/images/ServicesImages/HC25-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Professional hair coloring service using Garnier products. Reliable and affordable coloring solution for men.",
@@ -35,7 +35,7 @@
     "title": "Bigen",
     "description": "Bigen hair coloring for men",
     "price": "₹500",
-    "src": "/images/hair-care/coloring/color-03.webp",
+    "src": "/images/ServicesImages/HC26-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Professional hair coloring service using Bigen products. Known for excellent coverage and long-lasting results.",
@@ -51,7 +51,7 @@
     "title": "Loreal",
     "description": "Loreal hair coloring for men",
     "price": "₹700",
-    "src": "/images/hair-care/coloring/color-04.webp",
+    "src": "/images/ServicesImages/HC27-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Premium hair coloring service using Loreal products. High-quality coloring with professional application.",
@@ -67,7 +67,7 @@
     "title": "Schwarzkopf",
     "description": "Schwarzkopf hair coloring for men",
     "price": "₹700",
-    "src": "/images/hair-care/coloring/color-01.webp",
+    "src": "/images/ServicesImages/HC14-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Premium hair coloring service using Schwarzkopf products. Known for superior quality and professional results.",
@@ -83,7 +83,7 @@
     "title": "Loreal (Highlighting)",
     "description": "Loreal highlighting service for men",
     "price": "₹300/Streaks",
-    "src": "/images/hair-care/coloring/color-02.webp",
+    "src": "/images/ServicesImages/HC25-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Professional highlighting service for men using Loreal products. Starting from ₹300 per streak.",
@@ -99,7 +99,7 @@
     "title": "Matrix (Highlighting)",
     "description": "Matrix highlighting service for men",
     "price": "₹250/Streaks",
-    "src": "/images/hair-care/coloring/color-03.webp",
+    "src": "/images/ServicesImages/HC26-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Professional highlighting service for men using Matrix products. Starting from ₹250 per streak.",
@@ -115,7 +115,7 @@
     "title": "Global Hair Colouring Schwarzkopf",
     "description": "Complete global coloring with Schwarzkopf",
     "price": "₹700+",
-    "src": "/images/hair-care/coloring/color-04.webp",
+    "src": "/images/ServicesImages/HC27-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Complete global hair coloring service for men using Schwarzkopf products. Starting from ₹700 based on hair length.",
@@ -131,7 +131,7 @@
     "title": "Global Hair Colouring Loreal",
     "description": "Complete global coloring with Loreal",
     "price": "₹700+",
-    "src": "/images/hair-care/coloring/color-01.webp",
+    "src": "/images/ServicesImages/HC14-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Complete global hair coloring service for men using Loreal products. Starting from ₹700 based on hair length.",
@@ -147,7 +147,7 @@
     "title": "Global Hair Colouring Matrix",
     "description": "Complete global coloring with Matrix",
     "price": "₹600+",
-    "src": "/images/hair-care/coloring/color-02.webp",
+    "src": "/images/ServicesImages/HC25-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Complete global hair coloring service for men using Matrix products. Starting from ₹600 based on hair length.",

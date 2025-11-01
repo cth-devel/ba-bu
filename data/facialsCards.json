@@ -3,7 +3,7 @@
     "title": "Normal Facial",
     "description": "Basic facial treatment for clean, refreshed skin",
     "price": "₹600",
-    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+    "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Normal Facial provides essential skin care treatment including cleansing, exfoliation, and moisturizing for clean, refreshed skin. Includes deep skin cleansing, gentle exfoliation, skin moisturizing, and basic skin care routine."
@@ -12,7 +12,7 @@
     "title": "VLCC Fruit Facial",
     "description": "Refreshing fruit-based facial treatment",
     "price": "₹900",
-    "src": "/images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.webp",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our VLCC Fruit Facial uses natural fruit extracts to refresh and rejuvenate your skin with vitamin-rich nutrients. Includes natural fruit extracts, vitamin-rich nutrients, skin refreshing treatment, and VLCC premium products."
@@ -21,7 +21,7 @@
     "title": "VLCC Pearl Facial",
     "description": "Luxurious pearl-based facial for radiant skin",
     "price": "₹1000",
-    "src": "/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.webp",
+    "src": "/images/ServicesImages/SK14-pearl-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our VLCC Pearl Facial combines the luxury of pearl extracts with advanced skincare technology for radiant, glowing skin. Includes pearl extract benefits, radiant skin enhancement, luxury treatment experience, and advanced skincare technology."
@@ -30,7 +30,7 @@
     "title": "VLCC Gold Facial",
     "description": "Premium gold facial for ultimate luxury",
     "price": "₹1100",
-    "src": "/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.webp",
+    "src": "/images/ServicesImages/SK10-gold-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our VLCC Gold Facial offers the ultimate luxury experience with gold-infused treatments for premium skin care results. Includes gold-infused treatment, ultimate luxury experience, premium skin care, and anti-aging benefits."
@@ -39,7 +39,7 @@
     "title": "Natures Gold Facial",
     "description": "Natural gold facial with organic ingredients",
     "price": "₹1500",
-    "src": "/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.webp",
+    "src": "/images/ServicesImages/SK10-gold-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Natures Gold Facial combines natural gold extracts with organic ingredients for a pure, luxurious skin treatment. Includes natural gold extracts, organic ingredients, pure luxury treatment, and natural skin enhancement."
@@ -48,7 +48,7 @@
     "title": "Natures Fruit Facial",
     "description": "Organic fruit-based facial treatment",
     "price": "₹1000",
-    "src": "/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.webp",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Natures Fruit Facial uses organic fruit extracts to provide natural nourishment and refreshment for your skin. Includes organic fruit extracts, natural nourishment, skin refreshment, and chemical-free treatment."
@@ -57,7 +57,7 @@
     "title": "Natures Pearl Facial",
     "description": "Natural pearl facial with organic care",
     "price": "₹1200",
-    "src": "/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.webp",
+    "src": "/images/ServicesImages/SK14-pearl-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Natures Pearl Facial combines natural pearl extracts with organic skincare for gentle, effective skin enhancement. Includes natural pearl extracts, organic skincare, gentle skin enhancement, and natural radiance boost."
@@ -66,7 +66,7 @@
     "title": "Shehanaz Gold Facial 24ct",
     "description": "Premium 24ct gold facial treatment",
     "price": "₹2400",
-    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.webp",
+    "src": "/images/ServicesImages/SK10-gold-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Shehanaz Gold Facial 24ct offers the ultimate luxury with pure 24-carat gold treatment for premium skin care results. Includes 24-carat gold treatment, ultimate luxury experience, premium skin care, and anti-aging properties."
@@ -75,7 +75,7 @@
     "title": "Lotus Glow",
     "description": "Lotus-based facial for natural glow",
     "price": "₹1300",
-    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+    "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Lotus Glow facial uses lotus extracts to provide natural skin brightening and a healthy, radiant glow. Includes lotus extract benefits, natural skin brightening, healthy radiant glow, and gentle skin treatment."
@@ -84,7 +84,7 @@
     "title": "Cherrys Facial",
     "description": "Cherry-based facial for skin rejuvenation",
     "price": "₹1500+",
-    "src": "/images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.webp",
+    "src": "/images/ServicesImages/SK16-cherry-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Cherrys Facial uses cherry extracts to provide antioxidant-rich treatment for skin rejuvenation and vitality. Includes cherry extract benefits, antioxidant-rich treatment, skin rejuvenation, and natural vitality boost."
@@ -93,7 +93,7 @@
     "title": "Bridal Glow Aroma",
     "description": "Aromatherapy facial for bridal preparation",
     "price": "₹1900",
-    "src": "/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.webp",
+    "src": "/images/ServicesImages/SK14-pearl-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Bridal Glow Aroma facial combines aromatherapy with specialized treatments to prepare your skin for special occasions. Includes aromatherapy benefits, bridal preparation treatment, special occasion glow, and relaxing experience."
@@ -102,7 +102,7 @@
     "title": "Skin Glow Aroma",
     "description": "Aromatherapy facial for natural skin glow",
     "price": "₹1650",
-    "src": "/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.webp",
+    "src": "/images/ServicesImages/SK10-gold-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Skin Glow Aroma facial uses aromatherapy techniques to enhance your natural skin glow and provide relaxation. Includes aromatherapy techniques, natural skin glow enhancement, relaxation benefits, and stress relief treatment."
@@ -111,7 +111,7 @@
     "title": "DeTan Facial Aroma",
     "description": "Aromatherapy facial with tan removal",
     "price": "₹1550",
-    "src": "/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.webp",
+    "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our DeTan Facial Aroma combines aromatherapy with effective tan removal treatment for refreshed, even-toned skin. Includes aromatherapy relaxation, effective tan removal, even skin tone, and refreshed skin feeling."
@@ -120,7 +120,7 @@
     "title": "Gold Facial Aroma",
     "description": "Aromatherapy gold facial for luxury treatment",
     "price": "₹1700",
-    "src": "/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.webp",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Gold Facial Aroma combines the luxury of gold treatment with aromatherapy for an indulgent, relaxing experience. Includes gold treatment benefits, aromatherapy relaxation, luxury experience, and indulgent treatment."
@@ -129,7 +129,7 @@
     "title": "Vitamin C Brightening",
     "description": "Vitamin C facial for skin brightening",
     "price": "₹2500",
-    "src": "/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.webp",
+    "src": "/images/ServicesImages/SK9-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Vitamin C Brightening facial uses high-potency vitamin C to brighten skin, reduce dark spots, and improve skin texture. Includes high-potency vitamin C, skin brightening, dark spot reduction, and improved skin texture."
@@ -138,7 +138,7 @@
     "title": "Sensi Glow",
     "description": "Sensitive skin facial treatment",
     "price": "₹2000",
-    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.webp",
+    "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Sensi Glow facial is specially designed for sensitive skin, providing gentle care and natural glow enhancement. Includes gentle sensitive skin care, natural glow enhancement, hypoallergenic products, and soothing treatment."
@@ -147,7 +147,7 @@
     "title": "ClariGlow",
     "description": "Clarifying facial for clear, radiant skin",
     "price": "₹1800",
-    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+    "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our ClariGlow facial focuses on clarifying and purifying the skin for a clear, radiant complexion. Includes skin clarifying treatment, purifying benefits, clear complexion, and radiant skin results."
@@ -156,7 +156,7 @@
     "title": "Vitalift",
     "description": "Anti-aging facial for youthful skin",
     "price": "₹2600",
-    "src": "/images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.webp",
+    "src": "/images/ServicesImages/SK9-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Vitalift facial provides advanced anti-aging treatment to lift, firm, and rejuvenate your skin for a youthful appearance. Includes advanced anti-aging treatment, skin lifting and firming, youthful appearance, and skin rejuvenation."
@@ -165,7 +165,7 @@
     "title": "Gold Sheen Lotus",
     "description": "Gold and lotus combination facial",
     "price": "₹1500",
-    "src": "/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.webp",
+    "src": "/images/ServicesImages/SK14-pearl-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Gold Sheen Lotus facial combines the benefits of gold and lotus extracts for luxurious skin enhancement. Includes gold and lotus combination, luxurious skin enhancement, natural radiance, and premium treatment."
@@ -174,7 +174,7 @@
     "title": "Glow Dermie Lotus",
     "description": "Dermatological lotus facial treatment",
     "price": "₹2200",
-    "src": "/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.webp",
+    "src": "/images/ServicesImages/SK10-gold-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Glow Dermie Lotus facial uses dermatological-grade lotus extracts for professional skin glow enhancement. Includes dermatological-grade treatment, professional skin glow, lotus extract benefits, and clinical results."
@@ -183,7 +183,7 @@
     "title": "Insta Fair Lotus",
     "description": "Instant fairness lotus facial",
     "price": "₹2950",
-    "src": "/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.webp",
+    "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Insta Fair Lotus facial provides instant fairness results using advanced lotus-based formulations. Includes instant fairness results, advanced lotus formulations, immediate skin improvement, and premium fairness treatment."
@@ -192,7 +192,7 @@
     "title": "Fairness Facial Raga",
     "description": "Raga fairness facial treatment",
     "price": "₹1300",
-    "src": "/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.webp",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Fairness Facial Raga uses traditional Raga formulations for natural skin fairness and brightness. Includes traditional Raga formulations, natural skin fairness, skin brightness enhancement, and herbal treatment."
@@ -201,7 +201,7 @@
     "title": "Aroma Pearl",
     "description": "Aromatherapy pearl facial treatment",
     "price": "₹1450",
-    "src": "/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.webp",
+    "src": "/images/ServicesImages/SK9-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Aroma Pearl facial combines aromatherapy with pearl extracts for a relaxing and rejuvenating experience. Includes aromatherapy relaxation, pearl extract benefits, rejuvenating experience, and stress relief treatment."
@@ -210,7 +210,7 @@
     "title": "Raga Strawberry Extract",
     "description": "Strawberry extract facial treatment",
     "price": "₹1200",
-    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash1.webp",
+    "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Raga Strawberry Extract facial uses natural strawberry extracts for skin nourishment and natural glow. Includes natural strawberry extracts, skin nourishment, natural glow enhancement, and antioxidant benefits."
@@ -219,7 +219,7 @@
     "title": "Anti Acne Facial Raga",
     "description": "Anti-acne facial treatment",
     "price": "₹1750",
-    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+    "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Anti Acne Facial Raga uses specialized formulations to treat acne-prone skin and prevent breakouts. Includes anti-acne treatment, acne prevention, specialized formulations, and clear skin results."
@@ -228,7 +228,7 @@
     "title": "Instant Glow Wine Facial",
     "description": "Wine-based instant glow facial",
     "price": "₹2550",
-    "src": "/images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.webp",
+    "src": "/images/ServicesImages/SK9-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Instant Glow Wine Facial uses wine extracts to provide instant skin glow and antioxidant benefits. Includes wine extract benefits, instant skin glow, antioxidant properties, and luxury treatment."

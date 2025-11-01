@@ -3,7 +3,7 @@
     "title": "Henna S/M/L",
     "description": "Natural henna coloring in small, medium, or large sizes",
     "price": "₹600/850/1100",
-    "src": "/images/hair-care/coloring/color-01.webp",
+    "src": "/images/ServicesImages/HC15-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Natural henna coloring service available in three sizes - Small, Medium, and Large. Perfect for those who prefer natural, chemical-free hair coloring.",
@@ -19,7 +19,7 @@
     "title": "Global Hair Colouring",
     "description": "Complete hair coloring service in three tiers",
     "price": "₹2500/3500/4500",
-    "src": "/images/hair-care/coloring/color-02.webp",
+    "src": "/images/ServicesImages/HC16-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Complete global hair coloring service with three pricing tiers based on hair length and complexity. Professional coloring for stunning results.",
@@ -35,7 +35,7 @@
     "title": "Premium Hair Colouring",
     "description": "Luxury hair coloring with premium products",
     "price": "₹3500/4500/5500",
-    "src": "/images/hair-care/coloring/color-03.webp",
+    "src": "/images/ServicesImages/HC17-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Our premium hair coloring service uses the finest products and techniques for exceptional results. Perfect for special occasions or when you want the best.",
@@ -51,7 +51,7 @@
     "title": "Root Touchup",
     "description": "Professional root color touchup service",
     "price": "₹2500",
-    "src": "/images/hair-care/coloring/color-04.webp",
+    "src": "/images/ServicesImages/HC19-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Professional root touchup service to maintain your color between full coloring sessions. Quick and efficient service for fresh-looking roots.",
@@ -67,7 +67,7 @@
     "title": "Root Touchup (Ammonia)",
     "description": "Ammonia-based root touchup for stronger color",
     "price": "₹2000",
-    "src": "/images/hair-care/coloring/color-01.webp",
+    "src": "/images/ServicesImages/HC20-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Ammonia-based root touchup service for stronger, longer-lasting color results. Ideal for those who prefer more permanent color solutions.",
@@ -83,7 +83,7 @@
     "title": "Full Hair Streaking",
     "description": "Complete hair streaking service for dramatic look",
     "price": "₹4500",
-    "src": "/images/hair-care/coloring/color-02.webp",
+    "src": "/images/ServicesImages/HC21-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Complete hair streaking service for a dramatic, eye-catching look. Perfect for those who want to make a bold statement with their hair color.",
@@ -99,7 +99,7 @@
     "title": "Highlights + Global",
     "description": "Combined highlighting and global coloring service",
     "price": "₹6500",
-    "src": "/images/hair-care/coloring/color-03.webp",
+    "src": "/images/ServicesImages/HC22-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Combined highlighting and global coloring service for a multi-dimensional look. This comprehensive service creates depth and dimension in your hair color.",
@@ -115,7 +115,7 @@
     "title": "No Ammonia",
     "description": "Gentle ammonia-free hair coloring service",
     "price": "₹4500/5500/6500",
-    "src": "/images/hair-care/coloring/color-04.webp",
+    "src": "/images/ServicesImages/HC23-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Gentle ammonia-free hair coloring service perfect for those with sensitive scalps or damaged hair. Three pricing tiers available.",
@@ -131,7 +131,7 @@
     "title": "Schwarzkopf Highlighting",
     "description": "Premium highlighting with Schwarzkopf products",
     "price": "₹450+/Streaks",
-    "src": "/images/hair-care/coloring/color-01.webp",
+    "src": "/images/ServicesImages/HC15-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Premium highlighting service using Schwarzkopf professional products. Starting from ₹450 per streak with professional application.",
@@ -147,7 +147,7 @@
     "title": "Loreal Highlighting",
     "description": "Professional highlighting with Loreal products",
     "price": "₹350+/Streaks",
-    "src": "/images/hair-care/coloring/color-02.webp",
+    "src": "/images/ServicesImages/HC16-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Professional highlighting service using Loreal products. Starting from ₹350 per streak with expert colorist application.",
@@ -163,7 +163,7 @@
     "title": "Matrix Highlighting",
     "description": "Quality highlighting with Matrix products",
     "price": "₹300+/Streaks",
-    "src": "/images/hair-care/coloring/color-03.webp",
+    "src": "/images/ServicesImages/HC17-ladies-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Quality highlighting service using Matrix products. Starting from ₹300 per streak with professional application and consultation.",

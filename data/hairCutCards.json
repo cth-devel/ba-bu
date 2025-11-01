@@ -3,7 +3,7 @@
     "title": "Kids Cut (Below 10 years)",
     "description": "Specialized haircut for little girls under 10",
     "price": "₹150",
-    "src": "/images/hair-care/styling/style-01.webp",
+    "src": "/images/ServicesImages/HC1-ladies-kid.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Our Kids Cut service is specially designed for little girls under 10 years old, ensuring a comfortable and safe experience for your daughters.",
@@ -19,7 +19,7 @@
     "title": "Kids Advanced",
     "description": "Advanced styling for young ladies",
     "price": "₹450",
-    "src": "/images/hair-care/styling/style-04.avif",
+    "src": "/images/ServicesImages/HC2-ladies-kid-advanced.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Advanced styling service for young ladies who want something more than a basic cut, including styling and finishing touches.",
@@ -35,7 +35,7 @@
     "title": "Basic Hair Cut",
     "description": "Simple trim and style for women",
     "price": "₹350",
-    "src": "/images/hair-care/styling/style-07.webp",
+    "src": "/images/ServicesImages/HC3-ladies-basic.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "A simple and clean haircut perfect for women maintaining their current style or getting a fresh trim.",
@@ -51,7 +51,7 @@
     "title": "Advanced Haircut",
     "description": "Complete service for ladies - Shampoo + Conditioning + Blow Dry",
     "price": "₹800",
-    "src": "/images/hair-care/styling/style-10.webp",
+    "src": "/images/ServicesImages/HC24-ladies-advanced.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Complete hair service for women including professional shampoo, conditioning treatment, precision cutting, and professional blow dry styling.",
@@ -68,7 +68,7 @@
     "title": "Creative Haircut",
     "description": "Premium styling for women - Shampoo + Conditioning + Blowdry",
     "price": "₹950",
-    "src": "/images/hair-care/styling/style-01.webp",
+    "src": "/images/ServicesImages/HC4.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Our premium creative haircut service for women includes everything in the Advanced package plus creative styling and artistic finishing touches.",
@@ -86,7 +86,7 @@
     "title": "Shampoo + Conditioning (S/M/L)",
     "description": "Professional shampoo and conditioning service in three sizes",
     "price": "₹300/350/450",
-    "src": "/images/hair-care/styling/style-01.webp",
+    "src": "/images/ServicesImages/HC6-ladies-shampoo.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Professional shampoo and conditioning service available in Small, Medium, and Large sizes. Perfect for maintaining healthy, clean hair.",
@@ -102,7 +102,7 @@
     "title": "Shampoo + Conditioning + Styling (S/M/L)",
     "description": "Complete service with shampoo, conditioning, and styling",
     "price": "₹500/600/700",
-    "src": "/images/hair-care/styling/style-04.avif",
+    "src": "/images/ServicesImages/HC8.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Complete hair service including professional shampoo, conditioning, and styling. Available in Small, Medium, and Large sizes for different hair lengths.",
@@ -118,7 +118,7 @@
     "title": "Ironing (S/M/L)",
     "description": "Professional hair ironing service for straight, sleek look",
     "price": "₹500/500/1200",
-    "src": "/images/hair-care/styling/style-07.webp",
+    "src": "/images/ServicesImages/HC7-ladies-iorning.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Professional hair ironing service for a straight, sleek look. Available in Small, Medium, and Large sizes with heat protection treatments.",
@@ -134,7 +134,7 @@
     "title": "Roller Setting (S/M/L)",
     "description": "Classic roller setting for beautiful curls and waves",
     "price": "₹500/800/1200",
-    "src": "/images/hair-care/styling/style-10.webp",
+    "src": "/images/ServicesImages/HC5-ladies-roller.webp",
     "ctaText": "Book Now",
     "contentData": {
       "description": "Classic roller setting service for beautiful curls and waves. Available in Small, Medium, and Large sizes for different hair lengths and desired styles.",

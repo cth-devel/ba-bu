@@ -49,6 +49,118 @@ const HairCareServicePage = () => {
         setIsBookingOpen(true);
     };
 
+    // Gallery images from HAIRCARE folder for hair cuts section
+    const galleryHairCutImages = [
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (1).webp",
+            alt: "Professional hair cutting service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (2).webp",
+            alt: "Premium haircut service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (3).webp",
+            alt: "Luxury hair styling",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (4).webp",
+            alt: "Professional hair cutting",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (5).webp",
+            alt: "Premium hair cutting",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (6).webp",
+            alt: "Modern hair styling service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (7).webp",
+            alt: "Professional haircut",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (8).webp",
+            alt: "Luxury hair cutting",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (9).webp",
+            alt: "Premium haircut service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (10).webp",
+            alt: "Professional hair cutting service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (11).webp",
+            alt: "Beautiful hair styling",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (12).webp",
+            alt: "Modern haircut style",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (13).webp",
+            alt: "Professional hair cutting",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (14).webp",
+            alt: "Premium hair styling",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (15).webp",
+            alt: "Luxury haircut service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (16).webp",
+            alt: "Professional hair cutting",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (17).webp",
+            alt: "Modern hair styling",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (18).webp",
+            alt: "Premium haircut service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (19).webp",
+            alt: "Professional hair cutting",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (20).webp",
+            alt: "Beautiful hair styling",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (21).webp",
+            alt: "Luxury haircut style",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (22).webp",
+            alt: "Professional hair cutting",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (23).webp",
+            alt: "Modern hair styling service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (24).webp",
+            alt: "Premium haircut service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (25).webp",
+            alt: "Professional hair cutting",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (26).webp",
+            alt: "Beautiful hair styling",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCUT-STYLES (27).webp",
+            alt: "Luxury haircut service",
+        },
+    ];
+
     const hairCutImages = hairCutImagesData;
 
     // Hair Cut Cards for Expandable Component
@@ -173,26 +285,99 @@ const HairCareServicePage = () => {
         setTreatmentGentsVisible(initialCount);
     }, [isMobile]);
 
+    // Hair coloring images from HAIRCARE folder for page content
     const hairColorImages = [
         {
-            src: "/images/hair-care/coloring/color-01.webp",
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (1).webp",
             alt: "Professional hair coloring service",
-            title: "Single Color",
         },
         {
-            src: "/images/hair-care/coloring/color-02.webp",
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (2).webp",
             alt: "Beautiful hair highlights",
-            title: "Highlights",
         },
         {
-            src: "/images/hair-care/coloring/color-03.webp",
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (3).webp",
             alt: "Hand-painted balayage highlights",
-            title: "Balayage",
         },
         {
-            src: "/images/hair-care/coloring/color-04.webp",
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (4).webp",
             alt: "Professional color correction",
-            title: "Color Correction",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (5).webp",
+            alt: "Professional hair coloring service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (6).webp",
+            alt: "Beautiful hair highlights",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (7).webp",
+            alt: "Hand-painted balayage highlights",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (8).webp",
+            alt: "Professional color correction",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (9).webp",
+            alt: "Professional hair coloring service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (10).webp",
+            alt: "Beautiful hair highlights",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (11).webp",
+            alt: "Hand-painted balayage highlights",
+        },
+    ];
+
+    // Gallery images from HAIRCARE folder for hair color image strip
+    const galleryHairColorImages = [
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (1).webp",
+            alt: "Professional hair coloring service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (2).webp",
+            alt: "Beautiful hair highlights",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (3).webp",
+            alt: "Hand-painted balayage highlights",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (4).webp",
+            alt: "Professional color correction",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (5).webp",
+            alt: "Professional hair coloring service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (6).webp",
+            alt: "Beautiful hair highlights",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (7).webp",
+            alt: "Hand-painted balayage highlights",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (8).webp",
+            alt: "Professional color correction",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (9).webp",
+            alt: "Professional hair coloring service",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (10).webp",
+            alt: "Beautiful hair highlights",
+        },
+        {
+            src: "/images/HAIRCARE/HAIRCOLOR-STYLES (11).webp",
+            alt: "Hand-painted balayage highlights",
         },
     ];
 
@@ -258,7 +443,7 @@ const HairCareServicePage = () => {
             <OptimizedHero
                 title="Hair Care Services"
                 subtitle="Professional Hair Styling & Treatments"
-                backgroundImage="/images/hair-care/styling/style-04.avif"
+                backgroundImage="/images/HAIRCARE/haircare-heropage.webp"
             />
 
             {/* Hair Cuts Section */}
@@ -273,7 +458,7 @@ const HairCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
                             At{" "}
                             <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
                                 BA-BU Salon
@@ -310,7 +495,7 @@ const HairCareServicePage = () => {
             <ServiceGalleryMarquee
                 title="Our Hair Cut Styles"
                 subtitle="Browse through our collection of stunning haircuts and styles"
-                images={hairCutImages}
+                images={galleryHairCutImages}
                 className="pt-16 sm:pt-20 lg:pt-24"
             />
 
@@ -327,7 +512,7 @@ const HairCareServicePage = () => {
                             />
                         </h3>
                         <div className="text-left sm:text-center sm:mx-16 mb-16">
-                            <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
+                            <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
                                 At{" "}
                                 <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
                                     BA-BU Salon
@@ -366,7 +551,7 @@ const HairCareServicePage = () => {
             <ServiceGalleryMarquee
                 title="Our Hair Color Styles"
                 subtitle="Explore our collection of beautiful hair colors and highlights"
-                images={hairColorImages}
+                images={galleryHairColorImages}
             />
 
             {/* Hair Treatments Section */}
@@ -381,7 +566,7 @@ const HairCareServicePage = () => {
                         />
                     </h3>
                     <div className="text-left sm:text-center sm:mx-16 mb-16">
-                        <p className="text-lg sm:text-2xl text-gray-300 leading-relaxed tracking-wider">
+                        <p className="text-lg sm:text-2xl text-white leading-relaxed tracking-wider">
                             Experience revitalizing hair treatments at{" "}
                             <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">
                                 BA-BU Salon
@@ -461,7 +646,7 @@ const HairCareServicePage = () => {
                         id: "skin-body-care",
                         title: "Skin & Body Care",
                         backgroundImage:
-                            "/images/engin-akyurt-35NAaB_Nmx8-unsplash.webp",
+                            "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
                     },
                 ]}
             />

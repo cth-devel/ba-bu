@@ -3,7 +3,7 @@
     "title": "Basic Cleanup",
     "description": "Essential facial cleanup for fresh, clean skin",
     "price": "₹400",
-    "src": "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+    "src": "/images/ServicesImages/SK2-ladies-basic-cleanup.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Basic Cleanup service provides essential facial cleansing to remove impurities, blackheads, and dead skin cells for fresh, clean skin. Includes deep pore cleansing, blackhead removal, dead skin exfoliation, and skin toning and moisturizing."
@@ -12,7 +12,7 @@
     "title": "Advanced Cleanup",
     "description": "Comprehensive facial cleanup with premium products",
     "price": "₹500",
-    "src": "/images/skin-care/kimia-kazemi-pKImvnIWBZk-unsplash.webp",
+    "src": "/images/ServicesImages/SK2-ladies-basic-cleanup.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Advanced Cleanup service includes everything in Basic Cleanup plus premium products and additional treatments for superior results. Includes advanced pore cleansing, premium exfoliation, deep cleansing mask, hydrating treatment, and skin analysis."
@@ -21,7 +21,7 @@
     "title": "De-Tan Basic",
     "description": "Basic tan removal treatment for even skin tone",
     "price": "₹400",
-    "src": "/images/skin-care/kimia-kazemi-u93nTfWqR9w-unsplash.webp",
+    "src": "/images/ServicesImages/SK7-ladies-basic-detan.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Basic De-Tan service helps remove tan and restore your natural skin tone using gentle, effective products. Includes tan removal treatment, skin brightening, even skin tone, and gentle skin care."
@@ -30,7 +30,7 @@
     "title": "Advanced De-Tan",
     "description": "Premium tan removal with advanced techniques",
     "price": "₹500",
-    "src": "/images/skin-care/kimia-kazemi-weD0qHDlhf8-unsplash.webp",
+    "src": "/images/ServicesImages/SK13-ladies-advanced-detan.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Advanced De-Tan service uses premium products and advanced techniques for superior tan removal and skin brightening. Includes advanced tan removal, premium brightening agents, deep skin renewal, long-lasting results, and skin protection."
@@ -39,7 +39,7 @@
     "title": "De-Tan Neck",
     "description": "Specialized tan removal treatment for neck area",
     "price": "₹400",
-    "src": "/images/skin-care/rosa-rafael-Pe9IXUuC6QU-unsplash.webp",
+    "src": "/images/ServicesImages/SK1-ladies-detan-neck.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our De-Tan Neck service specifically targets the neck area to remove tan and restore even skin tone for a seamless, natural look. Includes neck-specific tan removal, gentle treatment for sensitive area, even skin tone restoration, and professional application."
@@ -48,7 +48,7 @@
     "title": "Under Arms",
     "description": "Specialized treatment for underarm area",
     "price": "₹200",
-    "src": "/images/skin-care/rune-enstad-cowLgyb63c4-unsplash.webp",
+    "src": "/images/ServicesImages/SK3-detan-underarm.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Under Arms service provides specialized treatment for the underarm area, ensuring smooth, clean, and well-maintained skin. Includes underarm area treatment, gentle cleansing and care, smooth skin results, and professional hygiene standards."
@@ -57,7 +57,7 @@
     "title": "Feet",
     "description": "Comprehensive foot care and treatment",
     "price": "₹300",
-    "src": "/images/skin-care/emiliano-vittoriosi-qTu9DppC3mM-unsplash.webp",
+    "src": "/images/ServicesImages/SK24-ladies-feet.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Feet service provides comprehensive foot care including cleansing, exfoliation, and treatment for soft, healthy feet. Includes complete foot cleansing, dead skin exfoliation, foot moisturizing, and professional foot care."
