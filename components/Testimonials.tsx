@@ -221,6 +221,20 @@ const Testimonials = () => {
           </div>
         </div>
 
+                {/* Google Reviews Button */}
+                <div className="flex justify-center mt-12 fade-in-section">
+                    <a
+                        href="https://www.google.com/search?sca_esv=a844ed52de55440e&cs=0&output=search&kgmid=/g/11sv94n03_&q=BA-BU+FAMILY+SALON&shndl=30&shem=lcuae,uaasie,shrtsdl&source=sh/x/loc/uni/m1/1&kgs=1ed5c8f3d902e13e&utm_source=lcuae,uaasie,shrtsdl,sh/x/loc/uni/m1/1&sei=clIGaaP-CL7c4-EP7ImfwQM&zx=1762022005030&no_sw_cr=1#lrd=0x3b081ba5e09b9cad:0x363ca14465d8a7c,1,,,"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full golden-gradient-button text-black shadow-[0_8px_30px_rgb(255,215,0,0.25)] hover:shadow-[0_10px_40px_rgb(255,215,0,0.4)] transition-all duration-300 hover:scale-110 transform focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black tracking-wider"
+                        aria-label="View Google Reviews for BA-BU Family Salon"
+                        tabIndex={0}
+                    >
+                        View Google Reviews
+                    </a>
+                </div>
+
                 {/* Reviews summary badge removed as per request */}
             </div>
 

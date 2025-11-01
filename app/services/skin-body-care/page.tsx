@@ -174,7 +174,7 @@ const SkinBodyCareServicePage = () => {
             <OptimizedHero
                 title="Skin & Body Care Services"
                 subtitle="Professional Skincare & Wellness Treatments"
-                backgroundImage="/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp"
+                backgroundImage="/images/SKINANDBODY/skin-body-hero.webp"
             />
 
             {/* Cleanup & Detan Section */}

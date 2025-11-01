@@ -646,7 +646,7 @@ const HairCareServicePage = () => {
                         id: "skin-body-care",
                         title: "Skin & Body Care",
                         backgroundImage:
-                            "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+                            "/images/SKINANDBODY/skin-body-hero.webp",
                     },
                 ]}
             />

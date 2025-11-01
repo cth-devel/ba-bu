@@ -102,7 +102,7 @@ Message: ${formData.message}`;
       <div className="px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 fade-in-section">
-          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-white mb-4">
+          <h2 className="text-4xl lg:text-5xl font-serif font-bold text-white mb-4 tracking-widest">
             Contact Us
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#77530a] to-[#ffd277] mx-auto mb-6"></div>
@@ -114,7 +114,7 @@ Message: ${formData.message}`;
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:mx-16">
           {/* Contact Information */}
           <div className="fade-in-section">
-            <h3 className="text-2xl font-serif font-bold text-babu-primary mb-8">Get In Touch</h3>
+            <h3 className="text-2xl font-serif font-bold text-babu-primary mb-8 tracking-widest">Get In Touch</h3>
 
             {/* Branch Switches */}
             <div className="flex justify-center mb-8 px-2">
@@ -172,8 +172,8 @@ Message: ${formData.message}`;
                   <MapPin className="w-6 h-6" />
                 </div>
                                   <div>
-                    <h4 className="text-lg font-semibold text-babu-primary mb-1">Address</h4>
-                    <div className="text-gray-300">
+                    <h4 className="text-lg font-semibold text-babu-primary mb-1 tracking-widest">Address</h4>
+                    <div className="text-gray-300 tracking-widest">
                       {salonBranches[activeContactLocation].address.split('\n').map((line, index) => (
                         <p key={index} className={index > 0 ? 'mt-1' : ''}>
                           {line}
@@ -189,10 +189,10 @@ Message: ${formData.message}`;
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-babu-primary mb-1">Phone</h4>
+                  <h4 className="text-lg font-semibold text-babu-primary mb-1 tracking-widest">Phone</h4>
                   <a
                     href={`tel:${salonBranches[activeContactLocation].phone.split(',')[0]}`}
-                    className="text-lg text-gray-300 hover:text-babu-teal transition-colors tracking-wide"
+                    className="text-lg text-gray-300 hover:text-babu-teal transition-colors tracking-widest"
                   >
                     {salonBranches[activeContactLocation].phone}
                   </a>
@@ -205,10 +205,10 @@ Message: ${formData.message}`;
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-babu-primary mb-1">Email</h4>
+                  <h4 className="text-lg font-semibold text-babu-primary mb-1 tracking-widest">Email</h4>
                   <a
                     href={`mailto:${salonBranches[activeContactLocation].email}`}
-                    className="text-gray-300 hover:text-babu-teal transition-colors"
+                    className="text-gray-300 hover:text-babu-teal transition-colors tracking-widest"
                   >
                     {salonBranches[activeContactLocation].email}
                   </a>
@@ -221,8 +221,8 @@ Message: ${formData.message}`;
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-babu-primary mb-1">Working Hours</h4>
-                  <div className="text-gray-300">
+                  <h4 className="text-lg font-semibold text-babu-primary mb-1 tracking-widest">Working Hours</h4>
+                  <div className="text-gray-300 tracking-widest">
                     <p>{salonBranches[activeContactLocation].workingHours}</p>
                   </div>
                 </div>
@@ -236,17 +236,17 @@ Message: ${formData.message}`;
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Book salon appointment on WhatsApp at ${salonBranches[activeContactLocation].name}`}
-                className="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#1ebe57] text-white px-6 py-3 rounded-full transition-all duration-300 w-full hover:scale-105 tracking-wider"
+                className="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#1ebe57] text-white px-6 py-3 rounded-full transition-all duration-300 w-full hover:scale-105 tracking-widest"
               >
                 <WhatsAppIcon className="w-5 h-5" />
-                <span>WhatsApp</span>
+                <span className="tracking-widest">WhatsApp</span>
               </a>
               <a
                 href={`tel:${salonBranches[activeContactLocation].phone.split(',')[0]}`}
-                className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 w-full hover:scale-105"
+                className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-black px-6 py-3 rounded-full font-normal transition-all duration-300 w-full hover:scale-105 tracking-widest"
               >
                 <Phone className="w-5 h-5" />
-                <span>Call Now</span>
+                <span className="tracking-widest">Call Now</span>
               </a>
             </div>
           </div>
@@ -254,12 +254,12 @@ Message: ${formData.message}`;
           {/* Contact Form */}
           <div className="fade-in-section">
             <div className="bg-black border border-white/10 p-8 rounded-2xl shadow-xl">
-              <h3 className="text-2xl font-serif font-bold text-white mb-6">Book Appointment</h3>
+              <h3 className="text-2xl font-serif font-bold text-white mb-6 tracking-widest">Book Appointment</h3>
 
               <form onSubmit={handleSubmit} className="space-y-6 tracking-widest">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2 tracking-widest">
                       Full Name *
                     </label>
                     <input
@@ -274,7 +274,7 @@ Message: ${formData.message}`;
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-white mb-2 tracking-widest">
                       Phone Number *
                     </label>
                     <input
@@ -291,7 +291,7 @@ Message: ${formData.message}`;
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-white mb-2 tracking-widest">
                     Email Address
                   </label>
                   <input
@@ -306,7 +306,7 @@ Message: ${formData.message}`;
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-white mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium text-white mb-2 tracking-widest">
                     Service Required *
                   </label>
                   <select
@@ -327,7 +327,7 @@ Message: ${formData.message}`;
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-white mb-2 tracking-widest">
                     Additional Message
                   </label>
                   <textarea
@@ -343,10 +343,10 @@ Message: ${formData.message}`;
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-white px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105 tracking-widest"
+                  className="w-full bg-gradient-to-r from-[#77530a] to-[#ffd277] hover:from-[#ffd277] hover:to-[#77530a] text-black px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 hover:scale-105 tracking-widest font-normal"
                 >
                   <Send className="w-5 h-5" />
-                  <span>Send Message</span>
+                  <span className="tracking-widest">Send Message</span>
                 </button>
               </form>
             </div>
@@ -356,7 +356,7 @@ Message: ${formData.message}`;
         {/* Map Section */}
         <div className="mt-16 fade-in-section relative left-1/2 right-1/2 -translate-x-1/2 w-full">
           <div className="bg-black border border-white/10 p-4 rounded-2xl shadow-xl">
-            <h3 className="text-2xl font-serif font-bold text-white mb-6 text-center">Find Us</h3>
+            <h3 className="text-2xl font-serif font-bold text-white mb-6 text-center tracking-widest">Find Us</h3>
 
             {/* Location Tabs */}
             <div className="flex justify-center mb-6 px-2">
@@ -456,10 +456,10 @@ Message: ${formData.message}`;
                 }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 text-transparent bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text hover:from-[#ffd277] hover:to-[#77530a] font-medium transition-all duration-300"
+                className="inline-flex items-center space-x-2 text-transparent bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text hover:from-[#ffd277] hover:to-[#77530a] font-medium transition-all duration-300 tracking-widest"
               >
                 <MapPin className="w-4 h-4" />
-                <span>View on Google Maps</span>
+                <span className="tracking-widest">View on Google Maps</span>
               </a>
             </div>
           </div>

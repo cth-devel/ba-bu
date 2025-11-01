@@ -6,6 +6,7 @@ import SmoothScroller from '@/components/SmoothScroller';
 import ScrollTriggerRefresh from '@/components/ScrollTriggerRefresh';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import WhatsAppChat from '@/components/WhatsAppChat';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://babusalon.com';
 
@@ -75,6 +76,7 @@ export default function RootLayout({
           {children}
         </ScrollTriggerRefresh>
         <Footer />
+        <WhatsAppChat />
       </body>
     </html>
   );

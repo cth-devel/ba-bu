@@ -35,7 +35,7 @@ const Services = () => {
             name: "Hair Care",
             description:
                 "Professional hair cutting, styling, coloring, and treatments. From basic cuts to advanced styling, we care for all hair types and textures.",
-            src: "/images/hair-care/styling/style-04.avif",
+            src: "/images/HAIRCARE/haircare-heropage.webp",
             features: ["Hair Cutting", "Hair Styling", "Hair Coloring", "Hair Treatments"],
             page: "/services/hair-care",
         },
@@ -44,7 +44,7 @@ const Services = () => {
             name: "Skin & Body Care",
             description:
                 "Rejuvenating facial treatments, spa services, and body care treatments. Professional skincare for all skin types and concerns.",
-            src: "/images/skin-care/fleur-kaan-w4Dj3MshHQ0-unsplash.webp",
+            src: "/images/SKINANDBODY/skin-body-hero.webp",
             features: [
                 "Facial Treatments",
                 "Spa Services",
