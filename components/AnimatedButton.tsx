@@ -10,11 +10,11 @@ interface AnimatedButtonProps {
 
 const AnimatedButton = ({ text, onClick, className = '' }: AnimatedButtonProps) => {
   return (
-    <button 
+    <button
       className={`Btn ${className}`}
       onClick={onClick}
     >
-      <span className="button-text">{text}</span>
+      <span className="button-text tracking-widest">{text}</span>
     </button>
   );
 };

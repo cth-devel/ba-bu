@@ -4,9 +4,9 @@
 export const siteConfig = {
   // Basic Site Info
   siteName: "BA-BU Family Salon",
-  tagline: "Get your Glow Up",
-  description: "Premium family salon services in North Paravur, Kerala",
-  
+  tagline: "One Salon\nEvery Style, All Ages",
+  description: "Family Friendly Salon, Professional Touch",
+
   // Contact Information
   contact: {
     phone: "+919846272333",
@@ -19,21 +19,21 @@ export const siteConfig = {
       sunday: "Closed"
     }
   },
-  
+
   // Social Media Links
   social: {
-    instagram: "https://instagram.com/babusalon",
-    facebook: "https://facebook.com/babusalon",
-    youtube: "https://youtube.com/babusalon"
+    instagram: "https://www.instagram.com/ba_bu_family_salon_paravur/",
+    facebook: "https://www.facebook.com/profile.php?id=100092997177626&ref=_xav_ig_profile_page_web",
+    google: "https://www.google.com/search?sca_esv=e54914a596765dca&hl=en&gl=in&output=search&kgmid=/g/11sv94n03_&q=BA-BU+FAMILY+SALON&shndl=30&shem=lsctac,shrtsdl&source=sh/x/loc/act/m1/3&kgs=04accc0a75bb7aee&utm_source=lsctac,shrtsdl,sh/x/loc/act/m1/3"
   },
-  
+
   // Hero Section
   hero: {
     videoUrl: "/videos/salon-hero.mp4", // Add your video file here
     backgroundImage: "/images/hero-bg.jpg", // Fallback image
     ctaText: "Book Appointment"
   },
-  
+
   // Services (Easy to edit)
   services: [
     {
@@ -79,7 +79,7 @@ export const siteConfig = {
       price: "Starting from ₹300"
     }
   ],
-  
+
   // Testimonials
   testimonials: [
     {
@@ -87,34 +87,34 @@ export const siteConfig = {
       name: "Priya Nair",
       rating: 5,
       comment: "Amazing service! The staff is so professional and the ambiance is perfect.",
-      avatar: "/images/testimonials/avatar1.jpg"
+      avatar: "/images/testimonials/avatar1.webp"
     },
     {
       id: 2,
       name: "Rajesh Kumar",
       rating: 5,
       comment: "Best salon in North Paravur. Highly recommend their bridal packages!",
-      avatar: "/images/testimonials/avatar2.jpg"
+      avatar: "/images/testimonials/avatar2.webp"
     },
     {
       id: 3,
       name: "Meera Joseph",
       rating: 5,
       comment: "Love the new look! Will definitely come back for more treatments.",
-      avatar: "/images/testimonials/avatar3.jpg"
+      avatar: "/images/testimonials/avatar3.webp"
     }
   ],
-  
+
   // Gallery Images (Add your images to /public/gallery/)
   gallery: [
-    "/gallery/salon1.jpg",
-    "/gallery/salon2.jpg",
-    "/gallery/salon3.jpg",
-    "/gallery/salon4.jpg",
-    "/gallery/salon5.jpg",
-    "/gallery/salon6.jpg"
+    "/gallery/salon1.webp",
+    "/gallery/salon2.webp",
+    "/gallery/salon3.webp",
+    "/gallery/salon4.webp",
+    "/gallery/salon5.webp",
+    "/gallery/salon6.webp"
   ],
-  
+
   // Blog Posts (Static content)
   blogPosts: [
     {

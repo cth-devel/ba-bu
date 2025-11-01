@@ -1,0 +1,226 @@
+[
+  {
+    "title": "Schwarzkopf Smoothing",
+    "description": "Premium hair texture treatment with Schwarzkopf",
+    "price": "₹4000/6000/9000",
+    "src": "/images/ServicesImages/HC28-ladies-smoothing.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Premium hair texture treatment using Schwarzkopf professional products. Available in three tiers for different hair lengths and desired results.",
+      "features": [
+        "Schwarzkopf professional products",
+        "Advanced smoothing technology",
+        "Long-lasting results",
+        "Expert application"
+      ]
+    }
+  },
+  {
+    "title": "Loreal Smoothing",
+    "description": "Professional hair texture treatment with Loreal",
+    "price": "₹4000/5000/8000",
+    "src": "/images/ServicesImages/HC28-ladies-smoothing.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Professional hair texture treatment using Loreal products. Three pricing tiers available for different hair lengths and complexity.",
+      "features": [
+        "Loreal professional products",
+        "Professional smoothing technique",
+        "Quality results",
+        "Expert consultation"
+      ]
+    }
+  },
+  {
+    "title": "Streax Smoothing",
+    "description": "Quality hair texture treatment with Streax",
+    "price": "₹3500/5000/7000",
+    "src": "/images/ServicesImages/HC28-ladies-smoothing.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Quality hair texture treatment using Streax products. Available in three tiers for different hair lengths and desired outcomes.",
+      "features": [
+        "Streax professional products",
+        "Quality smoothing technique",
+        "Affordable pricing",
+        "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Matrix Smoothing",
+    "description": "Professional hair texture treatment with Matrix",
+    "price": "₹3700/5200/7500",
+    "src": "/images/ServicesImages/HC28-ladies-smoothing.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Professional hair texture treatment using Matrix products. Three pricing tiers available for different hair lengths and complexity levels.",
+      "features": [
+        "Matrix professional products",
+        "Professional smoothing technique",
+        "Reliable results",
+        "Expert consultation"
+      ]
+    }
+  },
+  {
+    "title": "Keratine S/M/L",
+    "description": "Premium keratin treatment for hair texture",
+    "price": "₹6000/8500/9500",
+    "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Premium keratin treatment for hair texture available in Small, Medium, and Large sizes. Professional treatment for silky, manageable hair.",
+      "features": [
+        "Premium keratin formula",
+        "Professional application",
+        "Silky, manageable results",
+        "Long-lasting effects"
+      ]
+    }
+  },
+  {
+    "title": "Botox S/M/L",
+    "description": "Advanced botox treatment for hair texture",
+    "price": "₹5000/8000/10000",
+    "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Advanced botox treatment for hair texture available in Small, Medium, and Large sizes. Professional treatment for smooth, healthy hair.",
+      "features": [
+        "Advanced botox formula",
+        "Professional application",
+        "Smooth, healthy results",
+        "Premium treatment"
+      ]
+    }
+  },
+  {
+    "title": "Permanent Blowdry S/M/L",
+    "description": "Permanent blowdry treatment for lasting style",
+    "price": "₹4000/6000/8000",
+    "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Permanent blowdry treatment available in Small, Medium, and Large sizes. Professional treatment for lasting, styled hair.",
+      "features": [
+        "Permanent styling technique",
+        "Professional application",
+        "Lasting styled results",
+        "Expert consultation"
+      ]
+    }
+  },
+  {
+    "title": "Hair Spa S/M/L",
+    "description": "Rejuvenating hair spa treatment in three sizes",
+    "price": "₹850/1050/1200",
+    "src": "/images/ServicesImages/HC30-ladies-hairspa.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Rejuvenating hair spa treatment available in Small, Medium, and Large sizes. Perfect for nourishing and revitalizing your hair.",
+      "features": [
+        "Rejuvenating spa treatment",
+        "Hair nourishment",
+        "Scalp massage included",
+        "Premium spa products"
+      ]
+    }
+  },
+  {
+    "title": "Nutrition Spa",
+    "description": "Deep nutrition treatment for healthy hair",
+    "price": "₹1500",
+    "src": "/images/ServicesImages/HC30-ladies-hairspa.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Deep nutrition treatment designed to provide essential nutrients to your hair. Perfect for maintaining healthy, strong hair.",
+      "features": [
+        "Deep nutrition treatment",
+        "Essential hair nutrients",
+        "Healthy hair maintenance",
+        "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Repair Spa",
+    "description": "Specialized treatment for dry and damaged hair",
+    "price": "₹1700",
+    "src": "/images/ServicesImages/HC30-ladies-hairspa.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Specialized repair spa treatment designed specifically for dry and damaged hair. Restores health and vitality to damaged hair.",
+      "features": [
+        "Specialized repair treatment",
+        "For dry and damaged hair",
+        "Hair restoration",
+        "Professional repair products"
+      ]
+    }
+  },
+  {
+    "title": "After Care for Smoothened Hair",
+    "description": "Specialized aftercare for smoothened hair",
+    "price": "₹1700",
+    "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Specialized aftercare treatment designed specifically for smoothened hair. Maintains and extends the life of your smoothing treatment.",
+      "features": [
+        "Specialized aftercare",
+        "For smoothened hair",
+        "Treatment maintenance",
+        "Professional care products"
+      ]
+    }
+  },
+  {
+    "title": "Anti Breaking Problem Treatment",
+    "description": "Treatment to prevent hair breakage",
+    "price": "₹1650",
+    "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Specialized treatment designed to prevent hair breakage and strengthen weak hair. Perfect for those experiencing hair breakage issues.",
+      "features": [
+        "Anti-breakage treatment",
+        "Hair strengthening",
+        "Prevents breakage",
+        "Professional strengthening products"
+      ]
+    }
+  },
+  {
+    "title": "Anti Dandruff Treatment",
+    "description": "Specialized treatment for dandruff control",
+    "price": "₹1200/1500",
+    "src": "/images/ServicesImages/HC 31-ladies-dandruff.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Specialized anti-dandruff treatment designed to control and eliminate dandruff. Two pricing tiers available based on severity.",
+      "features": [
+        "Anti-dandruff treatment",
+        "Dandruff control",
+        "Scalp health improvement",
+        "Professional anti-dandruff products"
+      ]
+    }
+  },
+  {
+    "title": "Anti Hairfall",
+    "description": "Treatment to prevent hair fall and promote growth",
+    "price": "₹1000/1600/2000",
+    "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Specialized anti-hairfall treatment designed to prevent hair loss and promote healthy hair growth. Three pricing tiers available.",
+      "features": [
+        "Anti-hairfall treatment",
+        "Hair loss prevention",
+        "Promotes hair growth",
+        "Professional growth products"
+      ]
+    }
+  }
+]

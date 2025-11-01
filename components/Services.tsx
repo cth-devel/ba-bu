@@ -2,10 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { siteConfig } from "@/config/site";
 import SplitText from "./SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,14 +15,45 @@ const Services = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const mobileSectionRef = useRef<HTMLElement>(null);
 
-    const services = siteConfig.services.map((service, index) => ({
-        ...service,
-        src: `https://images.pexels.com/photos/399344${
-            index + 1
-        }/pexels-photo-399344${
-            index + 1
-        }.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop`,
-    }));
+    const services = [
+        {
+            id: 1,
+            name: "Bridal & Groom Packages",
+            description:
+                "Complete wedding makeover packages for brides and grooms. Professional bridal makeup, hair styling, and groom grooming services for your special day.",
+            src: "/images/weddings/gallery/wedding-08.webp",
+            features: [
+                "Bridal/Groom Makeup",
+                "Hair Styling",
+                "Saree Draping",
+                "Guest Makeup",
+            ],
+            page: "/services/weddings",
+        },
+        {
+            id: 2,
+            name: "Hair Care",
+            description:
+                "Professional hair cutting, styling, coloring, and treatments. From basic cuts to advanced styling, we care for all hair types and textures.",
+            src: "/images/HAIRCARE/haircare-heropage.webp",
+            features: ["Hair Cutting", "Hair Styling", "Hair Coloring", "Hair Treatments"],
+            page: "/services/hair-care",
+        },
+        {
+            id: 3,
+            name: "Skin & Body Care",
+            description:
+                "Rejuvenating facial treatments, spa services, and body care treatments. Professional skincare for all skin types and concerns.",
+            src: "/images/SKINANDBODY/skin-body-hero.webp",
+            features: [
+                "Facial Treatments",
+                "Spa Services",
+                "Body Care",
+                "Wellness",
+            ],
+            page: "/services/skin-body-care",
+        },
+    ];
 
     useEffect(() => {
         const mm = gsap.matchMedia();
@@ -35,6 +66,10 @@ const Services = () => {
             const panels = gsap.utils.toArray(".panel");
             const numPanels = panels.length;
 
+            // Calculate the total width needed for horizontal scrolling
+            const totalWidth = numPanels * window.innerWidth;
+            container.style.width = `${totalWidth}px`;
+
             const pin = gsap.to(container, {
                 x: () => -(container.scrollWidth - window.innerWidth),
                 ease: "none",
@@ -42,6 +77,7 @@ const Services = () => {
                     trigger: section,
                     pin: true,
                     scrub: 1,
+                    start: "top top",
                     end: () => `+=${container.scrollWidth - window.innerWidth}`,
                     snap: 1 / (panels.length - 1),
                     invalidateOnRefresh: true,
@@ -105,58 +141,51 @@ const Services = () => {
             <section
                 id="services-section-desktop"
                 ref={sectionRef}
-                className="relative bg-black overflow-hidden hidden md:block"
+                className="relative bg-black overflow-hidden hidden md:block services-horizontal-scroll"
             >
                 <div
                     id="services-container-desktop"
                     ref={containerRef}
-                    className="h-screen w-max flex items-center relative"
+                    className="h-screen flex items-center relative services-container"
+                    style={{ width: `${services.length * 100}vw` }}
                 >
-                    {services.map((service, index) => {
-                        const isBridal = /bridal/i.test(service.name);
-                        return (
+                    {services.map((service, index) => (
+                        <div
+                            id={`service-panel-desktop-${index}`}
+                            key={index}
+                            className="panel w-screen h-screen relative flex items-center justify-center services-panel"
+                        >
+                            <Image
+                                src={service.src}
+                                alt={service.name}
+                                fill
+                                className="object-cover"
+                                priority={index < 2}
+                                sizes="100vw"
+                            />
+                            <div className="absolute inset-0 bg-black/40"></div>
                             <div
-                                id={
-                                    isBridal
-                                        ? "bridal-services"
-                                        : `service-panel-desktop-${index}`
-                                }
-                                key={index}
-                                className="panel w-screen h-screen relative flex items-center justify-center"
+                                id={`service-content-desktop-${index}`}
+                                className="content-overlay relative text-white text-center max-w-full px-4 z-10"
                             >
-                                <Image
-                                    src={service.src}
-                                    alt={service.name}
-                                    fill
-                                    className="object-cover"
-                                    priority={index < 2}
-                                    sizes="100vw"
+                                <SplitText
+                                    text={service.name}
+                                    className="text-7xl lg:text-8xl font-[900] font-serif py-12 w-full"
+                                    duration={0.8}
+                                    delay={80}
                                 />
-                                <div className="absolute inset-0 bg-black/40"></div>
-                                <div
-                                    id={`service-content-desktop-${index}`}
-                                    className="content-overlay relative text-white text-center max-w-2xl mx-auto px-4"
+
+                                <Link
+                                    href={service.page}
+                                    aria-label={`Go to services page from ${service.name}`}
+                                    className="inline-block text-lg px-10 py-3 tracking-wider font-semibold rounded-full golden-gradient-button text-black shadow-[0_8px_30px_rgb(255,215,0,0.25)] hover:shadow-[0_10px_40px_rgb(255,215,0,0.4)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                                 >
-                                    <SplitText
-                                        text={service.name}
-                                        className="text-5xl lg:text-7xl font-bold font-serif mb-4"
-                                        duration={0.8}
-                                        delay={80}
-                                    />
-                                    <p className="text-lg lg:text-xl text-white/80 mb-6">
-                                        {service.description}
-                                    </p>
-                                    <button
-                                        aria-label="Book salon appointment in North Paravur"
-                                        className="text-lg font-semibold border-b-2 border-secondary text-secondary hover:bg-secondary hover:text-black transition-all duration-300 px-4 py-2"
-                                    >
-                                        Know More{" "}
-                                        <ArrowRight className="inline-block ml-2" />
-                                    </button>
-                                </div>
+                                    Know More{" "}
+                                    <ArrowRight className="inline-block ml-2" />
+                                </Link>
                             </div>
-                        );
-                    })}
+                        </div>
+                    ))}
                 </div>
             </section>
 
@@ -169,41 +198,45 @@ const Services = () => {
                     id="services-header-mobile"
                     className="text-center mb-12 px-4"
                 >
-                    <h2 className="text-4xl font-sans font-extrabold text-white mb-4">
+                    <h2 className="text-5xl sm:text-6xl font-sans font-extrabold text-white mb-4">
                         Our Services
                     </h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-secondary to-yellow-300 mx-auto"></div>
                 </div>
                 <div
                     id="services-grid-mobile"
-                    className="grid grid-cols-1 gap-8 px-4"
+                    className="grid grid-cols-1 gap-16"
                 >
-                    {services.map((service, index) => {
-                        const isBridal = /bridal/i.test(service.name);
-                        return (
-                            <div
-                                id={
-                                    isBridal
-                                        ? "bridal-services"
-                                        : `service-card-mobile-${index}`
-                                }
-                                key={index}
-                                className="mobile-service-card relative h-96 rounded-lg overflow-hidden cursor-pointer group shadow-lg"
-                            >
-                                <Image
-                                    src={service.src}
-                                    alt={service.name}
-                                    fill
-                                    className="object-cover"
-                                />
-                                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-6">
-                                    <h3 className="text-white text-2xl font-semibold">
+                    {services.map((service, index) => (
+                        <div
+                            id={`service-card-mobile-${index}`}
+                            key={index}
+                            className="mobile-service-card relative h-96 overflow-hidden cursor-pointer group shadow-lg"
+                        >
+                            <Image
+                                src={service.src}
+                                alt={service.name}
+                                fill
+                                className="object-cover"
+                            />
+                            {/* Visible CTA button for mobile */}
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-300 flex items-end p-6">
+                                <div className="w-full">
+                                    <h3 className="text-white text-7xl font-[900] mb-2 tracking-wider">
                                         {service.name}
                                     </h3>
+                                    {/* Features removed on mobile view */}
+                                    <Link
+                                        href={service.page}
+                                        aria-label={`Know more about ${service.name}`}
+                                        className="inline-block mt-4 text-base px-6 py-2 tracking-wider font-semibold rounded-full golden-gradient-button text-black shadow-[0_8px_30px_rgb(255,215,0,0.25)] hover:shadow-[0_10px_40px_rgb(255,215,0,0.4)] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                                    >
+                                        Know More <ArrowRight className="inline-block ml-2" />
+                                    </Link>
                                 </div>
                             </div>
-                        );
-                    })}
+                        </div>
+                    ))}
                 </div>
             </section>
         </>

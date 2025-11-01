@@ -15,7 +15,63 @@ const Header = () => {
     const headerRef = useRef<HTMLElement>(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const [showPromoBanner, setShowPromoBanner] = useState(true);
+    const [currentAddressIndex, setCurrentAddressIndex] = useState(0);
+    const [wrapsSincePromo, setWrapsSincePromo] = useState(0);
+    const [showMobilePromo, setShowMobilePromo] = useState(false);
+    const [promoSlideIn, setPromoSlideIn] = useState(false);
     const pathname = usePathname();
+
+    const addresses = [
+        'Andipillikkav',
+        'Mannam',
+        'Mathilmoola'
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (showMobilePromo) {
+                return; // pause rotation while promo is visible on mobile
+            }
+
+            setCurrentAddressIndex((prevIndex) => {
+                const nextIndex = (prevIndex + 1) % addresses.length;
+                if (nextIndex === 0) {
+                    setWrapsSincePromo((prev) => prev + 1);
+                }
+                return nextIndex;
+            });
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, [showMobilePromo, addresses.length]);
+
+    // Trigger promo strictly after a full cycle on mobile
+    useEffect(() => {
+        if (wrapsSincePromo === 0) return;
+        if (typeof window === 'undefined' || window.innerWidth >= 1024) return; // mobile only
+
+        setShowMobilePromo(true);
+        setWrapsSincePromo(0);
+    }, [wrapsSincePromo]);
+
+    // Handle slide-in/out lifecycle when the mobile promo is shown
+    useEffect(() => {
+        if (!showMobilePromo) return;
+        let enterTimer: number | undefined;
+        let exitTimer: number | undefined;
+        let cleanupTimer: number | undefined;
+
+        setPromoSlideIn(false);
+        enterTimer = window.setTimeout(() => setPromoSlideIn(true), 20);
+        exitTimer = window.setTimeout(() => setPromoSlideIn(false), 2020);
+        cleanupTimer = window.setTimeout(() => setShowMobilePromo(false), 2020 + 500);
+
+        return () => {
+            if (enterTimer) window.clearTimeout(enterTimer);
+            if (exitTimer) window.clearTimeout(exitTimer);
+            if (cleanupTimer) window.clearTimeout(cleanupTimer);
+        };
+    }, [showMobilePromo]);
 
     useEffect(() => {
         // This effect is only for the promo banner visibility
@@ -41,6 +97,14 @@ const Header = () => {
                 if (st.trigger === document.body || st.trigger === header) {
                     st.kill();
                 }
+            });
+
+            // Reset header visibility for ALL pages (including service pages)
+            // Always ensure header is visible on page load/route change
+            gsap.set(header, {
+                yPercent: 0,
+                opacity: 1,
+                visibility: 'visible',
             });
 
             // Refresh ScrollTrigger to recalculate positions
@@ -70,17 +134,31 @@ const Header = () => {
                 ease: "power2.inOut"
             }).progress(1);
 
+            // Ensure header is visible when at top of page
+            if (window.scrollY <= 80) {
+                gsap.set(header, {
+                    yPercent: 0,
+                    opacity: 1,
+                    visibility: 'visible',
+                });
+            }
+
             ScrollTrigger.create({
-                start: "top top-=-80",
+                start: "top top",
                 end: 99999,
                 refreshPriority: -1, // Lower priority for this trigger
                 onUpdate: (self) => {
-                    if (self.direction === -1) { // Scrolling up
+                    // Always show header when near top of page
+                    if (self.scroll() <= 80) {
+                        gsap.set(header, {
+                            yPercent: 0,
+                            opacity: 1,
+                            visibility: 'visible',
+                        });
+                    } else if (self.direction === -1) { // Scrolling up
                         showAnim.play();
                     } else { // Scrolling down
-                        if (self.scroll() > 80) {
-                            showAnim.reverse();
-                        }
+                        showAnim.reverse();
                     }
                 },
             });
@@ -105,8 +183,8 @@ const Header = () => {
             icon: <Briefcase className="w-5 h-5" />,
         },
         {
-            name: "Works",
-            href: "/works",
+            name: "Gallery",
+            href: "/gallery",
             icon: <ImageIcon className="w-5 h-5" />,
         },
         {
@@ -116,36 +194,51 @@ const Header = () => {
         },
     ];
 
+    const headerTopClass = showPromoBanner && !isScrolled ? "top-10" : "top-0";
+
     return (
         <>
             {/* Promotional Banner */}
             {showPromoBanner && !isScrolled && (
-                <div className="bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm relative">
-                    <div className="max-w-7xl mx-auto flex justify-between items-center">
-                        <div className="flex items-center space-x-4">
-                            <div className="flex items-center space-x-1">
-                                <MapPin className="w-4 h-4" />
-                                <span className="hidden sm:inline">
-                                    {siteConfig.contact.address}
+                <div className="promo-banner fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black py-2 px-4 text-sm tracking-widest">
+                    <div className="max-w-7xl mx-auto flex justify-center items-center">
+                        {showMobilePromo ? (
+                            // Mobile-only sliding promo message
+                            <div className="lg:hidden w-full flex justify-center">
+                                <span
+                                    className={`font-medium text-center transition-all duration-500 ease-out transform ${promoSlideIn ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}
+                                >
+                                    Unlock Extra Benefits with Our Combos
                                 </span>
                             </div>
-                            <span className="hidden md:inline">|</span>
+                        ) : (
+                        <div className="flex items-center space-x-2 min-w-0">
+                            <div className="flex items-center space-x-1">
+                                <MapPin className="w-4 h-4" />
+                                <span
+                                    aria-live="polite"
+                                    className="inline-block w-[100px] md:w-[100px] lg:w-[100px] truncate text-center"
+                                >
+                                    {addresses[currentAddressIndex]}
+                                </span>
+                            </div>
+                            <span className="hidden md:inline flex-shrink-0 mx-1">|</span>
                             <a
                                 href={`tel:${siteConfig.contact.phone}`}
-                                className="flex items-center space-x-1 hover:text-gray-700 transition-colors"
+                                className="flex items-center space-x-1 hover:text-gray-700 transition-colors flex-shrink-0"
                             >
                                 <Phone className="w-4 h-4" />
-                                <span>{siteConfig.contact.phone}</span>
+                                <span className="truncate">{siteConfig.contact.phone}</span>
                             </a>
-                            <span className="hidden lg:inline">|</span>
-                            <span className="hidden lg:inline font-medium">
-                                ₹500 OFF ON YOUR FIRST APPOINTMENT ABOVE ₹1499
-                                USE CODE: BABUFIRST
+                            <span className="hidden lg:inline flex-shrink-0 mx-1">|</span>
+                            <span className="hidden lg:inline font-medium truncate ml-3">
+                            Unlock Extra Benefits with Our Combos
                             </span>
                         </div>
+                        )}
                         <button
                             onClick={() => setShowPromoBanner(false)}
-                            className="text-black hover:text-gray-700 transition-colors"
+                            className="text-black hover:text-gray-700 transition-colors flex-shrink-0 ml-2"
                         >
                             <X className="w-4 h-4" />
                         </button>
@@ -155,18 +248,18 @@ const Header = () => {
             {/* Main Header */}
           <header
               ref={headerRef}
-              className="fixed w-full z-40 bg-transparent"
+              className={`fixed ${headerTopClass} left-0 w-full z-40 bg-transparent tracking-widest text-xl hidden lg:block will-change-transform`}
           >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-20">
+                    <div className="flex items-center justify-between h-24">
                         {/* Logo */}
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
-                                    src="/BABU-White.png"
+                                    src="/BABU-White.svg"
                                     alt={siteConfig.siteName}
-                                    width={150}
-                                    height={75}
+                                    width={200}
+                                    height={100}
                                     className="h-auto"
                                     priority
                                 />
@@ -174,12 +267,12 @@ const Header = () => {
                         </div>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden md:flex items-center space-x-8">
+                        <nav className="flex items-center space-x-8">
                             {menuItems.map((item) => (
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-white hover:text-gray-300 transition-colors"
+                                    className="text-white hover:text-gray-300 transition-colors text-lg"
                                 >
                                     {item.name}
                                 </Link>
@@ -190,16 +283,16 @@ const Header = () => {
             </header>
 
             {/* Bottom Dock for Mobile */}
-            <div className="md:hidden fixed bottom-0 left-0 right-0 bg-black bg-opacity-80 backdrop-blur-sm shadow-lg z-50">
-                <div className="flex justify-around items-center h-16">
+            <div className="bottom-dock lg:hidden fixed bottom-0 bg-black bg-opacity-90 backdrop-blur-md shadow-2xl z-50 border-t border-gray-700">
+                <div className="flex justify-around items-center h-20 px-4 w-full">
                     {menuItems.map((item) => (
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="flex flex-col items-center text-white hover:text-gray-300 transition-colors p-2"
+                            className="flex flex-col items-center text-white hover:text-gray-300 transition-colors p-2 min-w-[60px] flex-1"
                         >
                             {item.icon}
-                            <span className="text-xs mt-1">{item.name}</span>
+                            <span className="text-xs mt-1 text-center truncate">{item.name}</span>
                         </Link>
                     ))}
                 </div>

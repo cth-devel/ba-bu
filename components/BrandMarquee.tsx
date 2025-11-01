@@ -1,70 +1,69 @@
 "use client";
 
-import Image from "next/image";
-import { Marquee } from "@/components/magicui/marquee";
+// import Image from "next/image";
+// import { Marquee } from "@/components/magicui/marquee"
+import LogoLoop from "@/components/LogoLoop";
+import ShinyText from "./ShinyText";
 
 const brands = [
-  "/images/brands/img1.png",
-  "/images/brands/img2.png",
-  "/images/brands/img3.png",
-  "/images/brands/img4.png",
-  "/images/brands/img5.png",
-  "/images/brands/img6.png",
+    { src: "/images/brands/img1.webp", alt: "Brand logo 1" },
+    { src: "/images/brands/img2.webp", alt: "Brand logo 2" },
+    { src: "/images/brands/img3.webp", alt: "Brand logo 3" },
+    { src: "/images/brands/img4.webp", alt: "Brand logo 4" },
+    { src: "/images/brands/img5.webp", alt: "Brand logo 5" },
+    { src: "/images/brands/img6.png", alt: "Brand logo 6" },
+    { src: "/images/brands/img7.png", alt: "Brand logo 7" },
+    { src: "/images/brands/img8.webp", alt: "Brand logo 8" },
+    { src: "/images/brands/img9.png", alt: "Brand logo 9" },
 ];
 
 const BrandMarquee = () => {
-  return (
-    <section
-      id="brand-marquee-section"
-      className="py-12 bg-black my-12 lg:my-24"
-      aria-label="Our trusted brands"
-    >
-      <div className="w-full flex flex-col items-center justify-center gap-12">
-        <h2
-          id="brand-marquee-heading"
-          className="text-3xl md:text-5xl lg:text-6xl font-bold text-center text-white mb-8"
+    return (
+        <section
+            id="brand-marquee-section"
+            className="py-12 bg-black my-12 lg:my-24"
+            aria-label="Our trusted brands"
         >
-          Our Trusted Brands
-        </h2>
+            <div className="w-full flex flex-col items-center justify-center gap-12">
+                <h2
+                    id="brand-marquee-heading"
+                    className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-white mb-8"
+                >
+                    <ShinyText
+                        text="Our Trusted Brands"
+                        disabled={false}
+                        speed={3}
+                        className="text-4xl md:text-6xl lg:text-8xl font-bold text-center text-white mb-8"
+                    />
+                </h2>
 
-        <div className="relative flex flex-col gap-24">
-          <Marquee reverse pauseOnHover className="[--duration:18s] [--gap:3rem]">
-            {brands.map((logo, index) => (
-              <div
-                key={`top-marquee-${index}`}
-                className="flex items-center shrink-0"
-              >
-                <Image
-                  src={logo}
-                  alt={`Brand logo ${index + 1}`}
-                  width={240}
-                  height={120}
-                  className="block h-16 md:h-20 lg:h-24 w-auto object-contain mx-8"
-                />
-              </div>
-            ))}
-          </Marquee>
-
-          <Marquee pauseOnHover className="[--duration:18s] [--gap:3rem]">
-            {brands.map((logo, index) => (
-              <div
-                key={`bottom-marquee-${index}`}
-                className="flex items-center shrink-0"
-              >
-                <Image
-                  src={logo}
-                  alt={`Brand logo ${index + 1}`}
-                  width={240}
-                  height={120}
-                  className="block h-16 md:h-20 lg:h-24 w-auto object-contain mx-8"
-                />
-              </div>
-            ))}
-          </Marquee>
-        </div>
-      </div>
-    </section>
-  );
+                <div className="relative w-full flex flex-col items-center justify-center gap-32">
+                    <LogoLoop
+                        logos={brands}
+                        speed={40}
+                        direction="right"
+                        logoHeight={80}
+                        gap={100}
+                        fadeOut={true}
+                        fadeOutColor="#000"
+                        pauseOnHover={false}
+                        scaleOnHover={false}
+                    />
+                    <LogoLoop
+                        logos={brands}
+                        speed={40}
+                        direction="left"
+                        logoHeight={80}
+                        gap={100}
+                        fadeOut={true}
+                        fadeOutColor="#000"
+                        pauseOnHover={false}
+                        scaleOnHover={false}
+                    />
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default BrandMarquee;

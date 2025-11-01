@@ -6,6 +6,7 @@ import SmoothScroller from '@/components/SmoothScroller';
 import ScrollTriggerRefresh from '@/components/ScrollTriggerRefresh';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import WhatsAppChat from '@/components/WhatsAppChat';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://babusalon.com';
 
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
       'Premium family salon in North Paravur, Kerala offering tailored haircuts, hair coloring, facials, bridal makeup, men\'s grooming, and hair spa.',
     images: [
       {
-        url: `${siteUrl}/BABU-White.png`,
+        url: `${siteUrl}BABU-White.svg`,
         width: 1200,
         height: 630,
         alt: `${siteConfig.siteName} – BA-BU Family Salon`,
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.siteName} | Hair, Skin, Bridal & Men's Grooming in North Paravur`,
     description:
       'Premium family salon in North Paravur, Kerala offering tailored haircuts, hair coloring, facials, bridal makeup, men\'s grooming, and hair spa.',
-    images: [`${siteUrl}/BABU-White.png`],
+    images: [`${siteUrl}BABU-White.svg`],
   },
   robots: { index: true, follow: true },
 };
@@ -67,7 +68,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='font-sans overflow-x-hidden'>
+      <body className='font-sans overflow-x-hidden antialiased pb-safe'>
         <StructuredData />
         <Header />
         <SmoothScroller />
@@ -75,6 +76,7 @@ export default function RootLayout({
           {children}
         </ScrollTriggerRefresh>
         <Footer />
+        <WhatsAppChat />
       </body>
     </html>
   );

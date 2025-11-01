@@ -6,9 +6,10 @@ interface RotatingWordProps {
   words: string[];
   intervalMs?: number;
   className?: string;
+  staggerMs?: number;
 }
 
-const RotatingWord = ({ words, intervalMs = 2000, className }: RotatingWordProps) => {
+const RotatingWord = ({ words, intervalMs = 2000, className, staggerMs = 40 }: RotatingWordProps) => {
   const [index, setIndex] = React.useState(0);
   const [prevWord, setPrevWord] = React.useState<string | null>(null);
   const [maxWidth, setMaxWidth] = React.useState<number>(0);
@@ -44,6 +45,8 @@ const RotatingWord = ({ words, intervalMs = 2000, className }: RotatingWordProps
   }, [words, className]);
 
   const currentWord = words && words.length > 0 ? words[index] : "";
+  const currentChars = React.useMemo(() => Array.from(currentWord), [currentWord]);
+  const prevChars = React.useMemo(() => Array.from(prevWord ?? ""), [prevWord]);
 
   return (
     <>
@@ -59,26 +62,54 @@ const RotatingWord = ({ words, intervalMs = 2000, className }: RotatingWordProps
 
       <span
         className={[
-          "relative inline-block align-baseline [perspective:700px] min-h-[1em]",
+          "relative inline-block align-[-.3em] [perspective:700px] min-h-[1em]",
           className ?? "",
         ].join(" ")}
         style={{ width: maxWidth ? `${maxWidth}px` : undefined }}
         aria-live="polite"
         role="status"
+        aria-atomic="true"
+        aria-label={currentWord}
       >
+        {/* Visually hidden plain text for screen readers */}
+        <span className="sr-only">{currentWord}</span>
+
+        {/* Outgoing word - per-character staggered animation */}
         {prevWord !== null && (
           <span
             key={`out-${prevWord}-${index}`}
-            className="absolute inset-0 rotate-word-out will-change-transform [backface-visibility:hidden]"
+            className="absolute inset-0 whitespace-nowrap"
+            aria-hidden
           >
-            {prevWord}
+            {prevChars.map((ch, i) => (
+              <span
+                key={`out-ch-${i}`}
+                className="inline-block rotate-word-out will-change-transform [backface-visibility:hidden]"
+                style={{ animationDelay: `${(i * staggerMs) / 1000}s` }}
+                aria-hidden
+              >
+                {ch === " " ? "\u00A0" : ch}
+              </span>
+            ))}
           </span>
         )}
+
+        {/* Incoming word - per-character staggered animation */}
         <span
           key={`in-${currentWord}-${index}`}
-          className="block rotate-word-in will-change-transform [backface-visibility:hidden]"
+          className="absolute inset-0 whitespace-nowrap"
+          aria-hidden
         >
-          {currentWord}
+          {currentChars.map((ch, i) => (
+            <span
+              key={`in-ch-${i}`}
+              className="inline-block rotate-word-in will-change-transform [backface-visibility:hidden]"
+              style={{ animationDelay: `${(i * staggerMs) / 1000}s` }}
+              aria-hidden
+            >
+              {ch === " " ? "\u00A0" : ch}
+            </span>
+          ))}
         </span>
       </span>
     </>

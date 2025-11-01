@@ -1,32 +1,34 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedButton from "./AnimatedButton";
+import ShinyText from "./ShinyText";
+import { normalizeImagePath } from '@/lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const images = [
   {
-    src: "/images/ba-bu-family-salon-ernakulam-mw0w9iz9vd.webp",
-    alt: "A stylish haircut and beard trim for a male client.",
-    className: "absolute top-0 left-0 w-4/5 h-3/5 rounded-lg shadow-2xl",
-    rotate: -8,
+    src: "/images/WEDDING/WEDDING (12).webp",
+    alt: "Wedding moment 12",
+    className: "absolute top-0 left-0 lg:-top-40 lg:-left-40 w-3/4 h-full rounded-lg shadow-2xl",
+    rotate: -10,
   },
   {
-    src: "/images/ba-bu-family-salon-ernakulam-salons-hdt7xnk5d1.jpg",
-    alt: "The modern and clean interior of the salon.",
-    className: "absolute bottom-0 right-0 w-3/4 h-2/3 rounded-lg shadow-2xl",
-    rotate: 6,
+    src: "/images/WEDDING/WEDDING (16).webp",
+    alt: "Wedding moment 16",
+    className: "absolute bottom-0 right-0 w-2/3 h-full rounded-lg shadow-2xl",
+    rotate: 8,
   },
   {
-    src: "/images/ba-bu-family-salon-ernakulam-jq0ppxb1ra.avif",
-    alt: "A client receiving a professional hair treatment.",
-    className: "absolute top-1/4 left-1/4 w-1/2 h-1/2 rounded-lg shadow-2xl",
-    rotate: 2,
+    src: "/images/WEDDING/WEDDING (17).webp",
+    alt: "Wedding moment 17",
+    className: "absolute top-10 left-1/2 lg:top-20 lg:-left-1/3 w-2/5 h-full rounded-lg shadow-2xl",
+    rotate: 4,
   },
 ];
 
@@ -34,6 +36,10 @@ const GalleryPreview = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const textContentRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
+
+  const [loadedFlags, setLoadedFlags] = useState<boolean[]>(() => images.map(() => false));
+  // Toggle to render images; when true, images render and skeletons hide after load
+  const SHOW_GALLERYPREVIEW_IMAGES = true;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -117,28 +123,9 @@ const GalleryPreview = () => {
     <section
       id="gallery-preview-section"
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-0"
+      className="relative min-w-screen min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-24"
     >
-      {/* Background Image */}
-      {/* <div
-        id="gallery-bg-image"
-        className="absolute inset-0 z-0"
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/engin-akyurt-35NAaB_Nmx8-unsplash.jpg"
-          alt="Dark, moody salon background"
-          fill
-          quality={60}
-          className="object-cover"
-        />
-        <div
-          id="gallery-bg-overlay"
-          className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-        />
-      </div> */}
-
-      <div className="relative z-10 container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 px-10 grid md:grid-cols-2 md:grid-rows-2 items-center gap-12">
         {/* Text Content */}
         <div
           id="gallery-preview-text-content"
@@ -148,20 +135,24 @@ const GalleryPreview = () => {
           <h2
             id="gallery-preview-heading"
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-4"
-            style={{ fontFamily: "'Gunterz-Bold', sans-serif" }}
           >
-            Our Artistry in Action
+            <ShinyText
+              text="Our Artistry in Action"
+              disabled={false}
+              speed={3}
+              className="text-4xl md:text-6xl lg:text-8xl font-bold text-secondary mb-4 tracking-wider"
+            />
           </h2>
           <p
             id="gallery-preview-description"
-            className="text-base md:text-lg text-gray-300 mb-8 max-w-md mx-auto md:mx-0"
+            className="text-base md:text-xl text-gray-300 mb-8 max-w-md mx-auto md:mx-0 tracking-widest"
           >
             Each style is a masterpiece, a testament to our passion for beauty
             and precision. Explore our gallery to witness the transformations
             and find inspiration for your next look.
           </p>
           <Link href="/gallery" aria-label="Go to full gallery">
-            <AnimatedButton text="Explore Gallery" />
+            <AnimatedButton text="Explore Our Gallery" />
           </Link>
         </div>
 
@@ -169,7 +160,7 @@ const GalleryPreview = () => {
         <div
           id="gallery-preview-image-collage"
           ref={imagesRef}
-          className="relative h-[300px] w-full sm:h-[400px] md:h-[500px]"
+          className="relative h-[300px] w-full sm:h-[400px] md:h-[500px] row-span-2"
         >
           {images.map((img, idx) => (
             <div
@@ -177,14 +168,28 @@ const GalleryPreview = () => {
               className={`absolute rounded-lg overflow-hidden shadow-2xl ${img.className}`}
               style={{ transform: `rotate(${img.rotate}deg)` }}
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                quality={75}
-                className="object-cover object-center"
+              {/* Skeleton placeholder */}
+              <div
+                className={`${SHOW_GALLERYPREVIEW_IMAGES ? (loadedFlags[idx] ? "hidden" : "block") : "block"} absolute inset-0 bg-gray-700/40 animate-pulse`}
+                aria-hidden="true"
               />
+              {SHOW_GALLERYPREVIEW_IMAGES && (
+                <Image
+                  src={normalizeImagePath(img.src)}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  quality={75}
+                  onLoadingComplete={() => {
+                    setLoadedFlags((prev) => {
+                      const next = [...prev];
+                      next[idx] = true;
+                      return next;
+                    });
+                  }}
+                  className={`object-cover object-top transition-opacity duration-500 ${loadedFlags[idx] ? "opacity-100" : "opacity-0"}`}
+                />
+              )}
             </div>
           ))}
         </div>

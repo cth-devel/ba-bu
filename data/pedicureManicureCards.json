@@ -1,0 +1,83 @@
+[
+  {
+    "title": "Normal Pedicure",
+    "description": "Classic pedicure for healthy, beautiful feet",
+    "price": "₹700",
+    "src": "/images/ServicesImages/SK26-pedicure.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Normal Pedicure service provides essential foot care including nail trimming, shaping, cuticle care, and polish application for healthy, beautiful feet. Includes nail trimming and shaping, cuticle care, foot exfoliation, and polish application."
+  },
+  {
+    "title": "Pedicure Spa",
+    "description": "Luxury spa pedicure with relaxing massage",
+    "price": "₹1100",
+    "src": "/images/ServicesImages/SK26-pedicure.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Pedicure Spa service offers a luxurious foot treatment with relaxing massage, premium exfoliation, and spa-quality nail care for ultimate pampering. Includes luxury foot treatment, relaxing massage, premium exfoliation, and spa-quality nail care."
+  },
+  {
+    "title": "Crystal Pedicure Spa",
+    "description": "Premium crystal pedicure with luxury treatment",
+    "price": "₹1300",
+    "src": "/images/ServicesImages/SK26-pedicure.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Crystal Pedicure Spa service features premium crystal treatments, luxury foot care, and spa relaxation for the ultimate pampering experience. Includes premium crystal treatments, luxury foot care, spa relaxation, and ultimate pampering."
+  },
+  {
+    "title": "Ice Cream Pedicure",
+    "description": "Refreshing ice cream themed pedicure",
+    "price": "₹1300",
+    "src": "/images/ServicesImages/SK26-pedicure.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Ice Cream Pedicure service offers a refreshing, fun-themed treatment with cooling effects and delightful aromas for a unique spa experience. Includes refreshing treatment, cooling effects, delightful aromas, and unique spa experience."
+  },
+  {
+    "title": "Chocolate Pedicure",
+    "description": "Indulgent chocolate themed pedicure",
+    "price": "₹1300",
+    "src": "/images/ServicesImages/SK26-pedicure.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Chocolate Pedicure service provides an indulgent treatment with rich chocolate aromas and luxurious ingredients for a decadent spa experience. Includes indulgent treatment, rich chocolate aromas, luxurious ingredients, and decadent spa experience."
+  },
+  {
+    "title": "Normal Manicure",
+    "description": "Classic manicure for beautiful hands",
+    "price": "₹600",
+    "src": "/images/ServicesImages/SK21-massage.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Normal Manicure service provides essential hand care including nail trimming, shaping, cuticle care, and polish application for beautiful, well-groomed hands. Includes nail trimming and shaping, cuticle care, hand exfoliation, and polish application."
+  },
+  {
+    "title": "Manicure Spa",
+    "description": "Luxury spa manicure with relaxing massage",
+    "price": "₹700",
+    "src": "/images/ServicesImages/SK21-massage.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Manicure Spa service offers a luxurious hand treatment with relaxing massage, premium exfoliation, and spa-quality nail care for ultimate hand pampering. Includes luxury hand treatment, relaxing massage, premium exfoliation, and spa-quality nail care."
+  },
+  {
+    "title": "Crystal Manicure",
+    "description": "Premium crystal manicure treatment",
+    "price": "₹800",
+    "src": "/images/ServicesImages/SK21-massage.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Crystal Manicure service features premium crystal treatments, luxury hand care, and spa relaxation for the ultimate hand pampering experience. Includes premium crystal treatments, luxury hand care, spa relaxation, and ultimate hand pampering."
+  },
+  {
+    "title": "Ice Cream Manicure",
+    "description": "Refreshing ice cream themed manicure",
+    "price": "₹650",
+    "src": "/images/ServicesImages/SK21-massage.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Ice Cream Manicure service offers a refreshing, fun-themed hand treatment with cooling effects and delightful aromas for a unique spa experience. Includes refreshing hand treatment, cooling effects, delightful aromas, and unique spa experience."
+  }
+]

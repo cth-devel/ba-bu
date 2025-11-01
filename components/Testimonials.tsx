@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
-import { Star } from "lucide-react";
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
+import { Star, User } from "lucide-react";
+import rawReviews from "@/reviews.json";
 
 const Testimonials = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -24,93 +22,28 @@ const Testimonials = () => {
         columnElement.style.animationPlayState = "running";
     };
 
-    // Extended testimonials with more realistic data
-    const reviews = [
-        {
-            name: "Priya Nair",
-            username: "@priya_nair",
-            body: "Amazing service! The staff is so professional and the ambiance is perfect. My bridal makeup was absolutely stunning!",
-            img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Rajesh Kumar",
-            username: "@rajesh_kumar",
-            body: "Best salon in North Paravur. Highly recommend their bridal packages! The team made my wife look like a princess.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Meera Joseph",
-            username: "@meera_joseph",
-            body: "Love the new look! Will definitely come back for more treatments. The facial was incredibly relaxing.",
-            img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Anjali Menon",
-            username: "@anjali_menon",
-            body: "The bridal package was absolutely perfect! The team made me feel like a princess on my special day.",
-            img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Suresh Nair",
-            username: "@suresh_nair",
-            body: "Great service for men's grooming. The staff is professional and the ambiance is very relaxing.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Lakshmi Pillai",
-            username: "@lakshmi_pillai",
-            body: "Amazing facial treatments! My skin has never looked better. The products they use are top quality.",
-            img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Vijay Thomas",
-            username: "@vijay_thomas",
-            body: "Excellent hair styling service! The stylist understood exactly what I wanted and delivered beyond expectations.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Divya Suresh",
-            username: "@divya_suresh",
-            body: "The spa treatment was heavenly! Very professional staff and clean environment. Highly recommended!",
-            img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Kavya Menon",
-            username: "@kavya_menon",
-            body: "The bridal makeup was beyond my expectations! The team made me feel like a queen on my special day.",
-            img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Arun Kumar",
-            username: "@arun_kumar",
-            body: "Best hair styling experience! The stylist was very professional and the results were amazing.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Sneha Pillai",
-            username: "@sneha_pillai",
-            body: "The facial treatment was incredible! My skin feels so refreshed and glowing. Will definitely return!",
-            img: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-        {
-            name: "Rahul Nair",
-            username: "@rahul_nair",
-            body: "Excellent men's grooming service! The staff is very professional and the environment is clean.",
-            img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-            rating: 5,
-        },
-    ];
+    interface RawReview {
+        review: string;
+        name: string;
+        profilePhoto: string | null;
+    }
+
+    type Testimonial = {
+        img: string;
+        name: string;
+        username?: string;
+        body: string;
+        rating: number;
+    };
+
+    const reviews: Testimonial[] = (rawReviews as RawReview[]).map((r) => ({
+        name: r.name,
+        username: undefined,
+        body: r.review,
+        // Force placeholder avatar to avoid using provider images
+        img: "",
+        rating: 5,
+    }));
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -144,49 +77,70 @@ const Testimonials = () => {
         ));
     };
 
+  // Generate a consistent color based on the first letter of the name
+  const getColorForLetter = (letter: string): string => {
+    const colors = [
+      "bg-gradient-to-tr from-amber-400 to-yellow-300",
+      "bg-gradient-to-tr from-pink-400 to-rose-300",
+      "bg-gradient-to-tr from-blue-400 to-cyan-300",
+      "bg-gradient-to-tr from-purple-400 to-indigo-300",
+      "bg-gradient-to-tr from-green-400 to-emerald-300",
+      "bg-gradient-to-tr from-orange-400 to-red-300",
+      "bg-gradient-to-tr from-teal-400 to-blue-300",
+      "bg-gradient-to-tr from-violet-400 to-purple-300",
+      "bg-gradient-to-tr from-fuchsia-400 to-pink-300",
+      "bg-gradient-to-tr from-lime-400 to-green-300",
+    ];
+    const charCode = letter.toUpperCase().charCodeAt(0);
+    const index = (charCode - 65) % colors.length;
+    return colors[index >= 0 ? index : 0];
+  };
+
   const TestimonialCard = ({
     img,
     name,
-    username,
     body,
     rating,
   }: {
     img: string;
     name: string;
-    username: string;
     body: string;
     rating: number;
   }) => {
+    const firstLetter = name.trim().charAt(0).toUpperCase();
+    const colorClass = getColorForLetter(firstLetter);
+
     return (
-              <div className="relative p-6 rounded-2xl border transition-all duration-700 ease-out hover:scale-105 hover:shadow-2xl hover:border-amber-400/70 bg-gray-900/50 backdrop-blur-sm border-gray-700/50 group">
+              <div className="relative p-6 rounded-2xl border transition-all duration-700 ease-out hover:scale-105 hover:shadow-2xl hover:border-amber-400/70 bg-gray-900/50 backdrop-blur-sm border-gray-700/50 group h-[240px] flex flex-col">
         {/* Glow effect overlay */}
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/30 to-yellow-300/30 opacity-0 group-hover:opacity-90 transition-opacity duration-500 blur-2xl"></div>
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 opacity-0 group-hover:opacity-85 transition-opacity duration-400 blur-xl"></div>
 
                 {/* Content container */}
-                <div className="relative z-10">
-                    {/* Quote text */}
-                    <p className="text-gray-300 leading-relaxed text-base mb-4">
-                        "{body}"
-                    </p>
+                <div className="relative z-10 flex flex-col h-full">
+                    {/* Quote text - flex-grow to take available space */}
+                    <div className="flex-grow mb-4">
+                        <p className="text-gray-300 leading-relaxed text-base line-clamp-6">
+                            {body}
+                        </p>
+                    </div>
 
-          {/* Author section */}
-          <div className="flex items-center gap-3">
+          {/* Author section - positioned at bottom */}
+          <div className="flex items-center gap-3 mt-auto">
             <div className="relative">
-              <img
-                src={img}
-                alt={name}
-                className="w-12 h-12 rounded-full object-cover ring-2 ring-amber-400/30 group-hover:ring-amber-400/70 transition-all duration-300"
-              />
+              <div
+                className={`w-12 h-12 rounded-full ${colorClass} flex items-center justify-center ring-2 ring-amber-400/30 group-hover:ring-amber-400/70 transition-all duration-300`}
+                role="img"
+                aria-label={`Avatar for ${name}`}
+                tabIndex={0}
+              >
+                <span className="text-xl font-bold text-black/80">{firstLetter}</span>
+              </div>
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-400/30 to-yellow-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <div>
               <h4 className="font-semibold text-white">{name}</h4>
-              <p className="text-sm text-gray-400">
-                <a href="#bridal-services" className="underline decoration-amber-400/60 underline-offset-4 hover:text-white transition-colors" aria-label="Explore bridal makeup services in North Paravur">
-                  {username}
-                </a>
-              </p>
+
               <div className="flex mt-1">
                 {renderStars(rating)}
               </div>
@@ -221,7 +175,7 @@ const Testimonials = () => {
                     <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-4">
                         Loved by our clients
                     </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-amber-400 to-yellow-400 mx-auto mb-6"></div>
+                    <div className="w-20 h-1 bg-primary-gradient mx-auto mb-6"></div>
                     {/* <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                         Don't just take our word for it. Here's what our
                         satisfied clients have to say about their experience at
@@ -248,7 +202,7 @@ const Testimonials = () => {
                 }`}
                 style={{
                   animationDelay: `${colIndex * 2}s`,
-                  animationDuration: '30s',
+                  animationDuration: '45s',
                   animationIterationCount: 'infinite',
                   animationTimingFunction: 'linear'
                 }}
@@ -267,15 +221,21 @@ const Testimonials = () => {
           </div>
         </div>
 
-                {/* Google Reviews Badge */}
-                <div className="text-center mt-12 fade-in-section">
-                    <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-400/30 to-yellow-400/20 border border-amber-400/40 text-white px-6 py-3 rounded-full">
-                        <div className="flex">{renderStars(5)}</div>
-                        <span className="font-semibold">
-                            4.9/5 on Google Reviews
-                        </span>
-                    </div>
+                {/* Google Reviews Button */}
+                <div className="flex justify-center mt-12 fade-in-section">
+                    <a
+                        href="https://www.google.com/search?sca_esv=a844ed52de55440e&cs=0&output=search&kgmid=/g/11sv94n03_&q=BA-BU+FAMILY+SALON&shndl=30&shem=lcuae,uaasie,shrtsdl&source=sh/x/loc/uni/m1/1&kgs=1ed5c8f3d902e13e&utm_source=lcuae,uaasie,shrtsdl,sh/x/loc/uni/m1/1&sei=clIGaaP-CL7c4-EP7ImfwQM&zx=1762022005030&no_sw_cr=1#lrd=0x3b081ba5e09b9cad:0x363ca14465d8a7c,1,,,"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-full golden-gradient-button text-black shadow-[0_8px_30px_rgb(255,215,0,0.25)] hover:shadow-[0_10px_40px_rgb(255,215,0,0.4)] transition-all duration-300 hover:scale-110 transform focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300 focus-visible:ring-offset-2 focus-visible:ring-offset-black tracking-wider"
+                        aria-label="View Google Reviews for BA-BU Family Salon"
+                        tabIndex={0}
+                    >
+                        View Google Reviews
+                    </a>
                 </div>
+
+                {/* Reviews summary badge removed as per request */}
             </div>
 
             <style jsx>{`
@@ -298,11 +258,11 @@ const Testimonials = () => {
                 }
 
                 .animate-scroll-up {
-                    animation: scroll-up 30s linear infinite;
+                    animation: scroll-up 45s linear infinite;
                 }
 
                 .animate-scroll-down {
-                    animation: scroll-down 30s linear infinite;
+                    animation: scroll-down 45s linear infinite;
                 }
 
                 .fade-in-section {

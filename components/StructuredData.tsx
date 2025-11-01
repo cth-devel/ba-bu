@@ -32,7 +32,7 @@ const StructuredData = () => {
     sameAs: [
       siteConfig.social?.instagram,
       siteConfig.social?.facebook,
-      siteConfig.social?.youtube,
+      siteConfig.social?.google,
     ].filter(Boolean),
     makesOffer: (siteConfig.services || []).map((service: any) => ({
       '@type': 'Offer',
