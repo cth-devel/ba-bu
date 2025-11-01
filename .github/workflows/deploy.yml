@@ -103,7 +103,7 @@ jobs:
           username: ${{ secrets.CPANEL_FTP_USERNAME }}
           password: ${{ secrets.CPANEL_FTP_PASSWORD }}
           local-dir: ./out/
-          server-dir: public_html/
+          server-dir: babufamilysalon.com/
           protocol: ftps
           dangerous-clean-slate: true
           state-name: .ftp-deploy-sync-prod.json
