@@ -1,0 +1,30 @@
+# CodeRabbit CLI Configuration
+# For best practices and AI integration
+
+# Review preferences
+review:
+  # Review types: all, committed, uncommitted
+  default_type: uncommitted
+  
+  # Enable prompt-only mode for AI agents
+  prompt_only: false
+  
+  # Base branch for comparison (optional)
+  # base_branch: master
+
+# Files to ignore during review
+ignore:
+  - "node_modules/**"
+  - ".next/**"
+  - "out/**"
+  - ".git/**"
+  - "*.log"
+  - ".DS_Store"
+  - "package-lock.json"
+  - "public/images/**"
+
+# Integration settings
+integration:
+  # Optimize for Cursor AI integration
+  cursor_mode: true
+
