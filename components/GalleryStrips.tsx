@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 import { gsap } from 'gsap';
+import { normalizeImagePath } from '@/lib/utils';
 
 interface GalleryStripsProps {
   className?: string;
@@ -161,7 +162,7 @@ const GalleryStrips = ({ className = '', images }: GalleryStripsProps) => {
                         aria-label={`View gallery image ${imageOrder}`}
                       >
                         <Image
-                          src={imageSrc}
+                          src={normalizeImagePath(imageSrc)}
                           alt={`Gallery image ${imageOrder}`}
                           fill
                           sizes="(max-width: 640px) 192px, (max-width: 1024px) 45vw, 25vw"
@@ -193,7 +194,7 @@ const GalleryStrips = ({ className = '', images }: GalleryStripsProps) => {
             onClick={(event) => event.stopPropagation()}
           >
             <Image
-              src={selectedImage}
+              src={normalizeImagePath(selectedImage)}
               alt="Selected gallery image preview"
               width={1600}
               height={1066}

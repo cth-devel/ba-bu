@@ -29,13 +29,13 @@ export const metadata: Metadata = {
 const AboutUsPage = () => {
   return (
     <main role="main" aria-label="About BA-BU Family Salon" className="bg-primary text-white">
-      <section className="py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-24 lg:pt-36 lg:pb-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="mb-8 sm:mb-10">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-gunteerz font-black">
               About Us – BA-BU Family Salon, North Paravur & Mathilmoola, Thrissur, Kerala
             </h1>
-            <div className="w-24 h-1 bg-gold mt-4" aria-hidden="true"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#77530a] to-[#ffd277] mt-4" aria-hidden="true"></div>
           </header>
 
           <div className="space-y-10 leading-relaxed text-gray-200 tracking-widest">
@@ -129,7 +129,7 @@ const AboutUsPage = () => {
               href={siteConfig.contact.whatsapp}
               aria-label="Book your appointment on WhatsApp"
               tabIndex={0}
-              className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black font-semibold rounded-full shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-yellow-300/30"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-gunteerz font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 btn-gradient !text-black"
             >
               Book Appointment on WhatsApp
             </a>

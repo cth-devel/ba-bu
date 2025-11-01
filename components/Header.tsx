@@ -99,14 +99,13 @@ const Header = () => {
                 }
             });
 
-            // Reset header visibility for specific pages
-            const shouldShowHeader = pathname === '/gallery' || pathname === '/' || pathname.startsWith('/gallery/');
-            if (shouldShowHeader) {
-                gsap.set(header, {
-                    yPercent: 0,
-                    opacity: 1,
-                });
-            }
+            // Reset header visibility for ALL pages (including service pages)
+            // Always ensure header is visible on page load/route change
+            gsap.set(header, {
+                yPercent: 0,
+                opacity: 1,
+                visibility: 'visible',
+            });
 
             // Refresh ScrollTrigger to recalculate positions
             ScrollTrigger.refresh();
@@ -135,17 +134,31 @@ const Header = () => {
                 ease: "power2.inOut"
             }).progress(1);
 
+            // Ensure header is visible when at top of page
+            if (window.scrollY <= 80) {
+                gsap.set(header, {
+                    yPercent: 0,
+                    opacity: 1,
+                    visibility: 'visible',
+                });
+            }
+
             ScrollTrigger.create({
                 start: "top top",
                 end: 99999,
                 refreshPriority: -1, // Lower priority for this trigger
                 onUpdate: (self) => {
-                    if (self.direction === -1) { // Scrolling up
+                    // Always show header when near top of page
+                    if (self.scroll() <= 80) {
+                        gsap.set(header, {
+                            yPercent: 0,
+                            opacity: 1,
+                            visibility: 'visible',
+                        });
+                    } else if (self.direction === -1) { // Scrolling up
                         showAnim.play();
                     } else { // Scrolling down
-                        if (self.scroll() > 80) {
-                            showAnim.reverse();
-                        }
+                        showAnim.reverse();
                     }
                 },
             });
@@ -235,7 +248,7 @@ const Header = () => {
             {/* Main Header */}
           <header
               ref={headerRef}
-              className={`fixed ${headerTopClass} left-0 w-full z-40 bg-transparent tracking-widest text-xl lg:block hidden will-change-transform`}
+              className={`fixed ${headerTopClass} left-0 w-full z-40 bg-transparent tracking-widest text-xl hidden lg:block will-change-transform`}
           >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-24">

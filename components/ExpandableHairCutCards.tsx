@@ -46,17 +46,18 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
           className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
           onClick={handleBackdropClick}
         >
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden relative">
+          <div className="bg-white rounded-2xl max-w-sm sm:max-w-md w-full max-h-[90vh] flex flex-col relative">
             {/* Close Button */}
             <button
               onClick={handleCloseModal}
-              className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100"
+              className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+              aria-label="Close modal"
             >
-              <CloseIcon />
+              <CloseIcon className="w-5 h-5 text-gray-900" />
             </button>
 
             {/* Modal Content */}
-            <div className="relative">
+            <div className="relative flex-shrink-0 rounded-t-2xl overflow-hidden">
               <img
                 src={active.src}
                 alt={active.title}
@@ -74,27 +75,28 @@ const ExpandableHairCutCards = ({ cards, gender = 'female', onBookNow, showLoadM
               )}
             </div>
 
-            <div className="p-6">
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">{active.title}</h3>
-                  <p className="text-gray-600 mb-2">{active.description}</p>
-                  <div className="text-3xl font-bold text-gray-800">{active.price}</div>
+            <div className="p-6 flex flex-col flex-1 overflow-y-auto min-h-0">
+              <div className="flex-1">
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2 tracking-widest font-gunteerz">{active.title}</h3>
+                  <p className="text-sm font-normal text-gray-500 mb-2 tracking-widest">{active.description}</p>
+                  <div className="text-3xl font-bold text-gray-800 tracking-widest">{active.price}</div>
                 </div>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onBookNow(active.title, active.price, gender);
-                  }}
-                  className="px-8 py-4 bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black font-bold rounded-full hover:opacity-90 transition-all duration-300 min-w-[120px]"
-                >
-                  {active.ctaText}
-                </button>
+
+                <div className="text-sm font-light text-gray-500 [&_*]:tracking-widest [&_*]:text-sm [&_*]:font-light">
+                  {typeof active.content === "function" ? active.content() : active.content}
+                </div>
               </div>
 
-              <div className="text-gray-600">
-                {typeof active.content === "function" ? active.content() : active.content}
-              </div>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onBookNow(active.title, active.price, gender);
+                }}
+                className="mt-6 w-full px-6 py-3 bg-gradient-to-r from-[#77530a] via-[#ffd277] to-[#77530a] text-black font-semibold rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] tracking-widest flex-shrink-0"
+              >
+                {active.ctaText}
+              </button>
             </div>
           </div>
         </div>

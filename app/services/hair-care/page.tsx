@@ -28,23 +28,16 @@ const HairCareServicePage = () => {
     // Mobile detection
     const [isMobile, setIsMobile] = useState(false);
 
-    // Mobile load more state for each section
     // Initial visible items count
     const INITIAL_ITEMS_MOBILE = 2;
     const INITIAL_ITEMS_DESKTOP = 4;
 
-    const [hairCutLadiesVisible, setHairCutLadiesVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [hairCutGentsVisible, setHairCutGentsVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [coloringLadiesVisible, setColoringLadiesVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [coloringGentsVisible, setColoringGentsVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [treatmentLadiesVisible, setTreatmentLadiesVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [treatmentGentsVisible, setTreatmentGentsVisible] = useState(INITIAL_ITEMS_MOBILE);
-
-    // Expanded state for each section (desktop only) - controls whether to show all items or just first
-    // First section (Hair Cuts & Styling) is expanded by default on desktop, others are collapsed
-    const [hairCutExpanded, setHairCutExpanded] = useState(true);
-    const [coloringExpanded, setColoringExpanded] = useState(false);
-    const [treatmentExpanded, setTreatmentExpanded] = useState(false);
+    const [hairCutLadiesVisible, setHairCutLadiesVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [hairCutGentsVisible, setHairCutGentsVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [coloringLadiesVisible, setColoringLadiesVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [coloringGentsVisible, setColoringGentsVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [treatmentLadiesVisible, setTreatmentLadiesVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [treatmentGentsVisible, setTreatmentGentsVisible] = useState(INITIAL_ITEMS_DESKTOP);
 
     // Items per load: 2 for mobile, 4 for desktop
     const ITEMS_PER_LOAD_MOBILE = 2;
@@ -171,28 +164,14 @@ const HairCareServicePage = () => {
 
     // Initialize sections based on mobile/desktop
     useEffect(() => {
-        if (!isMobile) {
-            // Desktop: First section shows all items, others show 1 item (or all if expanded)
-            setHairCutLadiesVisible(hairCutCards.length);
-            setHairCutGentsVisible(gentsHairCutCards.length);
-            if (!coloringExpanded) {
-                setColoringLadiesVisible(1);
-                setColoringGentsVisible(1);
-            }
-            if (!treatmentExpanded) {
-                setTreatmentLadiesVisible(1);
-                setTreatmentGentsVisible(1);
-            }
-        } else {
-            // Mobile: All sections show initial items count
-            setHairCutLadiesVisible(INITIAL_ITEMS_MOBILE);
-            setHairCutGentsVisible(INITIAL_ITEMS_MOBILE);
-            setColoringLadiesVisible(INITIAL_ITEMS_MOBILE);
-            setColoringGentsVisible(INITIAL_ITEMS_MOBILE);
-            setTreatmentLadiesVisible(INITIAL_ITEMS_MOBILE);
-            setTreatmentGentsVisible(INITIAL_ITEMS_MOBILE);
-        }
-    }, [isMobile, hairCutCards.length, gentsHairCutCards.length, coloringExpanded, treatmentExpanded]);
+        const initialCount = isMobile ? INITIAL_ITEMS_MOBILE : INITIAL_ITEMS_DESKTOP;
+        setHairCutLadiesVisible(initialCount);
+        setHairCutGentsVisible(initialCount);
+        setColoringLadiesVisible(initialCount);
+        setColoringGentsVisible(initialCount);
+        setTreatmentLadiesVisible(initialCount);
+        setTreatmentGentsVisible(initialCount);
+    }, [isMobile]);
 
     const hairColorImages = [
         {
@@ -317,10 +296,10 @@ const HairCareServicePage = () => {
                     ladiesVisible={hairCutLadiesVisible}
                     gentsVisible={hairCutGentsVisible}
                     onLadiesLoadMore={() => setHairCutLadiesVisible(prev =>
-                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, hairCutCards.length)
+                        Math.min(prev + ITEMS_PER_LOAD, hairCutCards.length)
                     )}
                     onGentsLoadMore={() => setHairCutGentsVisible(prev =>
-                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, gentsHairCutCards.length)
+                        Math.min(prev + ITEMS_PER_LOAD, gentsHairCutCards.length)
                     )}
                     onBookNow={handleBookNow}
                     itemsPerLoad={ITEMS_PER_LOAD}
@@ -367,38 +346,20 @@ const HairCareServicePage = () => {
                     </div>
                 </div>
 
-                <div className="relative">
-                    <ServiceItemsSection
-                        ladiesCards={ladiesHairColoringCards}
-                        gentsCards={gentsHairColoringCards}
-                        ladiesVisible={isMobile ? coloringLadiesVisible : (coloringExpanded ? coloringLadiesVisible : 1)}
-                        gentsVisible={isMobile ? coloringGentsVisible : (coloringExpanded ? coloringGentsVisible : 1)}
-                        onLadiesLoadMore={() => setColoringLadiesVisible(prev =>
-                            Math.min(prev + ITEMS_PER_LOAD_MOBILE, ladiesHairColoringCards.length)
-                        )}
-                        onGentsLoadMore={() => setColoringGentsVisible(prev =>
-                            Math.min(prev + ITEMS_PER_LOAD_MOBILE, gentsHairColoringCards.length)
-                        )}
-                        onBookNow={handleBookNow}
-                        itemsPerLoad={ITEMS_PER_LOAD}
-                    />
-                    {/* Desktop View Services Button */}
-                    {!isMobile && !coloringExpanded && (
-                        <div className="mt-6 text-center">
-                            <button
-                                onClick={() => {
-                                    setColoringExpanded(true);
-                                    setColoringLadiesVisible(ladiesHairColoringCards.length);
-                                    setColoringGentsVisible(gentsHairColoringCards.length);
-                                }}
-                                className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                aria-label="View all hair coloring services"
-                            >
-                                View Services
-                            </button>
-                        </div>
+                <ServiceItemsSection
+                    ladiesCards={ladiesHairColoringCards}
+                    gentsCards={gentsHairColoringCards}
+                    ladiesVisible={coloringLadiesVisible}
+                    gentsVisible={coloringGentsVisible}
+                    onLadiesLoadMore={() => setColoringLadiesVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, ladiesHairColoringCards.length)
                     )}
-                </div>
+                    onGentsLoadMore={() => setColoringGentsVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, gentsHairColoringCards.length)
+                    )}
+                    onBookNow={handleBookNow}
+                    itemsPerLoad={ITEMS_PER_LOAD}
+                />
             </section>
 
             {/* Hair Color Styles Gallery - Infinite Scroll */}
@@ -436,38 +397,20 @@ const HairCareServicePage = () => {
                     </div>
                 </div>
 
-                <div className="relative">
-                    <ServiceItemsSection
-                        ladiesCards={ladiesHairTreatmentCards}
-                        gentsCards={gentsHairTreatmentCards}
-                        ladiesVisible={isMobile ? treatmentLadiesVisible : (treatmentExpanded ? treatmentLadiesVisible : 1)}
-                        gentsVisible={isMobile ? treatmentGentsVisible : (treatmentExpanded ? treatmentGentsVisible : 1)}
-                        onLadiesLoadMore={() => setTreatmentLadiesVisible(prev =>
-                            Math.min(prev + ITEMS_PER_LOAD_MOBILE, ladiesHairTreatmentCards.length)
-                        )}
-                        onGentsLoadMore={() => setTreatmentGentsVisible(prev =>
-                            Math.min(prev + ITEMS_PER_LOAD_MOBILE, gentsHairTreatmentCards.length)
-                        )}
-                        onBookNow={handleBookNow}
-                        itemsPerLoad={ITEMS_PER_LOAD}
-                    />
-                    {/* Desktop View Services Button */}
-                    {!isMobile && !treatmentExpanded && (
-                        <div className="mt-6 text-center">
-                            <button
-                                onClick={() => {
-                                    setTreatmentExpanded(true);
-                                    setTreatmentLadiesVisible(ladiesHairTreatmentCards.length);
-                                    setTreatmentGentsVisible(gentsHairTreatmentCards.length);
-                                }}
-                                className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                aria-label="View all hair treatment services"
-                            >
-                                View Services
-                            </button>
-                        </div>
+                <ServiceItemsSection
+                    ladiesCards={ladiesHairTreatmentCards}
+                    gentsCards={gentsHairTreatmentCards}
+                    ladiesVisible={treatmentLadiesVisible}
+                    gentsVisible={treatmentGentsVisible}
+                    onLadiesLoadMore={() => setTreatmentLadiesVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, ladiesHairTreatmentCards.length)
                     )}
-                </div>
+                    onGentsLoadMore={() => setTreatmentGentsVisible(prev =>
+                        Math.min(prev + ITEMS_PER_LOAD, gentsHairTreatmentCards.length)
+                    )}
+                    onBookNow={handleBookNow}
+                    itemsPerLoad={ITEMS_PER_LOAD}
+                />
             </section>
 
             {/* CTA Section - Responsive Design */}

@@ -30,29 +30,18 @@ const SkinBodyCareServicePage = () => {
     // Mobile detection
     const [isMobile, setIsMobile] = useState(false);
 
-    // Mobile load more state for each section
     // Initial visible items count
     const INITIAL_ITEMS_MOBILE = 2;
     const INITIAL_ITEMS_DESKTOP = 4;
 
-    const [cleanupLadiesVisible, setCleanupLadiesVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [cleanupGentsVisible, setCleanupGentsVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [facialsVisible, setFacialsVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [threadingVisible, setThreadingVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [bleachingVisible, setBleachingVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [waxingVisible, setWaxingVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [pedicureManicureVisible, setPedicureManicureVisible] = useState(INITIAL_ITEMS_MOBILE);
-    const [massageVisible, setMassageVisible] = useState(INITIAL_ITEMS_MOBILE);
-
-    // Expanded state for each section (desktop only) - controls whether to show all items or just first
-    // First section (Cleanup & Detan) is expanded by default on desktop, others are collapsed
-    const [cleanupExpanded, setCleanupExpanded] = useState(true);
-    const [facialsExpanded, setFacialsExpanded] = useState(false);
-    const [threadingExpanded, setThreadingExpanded] = useState(false);
-    const [bleachingExpanded, setBleachingExpanded] = useState(false);
-    const [waxingExpanded, setWaxingExpanded] = useState(false);
-    const [pedicureManicureExpanded, setPedicureManicureExpanded] = useState(false);
-    const [massageExpanded, setMassageExpanded] = useState(false);
+    const [cleanupLadiesVisible, setCleanupLadiesVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [cleanupGentsVisible, setCleanupGentsVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [facialsVisible, setFacialsVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [threadingVisible, setThreadingVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [bleachingVisible, setBleachingVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [waxingVisible, setWaxingVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [pedicureManicureVisible, setPedicureManicureVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [massageVisible, setMassageVisible] = useState(INITIAL_ITEMS_DESKTOP);
 
     // Items per load: 2 for mobile, 4 for desktop
     const ITEMS_PER_LOAD_MOBILE = 2;
@@ -160,28 +149,16 @@ const SkinBodyCareServicePage = () => {
 
     // Initialize sections based on mobile/desktop
     useEffect(() => {
-        if (!isMobile) {
-            // Desktop: First section shows all items, others show 1 item (or all if expanded)
-            setCleanupLadiesVisible(ladiesCleanupCards.length);
-            setCleanupGentsVisible(gentsCleanupCards.length);
-            if (!facialsExpanded) setFacialsVisible(1);
-            if (!threadingExpanded) setThreadingVisible(1);
-            if (!bleachingExpanded) setBleachingVisible(1);
-            if (!waxingExpanded) setWaxingVisible(1);
-            if (!pedicureManicureExpanded) setPedicureManicureVisible(1);
-            if (!massageExpanded) setMassageVisible(1);
-        } else {
-            // Mobile: All sections show initial items count
-            setCleanupLadiesVisible(INITIAL_ITEMS_MOBILE);
-            setCleanupGentsVisible(INITIAL_ITEMS_MOBILE);
-            setFacialsVisible(INITIAL_ITEMS_MOBILE);
-            setThreadingVisible(INITIAL_ITEMS_MOBILE);
-            setBleachingVisible(INITIAL_ITEMS_MOBILE);
-            setWaxingVisible(INITIAL_ITEMS_MOBILE);
-            setPedicureManicureVisible(INITIAL_ITEMS_MOBILE);
-            setMassageVisible(INITIAL_ITEMS_MOBILE);
-        }
-    }, [isMobile, ladiesCleanupCards.length, gentsCleanupCards.length, facialsExpanded, threadingExpanded, bleachingExpanded, waxingExpanded, pedicureManicureExpanded, massageExpanded]);
+        const initialCount = isMobile ? INITIAL_ITEMS_MOBILE : INITIAL_ITEMS_DESKTOP;
+        setCleanupLadiesVisible(initialCount);
+        setCleanupGentsVisible(initialCount);
+        setFacialsVisible(initialCount);
+        setThreadingVisible(initialCount);
+        setBleachingVisible(initialCount);
+        setWaxingVisible(initialCount);
+        setPedicureManicureVisible(initialCount);
+        setMassageVisible(initialCount);
+    }, [isMobile]);
 
     return (
         <>
@@ -225,10 +202,10 @@ const SkinBodyCareServicePage = () => {
                     ladiesVisible={cleanupLadiesVisible}
                     gentsVisible={cleanupGentsVisible}
                     onLadiesLoadMore={() => setCleanupLadiesVisible(prev =>
-                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, ladiesCleanupCards.length)
+                        Math.min(prev + ITEMS_PER_LOAD, ladiesCleanupCards.length)
                     )}
                     onGentsLoadMore={() => setCleanupGentsVisible(prev =>
-                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, gentsCleanupCards.length)
+                        Math.min(prev + ITEMS_PER_LOAD, gentsCleanupCards.length)
                     )}
                     onBookNow={handleBookNow}
                     itemsPerLoad={ITEMS_PER_LOAD}
@@ -282,35 +259,18 @@ const SkinBodyCareServicePage = () => {
                 <div className="py-12 sm:py-16 lg:py-20 bg-black">
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
-                            <div className="relative">
-                                <ServiceItemsSection
-                                    ladiesCards={facialsCards}
-                                    gentsCards={[]}
-                                    ladiesVisible={isMobile ? facialsVisible : (facialsExpanded ? facialsVisible : 1)}
-                                    gentsVisible={0}
-                                    onLadiesLoadMore={() => setFacialsVisible(prev =>
-                                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, facialsCards.length)
-                                    )}
-                                    onGentsLoadMore={() => {}}
-                                    onBookNow={handleBookNow}
-                                    itemsPerLoad={ITEMS_PER_LOAD}
-                                />
-                                {/* Desktop View Services Button */}
-                                {!isMobile && !facialsExpanded && (
-                                    <div className="mt-6 text-center">
-                                        <button
-                                            onClick={() => {
-                                                setFacialsExpanded(true);
-                                                setFacialsVisible(facialsCards.length);
-                                            }}
-                                            className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                            aria-label="View all facial services"
-                                        >
-                                            View Services
-                                        </button>
-                                    </div>
+                            <ServiceItemsSection
+                                ladiesCards={facialsCards}
+                                gentsCards={[]}
+                                ladiesVisible={facialsVisible}
+                                gentsVisible={0}
+                                onLadiesLoadMore={() => setFacialsVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, facialsCards.length)
                                 )}
-                            </div>
+                                onGentsLoadMore={() => {}}
+                                onBookNow={handleBookNow}
+                                itemsPerLoad={ITEMS_PER_LOAD}
+                            />
                         </div>
                     </div>
                 </div>
@@ -362,35 +322,18 @@ const SkinBodyCareServicePage = () => {
                 <div className="py-12 sm:py-16 lg:py-20 bg-black">
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
-                            <div className="relative">
-                                <ServiceItemsSection
-                                    ladiesCards={ladiesThreadingCards}
-                                    gentsCards={[]}
-                                    ladiesVisible={isMobile ? threadingVisible : (threadingExpanded ? threadingVisible : 1)}
-                                    gentsVisible={0}
-                                    onLadiesLoadMore={() => setThreadingVisible(prev =>
-                                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, ladiesThreadingCards.length)
-                                    )}
-                                    onGentsLoadMore={() => {}}
-                                    onBookNow={handleBookNow}
-                                    itemsPerLoad={ITEMS_PER_LOAD}
-                                />
-                                {/* Desktop View Services Button */}
-                                {!isMobile && !threadingExpanded && (
-                                    <div className="mt-6 text-center">
-                                        <button
-                                            onClick={() => {
-                                                setThreadingExpanded(true);
-                                                setThreadingVisible(ladiesThreadingCards.length);
-                                            }}
-                                            className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                            aria-label="View all threading services"
-                                        >
-                                            View Services
-                                        </button>
-                                    </div>
+                            <ServiceItemsSection
+                                ladiesCards={ladiesThreadingCards}
+                                gentsCards={[]}
+                                ladiesVisible={threadingVisible}
+                                gentsVisible={0}
+                                onLadiesLoadMore={() => setThreadingVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, ladiesThreadingCards.length)
                                 )}
-                            </div>
+                                onGentsLoadMore={() => {}}
+                                onBookNow={handleBookNow}
+                                itemsPerLoad={ITEMS_PER_LOAD}
+                            />
                         </div>
                     </div>
                 </div>
@@ -442,35 +385,18 @@ const SkinBodyCareServicePage = () => {
                 <div className="py-12 sm:py-16 lg:py-20 bg-black">
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
-                            <div className="relative">
-                                <ServiceItemsSection
-                                    ladiesCards={bleachingCards}
-                                    gentsCards={[]}
-                                    ladiesVisible={isMobile ? bleachingVisible : (bleachingExpanded ? bleachingVisible : 1)}
-                                    gentsVisible={0}
-                                    onLadiesLoadMore={() => setBleachingVisible(prev =>
-                                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, bleachingCards.length)
-                                    )}
-                                    onGentsLoadMore={() => {}}
-                                    onBookNow={handleBookNow}
-                                    itemsPerLoad={ITEMS_PER_LOAD}
-                                />
-                                {/* Desktop View Services Button */}
-                                {!isMobile && !bleachingExpanded && (
-                                    <div className="mt-6 text-center">
-                                        <button
-                                            onClick={() => {
-                                                setBleachingExpanded(true);
-                                                setBleachingVisible(bleachingCards.length);
-                                            }}
-                                            className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                            aria-label="View all bleaching services"
-                                        >
-                                            View Services
-                                        </button>
-                                    </div>
+                            <ServiceItemsSection
+                                ladiesCards={bleachingCards}
+                                gentsCards={[]}
+                                ladiesVisible={bleachingVisible}
+                                gentsVisible={0}
+                                onLadiesLoadMore={() => setBleachingVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, bleachingCards.length)
                                 )}
-                            </div>
+                                onGentsLoadMore={() => {}}
+                                onBookNow={handleBookNow}
+                                itemsPerLoad={ITEMS_PER_LOAD}
+                            />
                         </div>
                     </div>
                 </div>
@@ -507,35 +433,18 @@ const SkinBodyCareServicePage = () => {
                 <div className="py-12 sm:py-16 lg:py-20 bg-black">
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
-                            <div className="relative">
-                                <ServiceItemsSection
-                                    ladiesCards={waxingCards}
-                                    gentsCards={[]}
-                                    ladiesVisible={isMobile ? waxingVisible : (waxingExpanded ? waxingVisible : 1)}
-                                    gentsVisible={0}
-                                    onLadiesLoadMore={() => setWaxingVisible(prev =>
-                                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, waxingCards.length)
-                                    )}
-                                    onGentsLoadMore={() => {}}
-                                    onBookNow={handleBookNow}
-                                    itemsPerLoad={ITEMS_PER_LOAD}
-                                />
-                                {/* Desktop View Services Button */}
-                                {!isMobile && !waxingExpanded && (
-                                    <div className="mt-6 text-center">
-                                        <button
-                                            onClick={() => {
-                                                setWaxingExpanded(true);
-                                                setWaxingVisible(waxingCards.length);
-                                            }}
-                                            className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                            aria-label="View all waxing services"
-                                        >
-                                            View Services
-                                        </button>
-                                    </div>
+                            <ServiceItemsSection
+                                ladiesCards={waxingCards}
+                                gentsCards={[]}
+                                ladiesVisible={waxingVisible}
+                                gentsVisible={0}
+                                onLadiesLoadMore={() => setWaxingVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, waxingCards.length)
                                 )}
-                            </div>
+                                onGentsLoadMore={() => {}}
+                                onBookNow={handleBookNow}
+                                itemsPerLoad={ITEMS_PER_LOAD}
+                            />
                         </div>
                     </div>
                 </div>
@@ -575,35 +484,18 @@ const SkinBodyCareServicePage = () => {
                 <div className="py-12 sm:py-16 lg:py-20 bg-black">
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
-                            <div className="relative">
-                                <ServiceItemsSection
-                                    ladiesCards={pedicureManicureCards}
-                                    gentsCards={[]}
-                                    ladiesVisible={isMobile ? pedicureManicureVisible : (pedicureManicureExpanded ? pedicureManicureVisible : 1)}
-                                    gentsVisible={0}
-                                    onLadiesLoadMore={() => setPedicureManicureVisible(prev =>
-                                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, pedicureManicureCards.length)
-                                    )}
-                                    onGentsLoadMore={() => {}}
-                                    onBookNow={handleBookNow}
-                                    itemsPerLoad={ITEMS_PER_LOAD}
-                                />
-                                {/* Desktop View Services Button */}
-                                {!isMobile && !pedicureManicureExpanded && (
-                                    <div className="mt-6 text-center">
-                                        <button
-                                            onClick={() => {
-                                                setPedicureManicureExpanded(true);
-                                                setPedicureManicureVisible(pedicureManicureCards.length);
-                                            }}
-                                            className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                            aria-label="View all pedicure and manicure services"
-                                        >
-                                            View Services
-                                        </button>
-                                    </div>
+                            <ServiceItemsSection
+                                ladiesCards={pedicureManicureCards}
+                                gentsCards={[]}
+                                ladiesVisible={pedicureManicureVisible}
+                                gentsVisible={0}
+                                onLadiesLoadMore={() => setPedicureManicureVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, pedicureManicureCards.length)
                                 )}
-                            </div>
+                                onGentsLoadMore={() => {}}
+                                onBookNow={handleBookNow}
+                                itemsPerLoad={ITEMS_PER_LOAD}
+                            />
                         </div>
                     </div>
                 </div>
@@ -640,35 +532,18 @@ const SkinBodyCareServicePage = () => {
                 <div className="py-12 sm:py-16 lg:py-20 bg-black">
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
-                            <div className="relative">
-                                <ServiceItemsSection
-                                    ladiesCards={massageServicesCards}
-                                    gentsCards={[]}
-                                    ladiesVisible={isMobile ? massageVisible : (massageExpanded ? massageVisible : 1)}
-                                    gentsVisible={0}
-                                    onLadiesLoadMore={() => setMassageVisible(prev =>
-                                        Math.min(prev + ITEMS_PER_LOAD_MOBILE, massageServicesCards.length)
-                                    )}
-                                    onGentsLoadMore={() => {}}
-                                    onBookNow={handleBookNow}
-                                    itemsPerLoad={ITEMS_PER_LOAD}
-                                />
-                                {/* Desktop View Services Button */}
-                                {!isMobile && !massageExpanded && (
-                                    <div className="mt-6 text-center">
-                                        <button
-                                            onClick={() => {
-                                                setMassageExpanded(true);
-                                                setMassageVisible(massageServicesCards.length);
-                                            }}
-                                            className="px-8 py-4 golden-gradient-button text-black font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 tracking-wider"
-                                            aria-label="View all massage services"
-                                        >
-                                            View Services
-                                        </button>
-                                    </div>
+                            <ServiceItemsSection
+                                ladiesCards={massageServicesCards}
+                                gentsCards={[]}
+                                ladiesVisible={massageVisible}
+                                gentsVisible={0}
+                                onLadiesLoadMore={() => setMassageVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, massageServicesCards.length)
                                 )}
-                            </div>
+                                onGentsLoadMore={() => {}}
+                                onBookNow={handleBookNow}
+                                itemsPerLoad={ITEMS_PER_LOAD}
+                            />
                         </div>
                     </div>
                 </div>

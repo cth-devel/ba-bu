@@ -4,58 +4,12 @@ import { siteConfig } from "@/config/site";
 import OptimizedHero from "@/components/ui/optimized-hero";
 import GalleryStrips from "@/components/GalleryStrips";
 import ServicesContainer from "@/components/ServicesContainer";
-import { useEffect, useRef } from 'react';
 import weddingServicesData from "@/data/weddingServices.json";
 import { WhatsAppIcon, PhoneIcon } from "@/components/Icons";
+import { normalizeImagePath } from "@/lib/utils";
 
 const WeddingsServicePage = () => {
-  const serviceGridRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const serviceGrid = serviceGridRef.current;
-    if (!serviceGrid) return;
-
-    const cards = serviceGrid.querySelectorAll('.service-card');
-
-    const handleMouseMove = (e: MouseEvent) => {
-      cards.forEach((card) => {
-        const htmlCard = card as HTMLElement;
-        const rect = htmlCard.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const distance = Math.hypot(x - centerX, y - centerY);
-        const maxDistance = Math.hypot(centerX, centerY);
-        const intensity = Math.max(0, 1 - (distance / maxDistance));
-
-        const relativeX = (x / rect.width) * 100;
-        const relativeY = (y / rect.height) * 100;
-
-        htmlCard.style.setProperty('--glow-x', `${relativeX}%`);
-        htmlCard.style.setProperty('--glow-y', `${relativeY}%`);
-        htmlCard.style.setProperty('--glow-intensity', intensity.toString());
-      });
-    };
-
-    const handleMouseLeave = () => {
-      cards.forEach((card) => {
-        const htmlCard = card as HTMLElement;
-        htmlCard.style.setProperty('--glow-intensity', '0');
-      });
-    };
-
-    serviceGrid.addEventListener('mousemove', handleMouseMove);
-    serviceGrid.addEventListener('mouseleave', handleMouseLeave);
-
-    return () => {
-      serviceGrid.removeEventListener('mousemove', handleMouseMove);
-      serviceGrid.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
-  const weddingGalleryImages = weddingServicesData.galleryImages.map(img => img.src);
+  const weddingGalleryImages = weddingServicesData.galleryImages.map(img => normalizeImagePath(img.src));
   const bridalServices = weddingServicesData.bridalServices;
   const groomServices = weddingServicesData.groomServices;
 
@@ -84,7 +38,7 @@ const WeddingsServicePage = () => {
           </h2>
           <div className="w-full">
             <p className="text-lg sm:text-xl lg:text-2xl text-white/90 leading-relaxed font-medium tracking-wide w-full max-w-none">
-              Make your wedding day unforgettable with the premium <strong className="text-[#ffd277]">Bridal Packages</strong> from BA-BU Salon. Our experienced professionals provide a complete range of bridal beauty services tailored to enhance your glow and confidence for every event. Enjoy personalized styling, flawless makeup, and luxurious treatments using top-quality products—all designed to keep you feeling and looking radiant.
+              Make your wedding day unforgettable with the premium Bridal Packages from <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">BA-BU Salon</span>. Our experienced professionals provide a complete range of bridal beauty services tailored to enhance your glow and confidence for every event. Enjoy personalized styling, flawless makeup, and luxurious treatments using top-quality products—all designed to keep you feeling and looking radiant.
             </p>
           </div>
         </div>
@@ -103,7 +57,7 @@ const WeddingsServicePage = () => {
             <div
               className="absolute inset-0 bg-cover bg-top w-full h-full"
               style={{
-                backgroundImage: `url('${service.bgImage}')`,
+                backgroundImage: `url('${normalizeImagePath(service.bgImage)}')`,
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/20 w-full h-full" />
@@ -124,7 +78,7 @@ const WeddingsServicePage = () => {
               {/* Service List Display */}
               {service.isServiceList ? (
                 <div className="mb-8">
-                  <div className="service-grid" ref={serviceGridRef}>
+                  <div className="service-grid">
                     {service.features.map((serviceItem, serviceIndex) => {
                       const [serviceName, price] = serviceItem.split(' – ');
                       return (
@@ -248,7 +202,7 @@ const WeddingsServicePage = () => {
            </h2>
            <div className="w-full">
              <p className="text-lg sm:text-xl lg:text-2xl text-white/90 leading-relaxed font-medium tracking-wide w-full max-w-none">
-               Look your best on your big day with the exclusive <strong className="text-[#ffd277]">Groom Package</strong> at BA-BU Salon. Our expert team provides a complete grooming experience for men, designed to refresh, style, and enhance your look for your wedding and related events. Enjoy personalized care, modern styling, and effective treatments with premium products for a confident appearance.
+               Look your best on your big day with the exclusive Groom Package at <span className="font-bold bg-gradient-to-r from-[#77530a] to-[#ffd277] bg-clip-text text-transparent">BA-BU Salon</span>. Our expert team provides a complete grooming experience for men, designed to refresh, style, and enhance your look for your wedding and related events. Enjoy personalized care, modern styling, and effective treatments with premium products for a confident appearance.
              </p>
            </div>
          </div>
@@ -267,7 +221,7 @@ const WeddingsServicePage = () => {
             <div
               className="absolute inset-0 bg-cover bg-top w-full h-full"
               style={{
-                backgroundImage: `url('${service.bgImage}')`,
+                backgroundImage: `url('${normalizeImagePath(service.bgImage)}')`,
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/20 w-full h-full" />
@@ -288,7 +242,7 @@ const WeddingsServicePage = () => {
                {/* Service List Display */}
                {service.isServiceList ? (
                  <div className="mb-8">
-                   <div className="service-grid" ref={serviceGridRef}>
+                   <div className="service-grid">
                      {service.features.map((serviceItem, serviceIndex) => {
                        const [serviceName, price] = serviceItem.split(' – ');
                        return (

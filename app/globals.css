@@ -101,18 +101,19 @@
   font-family: 'Gunteerz', serif;
   font-size: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
   font-weight: 900;
-  color: var(--gold-primary);
+  background: linear-gradient(90deg, #77530a 0%, #8a5f0b 30%, #ffd277 55%, #c9a24f 75%, #8a5f0b 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   margin: 0;
   text-align: center;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
   transition: all 0.3s ease;
 }
 
 .service-card:hover .service-card__price {
-  text-shadow:
-    0 0 20px rgba(255, 215, 0, 0.8),
-    0 0 40px rgba(255, 215, 0, 0.6),
-    0 0 60px rgba(255, 215, 0, 0.4);
+  background-position: -100% 0;
   transform: scale(1.05);
 }
 

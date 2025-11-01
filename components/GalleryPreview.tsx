@@ -7,25 +7,26 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AnimatedButton from "./AnimatedButton";
 import ShinyText from "./ShinyText";
+import { normalizeImagePath } from '@/lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const images = [
   {
-    src: "/images/WEDDING/WEDDING (29).webp",
-    alt: "Wedding moment 29",
+    src: "/images/WEDDING/WEDDING (12).webp",
+    alt: "Wedding moment 12",
     className: "absolute top-0 left-0 lg:-top-40 lg:-left-40 w-3/4 h-full rounded-lg shadow-2xl",
     rotate: -10,
   },
   {
-    src: "/images/WEDDING/WEDDING (24).webp",
-    alt: "Wedding moment 24",
+    src: "/images/WEDDING/WEDDING (16).webp",
+    alt: "Wedding moment 16",
     className: "absolute bottom-0 right-0 w-2/3 h-full rounded-lg shadow-2xl",
     rotate: 8,
   },
   {
-    src: "/images/WEDDING/WEDDING (18).webp",
-    alt: "Wedding moment 18",
+    src: "/images/WEDDING/WEDDING (17).webp",
+    alt: "Wedding moment 17",
     className: "absolute top-10 left-1/2 lg:top-20 lg:-left-1/3 w-2/5 h-full rounded-lg shadow-2xl",
     rotate: 4,
   },
@@ -174,7 +175,7 @@ const GalleryPreview = () => {
               />
               {SHOW_GALLERYPREVIEW_IMAGES && (
                 <Image
-                  src={img.src}
+                  src={normalizeImagePath(img.src)}
                   alt={img.alt}
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
@@ -186,7 +187,7 @@ const GalleryPreview = () => {
                       return next;
                     });
                   }}
-                  className={`object-cover object-center transition-opacity duration-500 ${loadedFlags[idx] ? "opacity-100" : "opacity-0"}`}
+                  className={`object-cover object-top transition-opacity duration-500 ${loadedFlags[idx] ? "opacity-100" : "opacity-0"}`}
                 />
               )}
             </div>
