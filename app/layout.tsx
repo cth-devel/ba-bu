@@ -7,6 +7,7 @@ import ScrollTriggerRefresh from '@/components/ScrollTriggerRefresh';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppChat from '@/components/WhatsAppChat';
+import VoiceAssistant from '@/components/VoiceAssistant';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://babusalon.com';
 
@@ -77,6 +78,7 @@ export default function RootLayout({
         </ScrollTriggerRefresh>
         <Footer />
         <WhatsAppChat />
+        <VoiceAssistant />
       </body>
     </html>
   );

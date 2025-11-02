@@ -5,3 +5,4 @@ export { CloseIcon } from './icons/CloseIcon';
 export { ArrowRightIcon } from './icons/ArrowRightIcon';
 export { FemaleIcon } from './icons/FemaleIcon';
 export { MaleIcon } from './icons/MaleIcon';
+export { default as MicrophoneIcon } from './icons/MicrophoneIcon';
