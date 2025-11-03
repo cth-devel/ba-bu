@@ -24,130 +24,87 @@ export class GeminiLiveClient {
   private maxReconnectAttempts: number = 3;
 
   constructor(config: GeminiLiveConfig, callbacks: GeminiLiveCallbacks = {}) {
-    this.model = config.model || 'gemini-1.5-flash';
+    // Live API requires gemini-2.0-flash-exp (1.5-flash doesn't support Live API)
+    this.model = config.model || 'gemini-2.0-flash-exp';
     this.systemInstruction = config.systemInstruction || '';
     this.callbacks = callbacks;
   }
 
   async connect(): Promise<void> {
     try {
-      console.log('Connecting to Gemini Live API via WebSocket...');
-      console.log('Model:', this.model);
+      console.log('Connecting to Python backend WebSocket...');
+      
+      // Connect to Python backend WebSocket bridge
+      // The backend handles token creation and Gemini Live API connection
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080';
+      const wsUrl = backendUrl.replace('http://', 'ws://').replace('https://', 'wss://');
+      const wsEndpoint = `${wsUrl}/ws/voice-agent`;
 
-      // Step 1: Get ephemeral token from server
-      console.log('Step 1: Requesting ephemeral token from server...');
-      const tokenResponse = await fetch('/api/gemini-live/create-token', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: this.model,
-        }),
-      });
+      console.log('Connecting to:', wsEndpoint);
+      this.ws = new WebSocket(wsEndpoint);
 
-      if (!tokenResponse.ok) {
-        const errorData = await tokenResponse.json();
-        let errorMessage = errorData.error || errorData.message || `HTTP ${tokenResponse.status}`;
-        try {
-          if (errorMessage.startsWith('{') || errorMessage.startsWith('[')) {
-            const parsed = JSON.parse(errorMessage);
-            errorMessage = parsed.error?.message || parsed.message || errorMessage;
-          }
-        } catch (parseError) {
-          // Ignore parse errors and use original message
-        }
-        throw new Error(errorMessage);
-      }
-
-      const tokenData = await tokenResponse.json();
-      this.token = tokenData.token;
-
-      if (!this.token) {
-        throw new Error('Failed to obtain ephemeral token');
-      }
-
-      console.log('✓ Ephemeral token obtained');
-
-      // Step 2: Connect to WebSocket with token
-      console.log('Step 2: Connecting to WebSocket...');
-      const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?access_token=${this.token}`;
-
-      this.ws = new WebSocket(wsUrl);
-
-      // Step 3: Handle WebSocket events
+      // Handle WebSocket events
       return new Promise((resolve, reject) => {
+        let resolved = false;
+        const timeout = setTimeout(() => {
+          if (!resolved) {
+            resolved = true;
+            reject(new Error('Connection timeout - backend not responding'));
+          }
+        }, 10000); // 10 second timeout
+
         this.ws!.onopen = () => {
-          console.log('✓ WebSocket connection opened');
-
-          // Step 4: Send setup message (required as first message)
-          console.log('Step 3: Sending session setup...');
-          try {
-            // Load system instruction
-            let systemInstructionText = this.systemInstruction;
-            if (!systemInstructionText) {
-              // Try to load from context
-              try {
-                const { getSystemInstruction } = require('@/lib/voiceAssistantContext');
-                systemInstructionText = getSystemInstruction();
-              } catch (e) {
-                systemInstructionText = 'You are a helpful assistant for BA-BU Family Salon.';
-              }
-            }
-
-            const setupMessage = {
-              setup: {
-                model: this.model,
-                generationConfig: {
-                  responseModalities: ['AUDIO', 'TEXT'],
-                  speechConfig: {
-                    voiceConfig: {
-                      prebuiltVoiceConfig: {
-                        voiceName: 'Aoede'
-                      }
-                    }
-                  }
-                },
-                systemInstruction: {
-                  parts: [
-                    {
-                      text: systemInstructionText
-                    }
-                  ]
-                }
-              }
-            };
-
-            this.ws!.send(JSON.stringify(setupMessage));
-            console.log('✓ Session setup sent');
-
-            this.isConnectedFlag = true;
-            this.reconnectAttempts = 0;
+          console.log('✓ Connected to Python backend WebSocket');
+          // Backend handles token creation and Gemini connection
+          // We just wait for ready signal or start sending messages
+          this.isConnectedFlag = true;
+          this.reconnectAttempts = 0;
+          if (!resolved) {
+            resolved = true;
+            clearTimeout(timeout);
             this.callbacks.onopen?.();
             resolve();
-
-          } catch (setupError: any) {
-            console.error('Error sending setup message:', setupError);
-            reject(new Error(`Setup failed: ${setupError.message}`));
           }
         };
 
         this.ws!.onmessage = (event) => {
           try {
-            const message = JSON.parse(event.data);
-            console.log('Received WebSocket message:', message);
+            // Handle both JSON and binary messages
+            let message: any;
+            
+            if (typeof event.data === 'string') {
+              message = JSON.parse(event.data);
+              console.log('Received message from backend:', message);
+            } else if (event.data instanceof Blob || event.data instanceof ArrayBuffer) {
+              // Handle binary audio data
+              this.callbacks.onmessage?.({
+                data: event.data,
+                type: 'audio'
+              });
+              return;
+            } else {
+              console.log('Received unknown message type');
+              return;
+            }
 
-            // Handle different message types
+            // Handle different message types from backend
             if (message.serverContent) {
-              // Model response
+              // Gemini response forwarded by backend
               this.callbacks.onmessage?.(message);
             } else if (message.error) {
-              // Error message
-              const error = new Error(message.error.message || 'WebSocket error');
+              // Error message from backend
+              const error = new Error(message.error || message.message || 'Backend error');
+              this.callbacks.onerror?.(error);
+            } else if (message.type === 'error') {
+              // Error type message
+              const error = new Error(message.message || message.error || 'Backend error');
               this.callbacks.onerror?.(error);
             } else if (message.setupComplete) {
               // Setup complete
               console.log('✓ Session setup complete');
+            } else {
+              // Forward other messages
+              this.callbacks.onmessage?.(message);
             }
 
           } catch (parseError: any) {
@@ -157,15 +114,33 @@ export class GeminiLiveClient {
         };
 
         this.ws!.onerror = (event) => {
-          console.error('WebSocket error:', event);
+          console.error('WebSocket error event:', event);
           const error = new Error('WebSocket connection error');
           this.callbacks.onerror?.(error);
-          reject(error);
+          // Reject if connection hasn't been established yet
+          if (!resolved && !this.isConnectedFlag) {
+            resolved = true;
+            clearTimeout(timeout);
+            reject(error);
+          }
         };
 
         this.ws!.onclose = (event) => {
-          console.log('WebSocket closed:', event.code, event.reason);
+          console.log('WebSocket closed:', event.code, event.reason || 'No reason');
           this.isConnectedFlag = false;
+          
+          // Log close reason for debugging
+          if (event.code !== 1000) {
+            console.error(`WebSocket closed unexpectedly with code ${event.code}: ${event.reason || 'No reason provided'}`);
+          }
+
+          // Reject if connection promise hasn't resolved
+          if (!resolved) {
+            resolved = true;
+            clearTimeout(timeout);
+            const closeError = new Error(`Connection closed with code ${event.code}: ${event.reason || 'Unknown reason'}`);
+            reject(closeError);
+          }
 
           // Attempt to reconnect if unexpected close
           if (event.code !== 1000 && this.reconnectAttempts < this.maxReconnectAttempts) {
@@ -196,29 +171,22 @@ export class GeminiLiveClient {
     }
 
     try {
-      const message: any = {
-        realtimeInput: {}
-      };
-
       if (audioBlob) {
-        // Convert audio blob to base64
-        const arrayBuffer = await audioBlob.arrayBuffer();
-        const base64Audio = btoa(
-          String.fromCharCode(...new Uint8Array(arrayBuffer))
-        );
-        message.realtimeInput.audio = {
-          mimeType: audioBlob.type || 'audio/webm',
-          data: base64Audio
+        // Send audio blob directly (backend will handle conversion)
+        // Option 1: Send as binary
+        this.ws.send(audioBlob);
+        console.log('Sending real-time audio input (binary)...');
+      } else if (text) {
+        // Send text as JSON
+        const message = {
+          realtimeInput: {
+            text: text
+          }
         };
-        console.log('Sending real-time audio input...');
-      }
-
-      if (text) {
-        message.realtimeInput.text = text;
+        this.ws.send(JSON.stringify(message));
         console.log('Sending real-time text input:', text);
       }
 
-      this.ws.send(JSON.stringify(message));
       console.log('✓ Real-time input sent');
 
     } catch (error: any) {

@@ -46,8 +46,9 @@ const VoiceChatInterface = ({ isOpen, onClose }: VoiceChatInterfaceProps) => {
       return;
     }
 
-    // Initialize connection when modal opens
-    initializeConnection();
+    // Set initial status - user will click Connect button
+    setStatus('idle');
+    setError(null);
 
     return () => {
       cleanup();
@@ -115,9 +116,10 @@ const VoiceChatInterface = ({ isOpen, onClose }: VoiceChatInterfaceProps) => {
 
       // Initialize Gemini Live client (WebSocket-based)
       // Token is obtained server-side via /api/gemini-live/create-token
+      // Note: Live API requires gemini-2.0-flash-exp (1.5-flash doesn't support it)
       const client = new GeminiLiveClient(
         {
-          model: 'gemini-1.5-flash', // Hardcode to a reliable model
+          model: 'gemini-2.0-flash-exp', // Live API compatible model
           systemInstruction,
         },
         {
@@ -126,9 +128,37 @@ const VoiceChatInterface = ({ isOpen, onClose }: VoiceChatInterfaceProps) => {
             setError(null); // Clear any previous errors
           },
           onmessage: async (message: any) => {
-            console.log('Received WebSocket message:', message);
+            console.log('Received message from backend:', message);
             
-            // Handle serverContent from Live API
+            // Handle binary audio data (direct from backend)
+            if (message.type === 'audio' || message.data instanceof Blob || message.data instanceof ArrayBuffer) {
+              setStatus('speaking');
+              try {
+                let audioData: ArrayBuffer;
+                
+                if (message.data instanceof Blob) {
+                  audioData = await message.data.arrayBuffer();
+                } else if (message.data instanceof ArrayBuffer) {
+                  audioData = message.data;
+                } else {
+                  console.error('Unknown audio data type');
+                  return;
+                }
+
+                // Convert to AudioBuffer and play
+                const audioContext = new AudioContext();
+                const audioBuffer = await audioContext.decodeAudioData(audioData);
+                playAudioBuffer(audioBuffer);
+                
+                setStatus('connected');
+              } catch (err) {
+                console.error('Error playing audio:', err);
+                setStatus('connected');
+              }
+              return;
+            }
+            
+            // Handle serverContent from Live API (forwarded by backend)
             if (message.serverContent) {
               const { modelTurn, turnComplete } = message.serverContent;
 
@@ -196,15 +226,34 @@ const VoiceChatInterface = ({ isOpen, onClose }: VoiceChatInterfaceProps) => {
             setError(err.message || 'Connection error occurred');
             setStatus('error');
           },
-          onclose: () => {
-            setStatus('idle');
+          onclose: (event: CloseEvent) => {
+            console.log('WebSocket closed:', event.code, event.reason);
+            // Don't immediately reset to idle - show error if unexpected close
+            if (event.code !== 1000) {
+              // Unexpected close (not normal closure)
+              setError(`Connection closed unexpectedly (code: ${event.code})`);
+              setStatus('error');
+            } else {
+              // Normal closure - user requested
+              setStatus('idle');
+            }
           },
         }
       );
 
       clientRef.current = client;
-      await client.connect();
+      console.log('Attempting to connect to WebSocket...');
+      try {
+        await client.connect();
+        console.log('✓ WebSocket connection established');
+      } catch (connectError: any) {
+        console.error('✗ WebSocket connection failed:', connectError);
+        setError(connectError.message || 'Failed to connect. Please check backend is running.');
+        setStatus('error');
+        throw connectError; // Re-throw to trigger outer catch
+      }
     } catch (err: any) {
+      console.error('Connection initialization error:', err);
       setError(err.message || 'Failed to initialize voice assistant');
       setStatus('error');
     }
@@ -376,6 +425,17 @@ const VoiceChatInterface = ({ isOpen, onClose }: VoiceChatInterfaceProps) => {
 
           {/* Controls */}
           <div className="flex flex-col gap-4">
+            {status === 'idle' && (
+              <button
+                onClick={initializeConnection}
+                className="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
+                aria-label="Connect"
+              >
+                <span className="w-3 h-3 bg-white rounded-full"></span>
+                Connect
+              </button>
+            )}
+
             {status === 'connected' && !isRecording && (
               <button
                 onClick={handleStartRecording}
@@ -411,6 +471,7 @@ const VoiceChatInterface = ({ isOpen, onClose }: VoiceChatInterfaceProps) => {
             {/* Instructions */}
             <div className="mt-6 p-4 bg-gray-50 rounded-xl">
               <p className="text-xs sm:text-sm text-gray-600 text-center">
+                {status === 'idle' && 'Click "Connect" to start the voice assistant'}
                 {status === 'connected' && 'Click "Start Speaking" to begin voice interaction'}
                 {status === 'listening' && 'Speak clearly into your microphone'}
                 {status === 'processing' && 'Processing your request...'}
