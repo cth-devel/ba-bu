@@ -18,7 +18,7 @@
   {
     "title": "Change of Hair Style",
     "description": "Complete style transformation for men",
-    "price": "₹200",
+    "price": "₹250",
     "src": "/images/ServicesImages/HC11-gents-advanced.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -50,7 +50,7 @@
   {
     "title": "Blowdry with Shampoo & Conditioning",
     "description": "Complete service with shampoo, conditioning, and blowdry",
-    "price": "₹200",
+    "price": "₹300",
     "src": "/images/ServicesImages/HC13-gents-shampoo.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -66,7 +66,7 @@
   {
     "title": "Ironing with Shampoo & Conditioning",
     "description": "Complete service with shampoo, conditioning, and ironing",
-    "price": "₹300",
+    "price": "₹500",
     "src": "/images/ServicesImages/HC13-gents-shampoo.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -76,6 +76,38 @@
         "Expert ironing technique",
         "Heat protection treatment",
         "Straight, sleek finish"
+      ]
+    }
+  },
+  {
+    "title": "Creative hair cut",
+    "description": "Artistic and creative haircut styling for men",
+    "price": "₹300",
+    "src": "/images/ServicesImages/HC11-gents-advanced.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Our Creative Hair Cut service offers artistic and creative styling for men who want a unique, modern look that stands out.",
+      "features": [
+        "Creative cutting techniques",
+        "Artistic styling",
+        "Modern design consultation",
+        "Professional finishing"
+      ]
+    }
+  },
+  {
+    "title": "hair cut with 2 wash",
+    "description": "Haircut service with double wash treatment",
+    "price": "₹200",
+    "src": "/images/ServicesImages/HC13-gents-shampoo.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Complete haircut service with double wash treatment, ensuring your hair is thoroughly cleaned and styled to perfection.",
+      "features": [
+        "Professional double wash",
+        "Precision cutting",
+        "Clean and fresh finish",
+        "Quality hair products"
       ]
     }
   }

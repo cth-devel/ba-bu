@@ -126,5 +126,69 @@
         "Premium treatment"
       ]
     }
+  },
+  {
+    "title": "Hair Spa",
+    "description": "Rejuvenating hair spa treatment for men",
+    "price": "₹800",
+    "src": "/images/ServicesImages/HC30-ladies-hairspa.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Rejuvenating hair spa treatment for men designed to nourish and revitalize your hair. Perfect for maintaining healthy, strong hair.",
+      "features": [
+        "Rejuvenating spa treatment",
+        "Hair nourishment",
+        "Scalp massage included",
+        "Premium spa products"
+      ]
+    }
+  },
+  {
+    "title": "Protien Treatment",
+    "description": "Protein treatment for strengthening and repairing hair",
+    "price": "₹1000",
+    "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Professional protein treatment designed to strengthen and repair damaged hair. Perfect for men with weak or damaged hair.",
+      "features": [
+        "Protein strengthening treatment",
+        "Hair repair and restoration",
+        "Professional application",
+        "Long-lasting results"
+      ]
+    }
+  },
+  {
+    "title": "Anti Dandruf Treatment",
+    "description": "Specialized treatment for dandruff control",
+    "price": "₹1000",
+    "src": "/images/ServicesImages/HC 31-ladies-dandruff.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Specialized anti-dandruff treatment designed to control and eliminate dandruff. Professional treatment for a healthy, flake-free scalp.",
+      "features": [
+        "Anti-dandruff treatment",
+        "Dandruff control",
+        "Scalp health improvement",
+        "Professional anti-dandruff products"
+      ]
+    }
+  },
+  {
+    "title": "Scalp Scrub",
+    "description": "Deep cleansing scalp scrub treatment",
+    "price": "₹500",
+    "src": "/images/ServicesImages/HC28-ladies-smoothing.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Deep cleansing scalp scrub treatment that removes buildup and dead skin cells, promoting a healthy scalp environment for optimal hair growth.",
+      "features": [
+        "Deep scalp cleansing",
+        "Removes buildup and dead skin",
+        "Promotes healthy scalp",
+        "Professional exfoliation"
+      ]
+    }
   }
 ]

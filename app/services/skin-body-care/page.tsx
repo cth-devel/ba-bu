@@ -37,11 +37,14 @@ const SkinBodyCareServicePage = () => {
     const [cleanupLadiesVisible, setCleanupLadiesVisible] = useState(INITIAL_ITEMS_DESKTOP);
     const [cleanupGentsVisible, setCleanupGentsVisible] = useState(INITIAL_ITEMS_DESKTOP);
     const [facialsVisible, setFacialsVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [facialsGentsVisible, setFacialsGentsVisible] = useState(INITIAL_ITEMS_DESKTOP);
     const [threadingVisible, setThreadingVisible] = useState(INITIAL_ITEMS_DESKTOP);
     const [bleachingVisible, setBleachingVisible] = useState(INITIAL_ITEMS_DESKTOP);
     const [waxingVisible, setWaxingVisible] = useState(INITIAL_ITEMS_DESKTOP);
     const [pedicureManicureVisible, setPedicureManicureVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [pedicureManicureGentsVisible, setPedicureManicureGentsVisible] = useState(INITIAL_ITEMS_DESKTOP);
     const [massageVisible, setMassageVisible] = useState(INITIAL_ITEMS_DESKTOP);
+    const [massageGentsVisible, setMassageGentsVisible] = useState(INITIAL_ITEMS_DESKTOP);
 
     // Items per load: 2 for mobile, 4 for desktop
     const ITEMS_PER_LOAD_MOBILE = 2;
@@ -84,6 +87,10 @@ const SkinBodyCareServicePage = () => {
         ),
     }));
 
+    // Split facials cards: first 22 cards for ladies, last 11 cards for gents
+    const facialsLadiesCards = facialsCards.slice(0, 22);
+    const facialsGentsCards = facialsCards.slice(22);
+
     const ladiesThreadingCards = ladiesThreadingCardsData.map((card: any) => ({
         ...card,
         ctaLink: siteConfig.contact.whatsapp,
@@ -124,6 +131,10 @@ const SkinBodyCareServicePage = () => {
         ),
     }));
 
+    // Split pedicure/manicure cards: first 8 cards for ladies, last 8 cards for gents
+    const pedicureManicureLadiesCards = pedicureManicureCards.slice(0, 8);
+    const pedicureManicureGentsCards = pedicureManicureCards.slice(8);
+
     const massageServicesCards = massageServicesCardsData.map((card: any) => ({
         ...card,
         ctaLink: siteConfig.contact.whatsapp,
@@ -133,6 +144,10 @@ const SkinBodyCareServicePage = () => {
             </div>
         ),
     }));
+
+    // Split massage cards: first 8 cards for ladies, last 3 cards for gents
+    const massageLadiesCards = massageServicesCards.slice(0, 8);
+    const massageGentsCards = massageServicesCards.slice(8);
 
     // Detect mobile/desktop and initialize accordingly
     useEffect(() => {
@@ -246,14 +261,16 @@ const SkinBodyCareServicePage = () => {
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
                             <ServiceItemsSection
-                                ladiesCards={facialsCards}
-                                gentsCards={[]}
+                                ladiesCards={facialsLadiesCards}
+                                gentsCards={facialsGentsCards}
                                 ladiesVisible={facialsVisible}
-                                gentsVisible={0}
+                                gentsVisible={facialsGentsVisible}
                                 onLadiesLoadMore={() => setFacialsVisible(prev =>
-                                    Math.min(prev + ITEMS_PER_LOAD, facialsCards.length)
+                                    Math.min(prev + ITEMS_PER_LOAD, facialsLadiesCards.length)
                                 )}
-                                onGentsLoadMore={() => {}}
+                                onGentsLoadMore={() => setFacialsGentsVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, facialsGentsCards.length)
+                                )}
                                 onBookNow={handleBookNow}
                                 itemsPerLoad={ITEMS_PER_LOAD}
                             />
@@ -441,14 +458,16 @@ const SkinBodyCareServicePage = () => {
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
                             <ServiceItemsSection
-                                ladiesCards={pedicureManicureCards}
-                                gentsCards={[]}
+                                ladiesCards={pedicureManicureLadiesCards}
+                                gentsCards={pedicureManicureGentsCards}
                                 ladiesVisible={pedicureManicureVisible}
-                                gentsVisible={0}
+                                gentsVisible={pedicureManicureGentsVisible}
                                 onLadiesLoadMore={() => setPedicureManicureVisible(prev =>
-                                    Math.min(prev + ITEMS_PER_LOAD, pedicureManicureCards.length)
+                                    Math.min(prev + ITEMS_PER_LOAD, pedicureManicureLadiesCards.length)
                                 )}
-                                onGentsLoadMore={() => {}}
+                                onGentsLoadMore={() => setPedicureManicureGentsVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, pedicureManicureGentsCards.length)
+                                )}
                                 onBookNow={handleBookNow}
                                 itemsPerLoad={ITEMS_PER_LOAD}
                             />
@@ -489,14 +508,16 @@ const SkinBodyCareServicePage = () => {
                     <div className="w-full px-4 sm:px-6 lg:px-8">
                         <div className="mb-16">
                             <ServiceItemsSection
-                                ladiesCards={massageServicesCards}
-                                gentsCards={[]}
+                                ladiesCards={massageLadiesCards}
+                                gentsCards={massageGentsCards}
                                 ladiesVisible={massageVisible}
-                                gentsVisible={0}
+                                gentsVisible={massageGentsVisible}
                                 onLadiesLoadMore={() => setMassageVisible(prev =>
-                                    Math.min(prev + ITEMS_PER_LOAD, massageServicesCards.length)
+                                    Math.min(prev + ITEMS_PER_LOAD, massageLadiesCards.length)
                                 )}
-                                onGentsLoadMore={() => {}}
+                                onGentsLoadMore={() => setMassageGentsVisible(prev =>
+                                    Math.min(prev + ITEMS_PER_LOAD, massageGentsCards.length)
+                                )}
                                 onBookNow={handleBookNow}
                                 itemsPerLoad={ITEMS_PER_LOAD}
                             />
