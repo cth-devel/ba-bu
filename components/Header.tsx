@@ -4,7 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Home, User, Briefcase, Image as ImageIcon, Phone, MapPin, X } from "lucide-react";
+import { Home, User, Briefcase, Image as ImageIcon, Phone, MapPin, X, FileText } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -174,6 +174,15 @@ const Header = () => {
         };
     }, [pathname]); // Re-run when pathname changes
 
+    const handleBrochureDownload = () => {
+        const link = document.createElement('a');
+        link.href = '/babufamilysalon.pdf';
+        link.download = 'babufamilysalon.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     const menuItems = [
         { name: "Home", href: "/", icon: <Home className="w-5 h-5" /> },
         { name: "About", href: "/#about", icon: <User className="w-5 h-5" /> },
@@ -191,6 +200,12 @@ const Header = () => {
             name: "Contact",
             href: "/#contact",
             icon: <Phone className="w-5 h-5" />,
+        },
+        {
+            name: "Brochure",
+            href: "#",
+            icon: <FileText className="w-5 h-5" />,
+            isDownload: true,
         },
     ];
 
@@ -268,15 +283,25 @@ const Header = () => {
 
                         {/* Desktop Navigation */}
                         <nav className="flex items-center space-x-8">
-                            {menuItems.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className="text-white hover:text-gray-300 transition-colors text-lg"
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
+                            {menuItems.map((item) => 
+                                item.isDownload ? (
+                                    <button
+                                        key={item.name}
+                                        onClick={handleBrochureDownload}
+                                        className="text-white hover:text-gray-300 transition-colors text-lg"
+                                    >
+                                        {item.name}
+                                    </button>
+                                ) : (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        className="text-white hover:text-gray-300 transition-colors text-lg"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                )
+                            )}
                         </nav>
                     </div>
                 </div>
@@ -285,16 +310,27 @@ const Header = () => {
             {/* Bottom Dock for Mobile */}
             <div className="bottom-dock lg:hidden fixed bottom-0 bg-black bg-opacity-90 backdrop-blur-md shadow-2xl z-50 border-t border-gray-700">
                 <div className="flex justify-around items-center h-20 px-4 w-full">
-                    {menuItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="flex flex-col items-center text-white hover:text-gray-300 transition-colors p-2 min-w-[60px] flex-1"
-                        >
-                            {item.icon}
-                            <span className="text-xs mt-1 text-center truncate">{item.name}</span>
-                        </Link>
-                    ))}
+                    {menuItems.map((item) => 
+                        item.isDownload ? (
+                            <button
+                                key={item.name}
+                                onClick={handleBrochureDownload}
+                                className="flex flex-col items-center text-white hover:text-gray-300 transition-colors p-2 min-w-[60px] flex-1"
+                            >
+                                {item.icon}
+                                <span className="text-xs mt-1 text-center truncate">{item.name}</span>
+                            </button>
+                        ) : (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className="flex flex-col items-center text-white hover:text-gray-300 transition-colors p-2 min-w-[60px] flex-1"
+                            >
+                                {item.icon}
+                                <span className="text-xs mt-1 text-center truncate">{item.name}</span>
+                            </Link>
+                        )
+                    )}
                 </div>
             </div>
         </>

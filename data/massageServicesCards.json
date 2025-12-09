@@ -70,5 +70,32 @@
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Back Massage targets muscle tension and stress, providing therapeutic relief through professional massage techniques that promote overall wellness. Includes muscle tension relief, therapeutic back treatment, stress reduction, and overall wellness promotion."
+  },
+  {
+    "title": "Normal Head Massage",
+    "description": "Classic head massage for men's relaxation",
+    "price": "₹250",
+    "src": "/images/ServicesImages/SK28-head-massage.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Normal Head Massage for men provides essential relaxation and stress relief through professional massage techniques that soothe your mind and body. Includes essential relaxation, stress relief, professional massage techniques, and mind and body soothing."
+  },
+  {
+    "title": "Hot Oil Massage",
+    "description": "Relaxing hot oil head massage for men",
+    "price": "₹300",
+    "src": "/images/ServicesImages/SK21-massage.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Hot Oil Massage for men uses warm oil to deeply penetrate the scalp, providing ultimate relaxation and nourishment for healthy hair and stress relief. Includes warm oil penetration, deep scalp nourishment, ultimate relaxation, and stress relief benefits."
+  },
+  {
+    "title": "Advanced Head Massage",
+    "description": "Premium advanced head massage treatment for men",
+    "price": "₹500",
+    "src": "/images/ServicesImages/SK28-head-massage.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Advanced Head Massage for men offers premium treatment with specialized techniques for deep relaxation, improved circulation, and enhanced wellness. Includes premium treatment, specialized techniques, deep relaxation, and improved circulation."
   }
 ]

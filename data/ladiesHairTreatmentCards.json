@@ -66,7 +66,7 @@
   {
     "title": "Keratine S/M/L",
     "description": "Premium keratin treatment for hair texture",
-    "price": "₹6000/8500/9500",
+    "price": "₹5000/6500/8500",
     "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -82,7 +82,7 @@
   {
     "title": "Botox S/M/L",
     "description": "Advanced botox treatment for hair texture",
-    "price": "₹5000/8000/10000",
+    "price": "₹7000/10000/12000",
     "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -112,9 +112,9 @@
     }
   },
   {
-    "title": "Hair Spa S/M/L",
-    "description": "Rejuvenating hair spa treatment in three sizes",
-    "price": "₹850/1050/1200",
+    "title": "Hair Spa Normal",
+    "description": "Rejuvenating hair spa treatment",
+    "price": "₹1000",
     "src": "/images/ServicesImages/HC30-ladies-hairspa.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -128,8 +128,8 @@
     }
   },
   {
-    "title": "Nutrition Spa",
-    "description": "Deep nutrition treatment for healthy hair",
+    "title": "Protein Spa",
+    "description": "Deep Protein treatment for healthy hair",
     "price": "₹1500",
     "src": "/images/ServicesImages/HC30-ladies-hairspa.webp",
     "ctaText": "Book Now",
@@ -144,9 +144,9 @@
     }
   },
   {
-    "title": "Repair Spa",
-    "description": "Specialized treatment for dry and damaged hair",
-    "price": "₹1700",
+    "title": "Detox Spa",
+    "description": "Specialized Detox Spa",
+    "price": "₹2300",
     "src": "/images/ServicesImages/HC30-ladies-hairspa.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -220,6 +220,22 @@
         "Hair loss prevention",
         "Promotes hair growth",
         "Professional growth products"
+      ]
+    }
+  },
+  {
+    "title": "Botox Plastia S/M/L",
+    "description": "Advanced botox plastia treatment for hair texture",
+    "price": "₹6000/8000/10000",
+    "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Advanced botox plastia treatment for hair texture available in Small, Medium, and Large sizes. Professional treatment for smooth, healthy, and manageable hair.",
+      "features": [
+        "Advanced botox plastia formula",
+        "Professional application",
+        "Smooth, healthy results",
+        "Premium treatment"
       ]
     }
   }

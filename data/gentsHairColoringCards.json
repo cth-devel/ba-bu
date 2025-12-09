@@ -2,7 +2,7 @@
   {
     "title": "Henna",
     "description": "Natural henna coloring for men",
-    "price": "₹250",
+    "price": "₹500",
     "src": "/images/ServicesImages/HC14-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -18,7 +18,7 @@
   {
     "title": "Garnier",
     "description": "Garnier hair coloring for men",
-    "price": "₹350",
+    "price": "₹400",
     "src": "/images/ServicesImages/HC25-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -50,7 +50,7 @@
   {
     "title": "Loreal",
     "description": "Loreal hair coloring for men",
-    "price": "₹700",
+    "price": "₹800",
     "src": "/images/ServicesImages/HC27-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -66,7 +66,7 @@
   {
     "title": "Schwarzkopf",
     "description": "Schwarzkopf hair coloring for men",
-    "price": "₹700",
+    "price": "₹800",
     "src": "/images/ServicesImages/HC14-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -98,7 +98,7 @@
   {
     "title": "Matrix (Highlighting)",
     "description": "Matrix highlighting service for men",
-    "price": "₹250/Streaks",
+    "price": "₹300/Streaks",
     "src": "/images/ServicesImages/HC26-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -112,49 +112,49 @@
     }
   },
   {
-    "title": "Global Hair Colouring Schwarzkopf",
-    "description": "Complete global coloring with Schwarzkopf",
-    "price": "₹700+",
-    "src": "/images/ServicesImages/HC27-gents-coloring.webp",
-    "ctaText": "Book Now",
-    "contentData": {
-      "description": "Complete global hair coloring service for men using Schwarzkopf products. Starting from ₹700 based on hair length.",
-      "features": [
-        "Schwarzkopf professional products",
-        "Complete global coloring",
-        "Professional consultation",
-        "Expert application"
-      ]
-    }
-  },
-  {
-    "title": "Global Hair Colouring Loreal",
-    "description": "Complete global coloring with Loreal",
-    "price": "₹700+",
+    "title": "Fruit Vinegar",
+    "description": "Natural fruit vinegar hair treatment for men",
+    "price": "₹500",
     "src": "/images/ServicesImages/HC14-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
-      "description": "Complete global hair coloring service for men using Loreal products. Starting from ₹700 based on hair length.",
+      "description": "Natural fruit vinegar hair treatment for men that helps restore hair's natural pH balance and adds shine. Perfect for maintaining healthy, vibrant hair.",
       "features": [
-        "Loreal professional products",
-        "Complete global coloring",
-        "Professional consultation",
-        "Expert application"
+        "Natural fruit vinegar formula",
+        "pH balance restoration",
+        "Adds shine and luster",
+        "Professional application"
       ]
     }
   },
   {
-    "title": "Global Hair Colouring Matrix",
-    "description": "Complete global coloring with Matrix",
-    "price": "₹600+",
+    "title": "Fruit Vinegar (No Amonia)",
+    "description": "Ammonia-free fruit vinegar treatment for men",
+    "price": "₹1000",
     "src": "/images/ServicesImages/HC25-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
-      "description": "Complete global hair coloring service for men using Matrix products. Starting from ₹600 based on hair length.",
+      "description": "Ammonia-free fruit vinegar treatment for men. Gentle on hair and scalp while providing excellent results. Perfect for those with sensitive scalps.",
       "features": [
-        "Matrix professional products",
-        "Complete global coloring",
-        "Budget-friendly pricing",
+        "Ammonia-free formula",
+        "Gentle on hair and scalp",
+        "Natural fruit vinegar treatment",
+        "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Loreal (No Amonia)",
+    "description": "Ammonia-free Loreal hair coloring for men",
+    "price": "₹1000",
+    "src": "/images/ServicesImages/HC27-gents-coloring.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Ammonia-free Loreal hair coloring service for men. Gentle coloring solution that provides excellent results without harsh chemicals.",
+      "features": [
+        "Loreal professional products",
+        "Ammonia-free formula",
+        "Gentle on hair and scalp",
         "Professional application"
       ]
     }
