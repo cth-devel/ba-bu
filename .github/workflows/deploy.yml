@@ -1,4 +1,4 @@
-name: Deploy to cPanel via FTP
+name: Deploy to DirectAdmin via FTP
 
 on:
   push:
@@ -10,10 +10,15 @@ on:
       - master
   workflow_dispatch:
 
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   deploy-staging:
     if: github.ref == 'refs/heads/staging'
     runs-on: ubuntu-latest
+    environment: staging
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,6 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -31,30 +37,30 @@ jobs:
 
       - name: Debug - Check build output
         run: |
-          echo "🔍 Checking build output..."
+          echo "Checking build output..."
           ls -la out/
-          echo "📊 Build size:"
+          echo "Build size:"
           du -sh out/
-          echo "📁 First few files:"
+          echo "First few files:"
           find out/ -type f | head -10
 
       - name: Upload build files to staging via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.CPANEL_FTP_SERVER }}
-          username: ${{ secrets.CPANEL_FTP_USERNAME }}
-          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_STAGING_USERNAME }}
+          password: ${{ secrets.FTP_STAGING_PASSWORD }}
           local-dir: ./out/
-          server-dir: babufamilysalon.com/
+          server-dir: ./
           protocol: ftps
+          port: 21
           dangerous-clean-slate: true
           state-name: .ftp-deploy-sync-staging.json
 
       - name: Debug - Verify deployment
         run: |
-          echo "✅ Staging deployment completed"
-          echo "📋 Check the logs above for any FTP errors"
-          echo "🌐 Verify files at: stage.babu.cloudtobuild.com"
+          echo "Staging deployment completed"
+          echo "Verify files at: staging.babufamilysalon.com"
 
   deploy-production:
     if: |
@@ -63,10 +69,11 @@ jobs:
       github.event.pull_request.base.ref == 'master' &&
       github.event.pull_request.head.ref == 'staging'
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Debug - Check PR Details
         run: |
-          echo "🔍 PR Debug Information:"
+          echo "PR Debug Information:"
           echo "Event Name: ${{ github.event_name }}"
           echo "PR Number: ${{ github.event.pull_request.number }}"
           echo "PR State: ${{ github.event.pull_request.state }}"
@@ -82,34 +89,35 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build project
         run: npm run build
 
       - name: Debug - Check build output
         run: |
-          echo "🔍 Checking build output..."
+          echo "Checking build output..."
           ls -la out/
-          echo "📊 Build size:"
+          echo "Build size:"
           du -sh out/
 
       - name: Upload build files to production via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.CPANEL_FTP_SERVER }}
-          username: ${{ secrets.CPANEL_FTP_USERNAME }}
-          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_PRODUCTION_USERNAME }}
+          password: ${{ secrets.FTP_PRODUCTION_PASSWORD }}
           local-dir: ./out/
-          server-dir: babufamilysalon.com/
+          server-dir: ./
           protocol: ftps
+          port: 21
           dangerous-clean-slate: true
           state-name: .ftp-deploy-sync-prod.json
 
       - name: Debug - Verify deployment
         run: |
-          echo "✅ Production deployment completed"
-          echo "📋 Check the logs above for any FTP errors"
-          echo "🌐 Verify files at: babu.cloudtobuild.com"
+          echo "Production deployment completed"
+          echo "Verify files at: babufamilysalon.com"
