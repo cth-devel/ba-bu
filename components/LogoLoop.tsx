@@ -44,7 +44,8 @@ export interface LogoLoopProps {
 const ANIMATION_CONFIG = {
     SMOOTH_TAU: 0.25,
     MIN_COPIES: 2,
-    COPY_HEADROOM: 2,
+    COPY_HEADROOM: 1,
+    MAX_COPIES: 4,
 } as const;
 
 const toCssLength = (value?: number | string): string | undefined =>
@@ -244,7 +245,10 @@ export const LogoLoop = React.memo<LogoLoopProps>(
                     Math.ceil(containerWidth / sequenceWidth) +
                     ANIMATION_CONFIG.COPY_HEADROOM;
                 setCopyCount(
-                    Math.max(ANIMATION_CONFIG.MIN_COPIES, copiesNeeded)
+                    Math.min(
+                        ANIMATION_CONFIG.MAX_COPIES,
+                        Math.max(ANIMATION_CONFIG.MIN_COPIES, copiesNeeded)
+                    )
                 );
             }
         }, []);
