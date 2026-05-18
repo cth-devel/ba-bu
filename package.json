@@ -74,5 +74,11 @@
     "typescript": "5.2.2",
     "vaul": "^0.9.9",
     "zod": "^3.23.8"
-  }
+  },
+  "browserslist": [
+    "chrome >= 100",
+    "firefox >= 100",
+    "safari >= 15",
+    "edge >= 100"
+  ]
 }

@@ -356,6 +356,83 @@
   font-display: swap;
 }
 
+/* Inlined from ShinyText.css — avoid render-blocking per-component CSS chunk */
+.shiny-text {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    #77530a 0%,
+    #ffd277 25%,
+    #77530a 50%,
+    #ffd277 75%,
+    #77530a 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+@keyframes shine {
+  0% { background-position: 100%; }
+  100% { background-position: -100%; }
+}
+.shiny-text.disabled { animation: none; }
+
+/* Inlined from AnimatedButton.css */
+.Btn {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right,#77530a,#ffd277,#77530a,#77530a,#ffd277,#77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
+  overflow: hidden;
+}
+.Btn::before {
+  position: absolute;
+  content: "";
+  color: #ffd277;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  transition-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.842);
+  background-size: 200%;
+}
+.Btn:hover { background-position: right; transition-duration: 1s; }
+.Btn:hover::before { background-position: right; transition-duration: 1s; }
+.Btn:active { transform: scale(0.95); }
+.button-text {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to right,#77530a,#ffd277);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
 /* Base Styles - Restored */
 @layer base {
   * {

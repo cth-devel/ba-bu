@@ -160,7 +160,7 @@ const Services = () => {
                                 alt={service.name}
                                 fill
                                 className="object-cover"
-                                priority={index < 2}
+                                loading="lazy"
                                 sizes="100vw"
                             />
                             <div className="absolute inset-0 bg-black/40"></div>
