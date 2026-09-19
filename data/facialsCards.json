@@ -200,7 +200,7 @@
   {
     "title": "Basic Facial",
     "description": "Basic facial treatment for men's clean, refreshed skin",
-    "price": "₹600",
+    "price": "₹800",
     "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
@@ -209,7 +209,7 @@
   {
     "title": "Fruit Facial",
     "description": "Refreshing fruit-based facial treatment for men",
-    "price": "₹800",
+    "price": "₹900",
     "src": "/images/ServicesImages/SK8-fruite-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
@@ -218,7 +218,7 @@
   {
     "title": "Pearl Facial",
     "description": "Luxurious pearl-based facial for men's radiant skin",
-    "price": "₹1200",
+    "price": "₹1300+",
     "src": "/images/ServicesImages/SK14-pearl-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
@@ -227,7 +227,7 @@
   {
     "title": "Gold Facial",
     "description": "Premium gold facial for men's ultimate luxury",
-    "price": "₹1300",
+    "price": "₹1400",
     "src": "/images/ServicesImages/SK10-gold-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
@@ -245,7 +245,7 @@
   {
     "title": "De-Tan Facial",
     "description": "Effective tan removal facial treatment for men",
-    "price": "₹1500",
+    "price": "₹2000",
     "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
@@ -261,13 +261,13 @@
     "content": "Our Crystal Facial for men features premium crystal treatments for luxurious skin enhancement and ultimate pampering experience. Includes premium crystal treatments, luxury skin care, ultimate pampering, and radiant results."
   },
   {
-    "title": "Herbal Faciial",
+    "title": "Herbal Facial",
     "description": "Natural herbal facial treatment for men",
     "price": "₹1300",
     "src": "/images/ServicesImages/SK15-facial.webp",
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
-    "content": "Our Herbal Faciial for men uses natural herbal extracts to provide gentle, effective skin care with organic benefits. Includes natural herbal extracts, gentle skin care, organic benefits, and chemical-free treatment."
+    "content": "Our Herbal Facial for men uses natural herbal extracts to provide gentle, effective skin care with organic benefits. Includes natural herbal extracts, gentle skin care, organic benefits, and chemical-free treatment."
   },
   {
     "title": "Shehanaz Gold 24Ct",
@@ -295,5 +295,131 @@
     "ctaText": "Book Now",
     "ctaLink": "https://wa.me/919876543210",
     "content": "Our Advanced Hydra Facial for men offers premium hydration treatment with specialized techniques for deep skin nourishment and enhanced wellness. Starting from ₹4000 based on treatment complexity. Includes premium hydration, specialized techniques, deep skin nourishment, and enhanced wellness."
+  },
+  {
+    "title": "Orange Facial",
+    "description": "Refreshing fruit-based facial treatment for men",
+    "price": "₹1600",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Fruit Facial for men uses natural fruit extracts to refresh and rejuvenate your skin with vitamin-rich nutrients. Includes natural fruit extracts, vitamin-rich nutrients, skin refreshing treatment, and premium products."
+  },
+  {
+    "title": "Mango Facial",
+    "description": "Refreshing fruit-based facial treatment for men",
+    "price": "₹1500",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Fruit Facial for men uses natural fruit extracts to refresh and rejuvenate your skin with vitamin-rich nutrients. Includes natural fruit extracts, vitamin-rich nutrients, skin refreshing treatment, and premium products."
+  },
+  {
+    "title": "Korean Glass Facial",
+    "description": "Korean glass skin facial treatment for men",
+    "price": "₹1800",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Korean Glass Facial for men uses Korean skincare techniques for glass-like smooth and radiant skin. Includes Korean skincare techniques, glass-like smoothness, radiant skin, and advanced treatment."
+  },
+  {
+    "title": "Charcoal Facial",
+    "description": "Deep-cleansing charcoal facial treatment for men",
+    "price": "₹1600+",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Charcoal Facial for men uses charcoal for deep cleansing and purifying treatment. Includes charcoal deep cleansing, purifying treatment, refreshed skin, and professional care."
+  },
+  {
+    "title": "Whitening Facial",
+    "description": "Skin whitening and brightening facial for men",
+    "price": "₹1000+",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Whitening Facial for men provides effective skin whitening and brightening treatment. Includes skin whitening treatment, brightening benefits, even skin tone, and professional care."
+  },
+  {
+    "title": "Aroma Glow Facial",
+    "description": "Aromatherapy glow facial treatment for men",
+    "price": "₹2500",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Aroma Glow Facial for men combines aromatherapy with specialized treatments for a radiant, relaxing glow. Includes aromatherapy benefits, skin glow enhancement, relaxing experience, and professional care."
+  },
+  {
+    "title": "Aroma Gold Facial",
+    "description": "Aromatherapy gold facial for luxury treatment for men",
+    "price": "₹2300",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Aroma Gold Facial for men combines gold treatment with aromatherapy for an indulgent, relaxing experience. Includes gold treatment benefits, aromatherapy relaxation, luxury experience, and professional care."
+  },
+  {
+    "title": "Aroma Whitening Facial",
+    "description": "Aromatherapy whitening facial for men",
+    "price": "₹2500",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Aroma Whitening Facial for men uses aromatherapy techniques with whitening treatment for even, brighter skin. Includes aromatherapy techniques, whitening benefits, even skin tone, and professional care."
+  },
+  {
+    "title": "Aroma Skin Glow Facial",
+    "description": "Aromatherapy facial for natural skin glow for men",
+    "price": "₹2000",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Aroma Skin Glow Facial for men uses aromatherapy techniques to enhance natural skin glow and provide relaxation. Includes aromatherapy techniques, natural skin glow enhancement, relaxation benefits, and professional care."
+  },
+  {
+    "title": "Aroma Diamond Facial",
+    "description": "Aromatherapy diamond facial treatment for men",
+    "price": "₹2300",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Aroma Diamond Facial for men combines diamond-infused treatment with aromatherapy for a luxury skin experience. Includes diamond treatment benefits, aromatherapy relaxation, luxury experience, and professional care."
+  },
+  {
+    "title": "Vitamin C Brightening Facial",
+    "description": "Vitamin C facial for skin brightening for men",
+    "price": "₹3000+",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our Vitamin C Brightening Facial for men uses high-potency vitamin C to brighten skin, reduce dark spots, and improve skin texture. Includes high-potency vitamin C, skin brightening, dark spot reduction, and improved skin texture."
+  },
+  {
+    "title": "O3+ Whitening Facial",
+    "description": "Premium O3+ whitening facial treatment for men",
+    "price": "₹3000+",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our O3+ Whitening Facial for men provides premium whitening treatment with advanced O3+ technology. Includes O3+ technology, whitening benefits, even skin tone, and professional care."
+  },
+  {
+    "title": "FYC Redwine Facial",
+    "description": "FYC redwine facial treatment for men",
+    "price": "₹3500+",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our FYC Redwine Facial for men uses redwine extracts for antioxidant-rich skin rejuvenation. Includes redwine extracts, antioxidant benefits, skin rejuvenation, and professional care."
+  },
+  {
+    "title": "FYC Redwine Whitening Facial",
+    "description": "FYC redwine whitening facial treatment for men",
+    "price": "₹3500+",
+    "src": "/images/ServicesImages/SK8-fruite-facial.webp",
+    "ctaText": "Book Now",
+    "ctaLink": "https://wa.me/919876543210",
+    "content": "Our FYC Redwine Whitening Facial for men combines redwine extracts with whitening treatment for brighter, even-toned skin. Includes redwine extracts, whitening benefits, even skin tone, and professional care."
   }
 ]

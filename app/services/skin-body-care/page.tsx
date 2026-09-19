@@ -131,9 +131,9 @@ const SkinBodyCareServicePage = () => {
         ),
     }));
 
-    // Split pedicure/manicure cards: first 8 cards for ladies, last 8 cards for gents
-    const pedicureManicureLadiesCards = pedicureManicureCards.slice(0, 8);
-    const pedicureManicureGentsCards = pedicureManicureCards.slice(8);
+    // Split pedicure/manicure cards: first 10 for ladies, remaining for gents
+    const pedicureManicureLadiesCards = pedicureManicureCards.slice(0, 10);
+    const pedicureManicureGentsCards = pedicureManicureCards.slice(10);
 
     const massageServicesCards = massageServicesCardsData.map((card: any) => ({
         ...card,
