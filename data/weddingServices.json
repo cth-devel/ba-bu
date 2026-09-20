@@ -50,6 +50,50 @@
         "Hairspa – ₹1,000",
         "Full Body Polishing – ₹8,000"
       ],
+      "categoryTiers": [
+        {
+          "name": "Basic",
+          "items": [
+            { "title": "Hair Styling", "price": "₹800" },
+            { "title": "De-Tan", "price": "₹500" },
+            { "title": "Glow Facial", "price": "₹2000" },
+            { "title": "Pedicure", "price": "₹800" },
+            { "title": "Manicure", "price": "₹500" },
+            { "title": "Hand Wax (Half)", "price": "₹700" },
+            { "title": "Leg Wax (Half)", "price": "₹900" },
+            { "title": "Hair Spa", "price": "₹1000" },
+            { "title": "Full Body Polishing", "price": "₹8000" }
+          ]
+        },
+        {
+          "name": "Premium",
+          "items": [
+            { "title": "Hair Styling", "price": "₹1000+" },
+            { "title": "De-Tan", "price": "₹800" },
+            { "title": "Vitamin C Facial", "price": "₹3000+" },
+            { "title": "Pedicure Spa", "price": "₹1300" },
+            { "title": "Manicure Spa", "price": "₹800" },
+            { "title": "Hand Wax (Half)", "price": "₹700" },
+            { "title": "Leg Wax (Half)", "price": "₹1000" },
+            { "title": "Hair Spa", "price": "₹1000+" },
+            { "title": "Full Body Polishing", "price": "₹8000+" }
+          ]
+        },
+        {
+          "name": "Premium Plus",
+          "items": [
+            { "title": "Hair Styling", "price": "₹1000+" },
+            { "title": "De-Tan + Back Neck", "price": "₹1200+" },
+            { "title": "FYC/O3+ Facial", "price": "₹3500" },
+            { "title": "Crystal Pedicure Spa", "price": "₹1500+" },
+            { "title": "Manicure Spa", "price": "₹800" },
+            { "title": "Hand Wax (Full)", "price": "₹1000+" },
+            { "title": "Leg Wax (Full)", "price": "₹1500+" },
+            { "title": "Hair Spa + Dandruff", "price": "₹3000+" },
+            { "title": "Full Body Polishing", "price": "₹8000+" }
+          ]
+        }
+      ],
       "bgImage": "/images/WEDDING/WEDDING-bridal-package-services.webp",
       "isServiceList": true
     },
@@ -64,6 +108,36 @@
         "Reception Makeup – ₹12,000",
         "Saree + hair + light makeup – ₹4,000",
         "Saree draping only – ₹800"
+      ],
+      "categoryTiers": [
+        {
+          "name": "Basic",
+          "items": [
+            { "title": "HD Glossy Event Makeup", "price": "₹15000" },
+            { "title": "Reception Makeup", "price": "₹12000" },
+            { "title": "Saree + Hair + Makeup", "price": "₹4000" },
+            { "title": "Saree Draping", "price": "₹800" }
+          ]
+        },
+        {
+          "name": "Premium",
+          "items": [
+            { "title": "HD Glossy MAC/NARS", "price": "₹18000" },
+            { "title": "Reception MAC/NARS", "price": "₹14000" },
+            { "title": "Saree + Hair + Makeup", "price": "₹5000" },
+            { "title": "Saree Draping", "price": "₹800" }
+          ]
+        },
+        {
+          "name": "Premium Plus",
+          "items": [
+            { "title": "Glass Skin / Airbrush", "price": "₹25000" },
+            { "title": "Reception Makeup", "price": "₹14000" },
+            { "title": "Saree + Hair + Makeup", "price": "₹5000" },
+            { "title": "Hair Setting", "price": "₹1000" },
+            { "title": "Saree Draping", "price": "₹800" }
+          ]
+        }
       ],
       "bgImage": "/images/WEDDING/WEDDING-makeup-services.webp",
       "isServiceList": true
@@ -86,6 +160,47 @@
         "Hand detan – ₹700",
         "Hairspa – ₹800"
       ],
+      "categoryTiers": [
+        {
+          "name": "Basic",
+          "items": [
+            { "title": "Hair Styling", "price": "₹150" },
+            { "title": "Beard setting", "price": "₹100" },
+            { "title": "De-Tan", "price": "₹500" },
+            { "title": "Glow Facial", "price": "₹1600" },
+            { "title": "Pedicure", "price": "₹800" },
+            { "title": "Manicure", "price": "₹500" },
+            { "title": "Hand Detan", "price": "₹700" },
+            { "title": "Hairspa", "price": "₹800" }
+          ]
+        },
+        {
+          "name": "Premium",
+          "items": [
+            { "title": "Hair Styling", "price": "₹200+" },
+            { "title": "Beard setting", "price": "₹100" },
+            { "title": "De-tan Facial", "price": "₹800" },
+            { "title": "Vitamin C Facial", "price": "₹3000+" },
+            { "title": "Pedicure Spa", "price": "₹1300" },
+            { "title": "Manicure Spa", "price": "₹700" },
+            { "title": "Hand De-tan", "price": "₹800" },
+            { "title": "Protein Spa", "price": "₹1000" }
+          ]
+        },
+        {
+          "name": "Premium Plus",
+          "items": [
+            { "title": "Hair Styling", "price": "₹200" },
+            { "title": "Beard setting", "price": "₹100" },
+            { "title": "De-tan Backneck", "price": "₹1200" },
+            { "title": "FYC Redwine/O3+", "price": "₹3500+" },
+            { "title": "Crystal Pedicure Spa", "price": "₹1500+" },
+            { "title": "Manicure Spa", "price": "₹700" },
+            { "title": "Hand De-tan", "price": "₹800" },
+            { "title": "Protein + Dandruff Spa", "price": "₹2000" }
+          ]
+        }
+      ],
       "bgImage": "/images/WEDDING/WEDDING-groom-services.webp",
       "isServiceList": true
     },
@@ -100,6 +215,35 @@
         "Reception Makeup – ₹4,500",
         "Light makeup + hair – ₹3,000",
         "Hair setting only – ₹500"
+      ],
+      "categoryTiers": [
+        {
+          "name": "Basic",
+          "items": [
+            { "title": "HD Glossy Event Makeup", "price": "₹5000" },
+            { "title": "Reception Makeup", "price": "₹4500" },
+            { "title": "Light Makeup + Hair", "price": "₹3000" },
+            { "title": "Hair Setting", "price": "₹500" }
+          ]
+        },
+        {
+          "name": "Premium",
+          "items": [
+            { "title": "HD Glossy Event Makeup", "price": "₹6000" },
+            { "title": "Reception Makeup", "price": "₹5500" },
+            { "title": "Light Makeup + Hair", "price": "₹3000" },
+            { "title": "Hair Setting", "price": "₹800" }
+          ]
+        },
+        {
+          "name": "Premium Plus",
+          "items": [
+            { "title": "HD Glossy Event Makeup", "price": "₹7000" },
+            { "title": "Reception Makeup", "price": "₹6000" },
+            { "title": "Light Makeup + Hair", "price": "₹4000" },
+            { "title": "Hair Setting", "price": "₹1000" }
+          ]
+        }
       ],
       "bgImage": "/images/WEDDING/WEDDING-groom-makeup-services.webp",
       "isServiceList": true

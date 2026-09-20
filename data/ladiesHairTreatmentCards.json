@@ -80,9 +80,9 @@
     }
   },
   {
-    "title": "Botox S/M/L",
-    "description": "Advanced botox treatment for hair texture",
-    "price": "₹7000/10000/12000",
+    "title": "Botoplastia S/M/L",
+    "description": "Advanced botoplastia treatment for hair texture",
+    "price": "₹6000/8000/10000",
     "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -224,15 +224,15 @@
     }
   },
   {
-    "title": "Botox Plastia S/M/L",
-    "description": "Advanced botox plastia treatment for hair texture",
-    "price": "₹6000/8000/10000",
+    "title": "Botox S/M/L",
+    "description": "Advanced botox treatment for hair texture",
+    "price": "₹7000/10000/12000",
     "src": "/images/ServicesImages/HC 29-ladies-teatement.webp",
     "ctaText": "Book Now",
     "contentData": {
-      "description": "Advanced botox plastia treatment for hair texture available in Small, Medium, and Large sizes. Professional treatment for smooth, healthy, and manageable hair.",
+      "description": "Advanced botox treatment for hair texture available in Small, Medium, and Large sizes. Professional treatment for smooth, healthy hair.",
       "features": [
-        "Advanced botox plastia formula",
+        "Advanced botox formula",
         "Professional application",
         "Smooth, healthy results",
         "Premium treatment"

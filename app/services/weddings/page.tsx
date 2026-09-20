@@ -6,6 +6,7 @@ import GalleryStrips from "@/components/GalleryStrips";
 import ServicesContainer from "@/components/ServicesContainer";
 import weddingServicesData from "@/data/weddingServices.json";
 import { WhatsAppIcon, PhoneIcon } from "@/components/Icons";
+import WeddingCategoryServiceGrid from "@/components/WeddingCategoryServiceGrid";
 import { normalizeImagePath } from "@/lib/utils";
 
 const WeddingsServicePage = () => {
@@ -76,7 +77,9 @@ const WeddingsServicePage = () => {
               </div>
 
               {/* Service List Display */}
-              {service.isServiceList ? (
+              {service.isServiceList && service.categoryTiers ? (
+                <WeddingCategoryServiceGrid tiers={service.categoryTiers} />
+              ) : service.isServiceList ? (
                 <div className="mb-8">
                   <div className="service-grid">
                     {service.features.map((serviceItem, serviceIndex) => {
@@ -240,7 +243,9 @@ const WeddingsServicePage = () => {
                </div>
 
                {/* Service List Display */}
-               {service.isServiceList ? (
+               {service.isServiceList && service.categoryTiers ? (
+                 <WeddingCategoryServiceGrid tiers={service.categoryTiers} />
+               ) : service.isServiceList ? (
                  <div className="mb-8">
                    <div className="service-grid">
                      {service.features.map((serviceItem, serviceIndex) => {
