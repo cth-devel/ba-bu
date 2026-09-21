@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import ScrollToTop from "@/components/ScrollToTop";
 import GalleryPreview from "@/components/GalleryPreview";
+import Reels from "@/components/Reels";
 import BrandMarquee from "@/components/BrandMarquee";
 import ServicesLoadingWrapper from "@/components/ui/loading-wrapper";
 
@@ -27,6 +28,7 @@ export default function Home() {
           <BrandMarquee />
           <Services />
           <GalleryPreview />
+          <Reels />
           <Testimonials />
           <Contact />
         </main>
