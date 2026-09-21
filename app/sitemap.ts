@@ -1,52 +1,49 @@
 import { MetadataRoute } from 'next';
-import { siteConfig } from '@/config/site';
 
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://babusalon.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://babufamilysalon.com';
   
   // Static pages
   const staticPages = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 1,
     },
     {
-      url: `${baseUrl}/services`,
+      url: `${baseUrl}/services/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
+    ...['hair-care', 'skin-body-care', 'weddings'].map((slug) => ({
+      url: `${baseUrl}/services/${slug}/`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
     {
-      url: `${baseUrl}/gallery`,
+      url: `${baseUrl}/gallery/`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${baseUrl}/blog/`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/aboutus`,
+      url: `${baseUrl}/aboutus/`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
   ];
 
-  // Dynamic blog pages
-  const blogPages = siteConfig.blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.5,
-  }));
-
-  return [...staticPages, ...blogPages];
+  return staticPages;
 }

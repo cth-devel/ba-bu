@@ -8,9 +8,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppChat from '@/components/WhatsAppChat';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://babusalon.com';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://babufamilysalon.com';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${siteConfig.siteName} | Hair, Skin, Bridal & Men's Grooming in North Paravur`,
     template: `%s | ${siteConfig.siteName}`,
@@ -33,7 +34,8 @@ export const metadata: Metadata = {
     'WhatsApp booking',
     'beauty services',
   ],
-  alternates: { canonical: siteUrl },
+  // './' resolves per route, so pages without their own metadata don't all claim the homepage
+  alternates: { canonical: './' },
   openGraph: {
     type: 'website',
     url: siteUrl,
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
       'Premium family salon in North Paravur, Kerala offering tailored haircuts, hair coloring, facials, bridal makeup, men\'s grooming, and hair spa.',
     images: [
       {
-        url: `${siteUrl}BABU-White.svg`,
+        url: '/BABU-White.svg',
         width: 1200,
         height: 630,
         alt: `${siteConfig.siteName} – BA-BU Family Salon`,
@@ -56,7 +58,7 @@ export const metadata: Metadata = {
     title: `${siteConfig.siteName} | Hair, Skin, Bridal & Men's Grooming in North Paravur`,
     description:
       'Premium family salon in North Paravur, Kerala offering tailored haircuts, hair coloring, facials, bridal makeup, men\'s grooming, and hair spa.',
-    images: [`${siteUrl}BABU-White.svg`],
+    images: ['/BABU-White.svg'],
   },
   robots: { index: true, follow: true },
 };
