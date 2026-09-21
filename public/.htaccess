@@ -1,0 +1,73 @@
+# ----------------------------------------------------------------------
+# Compression (gzip/deflate via mod_deflate)
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    SetOutputFilter DEFLATE
+    <IfModule mod_setenvif.c>
+        # Don't compress image/video/audio files.
+        SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|web[mp]|mp[g34]|m[o4]v|avi|ogg|wav|[af]lac|aac|ico|bmp|pdf)$ no-gzip dont-vary
+        SetEnvIfNoCase Request_URI \.(?:[acmns]rw|ra[fw]|cr[23]|sr[f2]|[mn]ef|gpr|rw[lz2]|dng|orf|r3d)$ no-gzip dont-vary
+
+        # Don't compress (potentially) compressed archives.
+        SetEnvIfNoCase Request_URI \.(?:exe|t?gz|zipx?|bz2|[ar]ar|7z|dmg|apk|jar|phar)$ no-gzip dont-vary
+    </IfModule>
+
+    <IfModule mod_headers.c>
+        # Make sure proxies don't deliver the wrong content
+        Header append Vary User-Agent env=!dont-vary
+    </IfModule>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Long cache for hashed/static assets
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Next.js hashed bundles & fonts — content-hashed or rarely changing
+  <FilesMatch "\.(js|css|woff2|woff|ttf|otf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Images & video — long TTL (overrides existing 4h/7d)
+  <FilesMatch "\.(jpe?g|png|webp|avif|gif|svg|ico|mp4|MP4|webm|mov)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML — short TTL so content updates ship quickly
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Fallback when mod_expires not loaded
+<IfModule !mod_expires.c>
+  <IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|woff2|woff|ttf|otf|jpe?g|png|webp|avif|gif|svg|ico|mp4|MP4|webm|mov)$">
+      Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+  </IfModule>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# MIME types (defensive)
+# ----------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/avif .avif
+  AddType font/woff2 .woff2
+  AddType font/woff  .woff
+  AddType font/otf   .otf
+  AddType font/ttf   .ttf
+  AddType video/mp4  .mp4 .MP4
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Keep staging out of search indexes (same file ships to both hosts)
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  <IfModule mod_setenvif.c>
+    SetEnvIfNoCase Host ^staging\. IS_STAGING
+    Header set X-Robots-Tag "noindex, nofollow" env=IS_STAGING
+  </IfModule>
+</IfModule>

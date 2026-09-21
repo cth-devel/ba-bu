@@ -82,7 +82,7 @@
   {
     "title": "Loreal (Highlighting)",
     "description": "Loreal highlighting service for men",
-    "price": "₹300/Streaks",
+    "price": "₹250/Streaks",
     "src": "/images/ServicesImages/HC25-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -98,7 +98,7 @@
   {
     "title": "Matrix (Highlighting)",
     "description": "Matrix highlighting service for men",
-    "price": "₹300/Streaks",
+    "price": "₹250/Streaks",
     "src": "/images/ServicesImages/HC26-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -130,7 +130,7 @@
   {
     "title": "Fruit Vinegar (No Amonia)",
     "description": "Ammonia-free fruit vinegar treatment for men",
-    "price": "₹1000",
+    "price": "₹700",
     "src": "/images/ServicesImages/HC25-gents-coloring.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -156,6 +156,22 @@
         "Ammonia-free formula",
         "Gentle on hair and scalp",
         "Professional application"
+      ]
+    }
+  },
+  {
+    "title": "Schwarzkopf (Highlighting)",
+    "description": "Schwarzkopf highlighting service for men",
+    "price": "₹300/Streaks",
+    "src": "/images/ServicesImages/HC25-gents-coloring.webp",
+    "ctaText": "Book Now",
+    "contentData": {
+      "description": "Professional highlighting service for men using Schwarzkopf products. Starting from ₹300 per streak.",
+      "features": [
+        "Schwarzkopf professional products",
+        "Per-streak pricing",
+        "Professional highlighting",
+        "Expert application"
       ]
     }
   }

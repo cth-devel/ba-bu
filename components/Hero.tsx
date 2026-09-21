@@ -17,30 +17,29 @@ const Hero = () => {
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const videos = ['/hero-full.MP4'];
+  const videos = ['/hero.mp4'];
 
   useEffect(() => {
     if (contentRef.current) {
-      // Set initial state
-      gsap.set(['.hero-title', '.hero-subtitle', '.hero-location', '.hero-cta'], {
+      // Keep .hero-title visible on first paint — it's the LCP element.
+      // Only animate the secondary content so LCP isn't delayed waiting for JS.
+      gsap.set(['.hero-subtitle', '.hero-location', '.hero-cta'], {
         opacity: 0,
         y: 30
       });
 
       const timeline = gsap.timeline({
         defaults: { ease: 'power3.out' },
-        delay: 0.5 // Small delay to ensure content is rendered
+        delay: 0.2
       });
 
       timeline
-        .to('.hero-title', { opacity: 1, y: 0, duration: 1 })
-        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 }, '-=0.7')
+        .to('.hero-subtitle', { opacity: 1, y: 0, duration: 1 })
         .to('.hero-location', { opacity: 1, y: 0, duration: 1 }, '-=0.7')
         .to('.hero-cta', { opacity: 1, y: 0, duration: 1 }, '-=0.7');
 
       return () => {
-        // Ensure content is visible when component unmounts
-        gsap.set(['.hero-title', '.hero-subtitle', '.hero-location', '.hero-cta'], {
+        gsap.set(['.hero-subtitle', '.hero-location', '.hero-cta'], {
           opacity: 1,
           y: 0
         });
@@ -116,6 +115,7 @@ const Hero = () => {
                       muted
                       loop
                       playsInline
+                      poster="/hero-poster.webp"
                       className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                           index === currentVideoIndex
                               ? "opacity-100"

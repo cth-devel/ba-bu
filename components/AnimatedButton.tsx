@@ -1,7 +1,5 @@
 'use client';
 
-import './AnimatedButton.css';
-
 interface AnimatedButtonProps {
   text: string;
   onClick?: () => void;

@@ -67,12 +67,24 @@
   --glow-radius: 200px;
 }
 
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 60px rgba(255, 215, 0, 0.4),
-    0 0 100px rgba(255, 215, 0, 0.2);
+@media (hover: hover) {
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 60px rgba(255, 215, 0, 0.4),
+      0 0 100px rgba(255, 215, 0, 0.2);
+  }
+
+  .service-card:hover .service-card__price {
+    background-position: -100% 0;
+    transform: scale(1.05);
+  }
+
+  .service-card:hover::after {
+    opacity: 1;
+    animation: goldenPulse 2s ease-in-out infinite alternate;
+  }
 }
 
 .service-card__content {
@@ -95,6 +107,14 @@
   color: white;
   line-height: 1.2;
   text-align: center;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+
+.service-card__title--compact {
+  font-size: clamp(0.95rem, 0.85rem + 0.45vw, 1.25rem);
+  margin: 0 0 0.6rem;
+  line-height: 1.15;
 }
 
 .service-card__price {
@@ -112,10 +132,6 @@
   transition: all 0.3s ease;
 }
 
-.service-card:hover .service-card__price {
-  background-position: -100% 0;
-  transform: scale(1.05);
-}
 
 /* Border glow effect */
 .service-card::after {
@@ -143,11 +159,6 @@
   z-index: 1;
 }
 
-.service-card:hover::after {
-  opacity: 1;
-  animation: goldenPulse 2s ease-in-out infinite alternate;
-}
-
 @keyframes goldenPulse {
   0% {
     opacity: 0.8;
@@ -169,18 +180,26 @@
 
   .service-card {
     width: 100%;
-    min-height: 160px;
-    padding: 0.75rem;
+    aspect-ratio: auto;
+    min-height: 128px;
+    height: 100%;
+    padding: 0.7rem 0.55rem;
+    overflow: visible;
   }
 
   .service-card__title {
-    font-size: clamp(0.875rem, 0.75rem + 0.5vw, 1.125rem);
-    margin: 0 0 0.5rem;
-    line-height: 1.1;
+    font-size: clamp(0.8rem, 0.72rem + 0.45vw, 1rem);
+    margin: 0 0 0.4rem;
+    line-height: 1.15;
+  }
+
+  .service-card__title--compact {
+    font-size: 0.75rem;
+    margin: 0 0 0.35rem;
   }
 
   .service-card__price {
-    font-size: clamp(1rem, 0.9rem + 0.6vw, 1.5rem);
+    font-size: clamp(0.95rem, 0.85rem + 0.5vw, 1.25rem);
   }
 }
 
@@ -197,6 +216,11 @@
   .service-card__price {
     font-size: clamp(1.25rem, 1.15rem + 0.8vw, 2rem);
   }
+
+  .service-card__title--compact {
+    font-size: clamp(0.85rem, 0.8rem + 0.35vw, 1.1rem);
+    margin: 0 0 0.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -211,6 +235,11 @@
 
   .service-card__price {
     font-size: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
+  }
+
+  .service-card__title--compact {
+    font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.2rem);
+    margin: 0 0 0.65rem;
   }
 }
 
@@ -286,7 +315,8 @@
 /* Gunterz Font Family */
 @font-face {
   font-family: "Gunterz";
-  src: url("/fonts/guntrez/Gunterz-Regular.otf") format("opentype");
+  src: url("/fonts/guntrez/Gunterz-Regular.woff2") format("woff2"),
+       url("/fonts/guntrez/Gunterz-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -294,7 +324,8 @@
 
 @font-face {
   font-family: "Gunterz";
-  src: url("/fonts/guntrez/Gunterz-Italic.otf") format("opentype");
+  src: url("/fonts/guntrez/Gunterz-Italic.woff2") format("woff2"),
+       url("/fonts/guntrez/Gunterz-Italic.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -302,7 +333,8 @@
 
 @font-face {
   font-family: "Gunterz";
-  src: url("/fonts/guntrez/Gunterz-Medium.otf") format("opentype");
+  src: url("/fonts/guntrez/Gunterz-Medium.woff2") format("woff2"),
+       url("/fonts/guntrez/Gunterz-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -310,7 +342,8 @@
 
 @font-face {
   font-family: "Gunterz";
-  src: url("/fonts/guntrez/Gunterz-MediumItalic.otf") format("opentype");
+  src: url("/fonts/guntrez/Gunterz-MediumItalic.woff2") format("woff2"),
+       url("/fonts/guntrez/Gunterz-MediumItalic.otf") format("opentype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
@@ -318,7 +351,8 @@
 
 @font-face {
   font-family: "Gunterz";
-  src: url("/fonts/guntrez/Gunterz-Bold.otf") format("opentype");
+  src: url("/fonts/guntrez/Gunterz-Bold.woff2") format("woff2"),
+       url("/fonts/guntrez/Gunterz-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -326,7 +360,8 @@
 
 @font-face {
   font-family: "Gunterz";
-  src: url("/fonts/guntrez/Gunterz-BoldItalic.otf") format("opentype");
+  src: url("/fonts/guntrez/Gunterz-BoldItalic.woff2") format("woff2"),
+       url("/fonts/guntrez/Gunterz-BoldItalic.otf") format("opentype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -334,7 +369,8 @@
 
 @font-face {
   font-family: "Gunterz";
-  src: url("/fonts/guntrez/Gunterz-Black.otf") format("opentype");
+  src: url("/fonts/guntrez/Gunterz-Black.woff2") format("woff2"),
+       url("/fonts/guntrez/Gunterz-Black.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -342,10 +378,88 @@
 
 @font-face {
   font-family: "Gunterz";
-  src: url("/fonts/guntrez/Gunterz-BlackItalic.otf") format("opentype");
+  src: url("/fonts/guntrez/Gunterz-BlackItalic.woff2") format("woff2"),
+       url("/fonts/guntrez/Gunterz-BlackItalic.otf") format("opentype");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
+}
+
+/* Inlined from ShinyText.css — avoid render-blocking per-component CSS chunk */
+.shiny-text {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    #77530a 0%,
+    #ffd277 25%,
+    #77530a 50%,
+    #ffd277 75%,
+    #77530a 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+@keyframes shine {
+  0% { background-position: 100%; }
+  100% { background-position: -100%; }
+}
+.shiny-text.disabled { animation: none; }
+
+/* Inlined from AnimatedButton.css */
+.Btn {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right,#77530a,#ffd277,#77530a,#77530a,#ffd277,#77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
+  overflow: hidden;
+}
+.Btn::before {
+  position: absolute;
+  content: "";
+  color: #ffd277;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  transition-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.842);
+  background-size: 200%;
+}
+.Btn:hover { background-position: right; transition-duration: 1s; }
+.Btn:hover::before { background-position: right; transition-duration: 1s; }
+.Btn:active { transform: scale(0.95); }
+.button-text {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to right,#77530a,#ffd277);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
 }
 
 /* Base Styles - Restored */

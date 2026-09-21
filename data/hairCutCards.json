@@ -2,7 +2,7 @@
   {
     "title": "Kids Cut (Below 10 years)",
     "description": "Specialized haircut for little girls under 10",
-    "price": "₹150",
+    "price": "₹200+",
     "src": "/images/ServicesImages/HC1-ladies-kid.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -34,7 +34,7 @@
   {
     "title": "Basic Hair Cut",
     "description": "Simple trim and style for women",
-    "price": "₹350",
+    "price": "₹400",
     "src": "/images/ServicesImages/HC3-ladies-basic.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -85,7 +85,7 @@
   {
     "title": "Shampoo + Conditioning (S/M/L)",
     "description": "Professional shampoo and conditioning service in three sizes",
-    "price": "₹300/350/450",
+    "price": "₹350/450/550",
     "src": "/images/ServicesImages/HC6-ladies-shampoo.webp",
     "ctaText": "Book Now",
     "contentData": {
@@ -101,7 +101,7 @@
   {
     "title": "Shampoo + Conditioning + Styling (S/M/L)",
     "description": "Complete service with shampoo, conditioning, and styling",
-    "price": "₹500/600/700",
+    "price": "₹700/800/900+",
     "src": "/images/ServicesImages/HC8.webp",
     "ctaText": "Book Now",
     "contentData": {

@@ -1,5 +1,3 @@
-import './ShinyText.css';
-
 const ShinyText = ({
   text,
   disabled = false,
