@@ -11,7 +11,7 @@ export const siteConfig = {
   contact: {
     phone: "+919846272333",
     whatsapp: "https://wa.me/919846272333",
-    email: "info@babusalon.com",
+    email: "info@babufamilysalon.com",
     address: "North Paravur, Ernakulam, Kerala",
     mapUrl: "https://maps.app.goo.gl/1hXxF3eYYUUrKC3LA",
     workingHours: {

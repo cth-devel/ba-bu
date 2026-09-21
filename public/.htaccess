@@ -61,3 +61,13 @@
   AddType font/ttf   .ttf
   AddType video/mp4  .mp4 .MP4
 </IfModule>
+
+# ----------------------------------------------------------------------
+# Keep staging out of search indexes (same file ships to both hosts)
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  <IfModule mod_setenvif.c>
+    SetEnvIfNoCase Host ^staging\. IS_STAGING
+    Header set X-Robots-Tag "noindex, nofollow" env=IS_STAGING
+  </IfModule>
+</IfModule>

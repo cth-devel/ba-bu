@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://babusalon.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://babufamilysalon.com";
 
 export const metadata: Metadata = {
   title: "About Us",
