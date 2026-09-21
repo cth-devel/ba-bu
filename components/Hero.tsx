@@ -17,7 +17,7 @@ const Hero = () => {
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const videos = ['/hero-full.MP4'];
+  const videos = ['/hero.mp4'];
 
   useEffect(() => {
     if (contentRef.current) {
@@ -115,6 +115,7 @@ const Hero = () => {
                       muted
                       loop
                       playsInline
+                      poster="/hero-poster.webp"
                       className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
                           index === currentVideoIndex
                               ? "opacity-100"
