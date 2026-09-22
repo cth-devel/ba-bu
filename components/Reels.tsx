@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 import reels from "@/data/reels.json";
-import reviews from "@/reviews.json";
 
 /**
  * 2-second GIF-style loops cut from the salon's Instagram reels (source clips in
@@ -70,12 +69,76 @@ const InstagramGlyph = ({ className }: { className: string }) => (
 
 const handle = siteConfig.social.instagram.split("/").filter(Boolean).pop();
 
-// Real figures only — the review count is the file the Testimonials section reads.
 const STATS = [
-    { value: `${reviews.length}`, label: "reviews" },
+    { value: "4.8", label: "Rating" },
     { value: "5+", label: "years" },
     { value: "3", label: "branches" },
 ];
+
+const LOCATIONS = [
+    {
+        label: "Mannam, North Paravur, Ernakulam, Kerala",
+        href: "https://maps.google.com/?q=BA-BU+FAMILY+SALON+Mannam",
+    },
+    {
+        label: "Andippillikkavu, North Paravur, Ernakulam, Kerala",
+        href: "https://maps.google.com/?q=BA-BU+GENTS+MAKEOVER+Andipillikkav",
+    },
+    {
+        label: "Mathilmoola, Mathilakam, Thrissur, Kerala",
+        href: "https://maps.google.com/?q=BA-BU+Family+Salon+Mathilmoola",
+    },
+];
+
+const LoopingLocations = ({ className }: { className: string }) => {
+    const [index, setIndex] = useState(0);
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (prefersReducedMotion) {
+            return;
+        }
+
+        let fadeTimeoutId: number | undefined;
+        const handleCycle = () => {
+            setIsVisible(false);
+            fadeTimeoutId = window.setTimeout(() => {
+                setIndex((prev) => (prev + 1) % LOCATIONS.length);
+                setIsVisible(true);
+            }, 280);
+        };
+
+        const intervalId = window.setInterval(handleCycle, 3200);
+        return () => {
+            window.clearInterval(intervalId);
+            if (fadeTimeoutId) {
+                window.clearTimeout(fadeTimeoutId);
+            }
+        };
+    }, []);
+
+    const location = LOCATIONS[index];
+
+    return (
+        <a
+            href={location.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={className}
+            aria-live="polite"
+            aria-label={`${location.label} on Google Maps`}
+        >
+            <span
+                className={`block min-h-[22px] transition-opacity duration-300 ${
+                    isVisible ? "opacity-100" : "opacity-0"
+                }`}
+            >
+                {location.label}
+            </span>
+        </a>
+    );
+};
 
 /**
  * Instagram's own dark-mode profile, measured off the real thing: 150px avatar
@@ -137,14 +200,7 @@ const Reels = () => (
                 <div className="mt-5 hidden text-sm leading-[22px] tracking-[0.1em] text-[#F5F5F5] sm:block">
                     <p className="font-medium">{siteConfig.siteName}</p>
                     <p className="text-[#A8A8A8]">{siteConfig.description}</p>
-                    <a
-                        href={siteConfig.contact.mapUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white/70 underline-offset-4 hover:underline"
-                    >
-                        {siteConfig.contact.address}
-                    </a>
+                    <LoopingLocations className="text-white/70 underline-offset-4 hover:underline" />
                 </div>
             </div>
         </header>
@@ -161,14 +217,7 @@ const Reels = () => (
         <div className="mt-4 px-3 text-sm leading-[22px] tracking-[0.1em] text-[#F5F5F5] sm:hidden">
             <p className="font-medium">{siteConfig.siteName}</p>
             <p className="text-[#A8A8A8]">{siteConfig.description}</p>
-            <a
-                href={siteConfig.contact.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/70"
-            >
-                {siteConfig.contact.address}
-            </a>
+            <LoopingLocations className="text-white/70" />
         </div>
         <ul className="mx-3 mt-4 grid grid-cols-3 border-y border-[#262626] py-3 text-center text-sm tracking-[0.1em] text-[#F5F5F5] sm:hidden">
             {STATS.map((s) => (
